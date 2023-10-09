@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Ares SP',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -63,12 +63,13 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Ares</b> SP',
+    //'logo' => '',//sin texto
+    'logo_img' => 'img/doverman.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Ares Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,10 +85,10 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'path' => 'img/doverman.png',
+            'alt' => 'Ares Logo',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -109,11 +110,11 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'img/doverman.png',
+            'alt' => 'Ares SP',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 150,
+            'height' => 150,
         ],
     ],
 
@@ -130,11 +131,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-warning text-bold',
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +151,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -167,12 +168,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-warning',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-warning',
 
     /*
     |--------------------------------------------------------------------------
@@ -187,7 +188,7 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => '',
+    'classes_brand' => 'bg-white',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
@@ -310,6 +311,10 @@ return [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+        ],
+        [
+            'text' => 'Dashboard',
+            'route'  => 'home',
         ],
         [
             'text'        => 'pages',

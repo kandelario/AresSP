@@ -18,4 +18,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
+
+Route::get('/home', function(){
+    return view('home');
+});
