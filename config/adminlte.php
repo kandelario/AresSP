@@ -303,7 +303,7 @@ return [
         ],
         [
             'text' => 'Link1',
-            'route' => 'home',
+            'url' => '#',
             'topnav' => false
         ],
 
