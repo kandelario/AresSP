@@ -219,7 +219,7 @@ return [
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 300,
+    'sidebar_nav_animation_speed' => 150,
 
     /*
     |--------------------------------------------------------------------------
@@ -233,11 +233,11 @@ return [
     |
     */
 
-    'right_sidebar' => false,
+    'right_sidebar' => true,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
-    'right_sidebar_push' => true,
+    'right_sidebar_push' => false,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
     'right_sidebar_scrollbar_auto_hide' => 'l',
 
@@ -254,7 +254,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -295,11 +295,16 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
+        ],
+        [
+            'text' => 'Link1',
+            'route' => '/',
+            'topnav' => false
         ],
 
         // Sidebar items:
@@ -312,10 +317,10 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+        /*[
             'text' => 'Dashboard',
             'route'  => 'home',
-        ],
+        ],*/
         [
             'text'        => 'pages',
             'url'         => 'admin/pages',

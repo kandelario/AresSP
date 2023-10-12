@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    
-    public function __invoke()
-    {
-        return "Bienvenidos a la página principal";
-    }
     /**
      * Create a new controller instance.
      *
