@@ -30,8 +30,8 @@ return [
     |
     */
 
-    'use_ico_only' => true,
-    'use_full_favicon' => false,
+    'use_ico_only' => false,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -295,7 +295,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => false,
+            'topnav_right' => true,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -303,6 +303,11 @@ return [
         ],
         [
             'text' => 'Link1',
+            'url' => '#',
+            'topnav' => false
+        ],
+        [
+            'text' => 'Link2',
             'url' => '#',
             'topnav' => false
         ],
@@ -328,7 +333,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'administración'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
