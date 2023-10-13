@@ -1,5 +1,7 @@
 @extends('adminlte::page')
 
+<link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('img/doverman.png') }}">
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -6,6 +6,6 @@ use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Routing\Controllers\Middleware;
 
 Route::get('', [HomeController::class, 'index']);
-Route::get('home', function(){
+Route::get('/home', function(){
     return view('home');
 });

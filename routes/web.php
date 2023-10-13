@@ -18,6 +18,10 @@ Route::get('/', function(){
     return view('auth.login');
 });
 
+Route::get('/home', function(){
+    return view('home');
+});
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
