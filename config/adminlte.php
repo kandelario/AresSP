@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-light-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -319,25 +319,25 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'Administrador'],
+        ['header' => 'Administrador del Sistema'],
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
             'submenu' => [
                 [
                     'text' => 'Nuevo',
-                    'icon'    => 'fas fa-fw fa-user-plus text-warning',
+                    'icon'    => 'fas fa-fw fa-user-plus text-warning ml-3',
                     'url'  => 'admin/users/create',
                 ],
                 [
                     'text' => 'Editar',
-                    'icon' => 'fas fa-fw fa-pen text-warning',
+                    'icon' => 'fas fa-fw fa-pen text-warning ml-3',
                     'url'  => 'admin/users/edit',
                     
                 ],
                 [
                     'text' => 'Eliminar',
-                    'icon' => 'fas fa-fw fa-trash text-warning',
+                    'icon' => 'fas fa-fw fa-trash text-warning ml-3',
                     'url'  => 'admin/users/delete',
                 ],
                 
@@ -351,17 +351,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Nuevo',
-                    'icon' => 'fas fa-fw fa-plus text-primary',
+                    'icon' => 'fas fa-fw fa-plus text-primary ml-3',
                     'url'  => 'admin/profiles/create',
                 ],
                 [
                     'text' => 'Editar',
-                    'icon' => 'fas fa-fw fa-pen text-primary',
+                    'icon' => 'fas fa-fw fa-pen text-primary ml-3',
                     'url'  => 'admin/profiles/edit',
                 ],
                 [
                     'text' => 'Eliminar',
-                    'icon' => 'fas fa-fw fa-trash text-primary',
+                    'icon' => 'fas fa-fw fa-trash text-primary ml-3',
                     'url'  => 'admin/profiles/delete',
                 ],
             ],
@@ -369,27 +369,29 @@ return [
         ['header' => 'Seguridad Privada'],
         [
             'text'       => 'Personal',
-            'icon' => 'fas fa-fw fa-person-military-pointing text-success',
+            'icon' => 'fas fa-fw fa-user text-success',
             'icon_color' => 'red',
             'url'        => '#',
             'submenu' => [
                 [
                 'text'       => 'Listar',
-                'icon' => 'fas fa-fw fa-person-military-pointing text-success',
+                'icon' => 'fas fa-fw fa-list ml-3',
+                'icon_color' => 'red',
+                'url'        => '#',
+                ],
+                [
+                'text'       => 'Asignar',
+                'icon' => 'fas fa-fw fa-check ml-3',
+                'icon_color' => 'red',
+                'url'        => '#',
+                ],
+                [
+                'text'       => 'Horarios',
+                'icon' => 'fas fa-fw fa-clock ml-3',
                 'icon_color' => 'red',
                 'url'        => '#',
                 ],
             ],
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 
