@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -326,18 +326,18 @@ return [
             'submenu' => [
                 [
                     'text' => 'Nuevo',
-                    'icon'    => 'fas fa-fw fa-user-plus text-warning ml-3',
+                    'icon'    => 'fas fa-fw fa-user-plus ml-3',
                     'url'  => 'admin/users/create',
                 ],
                 [
                     'text' => 'Editar',
-                    'icon' => 'fas fa-fw fa-pen text-warning ml-3',
+                    'icon' => 'fas fa-fw fa-pen ml-3',
                     'url'  => 'admin/users/edit',
                     
                 ],
                 [
                     'text' => 'Eliminar',
-                    'icon' => 'fas fa-fw fa-trash text-warning ml-3',
+                    'icon' => 'fas fa-fw fa-trash ml-3',
                     'url'  => 'admin/users/delete',
                 ],
                 
@@ -346,22 +346,22 @@ return [
         ],
         [
             'text' => 'Perfiles',
-            'icon' => 'fas fa-fw fa-lock text-primary',
+            'icon' => 'fas fa-fw fa-lock text-warning',
             'url'  => 'admin/users/delete',
             'submenu' => [
                 [
                     'text' => 'Nuevo',
-                    'icon' => 'fas fa-fw fa-plus text-primary ml-3',
+                    'icon' => 'fas fa-fw fa-plus ml-3',
                     'url'  => 'admin/profiles/create',
                 ],
                 [
                     'text' => 'Editar',
-                    'icon' => 'fas fa-fw fa-pen text-primary ml-3',
+                    'icon' => 'fas fa-fw fa-pen ml-3',
                     'url'  => 'admin/profiles/edit',
                 ],
                 [
                     'text' => 'Eliminar',
-                    'icon' => 'fas fa-fw fa-trash text-primary ml-3',
+                    'icon' => 'fas fa-fw fa-trash ml-3',
                     'url'  => 'admin/profiles/delete',
                 ],
             ],
@@ -369,26 +369,44 @@ return [
         ['header' => 'Seguridad Privada'],
         [
             'text'       => 'Personal',
-            'icon' => 'fas fa-fw fa-user text-success',
-            'icon_color' => 'red',
+            'icon' => 'fas fa-fw fa-archive text-warning',
             'url'        => '#',
             'submenu' => [
                 [
                 'text'       => 'Listar',
                 'icon' => 'fas fa-fw fa-list ml-3',
-                'icon_color' => 'red',
                 'url'        => '#',
                 ],
                 [
                 'text'       => 'Asignar',
                 'icon' => 'fas fa-fw fa-check ml-3',
-                'icon_color' => 'red',
                 'url'        => '#',
                 ],
                 [
                 'text'       => 'Horarios',
                 'icon' => 'fas fa-fw fa-clock ml-3',
-                'icon_color' => 'red',
+                'url'        => '#',
+                ],
+            ],
+        ],
+        [
+            'text'       => 'Clientes',
+            'icon' => 'fas fa-fw fa-address-book text-warning',
+            'url'        => '#',
+            'submenu' => [
+                [
+                'text'       => 'Listar',
+                'icon' => 'fas fa-fw fa-list ml-3',
+                'url'        => '#',
+                ],
+                [
+                'text'       => 'Asignar',
+                'icon' => 'fas fa-fw fa-check ml-3',
+                'url'        => '#',
+                ],
+                [
+                'text'       => 'Horarios',
+                'icon' => 'fas fa-fw fa-clock ml-3',
                 'url'        => '#',
                 ],
             ],
