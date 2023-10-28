@@ -8,3 +8,6 @@ use Illuminate\Routing\Controllers\Middleware;
 Route::get('', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'home']);
+route::get('/dashboard', function(){
+    return view('admin.dashboard');
+});

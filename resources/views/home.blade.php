@@ -4,7 +4,7 @@
 <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('img/doverman.png') }}">
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Dashboard</h1>
+    <h1 class="m-0 text-dark">Home</h1>
 @stop
 
 @section('content')
