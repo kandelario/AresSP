@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
+            $table->string('Nombre');
+            $table->integer('nPersonas');
+            $table->float('SueldoBase', 8, 2);
             $table->timestamps();
         });
     }
