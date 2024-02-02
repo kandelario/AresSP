@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('Nombre');
             $table->integer('nPersonas');
             $table->float('SueldoBase', 8, 2);
+            $table->string('logo');
             $table->timestamps();
         });
     }
