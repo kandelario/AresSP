@@ -13,10 +13,27 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->integer('nPersonas');
-            $table->float('SueldoBase', 8, 2);
-            $table->string('logo');
+            $table->string('nombre');
+            $table->integer('personal')->nullable();
+            $table->float('sueldoxdia', 8, 2);
+            $table->float('sueldoxmes', 8, 2);
+            $table->enum('canino', ['Si', 'No']);
+            $table->float('costocanino', 8, 2)->nullable();
+            $table->float('sueldoquincena', 8, 2)->nullable();
+            $table->float('facturaxmes', 8, 2)->nullable();
+            $table->float('iva', 8, 2);
+            $table->float('ivaretenido', 8, 2)->nullable();
+            $table->float('totalfactura', 8, 2);
+            $table->date('fechaemision')->nullable();
+            $table->enum('tipopago', ['Por definir', 'Transferencia', 'Efectivo']);
+            $table->string('nombrecontacto1')->nullable();
+            $table->string('emailcontact1')->nullable();
+            $table->string('nombrecontacto2')->nullable();
+            $table->string('emailcontact2')->nullable();
+            $table->string('rfc')->nullable();
+            $table->date('vigencia')->nullable();
+            $table->text('observaciones')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
