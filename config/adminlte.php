@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Ares SP',
+    'title' => 'Agencia Ares SP',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -323,25 +323,26 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'submenu' => [
-                [
-                    'text' => 'Nuevo',
-                    'icon'    => 'fas fa-fw fa-user-plus ml-3',
-                    'url'  => 'admin/users/create',
-                ],
-                [
-                    'text' => 'Editar',
-                    'icon' => 'fas fa-fw fa-pen ml-3',
-                    'url'  => 'admin/users/edit',
+            'url'  => 'users',
+            // 'submenu' => [
+            //     [
+            //         'text' => 'Nuevo',
+            //         'icon'    => 'fas fa-fw fa-user-plus ml-3',
+            //         'url'  => 'users/create',
+            //     ],
+            //     [
+            //         'text' => 'Editar',
+            //         'icon' => 'fas fa-fw fa-pen ml-3',
+            //         'url'  => 'users/edit',
                     
-                ],
-                [
-                    'text' => 'Eliminar',
-                    'icon' => 'fas fa-fw fa-trash ml-3',
-                    'url'  => 'admin/users/delete',
-                ],
+            //     ],
+                // [
+                //     'text' => 'Eliminar',
+                //     'icon' => 'fas fa-fw fa-trash ml-3',
+                //     'url'  => 'users/destroy',
+                // ],
                 
-            ],
+            // ],
             
         ],
         [
