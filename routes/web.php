@@ -28,3 +28,4 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 route::resource('/clientes', 'ClientesController');
+Route::resource('users', App\Http\Controllers\UserController::class);
