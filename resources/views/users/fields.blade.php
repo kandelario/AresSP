@@ -13,7 +13,7 @@
 <!-- password Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('password', 'Contraseña:') !!}
-    {!! Form::password('password', ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    {!! Form::password('password', ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
 <!-- Email Verified At Field -->

@@ -44,6 +44,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public static array $rules = array(
+        'name' => 'required',
+        'email' => "required|email|unique:users",
+    );
+
     public function adminlte_image(){
         return 'https://picsum.photos/300/300';
     }

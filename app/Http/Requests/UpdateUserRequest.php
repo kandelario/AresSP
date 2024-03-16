@@ -24,8 +24,9 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = User::$rules;
-        
-        return $rules;
+        return array(
+            'name' => 'required|max:250',
+            'email' => "required|email|max:250|unique:users,email,{$this->user}",
+        );
     }
 }
