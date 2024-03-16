@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('personals', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('domicilio');
             $table->string('telefonos');
@@ -20,8 +20,14 @@ return new class extends Migration
             $table->string('email');
             $table->enum("estatus", ["Ingreso", "Reingreso", "Baja", "Baja sin reingreso"]);
             $table->date("fecha_inicio_serv");
-            $table->foreign('clientID')->references('id')->on('clientes')->onUpdate('cascade');
             $table->timestamps();
+            $table->boolean('enable')->default(true);
+        });
+
+        Schema::table('personals', function (Blueprint $table) {
+            $table->foreignId('clientID')->constrained(
+                table: 'clientes', indexName: 'id'
+            );
         });
     }
 
