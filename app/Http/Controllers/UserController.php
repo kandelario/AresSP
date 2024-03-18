@@ -98,14 +98,28 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        if($request->password == "")
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if($request->password == ""){
             $request->request->remove('password');
-        if($request->password != "")
-            $request->password = bcrypt($request->password);
+        }
+        if($request->password != ""){
+            $newPass = bcrypt($request->password);
+            $user->password = $newPass;
+        }
 
-        $user = $this->userRepository->update($request->all(), $id);
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $destiny = 'assets/user_img/';
+            $fileName = 'user_image_' . $user->id . '.' . $file->clientExtension();
+            $uploadSuccess = $request->file('image')->move($destiny, $fileName);
+            $user->image = $fileName;
+        }
 
-        Flash::success('User updated successfully.');
+        $user->save();
+
+        Flash::success('Usuario actualizado correctamente.');
 
         return redirect(route('users.index'));
     }
