@@ -3,7 +3,7 @@
         <table class="table" id="users-table">
             <thead>
             <tr>
-                <th>Name</th>
+                <th>Nombre de usuario</th>
                 <th>Correo electrónico</th>
                 <th>Fecha de verificación del correo electrónico</th>
                 {{-- <th>Password</th> --}}

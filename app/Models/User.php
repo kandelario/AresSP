@@ -51,7 +51,12 @@ class User extends Authenticatable
     );
 
     public function adminlte_image(){
-        return 'https://picsum.photos/300/300';
+        // return 'https://picsum.photos/300/300';
+        if($this->image != ""){
+            return asset('assets/user_img/' . $this->image);
+        }else{
+            return 'https://picsum.photos/300/300';
+        }
     }
 
     public function adminlte_desc(){
