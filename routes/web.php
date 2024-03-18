@@ -29,3 +29,4 @@ Route::get('/home', function() {
 
 route::resource('/clientes', 'ClientesController');
 Route::resource('users', App\Http\Controllers\UserController::class);
+Route::resource('inventarios', App\Http\Controllers\InventarioController::class);

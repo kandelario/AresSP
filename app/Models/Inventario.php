@@ -2,16 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class inventario extends Model
+class Inventario extends Model
 {
-    use HasFactory;
+    public $table = 'inventarios';
 
-    protected $fillable = [
+    public $fillable = [
         'nombre',
         'existencia',
-        'imagen',
+        'imagen'
     ];
+
+    protected $casts = [
+        'nombre' => 'string',
+        'imagen' => 'string'
+    ];
+
+    public static array $rules = [
+        'nombre' => 'required|string|max:255',
+        'existencia' => 'required',
+        'imagen' => 'required|string|max:255',
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable'
+    ];
+
+    
 }

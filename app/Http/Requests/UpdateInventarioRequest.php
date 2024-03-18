@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
+use App\Models\Inventario;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUserRequest extends FormRequest
+class UpdateInventarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,8 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        return array(
-            'name' => 'required|max:250',
-            'email' => "required|email|max:250|unique:users,email,{$this->user}",
-            'password' => "required|min:8|,{$this->password}",
-        );
+        $rules = Inventario::$rules;
+        
+        return $rules;
     }
 }
