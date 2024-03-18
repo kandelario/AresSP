@@ -47,6 +47,7 @@ class User extends Authenticatable
     public static array $rules = array(
         'name' => 'required',
         'email' => "required|email|unique:users",
+        'password' => 'required|min:8',
     );
 
     public function adminlte_image(){
