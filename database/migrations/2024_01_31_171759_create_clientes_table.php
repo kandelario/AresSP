@@ -35,6 +35,7 @@ return new class extends Migration
             $table->text('observaciones')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();
+            $table->boolean('enable')->default(true);
         });
     }
 

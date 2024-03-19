@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('enable')->default(true);
         });
     }
 

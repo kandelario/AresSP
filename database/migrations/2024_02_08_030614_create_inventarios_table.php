@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('existencia');
             $table->string('imagen')->nullable()->default(null);
             $table->timestamps();
-            $table->boolean('enable');
+            $table->boolean('enable')->default(true);
         });
     }
 
