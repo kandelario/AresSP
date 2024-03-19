@@ -14,7 +14,7 @@
                 <tr>
                     <td>{{ $inventario->nombre }}</td>
                     <td>{{ $inventario->existencia }}</td>
-                    <td>{{ asset('assets/inventary_imgs/' . $inventario->imagen) }}</td>
+                    <td><img src="{{ asset('assets/inventary_imgs/' . $inventario->image) }}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;"></td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['inventarios.destroy', $inventario->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
