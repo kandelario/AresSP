@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [HomeController::class, 'login']);
-Route::get('/admin', [HomeController::class, 'index'])->middleware('auth');
+Route::get('/', [HomeController::class, 'login'])->name('auth.login');
+Route::get('/admin', [HomeController::class, 'index'])->name('admin.index')->middleware('auth');
 Auth::routes();
