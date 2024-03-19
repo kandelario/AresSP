@@ -323,7 +323,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => '/users',
+            'url'  => 'admin/users',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
