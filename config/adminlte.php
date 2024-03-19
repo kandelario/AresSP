@@ -259,7 +259,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -323,7 +323,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => 'users',
+            'url'  => 'admin/users',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
@@ -347,74 +347,74 @@ return [
         ],[
             'text' => 'Inventario',
             'icon' => 'fas fa-fw fa-vest text-warning',
-            'url' => 'inventarios',
+            'url' => 'admin/inventarios',
         ],
         [
-            'text' => 'Perfiles',
+            'text' => 'Perfiles de usuario',
             'icon' => 'fas fa-fw fa-lock text-warning',
             'url'  => 'admin/users/delete',
-            'submenu' => [
-                [
-                    'text' => 'Nuevo',
-                    'icon' => 'fas fa-fw fa-plus ml-3',
-                    'url'  => 'admin/profiles/create',
-                ],
-                [
-                    'text' => 'Editar',
-                    'icon' => 'fas fa-fw fa-pen ml-3',
-                    'url'  => 'admin/profiles/edit',
-                ],
-                [
-                    'text' => 'Eliminar',
-                    'icon' => 'fas fa-fw fa-trash ml-3',
-                    'url'  => 'admin/profiles/delete',
-                ],
-            ],
+            // 'submenu' => [
+            //     [
+            //         'text' => 'Nuevo',
+            //         'icon' => 'fas fa-fw fa-plus ml-3',
+            //         'url'  => 'admin/profiles/create',
+            //     ],
+            //     [
+            //         'text' => 'Editar',
+            //         'icon' => 'fas fa-fw fa-pen ml-3',
+            //         'url'  => 'admin/profiles/edit',
+            //     ],
+            //     [
+            //         'text' => 'Eliminar',
+            //         'icon' => 'fas fa-fw fa-trash ml-3',
+            //         'url'  => 'admin/profiles/delete',
+            //     ],
+            // ],
         ],
         ['header' => 'Seguridad Privada'],
         [
             'text'       => 'Personal',
             'icon' => 'fas fa-fw fa-archive text-warning',
             'url'        => '#',
-            'submenu' => [
-                [
-                'text'       => 'Listar',
-                'icon' => 'fas fa-fw fa-list ml-3',
-                'url'        => '#',
-                ],
-                [
-                'text'       => 'Asignar',
-                'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => '#',
-                ],
-                [
-                'text'       => 'Horarios',
-                'icon' => 'fas fa-fw fa-clock ml-3',
-                'url'        => '#',
-                ],
-            ],
+            // 'submenu' => [
+            //     [
+            //     'text'       => 'Listar',
+            //     'icon' => 'fas fa-fw fa-list ml-3',
+            //     'url'        => '#',
+            //     ],
+            //     [
+            //     'text'       => 'Asignar',
+            //     'icon' => 'fas fa-fw fa-check ml-3',
+            //     'url'        => '#',
+            //     ],
+            //     [
+            //     'text'       => 'Horarios',
+            //     'icon' => 'fas fa-fw fa-clock ml-3',
+            //     'url'        => '#',
+            //     ],
+            // ],
         ],
         [
             'text'       => 'Clientes',
             'icon' => 'fas fa-fw fa-address-book text-warning',
-            'url'        => '#',
-            'submenu' => [
-                [
-                'text'       => 'Listar',
-                'icon' => 'fas fa-fw fa-list ml-3',
-                'url'        => '#',
-                ],
-                [
-                'text'       => 'Asignar',
-                'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => '#',
-                ],
-                [
-                'text'       => 'Horarios',
-                'icon' => 'fas fa-fw fa-clock ml-3',
-                'url'        => '#',
-                ],
-            ],
+            'url'        => 'admin/clientes',
+            // 'submenu' => [
+            //     [
+            //     'text'       => 'Listar',
+            //     'icon' => 'fas fa-fw fa-list ml-3',
+            //     'url'        => '#',
+            //     ],
+            //     [
+            //     'text'       => 'Asignar',
+            //     'icon' => 'fas fa-fw fa-check ml-3',
+            //     'url'        => '#',
+            //     ],
+            //     [
+            //     'text'       => 'Horarios',
+            //     'icon' => 'fas fa-fw fa-clock ml-3',
+            //     'url'        => '#',
+            //     ],
+            // ],
         ],
     ],
 

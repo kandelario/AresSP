@@ -22,7 +22,7 @@ class Inventario extends Model
     public static array $rules = [
         'nombre' => 'required|string|max:255',
         'existencia' => 'required',
-        'imagen' => 'required|string|max:255',
+        // 'imagen' => 'required',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

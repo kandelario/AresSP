@@ -7,7 +7,8 @@ use App\Http\Requests\UpdateInventarioRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\InventarioRepository;
 use Illuminate\Http\Request;
-use Flash;
+// use Flash;
+use Laracasts\Flash\Flash;
 
 class InventarioController extends AppBaseController
 {
@@ -99,7 +100,17 @@ class InventarioController extends AppBaseController
 
         $inventario = $this->inventarioRepository->update($request->all(), $id);
 
-        Flash::success('Inventario updated successfully.');
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $destiny = 'assets/user_img/';
+            $fileName = 'user_image_' . $inventario->id . '.' . $file->clientExtension();
+            $uploadSuccess = $request->file('image')->move($destiny, $fileName);
+            $inventario->image = $fileName;
+        }else{
+            $request->request->remove('image');
+        }
+
+        Flash::success('Artículo actualizado correctamente.');
 
         return redirect(route('inventarios.index'));
     }

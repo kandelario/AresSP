@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,13 +21,13 @@ Route::get('/', function(){
 
 Auth::routes();
 
+Route::get('', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'home']);
+
 Route::get('/admin', [App\Http\Controllers\admin\HomeController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', function() {
     return view('home');
-})->name('home')->middleware('auth');
+})->name('home');
 
-route::resource('/clientes', 'ClientesController');
-Route::resource('users', App\Http\Controllers\UserController::class);
-Route::resource('inventarios', App\Http\Controllers\InventarioController::class);
