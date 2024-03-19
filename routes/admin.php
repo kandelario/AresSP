@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InventarioController;
-use App\Http\Controllers\InventariosScheduleController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
