@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Ares</b> SP',
+    'logo' => '<b>Agencia Ares</b> SP',
     'logo_img' => 'img/doverman.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,

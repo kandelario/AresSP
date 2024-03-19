@@ -6,11 +6,11 @@
 <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('img/doverman.png') }}">
 
 @section('content_header')
-    <h1>Ares Seguridad Privada</h1>
+    <h1>Agencia Ares</h1>
 @stop
 
 @section('content')
-    <p>Bienvenido Administrador.</p>
+    <p>Bienvenido Usuario Administrador.</p>
 @stop
 
 @section('css')
