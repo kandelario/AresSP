@@ -104,7 +104,7 @@ class InventarioController extends AppBaseController
             $destiny = 'assets/inventary_imgs/';
             $fileName = 'article_image_' . $inventario->id . '.' . $file->clientExtension();
             $uploadSuccess = $request->file('image')->move($destiny, $fileName);
-            $inventario->imagen = $fileName;
+            $inventario->image = $fileName;
             $inventario->save();
         }else{
             $request->request->remove('image');
