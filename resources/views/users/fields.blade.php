@@ -5,28 +5,28 @@
 </div>
 
 <!-- Email Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-4">
     {!! Form::label('email', 'Correo electrónico:') !!}
     {!! Form::email('email', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- password Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('image', 'Imagen:') !!}
-    {!! Form::file('image', ['class' => 'form-control file', 'accept' => 'image/*']) !!}
-</div>
-
 <!-- image Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-4">
     {!! Form::label('password', 'Contraseña:') !!}
     {!! Form::password('password', ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- role Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('role', 'Contraseña:') !!}
-    {!! Form::select('role', ['class' => 'form-control']) !!}
+<!-- password Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('image', 'Imagen:') !!}
+    {!! Form::file('image', ['class' => 'form-control', 'accept' => 'image/*']) !!}
 </div>
+
+{{-- <!-- role Field -->
+<div class="form-group col-sm-3">
+    {!! Form::label('role', 'Rol:') !!}
+    {!! Form::select('role', ['class' => 'form-control'], '') !!}
+</div> --}}
 
 <!-- Email Verified At Field -->
 <div class="form-group col-sm-6">
