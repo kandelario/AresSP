@@ -347,7 +347,7 @@ return [
         ],[
             'text' => 'Inventario',
             'icon' => 'fas fa-fw fa-vest text-warning',
-            'url' => 'inventarios',
+            'url' => 'admin/inventarios',
         ],
         [
             'text' => 'Perfiles de usuario',
