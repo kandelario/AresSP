@@ -323,7 +323,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => 'admin/users',
+            'url'  => '/users',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
@@ -352,7 +352,7 @@ return [
         [
             'text' => 'Perfiles de usuario',
             'icon' => 'fas fa-fw fa-lock text-warning',
-            'url'  => 'admin/users/delete',
+            'url'  => 'admin/users/destroy',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
@@ -375,7 +375,7 @@ return [
         [
             'text'       => 'Personal',
             'icon' => 'fas fa-fw fa-archive text-warning',
-            'url'        => '#',
+            'url'        => 'admin/personal',
             // 'submenu' => [
             //     [
             //     'text'       => 'Listar',
