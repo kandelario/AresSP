@@ -99,13 +99,13 @@ class InventarioController extends AppBaseController
         }
 
         $inventario = $this->inventarioRepository->update($request->all(), $id);
-
         if($request->hasFile('image')){
             $file = $request->file('image');
-            $destiny = 'assets/user_img/';
-            $fileName = 'user_image_' . $inventario->id . '.' . $file->clientExtension();
+            $destiny = 'assets/inventary_imgs/';
+            $fileName = 'article_image_' . $inventario->id . '.' . $file->clientExtension();
             $uploadSuccess = $request->file('image')->move($destiny, $fileName);
-            $inventario->image = $fileName;
+            $inventario->imagen = $fileName;
+            $inventario->save();
         }else{
             $request->request->remove('image');
         }
