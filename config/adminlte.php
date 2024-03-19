@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/admin/home',
+    'dashboard_url' => '/admin/dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -347,7 +347,7 @@ return [
         ],[
             'text' => 'Inventario',
             'icon' => 'fas fa-fw fa-vest text-warning',
-            'url' => 'admin/inventarios',
+            'url' => 'inventarios',
         ],
         [
             'text' => 'Perfiles de usuario',
@@ -397,7 +397,7 @@ return [
         [
             'text'       => 'Clientes',
             'icon' => 'fas fa-fw fa-address-book text-warning',
-            'url'        => 'admin/clientes',
+            'url'        => 'clientes',
             // 'submenu' => [
             //     [
             //     'text'       => 'Listar',

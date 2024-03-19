@@ -15,16 +15,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function(){
-    return view('auth.login');
-});
+Route::get('/', HomeController::class);
 
 Auth::routes();
 
-Route::get('', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'home']);
+// Route::get('', [HomeController::class, 'index']);
+// Route::get('/home', [HomeController::class, 'home']);
 
-Route::get('/admin', [App\Http\Controllers\admin\HomeController::class, 'index']);
+// Route::get('/admin', [App\Http\Controllers\admin\HomeController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', function() {

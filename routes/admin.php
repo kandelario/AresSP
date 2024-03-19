@@ -3,18 +3,27 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\InventarioController;
 use Illuminate\Routing\Controllers\Middleware;
-Route::get('admin', function(){
-    return view('home');
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/', function(){
+    return view('admin.index');
 })->middleware('auth');
-Route::prefix('admin')->group(function(){
+
+Route::prefix('admin', function(){
     // route::get('/users', [UserController::class, 'index'])->middleware('auth');
     // route::get('users', function(){
     //     return view('users');
     // });
-    route::resource('admin/clientes', 'ClientesController');
-    Route::resource('admin/users', App\Http\Controllers\UserController::class)->middleware('auth');
-    Route::resource('admin/inventarios', App\Http\Controllers\InventarioController::class)->middleware('auth');
+    Route::get('', function(){
+        return view('home');
+    });
+    route::get('/clientes/{cliente}', function($cliente){
+        return view('clientes');
+    });
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('inventarios', [InventarioController::class, 'index']);
 })->middleware('auth');
 //route::get('/dashboard', [HoomeController::class, 'dashboard']);
+Auth::routes();
