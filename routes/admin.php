@@ -11,19 +11,10 @@ Route::get('/', function(){
     return view('admin.index');
 })->middleware('auth');
 
-Route::prefix('admin', function(){
-    // route::get('/users', [UserController::class, 'index'])->middleware('auth');
-    // route::get('users', function(){
-    //     return view('users');
-    // });
-    Route::get('', function(){
-        return view('home');
-    });
-    route::get('/clientes/{cliente}', function($cliente){
-        return view('clientes');
-    });
-    Route::get('/users', [UserController::class, 'index']);
-    Route::get('inventarios', [InventarioController::class, 'index']);
+Route::get('admin/users', [UserController::class, 'index'])->middleware('auth');
+route::get('admin/clientes/{cliente}', function($cliente){
+    return view('clientes');
 })->middleware('auth');
-//route::get('/dashboard', [HoomeController::class, 'dashboard']);
+
+Route::get('admin/inventarios', [InventarioController::class, 'index'])->middleware('auth');
 Auth::routes();
