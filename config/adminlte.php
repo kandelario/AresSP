@@ -349,6 +349,11 @@ return [
             'icon' => 'fas fa-fw fa-vest text-warning',
             'url' => 'admin/inventarios',
         ],
+        // [
+        //     'text' => 'Tipos de Pago',
+        //     'icon' => 'fas fa-fw fa-money text-warning',
+        //     'url' => 'admin/tipos-de-pago',
+        // ],
         [
             'text' => 'Perfiles de usuario',
             'icon' => 'fas fa-fw fa-lock text-warning',
@@ -397,7 +402,7 @@ return [
         [
             'text'       => 'Clientes',
             'icon' => 'fas fa-fw fa-address-book text-warning',
-            'url'        => 'clientes',
+            'url'        => 'admin/clientes',
             // 'submenu' => [
             //     [
             //     'text'       => 'Listar',

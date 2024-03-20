@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('personal')->nullable();
             $table->float('sueldoxdia', 8, 2);
             $table->float('sueldoxmes', 8, 2);
-            $table->enum('canino', ['Si', 'No']);
+            $table->boolean('canino')->default(1);
             $table->float('costocanino', 8, 2)->nullable();
             $table->float('sueldoquincena', 8, 2)->nullable();
             $table->float('facturaxmes', 8, 2)->nullable();

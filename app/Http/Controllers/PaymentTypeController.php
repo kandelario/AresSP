@@ -7,7 +7,8 @@ use App\Http\Requests\UpdatePaymentTypeRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\PaymentTypeRepository;
 use Illuminate\Http\Request;
-use Flash;
+// use Flash;
+use Laracasts\Flash\Flash;
 
 class PaymentTypeController extends AppBaseController
 {

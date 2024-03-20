@@ -19,3 +19,4 @@ Route::get('/', [HomeController::class, 'login'])->name('auth.login');
 Route::get('/admin', [HomeController::class, 'index'])->name('admin.index')->middleware('auth');
 Auth::routes();
 Route::resource('payment-types', App\Http\Controllers\PaymentTypeController::class);
+Route::resource('clientes', App\Http\Controllers\ClientesController::class);
