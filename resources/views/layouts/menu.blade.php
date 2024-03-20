@@ -19,3 +19,10 @@
         <p>Inventarios Schedules</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('paymentTypes.index') }}" class="nav-link {{ Request::is('paymentTypes*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Payment Types</p>
+    </a>
+</li>

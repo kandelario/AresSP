@@ -25,7 +25,7 @@ return new class extends Migration
             $table->float('ivaretenido', 8, 2)->nullable();
             $table->float('totalfactura', 8, 2);
             $table->date('fechaemision')->nullable();
-            $table->enum('tipopago', ['Por definir', 'Transferencia', 'Efectivo']);
+            $table->string('payment_type');
             $table->string('nombrecontacto1')->nullable();
             $table->string('emailcontact1')->nullable();
             $table->string('nombrecontacto2')->nullable();

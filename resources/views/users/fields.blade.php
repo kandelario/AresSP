@@ -22,11 +22,11 @@
     {!! Form::file('image', ['class' => 'form-control', 'accept' => 'image/*']) !!}
 </div>
 
-{{-- <!-- role Field -->
+<!-- role Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('role', 'Rol:') !!}
     {!! Form::select('role', ['class' => 'form-control'], '') !!}
-</div> --}}
+</div>
 
 <!-- Email Verified At Field -->
 <div class="form-group col-sm-6">
