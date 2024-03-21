@@ -12,21 +12,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('personal_estatus', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('image')->default(null)->nullable();
-            $table->rememberToken();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
         });
 
-        DB::table('users')->insert([
-            [ 'name' => 'Kande Pacheco', 'email' => 'cande.pacheco@gmail.com', 'password' => bcrypt('Stark4ever@$')],
+        DB::table('personal_estatus')->insert([
+            ['name' => 'Ingreso'],
+            ['name' => 'Reingreso'],
+            ['name' => 'Baja'],
+            ['name' => 'Baja sin reingreso'],
+            ['name' => 'Activo'],
+            ['name' => 'Vacaciones'],
+            ['name' => 'Descanzo'],
         ]);
     }
 
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('personal_estatus');
     }
 };

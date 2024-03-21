@@ -355,9 +355,9 @@ return [
         //     'url' => 'admin/tipos-de-pago',
         // ],
         [
-            'text' => 'Perfiles de usuario',
-            'icon' => 'fas fa-fw fa-lock text-warning',
-            'url'  => 'admin/users/destroy',
+            // 'text' => 'Perfiles de usuario',
+            // 'icon' => 'fas fa-fw fa-lock text-warning',
+            // 'url'  => 'admin/users/destroy',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',

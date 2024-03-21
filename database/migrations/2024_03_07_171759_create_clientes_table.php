@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -12,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id');
             $table->string('nombre');
             $table->integer('personal')->nullable();
             $table->float('sueldoxdia', 8, 2);
@@ -25,7 +26,6 @@ return new class extends Migration
             $table->float('ivaretenido', 8, 2)->nullable();
             $table->float('totalfactura', 8, 2);
             $table->date('fechaemision')->nullable();
-            $table->string('payment_type');
             $table->string('nombrecontacto1')->nullable();
             $table->string('emailcontact1')->nullable();
             $table->string('nombrecontacto2')->nullable();
@@ -34,8 +34,14 @@ return new class extends Migration
             $table->date('vigencia')->nullable();
             $table->text('observaciones')->nullable();
             $table->string('logo')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
+        });
+
+        Schema::table('clientes', function (Blueprint $table) {
+            $table->unsignedBigInteger('paymentID');
+            $table->foreign('paymentID')->references('id')->on('payment_type')->onUpdate('cascade');
         });
     }
 
