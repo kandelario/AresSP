@@ -18,30 +18,15 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date("fecha_inicio_serv");
-            //$table->unsignedBigInteger('clientes_id');
-            // $table->unsignedBigInteger('estatusID');
+            $table->unsignedBigInteger('cliente_id');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
 
             
-            // $table->foreign('estatusID')->references('eID')->on('personal_estatus')->onUpdate('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onUpdate('cascade');
             // $table->foreignId('clientes_id')->index()->constrained()->cascadeOnUpdate();
         });
-
-        Schema::table('operation', function (Blueprint $table) {
-            $table->unsignedBigInteger('clientes_id');
-            //$table->foreign('clientes_id')->references('id')->on('clientes');
-            $table->foreignId('clientes_id')->index()->constrained()->cascadeOnUpdate();
-            //$table->foreign('clientes_id')->references('id')->on('clientes')->onUpdate('cascade');
-            // $table->foreign('clientID')->references('id')->on('clientes')->onUpdate('cascade');
-            //$table->foreignId('clientes_id')->index()->constrained()->cascadeOnUpdate();
-        });
-
-        // Schema::table('operation', function (Blueprint $table) {
-        //     // $table->foreign('estatusID')->references('eID')->on('personal_estatus')->onUpdate('cascade');
-        //     $table->foreignId('personal_estatus_id')->index()->constrained()->cascadeOnUpdate();
-        // });
     }
 
     /**

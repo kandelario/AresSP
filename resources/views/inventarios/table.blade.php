@@ -14,7 +14,14 @@
                 <tr>
                     <td>{{ $inventario->nombre }}</td>
                     <td>{{ $inventario->existencia }}</td>
-                    <td><img src="{{ asset('assets/inventary_imgs/' . $inventario->image) }}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;"></td>
+                    <td>
+                        @if($inventario->image)
+                            <img src="{{asset('assets/inventary_imgs/' . $inventario->image)}}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;">
+                        @else
+                            <img src="{{asset('assets/inventary_imgs/default.webp')}}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;">
+                        @endif
+                        {{-- {{ if($inventario->image){asset('assets/inventary_imgs/' . $inventario->image)}else{asset('assets/inventary_imgs/default.webp')} }}--}}
+                        </td> 
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['inventarios.destroy', $inventario->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

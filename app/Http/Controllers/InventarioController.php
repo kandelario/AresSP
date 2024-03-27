@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateInventarioRequest;
 use App\Http\Requests\UpdateInventarioRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Inventario;
 use App\Repositories\InventarioRepository;
 use Illuminate\Http\Request;
 // use Flash;
@@ -45,9 +46,26 @@ class InventarioController extends AppBaseController
      */
     public function store(CreateInventarioRequest $request)
     {
-        $input = $request->all();
+        $inventario = new Inventario();
+        //dd($request->hasFile('image'));
+        $inventario->nombre = $request->nombre;
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $destiny = 'assets/inventary_imgs/';
+            $old_name = str_replace(" ", "_", $request->nombre);
+            $fileName = time().'_'.$old_name . '.' . $file->clientExtension();
+            $uploadSuccess = $request->file('image')->move($destiny, $fileName);
+            $inventario->image = $fileName;
+            
+        }else{
+            $request->request->remove('image');
+        }
+        $inventario->existencia = $request->existencia;
+        $inventario->save();
 
-        $inventario = $this->inventarioRepository->create($input);
+        
+
+        // $inventario = $this->inventarioRepository->create($input);
 
         Flash::success('Inventario saved successfully.');
 
