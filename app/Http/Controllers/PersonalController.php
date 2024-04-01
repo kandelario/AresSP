@@ -2,64 +2,128 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\personal;
+use App\Http\Requests\CreatePersonalRequest;
+use App\Http\Requests\UpdatePersonalRequest;
+use App\Http\Controllers\AppBaseController;
+use App\Repositories\PersonalRepository;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
+// use Flash;
 
-class PersonalController extends Controller
+class PersonalController extends AppBaseController
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    /** @var PersonalRepository $personalRepository*/
+    private $personalRepository;
+
+    public function __construct(PersonalRepository $personalRepo)
     {
-        //
+        $this->personalRepository = $personalRepo;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the Personal.
+     */
+    public function index(Request $request)
+    {
+        $personals = $this->personalRepository->paginate(10);
+
+        return view('personals.index')
+            ->with('personals', $personals);
+    }
+
+    /**
+     * Show the form for creating a new Personal.
      */
     public function create()
     {
-        //
+        return view('personals.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Personal in storage.
      */
-    public function store(Request $request)
+    public function store(CreatePersonalRequest $request)
     {
-        //
+        $input = $request->all();
+
+        $personal = $this->personalRepository->create($input);
+
+        Flash::success('Personal saved successfully.');
+
+        return redirect(route('personals.index'));
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Personal.
      */
-    public function show(personal $personal)
+    public function show($id)
     {
-        //
+        $personal = $this->personalRepository->find($id);
+
+        if (empty($personal)) {
+            Flash::error('Personal not found');
+
+            return redirect(route('personals.index'));
+        }
+
+        return view('personals.show')->with('personal', $personal);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified Personal.
      */
-    public function edit(personal $personal)
+    public function edit($id)
     {
-        //
+        $personal = $this->personalRepository->find($id);
+
+        if (empty($personal)) {
+            Flash::error('Personal not found');
+
+            return redirect(route('personals.index'));
+        }
+
+        return view('personals.edit')->with('personal', $personal);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Personal in storage.
      */
-    public function update(Request $request, personal $personal)
+    public function update($id, UpdatePersonalRequest $request)
     {
-        //
+        $personal = $this->personalRepository->find($id);
+
+        if (empty($personal)) {
+            Flash::error('Personal not found');
+
+            return redirect(route('personals.index'));
+        }
+
+        $personal = $this->personalRepository->update($request->all(), $id);
+
+        Flash::success('Personal updated successfully.');
+
+        return redirect(route('personals.index'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Personal from storage.
+     *
+     * @throws \Exception
      */
-    public function destroy(personal $personal)
+    public function destroy($id)
     {
-        //
+        $personal = $this->personalRepository->find($id);
+
+        if (empty($personal)) {
+            Flash::error('Personal not found');
+
+            return redirect(route('personals.index'));
+        }
+
+        $this->personalRepository->delete($id);
+
+        Flash::success('Personal deleted successfully.');
+
+        return redirect(route('personals.index'));
     }
 }

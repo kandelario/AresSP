@@ -13,12 +13,12 @@
     </a>
 </li>
 
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a href="{{ route('inventariosSchedules.index') }}" class="nav-link {{ Request::is('inventariosSchedules*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
         <p>Inventarios Schedules</p>
     </a>
-</li>
+</li> --}}
 
 <li class="nav-item">
     <a href="{{ route('paymentTypes.index') }}" class="nav-link {{ Request::is('paymentTypes*') ? 'active' : '' }}">
@@ -31,5 +31,12 @@
     <a href="{{ route('clientes.index') }}" class="nav-link {{ Request::is('clientes*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
         <p>Clientes</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('personals.index') }}" class="nav-link {{ Request::is('personals*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Personals</p>
     </a>
 </li>
