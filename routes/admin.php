@@ -20,6 +20,6 @@ Route::resource('tipos-de-pago', PaymentTypeController::class)->middleware('auth
 
 Route::resource('clientes', ClientesController::class)->middleware('auth');
 
-Route::resource('personal', PersonalController::class)->middleware('auth');
+Route::resource('personals', PersonalController::class)->middleware('auth');
 
 Auth::routes();
