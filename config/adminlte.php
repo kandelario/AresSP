@@ -380,24 +380,24 @@ return [
         [
             'text'       => 'Personal',
             'icon' => 'fas fa-fw fa-archive text-warning',
-            'url'        => 'admin/personal',
-            // 'submenu' => [
-            //     [
-            //     'text'       => 'Listar',
-            //     'icon' => 'fas fa-fw fa-list ml-3',
-            //     'url'        => '#',
-            //     ],
-            //     [
-            //     'text'       => 'Asignar',
-            //     'icon' => 'fas fa-fw fa-check ml-3',
-            //     'url'        => '#',
-            //     ],
-            //     [
-            //     'text'       => 'Horarios',
-            //     'icon' => 'fas fa-fw fa-clock ml-3',
-            //     'url'        => '#',
-            //     ],
-            // ],
+            //'url'        => 'admin/personals',
+            'submenu' => [
+                [
+                'text'       => 'Mostrar',
+                'icon' => 'fas fa-fw fa-list ml-3',
+                'url'        => 'admin/personals',
+                ],
+                [
+                'text'       => 'Asignar a Cliente',
+                'icon' => 'fas fa-fw fa-check ml-3',
+                'url'        => '#',
+                ],
+                [
+                'text'       => 'Horarios',
+                'icon' => 'fas fa-fw fa-clock ml-3',
+                'url'        => '#',
+                ],
+            ],
         ],
         [
             'text'       => 'Clientes',

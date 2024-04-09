@@ -10,7 +10,7 @@ use App\Http\Controllers\PersonalController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
-route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+route::get('admin', [AdminController::class, 'index'])->middleware('auth');
 
 Route::resource('users', UserController::class)->middleware('auth');
 
