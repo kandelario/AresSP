@@ -22,8 +22,6 @@
     {!! Form::text('aMaterno', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-
-
 <!-- Sueldoxdia Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('sueldoxdia', 'Sueldo por dia:') !!}
