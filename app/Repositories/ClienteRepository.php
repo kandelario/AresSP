@@ -29,7 +29,6 @@ class ClienteRepository extends BaseRepository
         'vigencia',
         'observaciones',
         'constancia_sf',
-        'csf',
         'enable',
         'paymentID'
     ];

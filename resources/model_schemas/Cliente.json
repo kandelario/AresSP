@@ -252,18 +252,6 @@
         "inView": true
     },
     {
-        "name": "csf",
-        "dbType": "string",
-        "htmlType": "text",
-        "validations": "nullable|string|max:255|nullable|string|max:255",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
         "name": "created_at",
         "dbType": "datetime",
         "htmlType": "date",

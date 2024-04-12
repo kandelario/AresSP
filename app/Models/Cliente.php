@@ -9,7 +9,6 @@ class Cliente extends Model
     public $table = 'clientes';
 
     public $fillable = [
-        'id',
         'nombre',
         'personal',
         'sueldoxdia',
@@ -30,7 +29,6 @@ class Cliente extends Model
         'vigencia',
         'observaciones',
         'constancia_sf',
-        'csf',
         'enable',
         'paymentID'
     ];
@@ -55,7 +53,6 @@ class Cliente extends Model
         'vigencia' => 'date',
         'observaciones' => 'string',
         'constancia_sf' => 'string',
-        'csf' => 'string',
         'enable' => 'boolean'
     ];
 
@@ -80,7 +77,6 @@ class Cliente extends Model
         'vigencia' => 'nullable',
         'observaciones' => 'nullable|string|max:65535',
         'constancia_sf' => 'nullable|string|max:255',
-        'csf' => 'nullable|string|max:255',
         'created_at' => 'required',
         'updated_at' => 'required',
         'enable' => 'required|boolean',

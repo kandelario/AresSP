@@ -1,11 +1,17 @@
+<!-- Personal Field -->
+<div class="row form-group col-sm-3">
+    {!! Form::label('nEmpleado', 'N° empleado:') !!}
+    {!! Form::number('nEmpleado', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', 'Nombre Completo:') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('name', 'Nombre(s):') !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
 <!-- Domicilio Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('domicilio', 'Domicilio:') !!}
     {!! Form::text('domicilio', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>

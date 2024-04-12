@@ -124,12 +124,6 @@
     <p>{{ $cliente->constancia_sf }}</p>
 </div>
 
-<!-- Csf Field -->
-<div class="col-sm-12">
-    {!! Form::label('csf', 'Csf:') !!}
-    <p>{{ $cliente->csf }}</p>
-</div>
-
 <!-- Enable Field -->
 <div class="col-sm-12">
     {!! Form::label('enable', 'Enable:') !!}

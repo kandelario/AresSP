@@ -24,7 +24,6 @@
                 <th>Vigencia</th>
                 <th>Observaciones</th>
                 <th>Constancia Sf</th>
-                <th>Csf</th>
                 <th>Enable</th>
                 <th>Paymentid</th>
                 <th colspan="3">Action</th>
@@ -54,7 +53,6 @@
                     <td>{{ $cliente->vigencia }}</td>
                     <td>{{ $cliente->observaciones }}</td>
                     <td>{{ $cliente->constancia_sf }}</td>
-                    <td>{{ $cliente->csf }}</td>
                     <td>{{ $cliente->enable }}</td>
                     <td>{{ $cliente->paymentID }}</td>
                     <td  style="width: 120px">

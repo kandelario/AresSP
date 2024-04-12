@@ -15,7 +15,11 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
             $table->string('nombre');
-            $table->integer('personal')->nullable();
+            //$table->integer('personal')->nullable();//número de personas requeridas
+            $table->integer('nGuardias')->nullable();//número de personas requeridas Guardias
+            $table->integer('n_jefe_turno')->nullable();//número de personas requeridas Jefe de turno
+            $table->integer('n_jefe_servicio')->nullable();//número de personas requeridas Jefe de servicio
+            $table->integer('n_monitorista')->nullable();//número de personas requeridas Monitorista
             $table->float('sueldoxdia', 8, 2);
             $table->float('sueldoxmes', 8, 2);
             $table->boolean('canino')->default(1);//requiere o no un perro
