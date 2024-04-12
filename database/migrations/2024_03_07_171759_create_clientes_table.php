@@ -33,15 +33,10 @@ return new class extends Migration
             $table->string('rfc')->nullable();//rfc en texto
             $table->date('vigencia')->nullable();//fecha de vigencia
             $table->text('observaciones')->nullable();//campo destinado a observaciones.
-            $table->string('logo')->nullable();//imagen institucional del cliente
-            $table->string('csf')->nullable();//constancia de situación fiscal, nombre del archivo almacenado en la plataforma
+            $table->string('constancia_sf')->nullable();//pdf constancia de situación fiscal, nombre del archivo almacenado en la plataforma
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);//refleja true si esta activo, o false si no
-
-            //$table->string('tipo1')->default();//tipo de personal requerido por la empresa 1
-            //$table->string('tipo2')->default();//tipo de personal requerido por la empresa 2
-            //$table->string('tipo3')->default();//tipo de personal requerido por la empresa 3
         });
 
         ///se agrega llave forania con la tabla payment_type, el campo es paymentID.

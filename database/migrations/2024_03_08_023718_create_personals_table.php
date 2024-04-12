@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('telefonos');
             $table->string('telefono_contacto');
             $table->string('email');
+            $table->date("fecha_cumple")->nullable();
             $table->date("fecha_inicio_serv")->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

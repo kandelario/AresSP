@@ -33,7 +33,7 @@ class Personal extends Model
         'domicilio' => 'required|string|max:255',
         'telefonos' => 'required|string|max:255',
         'telefono_contacto' => 'required|string|max:255',
-        'email' => 'required|string|max:255',
+        'email' => 'required|email|string|max:255',
         'fecha_inicio_serv' => 'required',
         'created_at' => 'required',
         'updated_at' => 'required',

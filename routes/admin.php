@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\PaymentTypeController;
@@ -18,7 +18,7 @@ Route::resource('inventarios', InventarioController::class)->middleware('auth');
 
 Route::resource('tipos-de-pago', PaymentTypeController::class)->middleware('auth');
 
-Route::resource('clientes', ClientesController::class)->middleware('auth');
+Route::resource('clientes', ClienteController::class)->middleware('auth');
 
 Route::resource('personals', PersonalController::class)->middleware('auth');
 

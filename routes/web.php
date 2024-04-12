@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('../', [HomeController::class, 'login'])->name('auth.login');
-Route::get('/admin', [HomeController::class, 'index'])->name('admin.index')->middleware('auth');
+Route::get('/', [HomeController::class, 'login'])->name('auth.login');
+Route::get('home', function(){
+    return view('home');
+});
+Route::get('admin', [HomeController::class, 'index'])->name('admin.index')->middleware('auth');
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');

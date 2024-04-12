@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Clientes extends Model
+class Cliente extends Model
 {
     public $table = 'clientes';
 
     public $fillable = [
+        'id',
         'nombre',
         'personal',
         'sueldoxdia',
@@ -21,7 +22,6 @@ class Clientes extends Model
         'ivaretenido',
         'totalfactura',
         'fechaemision',
-        'payment_type',
         'nombrecontacto1',
         'emailcontact1',
         'nombrecontacto2',
@@ -30,7 +30,9 @@ class Clientes extends Model
         'vigencia',
         'observaciones',
         'constancia_sf',
-        'enable'
+        'csf',
+        'enable',
+        'paymentID'
     ];
 
     protected $casts = [
@@ -45,7 +47,6 @@ class Clientes extends Model
         'ivaretenido' => 'float',
         'totalfactura' => 'float',
         'fechaemision' => 'date',
-        'payment_type' => 'string',
         'nombrecontacto1' => 'string',
         'emailcontact1' => 'string',
         'nombrecontacto2' => 'string',
@@ -54,6 +55,7 @@ class Clientes extends Model
         'vigencia' => 'date',
         'observaciones' => 'string',
         'constancia_sf' => 'string',
+        'csf' => 'string',
         'enable' => 'boolean'
     ];
 
@@ -70,7 +72,6 @@ class Clientes extends Model
         'ivaretenido' => 'nullable|numeric',
         'totalfactura' => 'required|numeric',
         'fechaemision' => 'nullable',
-        'payment_type' => 'required|string|max:255',
         'nombrecontacto1' => 'nullable|string|max:255',
         'emailcontact1' => 'nullable|string|max:255',
         'nombrecontacto2' => 'nullable|string|max:255',
@@ -79,13 +80,15 @@ class Clientes extends Model
         'vigencia' => 'nullable',
         'observaciones' => 'nullable|string|max:65535',
         'constancia_sf' => 'nullable|string|max:255',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable',
-        'enable' => 'required|boolean'
+        'csf' => 'nullable|string|max:255',
+        'created_at' => 'required',
+        'updated_at' => 'required',
+        'enable' => 'required|boolean',
+        'paymentID' => 'required'
     ];
 
-    public function personals(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function paymentid(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasMany(\App\Models\Personal::class, 'clientID');
+        return $this->belongsTo(\App\Models\PaymentType::class, 'paymentID');
     }
 }
