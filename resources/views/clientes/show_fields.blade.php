@@ -1,49 +1,91 @@
-<!-- Id Field -->
-<div class="col-sm-12">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{{ $cliente->id }}</p>
-</div>
-
 <!-- Nombre Field -->
 <div class="col-sm-12">
     {!! Form::label('nombre', 'Nombre:') !!}
     <p>{{ $cliente->nombre }}</p>
 </div>
 
-<!-- Personal Field -->
+<!-- Nguardias Field -->
 <div class="col-sm-12">
-    {!! Form::label('personal', 'Personal:') !!}
-    <p>{{ $cliente->personal }}</p>
+    {!! Form::label('nGuardias', 'Nguardias:') !!}
+    <p>{{ $cliente->nGuardias }}</p>
 </div>
 
-<!-- Sueldoxdia Field -->
+<!-- Guardia Sueldo Dia Field -->
 <div class="col-sm-12">
-    {!! Form::label('sueldoxdia', 'Sueldoxdia:') !!}
-    <p>{{ $cliente->sueldoxdia }}</p>
+    {!! Form::label('guardia_sueldo_dia', 'Guardia Sueldo Dia:') !!}
+    <p>{{ $cliente->guardia_sueldo_dia }}</p>
 </div>
 
-<!-- Sueldoxmes Field -->
+<!-- Guardia Sueldo Mes Field -->
 <div class="col-sm-12">
-    {!! Form::label('sueldoxmes', 'Sueldoxmes:') !!}
-    <p>{{ $cliente->sueldoxmes }}</p>
+    {!! Form::label('guardia_sueldo_mes', 'Guardia Sueldo Mes:') !!}
+    <p>{{ $cliente->guardia_sueldo_mes }}</p>
 </div>
 
-<!-- Canino Field -->
+<!-- N Jefe Turno Field -->
 <div class="col-sm-12">
-    {!! Form::label('canino', 'Canino:') !!}
-    <p>{{ $cliente->canino }}</p>
+    {!! Form::label('n_jefe_turno', 'N Jefe Turno:') !!}
+    <p>{{ $cliente->n_jefe_turno }}</p>
+</div>
+
+<!-- Jefe Turno Sueldo Dia Field -->
+<div class="col-sm-12">
+    {!! Form::label('jefe_turno_sueldo_dia', 'Jefe Turno Sueldo Dia:') !!}
+    <p>{{ $cliente->jefe_turno_sueldo_dia }}</p>
+</div>
+
+<!-- Jefe Turno Sueldo Mes Field -->
+<div class="col-sm-12">
+    {!! Form::label('jefe_turno_sueldo_mes', 'Jefe Turno Sueldo Mes:') !!}
+    <p>{{ $cliente->jefe_turno_sueldo_mes }}</p>
+</div>
+
+<!-- N Jefe Servicio Field -->
+<div class="col-sm-12">
+    {!! Form::label('n_jefe_servicio', 'N Jefe Servicio:') !!}
+    <p>{{ $cliente->n_jefe_servicio }}</p>
+</div>
+
+<!-- Jefe Serv Sueldo Dia Field -->
+<div class="col-sm-12">
+    {!! Form::label('jefe_serv_sueldo_dia', 'Jefe Serv Sueldo Dia:') !!}
+    <p>{{ $cliente->jefe_serv_sueldo_dia }}</p>
+</div>
+
+<!-- Jefe Serv Sueldo Mes Field -->
+<div class="col-sm-12">
+    {!! Form::label('jefe_serv_sueldo_mes', 'Jefe Serv Sueldo Mes:') !!}
+    <p>{{ $cliente->jefe_serv_sueldo_mes }}</p>
+</div>
+
+<!-- N Monitorista Field -->
+<div class="col-sm-12">
+    {!! Form::label('n_monitorista', 'N Monitorista:') !!}
+    <p>{{ $cliente->n_monitorista }}</p>
+</div>
+
+<!-- Monitor Sueldoxdia Field -->
+<div class="col-sm-12">
+    {!! Form::label('monitor_sueldoxdia', 'Monitor Sueldoxdia:') !!}
+    <p>{{ $cliente->monitor_sueldoxdia }}</p>
+</div>
+
+<!-- Monitor Sueldoxmes Field -->
+<div class="col-sm-12">
+    {!! Form::label('monitor_sueldoxmes', 'Monitor Sueldoxmes:') !!}
+    <p>{{ $cliente->monitor_sueldoxmes }}</p>
+</div>
+
+<!-- N Canino Field -->
+<div class="col-sm-12">
+    {!! Form::label('n_canino', 'N Canino:') !!}
+    <p>{{ $cliente->n_canino }}</p>
 </div>
 
 <!-- Costocanino Field -->
 <div class="col-sm-12">
     {!! Form::label('costocanino', 'Costocanino:') !!}
     <p>{{ $cliente->costocanino }}</p>
-</div>
-
-<!-- Sueldoquincena Field -->
-<div class="col-sm-12">
-    {!! Form::label('sueldoquincena', 'Sueldoquincena:') !!}
-    <p>{{ $cliente->sueldoquincena }}</p>
 </div>
 
 <!-- Facturaxmes Field -->
@@ -58,46 +100,46 @@
     <p>{{ $cliente->iva }}</p>
 </div>
 
-<!-- Ivaretenido Field -->
+<!-- Iva Retenido Field -->
 <div class="col-sm-12">
-    {!! Form::label('ivaretenido', 'Ivaretenido:') !!}
-    <p>{{ $cliente->ivaretenido }}</p>
+    {!! Form::label('iva_retenido', 'Iva Retenido:') !!}
+    <p>{{ $cliente->iva_retenido }}</p>
 </div>
 
-<!-- Totalfactura Field -->
+<!-- Total Factura Field -->
 <div class="col-sm-12">
-    {!! Form::label('totalfactura', 'Totalfactura:') !!}
-    <p>{{ $cliente->totalfactura }}</p>
+    {!! Form::label('total_factura', 'Total Factura:') !!}
+    <p>{{ $cliente->total_factura }}</p>
 </div>
 
-<!-- Fechaemision Field -->
+<!-- Fecha Emision Field -->
 <div class="col-sm-12">
-    {!! Form::label('fechaemision', 'Fechaemision:') !!}
-    <p>{{ $cliente->fechaemision }}</p>
+    {!! Form::label('fecha_emision', 'Fecha Emision:') !!}
+    <p>{{ $cliente->fecha_emision }}</p>
 </div>
 
-<!-- Nombrecontacto1 Field -->
+<!-- Nombre Contacto1 Field -->
 <div class="col-sm-12">
-    {!! Form::label('nombrecontacto1', 'Nombrecontacto1:') !!}
-    <p>{{ $cliente->nombrecontacto1 }}</p>
+    {!! Form::label('nombre_contacto1', 'Nombre Contacto1:') !!}
+    <p>{{ $cliente->nombre_contacto1 }}</p>
 </div>
 
-<!-- Emailcontact1 Field -->
+<!-- Email Contact1 Field -->
 <div class="col-sm-12">
-    {!! Form::label('emailcontact1', 'Emailcontact1:') !!}
-    <p>{{ $cliente->emailcontact1 }}</p>
+    {!! Form::label('email_contact1', 'Email Contact1:') !!}
+    <p>{{ $cliente->email_contact1 }}</p>
 </div>
 
-<!-- Nombrecontacto2 Field -->
+<!-- Nombre Contacto2 Field -->
 <div class="col-sm-12">
-    {!! Form::label('nombrecontacto2', 'Nombrecontacto2:') !!}
-    <p>{{ $cliente->nombrecontacto2 }}</p>
+    {!! Form::label('nombre_contacto2', 'Nombre Contacto2:') !!}
+    <p>{{ $cliente->nombre_contacto2 }}</p>
 </div>
 
-<!-- Emailcontact2 Field -->
+<!-- Email Contact2 Field -->
 <div class="col-sm-12">
-    {!! Form::label('emailcontact2', 'Emailcontact2:') !!}
-    <p>{{ $cliente->emailcontact2 }}</p>
+    {!! Form::label('email_contact2', 'Email Contact2:') !!}
+    <p>{{ $cliente->email_contact2 }}</p>
 </div>
 
 <!-- Rfc Field -->

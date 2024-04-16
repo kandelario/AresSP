@@ -3,75 +3,71 @@
         <table class="table" id="clientes-table">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
-                <th>N° de Personal</th>
-                <th>Sueldo por dia</th>
-                <th>Sueldo por mes</th>
-                <th>¿Canino?</th>
-                <th>Costo canino</th>
-                <th>Sueldo por quincena</th>
-                <th>Factura por mes</th>
-                <th>IVA</th>
-                <th>IVA Retenido</th>
-                <th>Total a Factura</th>
-                <th>Fecha de Emisión</th>
-                <th>Nombre de Contacto 1</th>
-                <th>Email de Contacto 1</th>
-                <th>Nombre de Contacto 2</th>
-                <th>Email de Contacto 2</th>
-                <th>RFC</th>
+                <th>Nguardias</th>
+                <th>Guardia Sueldo Dia</th>
+                <th>Guardia Sueldo Mes</th>
+                <th>N Jefe Turno</th>
+                <th>Jefe Turno Sueldo Dia</th>
+                <th>Jefe Turno Sueldo Mes</th>
+                <th>N Jefe Servicio</th>
+                <th>Jefe Serv Sueldo Dia</th>
+                <th>Jefe Serv Sueldo Mes</th>
+                <th>N Monitorista</th>
+                <th>Monitor Sueldoxdia</th>
+                <th>Monitor Sueldoxmes</th>
+                <th>N Canino</th>
+                <th>Costocanino</th>
+                <th>Facturaxmes</th>
+                <th>Iva</th>
+                <th>Iva Retenido</th>
+                <th>Total Factura</th>
+                <th>Fecha Emision</th>
+                <th>Nombre Contacto1</th>
+                <th>Email Contact1</th>
+                <th>Nombre Contacto2</th>
+                <th>Email Contact2</th>
+                <th>Rfc</th>
                 <th>Vigencia</th>
                 <th>Observaciones</th>
-                <th>Constancia de SF</th>
-                <th>Activo</th>
-                <th>Tipo de Pago</th>
-                <th colspan="3">Acciones</th>
+                <th>Constancia Sf</th>
+                <th>Enable</th>
+                <th>Paymentid</th>
+                <th colspan="3">Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($clientes as $cliente)
                 <tr>
-                    <td>{{ $cliente->id }}</td>
                     <td>{{ $cliente->nombre }}</td>
-                    <td>{{ $cliente->personal }}</td>
-                    <td>{{ $cliente->sueldoxdia }}</td>
-                    <td>{{ $cliente->sueldoxmes }}</td>
-                    <td>
-                        @if($cliente->canino == 1)
-                            {{ "Si" }}
-                        @else
-                            {{ "No" }}
-                        @endif
-                    </td>
+                    <td>{{ $cliente->nGuardias }}</td>
+                    <td>{{ $cliente->guardia_sueldo_dia }}</td>
+                    <td>{{ $cliente->guardia_sueldo_mes }}</td>
+                    <td>{{ $cliente->n_jefe_turno }}</td>
+                    <td>{{ $cliente->jefe_turno_sueldo_dia }}</td>
+                    <td>{{ $cliente->jefe_turno_sueldo_mes }}</td>
+                    <td>{{ $cliente->n_jefe_servicio }}</td>
+                    <td>{{ $cliente->jefe_serv_sueldo_dia }}</td>
+                    <td>{{ $cliente->jefe_serv_sueldo_mes }}</td>
+                    <td>{{ $cliente->n_monitorista }}</td>
+                    <td>{{ $cliente->monitor_sueldoxdia }}</td>
+                    <td>{{ $cliente->monitor_sueldoxmes }}</td>
+                    <td>{{ $cliente->n_canino }}</td>
                     <td>{{ $cliente->costocanino }}</td>
-                    <td>{{ $cliente->sueldoquincena }}</td>
                     <td>{{ $cliente->facturaxmes }}</td>
                     <td>{{ $cliente->iva }}</td>
-                    <td>{{ $cliente->ivaretenido }}</td>
-                    <td>{{ $cliente->totalfactura }}</td>
-                    <td>{{ $cliente->fechaemision }}</td>
-                    <td>{{ $cliente->nombrecontacto1 }}</td>
-                    <td>{{ $cliente->emailcontact1 }}</td>
-                    <td>{{ $cliente->nombrecontacto2 }}</td>
-                    <td>{{ $cliente->emailcontact2 }}</td>
+                    <td>{{ $cliente->iva_retenido }}</td>
+                    <td>{{ $cliente->total_factura }}</td>
+                    <td>{{ $cliente->fecha_emision }}</td>
+                    <td>{{ $cliente->nombre_contacto1 }}</td>
+                    <td>{{ $cliente->email_contact1 }}</td>
+                    <td>{{ $cliente->nombre_contacto2 }}</td>
+                    <td>{{ $cliente->email_contact2 }}</td>
                     <td>{{ $cliente->rfc }}</td>
                     <td>{{ $cliente->vigencia }}</td>
                     <td>{{ $cliente->observaciones }}</td>
-                    <td>
-                        @if($cliente->constancia_sf != "")
-                            {{ "Si" }}
-                        @else
-                            {{ "No" }}
-                        @endif
-                    </td>
-                    <td>
-                        @if($cliente->enable == 1)
-                            {{ "Si" }}
-                        @else
-                            {{ "No" }}
-                        @endif
-                    </td>
+                    <td>{{ $cliente->constancia_sf }}</td>
+                    <td>{{ $cliente->enable }}</td>
                     <td>{{ $cliente->paymentID }}</td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}

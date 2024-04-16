@@ -1,128 +1,163 @@
-<!-- Personal Field -->
-<div class="row form-group col-sm-3">
-    {!! Form::label('nEmpleado', 'N° empleado:') !!}
-    {!! Form::number('nEmpleado', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Nombre Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('nombre', 'Nombre completo:') !!}
+<div class="form-group col-sm-6">
+    {!! Form::label('nombre', 'Nombre:') !!}
     {!! Form::text('nombre', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Apellido Paterno -->
-<div class="form-group col-sm-3">
-    {!! Form::label('aPaterno', 'Apellido paterno:') !!}
-    {!! Form::text('aPaterno', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+<!-- Rfc Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('rfc', 'RFC:') !!}
+    {!! Form::text('rfc', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Nombre Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('aMaterno', 'Apellido materno:') !!}
-    {!! Form::text('aMaterno', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+<!-- Nguardias Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('nGuardias', 'N° de Guardias:') !!}
+    {!! Form::number('nGuardias', 0, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Sueldoxdia Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('sueldoxdia', 'Sueldo por dia:') !!}
-    {!! Form::number('sueldoxdia', null, ['class' => 'form-control', 'required']) !!}
+<!-- Guardia Sueldo Dia Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('guardia_sueldo_dia', 'Sueldo Dia (Guardia):') !!}
+    {!! Form::number('guardia_sueldo_dia', 0, ['class' => 'form-control', 'required']) !!}
 </div>
 
-<!-- Sueldoxmes Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('sueldoxmes', 'Sueldo por mes:') !!}
-    {!! Form::number('sueldoxmes', null, ['class' => 'form-control', 'required']) !!}
+<!-- Guardia Sueldo Mes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('guardia_sueldo_mes', 'Sueldo Mes (Guardia):') !!}
+    {!! Form::number('guardia_sueldo_mes', 0, ['class' => 'form-control', 'required']) !!}
 </div>
 
-<!-- Canino Field -->
-<div class="form-group col-sm-3">
-    <div class="form-check">
-        {!! Form::hidden('canino', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('canino', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('canino', 'Canino', ['class' => 'form-check-label']) !!}
-    </div>
+<!-- N Jefe Turno Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('n_jefe_turno', 'Jefe Turno:') !!}
+    {!! Form::number('n_jefe_turno', 0, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Jefe Turno Sueldo Dia Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('jefe_turno_sueldo_dia', 'Sueldo Dia (Jefe Turno):') !!}
+    {!! Form::number('jefe_turno_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- Jefe Turno Sueldo Mes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('jefe_turno_sueldo_mes', 'Sueldo Mes (Jefe Turno):') !!}
+    {!! Form::number('jefe_turno_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- N Jefe Servicio Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
+    {!! Form::number('n_jefe_servicio', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Jefe Serv Sueldo Dia Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('jefe_serv_sueldo_dia', 'Sueldo Dia (Jefe de Servicio):') !!}
+    {!! Form::number('jefe_serv_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- Jefe Serv Sueldo Mes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('jefe_serv_sueldo_mes', 'Sueldo Mes (Jefe de Servicio):') !!}
+    {!! Form::number('jefe_serv_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- N Monitorista Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('n_monitorista', 'N° de Monitoristas:') !!}
+    {!! Form::number('n_monitorista', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Monitor Sueldoxdia Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('monitor_sueldoxdia', 'Sueldo por día (monitorista):') !!}
+    {!! Form::number('monitor_sueldoxdia', null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- Monitor Sueldoxmes Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('monitor_sueldoxmes', 'Sueldo por mes (monitorista):') !!}
+    {!! Form::number('monitor_sueldoxmes', null, ['class' => 'form-control', 'required']) !!}
+</div>
+
+<!-- N Canino Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('n_canino', 'N° de Caninos:') !!}
+    {!! Form::number('n_canino', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Costocanino Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('costocanino', 'Costo por unidad canino:') !!}
+<div class="form-group col-sm-6">
+    {!! Form::label('costocanino', 'Costo por canino:') !!}
     {!! Form::number('costocanino', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Sueldoquincena Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('sueldoquincena', 'Sueldo quincenal:') !!}
-    {!! Form::number('sueldoquincena', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Facturaxmes Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-6">
     {!! Form::label('facturaxmes', 'Factura por mes:') !!}
     {!! Form::number('facturaxmes', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Iva Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-6">
     {!! Form::label('iva', 'IVA:') !!}
     {!! Form::number('iva', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
-<!-- Ivaretenido Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('ivaretenido', 'IVA retenido:') !!}
-    {!! Form::number('ivaretenido', null, ['class' => 'form-control']) !!}
+<!-- Iva Retenido Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('iva_retenido', 'IVA Retenido:') !!}
+    {!! Form::number('iva_retenido', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Totalfactura Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('totalfactura', 'Total a facturar:') !!}
-    {!! Form::number('totalfactura', null, ['class' => 'form-control', 'required']) !!}
+<!-- Total Factura Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('total_factura', 'Total a Facturar:') !!}
+    {!! Form::number('total_factura', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
-<!-- Fechaemision Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('fechaemision', 'Fecha de emision:') !!}
-    {!! Form::date('fechaemision', null, ['class' => 'form-control','id'=>'fechaemision']) !!}
+<!-- Fecha Emision Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('fecha_emision', 'Fecha de Emisión:') !!}
+    {!! Form::date('fecha_emision', null, ['class' => 'form-control','id'=>'fecha_emision']) !!}
 </div>
 
 @push('page_scripts')
     <script type="text/javascript">
-        $('#fechaemision').datepicker()
+        $('#fecha_emision').datepicker()
     </script>
 @endpush
 
-<!-- Nombrecontacto1 Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('nombrecontacto1', 'Nombre de contacto 1:') !!}
-    {!! Form::text('nombrecontacto1', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
+<!-- Nombre Contacto1 Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('nombre_contacto1', 'Nombre Contacto 1:') !!}
+    {!! Form::text('nombre_contacto1', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Emailcontact1 Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('emailcontact1', 'Email de contacto 1:') !!}
-    {!! Form::text('emailcontact1', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
+<!-- Email Contact1 Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('email_contact1', 'Email Contacto 1:') !!}
+    {!! Form::text('email_contact1', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Nombrecontacto2 Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('nombrecontacto2', 'Nombre de contacto 2:') !!}
-    {!! Form::text('nombrecontacto2', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
+<!-- Nombre Contacto2 Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('nombre_contacto2', 'Nombre Contacto 2:') !!}
+    {!! Form::text('nombre_contacto2', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Emailcontact2 Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('emailcontact2', 'Email de contacto 2:') !!}
-    {!! Form::text('emailcontact2', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
+<!-- Email Contact2 Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('email_contact2', 'Email Contacto 2:') !!}
+    {!! Form::text('email_contact2', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
-<!-- Rfc Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('rfc', 'RFC:') !!}
-    {!! Form::text('rfc', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
-</div>
+
 
 <!-- Vigencia Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-6">
     {!! Form::label('vigencia', 'Vigencia:') !!}
     {!! Form::date('vigencia', null, ['class' => 'form-control','id'=>'vigencia']) !!}
 </div>
@@ -140,13 +175,13 @@
 </div>
 
 <!-- Constancia Sf Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('constancia_sf', 'Constancia de Situación fiscal:') !!}
+<div class="form-group col-sm-6">
+    {!! Form::label('constancia_sf', 'Constancia de Situación Fiscal:') !!}
     {!! Form::file('constancia_sf', ['class' => 'form-control file', 'accept' => 'application/pdf']) !!}
 </div>
 
 <!-- Paymentid Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('paymentID', 'Tipo de pago:') !!}
+<div class="form-group col-sm-6">
+    {!! Form::label('paymentID', 'Paymentid:') !!}
     {!! Form::number('paymentID', null, ['class' => 'form-control', 'required']) !!}
 </div>

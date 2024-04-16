@@ -1,15 +1,15 @@
 [
     {
         "name": "id",
-        "dbType": "bigInteger,false,true",
+        "dbType": "bigInteger,true,true",
         "htmlType": "number",
         "validations": "",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
     },
     {
         "name": "nombre",
@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "personal",
+        "name": "nGuardias",
         "dbType": "integer,false",
         "htmlType": "number",
         "validations": "nullable|nullable",
@@ -36,7 +36,7 @@
         "inView": true
     },
     {
-        "name": "sueldoxdia",
+        "name": "guardia_sueldo_dia",
         "dbType": "float",
         "htmlType": "number",
         "validations": "required|numeric|numeric",
@@ -48,7 +48,7 @@
         "inView": true
     },
     {
-        "name": "sueldoxmes",
+        "name": "guardia_sueldo_mes",
         "dbType": "float",
         "htmlType": "number",
         "validations": "required|numeric|numeric",
@@ -60,10 +60,118 @@
         "inView": true
     },
     {
-        "name": "canino",
-        "dbType": "boolean",
-        "htmlType": "checkbox",
-        "validations": "required|boolean|boolean",
+        "name": "n_jefe_turno",
+        "dbType": "integer,false",
+        "htmlType": "number",
+        "validations": "nullable|nullable",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "jefe_turno_sueldo_dia",
+        "dbType": "float",
+        "htmlType": "number",
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "jefe_turno_sueldo_mes",
+        "dbType": "float",
+        "htmlType": "number",
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "n_jefe_servicio",
+        "dbType": "integer,false",
+        "htmlType": "number",
+        "validations": "nullable|nullable",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "jefe_serv_sueldo_dia",
+        "dbType": "float",
+        "htmlType": "number",
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "jefe_serv_sueldo_mes",
+        "dbType": "float",
+        "htmlType": "number",
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "n_monitorista",
+        "dbType": "integer,false",
+        "htmlType": "number",
+        "validations": "nullable|nullable",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "monitor_sueldoxdia",
+        "dbType": "float",
+        "htmlType": "number",
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "monitor_sueldoxmes",
+        "dbType": "float",
+        "htmlType": "number",
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "n_canino",
+        "dbType": "integer,false",
+        "htmlType": "number",
+        "validations": "nullable|nullable",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -73,18 +181,6 @@
     },
     {
         "name": "costocanino",
-        "dbType": "float",
-        "htmlType": "number",
-        "validations": "nullable|numeric|nullable|numeric",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "sueldoquincena",
         "dbType": "float",
         "htmlType": "number",
         "validations": "nullable|numeric|nullable|numeric",
@@ -120,7 +216,7 @@
         "inView": true
     },
     {
-        "name": "ivaretenido",
+        "name": "iva_retenido",
         "dbType": "float",
         "htmlType": "number",
         "validations": "nullable|numeric|nullable|numeric",
@@ -132,7 +228,7 @@
         "inView": true
     },
     {
-        "name": "totalfactura",
+        "name": "total_factura",
         "dbType": "float",
         "htmlType": "number",
         "validations": "required|numeric|numeric",
@@ -144,7 +240,7 @@
         "inView": true
     },
     {
-        "name": "fechaemision",
+        "name": "fecha_emision",
         "dbType": "date",
         "htmlType": "date",
         "validations": "nullable|nullable",
@@ -156,7 +252,7 @@
         "inView": true
     },
     {
-        "name": "nombrecontacto1",
+        "name": "nombre_contacto1",
         "dbType": "string",
         "htmlType": "text",
         "validations": "nullable|string|max:255|nullable|string|max:255",
@@ -168,7 +264,7 @@
         "inView": true
     },
     {
-        "name": "emailcontact1",
+        "name": "email_contact1",
         "dbType": "string",
         "htmlType": "text",
         "validations": "nullable|string|max:255|nullable|string|max:255",
@@ -180,7 +276,7 @@
         "inView": true
     },
     {
-        "name": "nombrecontacto2",
+        "name": "nombre_contacto2",
         "dbType": "string",
         "htmlType": "text",
         "validations": "nullable|string|max:255|nullable|string|max:255",
@@ -192,7 +288,7 @@
         "inView": true
     },
     {
-        "name": "emailcontact2",
+        "name": "email_contact2",
         "dbType": "string",
         "htmlType": "text",
         "validations": "nullable|string|max:255|nullable|string|max:255",
@@ -302,5 +398,9 @@
     {
         "type": "relation",
         "relation": "mt1,PaymentType,paymentID"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Assignment,cliente_id"
     }
 ]
