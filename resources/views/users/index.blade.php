@@ -1,5 +1,6 @@
 @extends('adminlte::page')
-{{-- @extends('layouts.app') --}}
+
+
 
 @section('content')
     <section class="content-header">
