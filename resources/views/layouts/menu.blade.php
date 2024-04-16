@@ -40,3 +40,17 @@
         <p>Personals</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('operations.index') }}" class="nav-link {{ Request::is('operations*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Operations</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('assignments.index') }}" class="nav-link {{ Request::is('assignments*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Assignments</p>
+    </a>
+</li>

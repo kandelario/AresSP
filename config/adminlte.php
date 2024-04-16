@@ -390,7 +390,7 @@ return [
                 [
                 'text'       => 'Asignar a Cliente',
                 'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => '#',
+                'url'        => 'admin/assignments',
                 ],
                 [
                 'text'       => 'Horarios',

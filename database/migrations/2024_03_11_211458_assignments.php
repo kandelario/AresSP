@@ -14,18 +14,18 @@ return new class extends Migration
     {
         $this->down();
 
-        Schema::create('operation', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('assignments', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('name');
             $table->date("fecha_inicio_serv");
-            $table->unsignedBigInteger('cliente_id');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
+        });
 
-            
+        Schema::table('assignments', function (Blueprint $table) {
+            $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes')->onUpdate('cascade');
-            // $table->foreignId('clientes_id')->index()->constrained()->cascadeOnUpdate();
         });
     }
 
