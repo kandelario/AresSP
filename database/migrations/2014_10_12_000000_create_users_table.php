@@ -27,6 +27,7 @@ return new class extends Migration
 
         DB::table('users')->insert([
             [ 'name' => 'Kande Pacheco', 'email' => 'cande.pacheco@gmail.com', 'password' => bcrypt('Stark4ever@$'), 'image' => 'user_image_1.jpg'],
+            [ 'name' => 'Alain Orozco Castilla', 'email' => 'alain@agenciaares.com', 'password' => bcrypt('Ares2024')],
         ]);
     }
 

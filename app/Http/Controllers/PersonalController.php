@@ -7,8 +7,7 @@ use App\Http\Requests\UpdatePersonalRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\PersonalRepository;
 use Illuminate\Http\Request;
-use Laracasts\Flash\Flash;
-// use Flash;
+use Flash;
 
 class PersonalController extends AppBaseController
 {
