@@ -323,7 +323,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => 'admin/users',
+            'url'  => 'admin/usuarios',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
@@ -385,12 +385,12 @@ return [
                 [
                 'text'       => 'Mostrar',
                 'icon' => 'fas fa-fw fa-list ml-3',
-                'url'        => 'admin/personals',
+                'url'        => 'admin/personal',
                 ],
                 [
                 'text'       => 'Asignar a Cliente',
                 'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => 'admin/assignments',
+                'url'        => 'admin/asignaciones',
                 ],
                 [
                 'text'       => 'Horarios',

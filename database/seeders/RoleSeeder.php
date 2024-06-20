@@ -15,8 +15,9 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $role1 = Role::create(['name' => 'Admin']);
-        $role2 = Role::create(['name' => 'User']);
+        $role1 = Role::create(['name' => 'Superadmin']);
+        $role2 = Role::create(['name' => 'Admin']);
+        $role3 = Role::create(['name' => 'User']);
 
         Permission::create(['name' => 'admin.index']);//regresa la vista index dentro de la carpeta admin.
     }

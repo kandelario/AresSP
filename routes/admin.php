@@ -11,18 +11,18 @@ use App\Http\Controllers\AssignmentController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
-route::get('admin', [AdminController::class, 'index'])->middleware('auth');
+route::get('admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
 
-Route::resource('users', UserController::class)->middleware('auth');
+Route::resource('users', UserController::class)->names('admin.usuarios')->middleware('auth');
 
-Route::resource('inventarios', InventarioController::class)->middleware('auth');
+Route::resource('inventarios', InventarioController::class)->names('admin.inventarios')->middleware('auth');
 
-Route::resource('tipos-de-pago', PaymentTypeController::class)->middleware('auth');
+Route::resource('tipos-de-pago', PaymentTypeController::class)->names('admin.tiopos_pagos')->middleware('auth');
 
-Route::resource('clientes', ClienteController::class)->middleware('auth');
+Route::resource('clientes', ClienteController::class)->names('admin.clientes')->middleware('auth');
 
-Route::resource('personals', PersonalController::class)->middleware('auth');
+Route::resource('personals', PersonalController::class)->names('admin.personal')->middleware('auth');
 
-Route::resource('assignments', AssignmentController::class)->middleware('auth');
+Route::resource('assignments', AssignmentController::class)->names('admin.asignaciones')->middleware('auth');
 
 Auth::routes();
