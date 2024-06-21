@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 route::get('admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
 
-Route::resource('users', UserController::class)->names('admin.usuarios')->middleware('auth');
+Route::resource('users', UserController::class)->names('admin.users')->middleware('auth');
 
 Route::resource('inventarios', InventarioController::class)->names('admin.inventarios')->middleware('auth');
 
