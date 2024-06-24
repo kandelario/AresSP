@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/admin/dashboard',
+    'dashboard_url' => '/home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -323,7 +323,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => 'user',
+            'url'  => 'admin/users',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
@@ -347,7 +347,7 @@ return [
         ],[
             'text' => 'Inventario',
             'icon' => 'fas fa-fw fa-vest text-warning',
-            'url' => 'inventarios',
+            'url' => 'admin/inventarios',
         ],
         // [
         //     'text' => 'Tipos de Pago',
