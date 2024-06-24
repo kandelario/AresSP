@@ -14,12 +14,12 @@ Route::resource('/users', UserController::class)->names('users')->middleware('au
 
 Route::resource('/inventarios', InventarioController::class)->names('inventarios')->middleware('auth');
 
-// Route::resource('tipos-de-pago', PaymentTypeController::class)->names('tipos_pagos')->middleware('auth');
+Route::resource('/personals', PersonalController::class)->names('personals')->middleware('auth');
 
-// Route::resource('clientes', ClienteController::class)->names('clientes')->middleware('auth');
+Route::resource('/tipos-de-pago', PaymentTypeController::class)->names('tipos_pagos')->middleware('auth');
 
-// Route::resource('personals', PersonalController::class)->names('personal')->middleware('auth');
+Route::resource('/clientes', ClienteController::class)->names('clientes')->middleware('auth');
 
-// Route::resource('assignments', AssignmentController::class)->names('asignaciones')->middleware('auth');
+Route::resource('/assignments', AssignmentController::class)->names('assignments')->middleware('auth');
 
-// Auth::routes();
+//Auth::routes();

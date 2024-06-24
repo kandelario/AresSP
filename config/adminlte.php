@@ -385,12 +385,12 @@ return [
                 [
                 'text'       => 'Mostrar',
                 'icon' => 'fas fa-fw fa-list ml-3',
-                'url'        => 'personal',
+                'url'        => 'admin/personals',
                 ],
                 [
                 'text'       => 'Asignar a Cliente',
                 'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => 'asignaciones',
+                'url'        => 'admin/assignments',
                 ],
                 [
                 'text'       => 'Horarios',
@@ -402,7 +402,7 @@ return [
         [
             'text'       => 'Clientes',
             'icon' => 'fas fa-fw fa-address-book text-warning',
-            'url'        => 'clientes',
+            'url'        => 'admin/clientes',
             // 'submenu' => [
             //     [
             //     'text'       => 'Listar',
