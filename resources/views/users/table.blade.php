@@ -7,7 +7,7 @@
 
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="users-table">
+        <table class="table" id="user-table">
             <thead>
             <tr>
                 <th>Nombre de usuario</th>
@@ -64,7 +64,7 @@
 <script src="https://cdn.datatables.net/responsive/3.0.1/js/dataTables.responsive.js"></script>
 <script src="https://cdn.datatables.net/responsive/3.0.1/js/responsive.bootstrap4.js"></script>
 <script>
-    $('#users-table').DataTable( {
+    $('#user-table').DataTable( {
         responsive: true
     } );
 </script>

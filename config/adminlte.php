@@ -323,7 +323,7 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => 'admin/users',
+            'url'  => 'user',
             // 'submenu' => [
             //     [
             //         'text' => 'Nuevo',
@@ -347,7 +347,7 @@ return [
         ],[
             'text' => 'Inventario',
             'icon' => 'fas fa-fw fa-vest text-warning',
-            'url' => 'admin/inventarios',
+            'url' => 'inventarios',
         ],
         // [
         //     'text' => 'Tipos de Pago',
@@ -385,12 +385,12 @@ return [
                 [
                 'text'       => 'Mostrar',
                 'icon' => 'fas fa-fw fa-list ml-3',
-                'url'        => 'admin/personal',
+                'url'        => 'personal',
                 ],
                 [
                 'text'       => 'Asignar a Cliente',
                 'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => 'admin/asignaciones',
+                'url'        => 'asignaciones',
                 ],
                 [
                 'text'       => 'Horarios',
@@ -402,7 +402,7 @@ return [
         [
             'text'       => 'Clientes',
             'icon' => 'fas fa-fw fa-address-book text-warning',
-            'url'        => 'admin/clientes',
+            'url'        => 'clientes',
             // 'submenu' => [
             //     [
             //     'text'       => 'Listar',
