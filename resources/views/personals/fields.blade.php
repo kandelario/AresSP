@@ -1,13 +1,13 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Nombre Completo:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    {!! Form::text('name', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
 <!-- Domicilio Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('domicilio', 'Domicilio:') !!}
-    {!! Form::text('domicilio', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    {!! Form::text('domicilio', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
 <!-- Telefonos Field -->
@@ -181,9 +181,9 @@
 <!-- Recomendación Doc Field -->
 <div class="form-group col-sm-4">
     <div class="form-check">
-        {!! Form::hidden('recomendación_doc', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('recomendación_doc', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('recomendación_doc', 'Recomendación Doc.', ['class' => 'form-check-label']) !!}
+        {!! Form::hidden('recomendacion_doc', 0, ['class' => 'form-check-input']) !!}
+        {!! Form::checkbox('recomendacion_doc', '1', null, ['class' => 'form-check-input']) !!}
+        {!! Form::label('recomendacion_doc', 'Recomendación Doc.', ['class' => 'form-check-label']) !!}
     </div>
 </div>
 
@@ -236,7 +236,7 @@
     <!-- Curp Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('curp', 'CURP:') !!}
-        {!! Form::text('curp', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        {!! Form::text('curp', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 
     <!-- Recomendaciones Field -->
@@ -248,13 +248,13 @@
     <!-- Rfc Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('rfc', 'RFC:') !!}
-        {!! Form::text('rfc', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        {!! Form::text('rfc', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 
     <!-- Nss Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('nss', 'NSS:') !!}
-        {!! Form::text('nss', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        {!! Form::text('nss', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 </div>
 

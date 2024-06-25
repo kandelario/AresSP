@@ -41,7 +41,7 @@ return new class extends Migration
             $table->boolean('comprobante_domicilio')->default(false);
             $table->boolean('comprobante_estudios')->default(false);
             $table->integer('recomendaciones')->default(0);
-            $table->boolean('recomendación_doc')->default(false);
+            $table->boolean('recomendacion_doc')->default(false);
             $table->boolean('certificado_medico')->default(false);
             $table->boolean('antecedentes_no_penales')->default(false);
             $table->boolean('cartilla')->default(false);

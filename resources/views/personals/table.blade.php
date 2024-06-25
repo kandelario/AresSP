@@ -34,45 +34,171 @@
                 <th>Certificado Medico</th>
                 <th>Antecedentes No Penales</th>
                 <th>Cartilla</th>
-                <th>Enable</th>
+                <th>Estatus</th>
                 <th colspan="3">Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($personals as $personal)
                 <tr>
-                    <td>{{ $personal->name }}</td>
-                    <td>{{ $personal->domicilio }}</td>
-                    <td>{{ $personal->telefonos }}</td>
-                    <td>{{ $personal->telefono_contacto }}</td>
-                    <td>{{ $personal->email }}</td>
-                    <td>{{ $personal->fecha_cumple }}</td>
-                    <td>{{ $personal->fecha_inicio_serv }}</td>
-                    <td>{{ $personal->solicitud }}</td>
-                    <td>{{ $personal->check_list_ingreso }}</td>
-                    <td>{{ $personal->carta_compromiso }}</td>
-                    <td>{{ $personal->resguardo }}</td>
-                    <td>{{ $personal->contrato }}</td>
-                    <td>{{ $personal->retencion }}</td>
-                    <td>{{ $personal->renuncia }}</td>
-                    <td>{{ $personal->actas_administrativas }}</td>
-                    <td>{{ $personal->honorarios }}</td>
-                    <td>{{ $personal->identificacion_oficial }}</td>
-                    <td>{{ $personal->acta_nacimiento }}</td>
-                    <td>{{ $personal->curp }}</td>
-                    <td>{{ $personal->curp_doc }}</td>
-                    <td>{{ $personal->rfc }}</td>
-                    <td>{{ $personal->rfc_doc }}</td>
-                    <td>{{ $personal->nss }}</td>
-                    <td>{{ $personal->nss_doc }}</td>
-                    <td>{{ $personal->comprobante_domicilio }}</td>
-                    <td>{{ $personal->comprobante_estudios }}</td>
-                    <td>{{ $personal->recomendaciones }}</td>
-                    <td>{{ $personal->recomendación_doc }}</td>
-                    <td>{{ $personal->certificado_medico }}</td>
-                    <td>{{ $personal->antecedentes_no_penales }}</td>
-                    <td>{{ $personal->cartilla }}</td>
-                    <td>{{ $personal->enable }}</td>
+                    <td class="text-uppercase">{{ $personal->name }}</td>
+                    <td class="text-uppercase">{{ $personal->domicilio }}</td>
+                    <td class="text-uppercase">{{ $personal->telefonos }}</td>
+                    <td class="text-uppercase">{{ $personal->telefono_contacto }}</td>
+                    <td class="text-uppercase">{{ $personal->email }}</td>
+                    <td class="text-uppercase">{{ $personal->fecha_cumple }}</td>
+                    <td class="text-uppercase">{{ $personal->fecha_inicio_serv }}</td>
+
+                    <td class="text-uppercase text-center">
+                        {{-- {{ $personal->solicitud }} --}}
+                        @if ($personal->solicitud == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->check_list_ingreso == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->carta_compromiso == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->resguardo == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->contrato == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->retencion == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->renuncia == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->actas_administrativas == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->honorarios == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->identificacion_oficial == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->acta_nacimiento == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase">{{ $personal->curp }}</td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->curp_doc == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase">{{ $personal->rfc }}</td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->rfc_doc == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase">{{ $personal->nss }}</td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->nss_doc == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->comprobante_domicilio == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->comprobante_estudios == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">{{ $personal->recomendaciones }}</td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->recomendación_doc == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->certificado_medico == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->antecedentes_no_penales == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td class="text-uppercase text-center">
+                        @if ($personal->cartilla == 1)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                    @if ($personal->enable == 1)
+                        <td class="text-uppercase text-center text-success">Activo</td>
+                    @elseif($personal->enable == 0)
+                        <td class="text-uppercase text-center text-danger">Inactivo</td>
+                    @endif
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['personals.destroy', $personal->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
