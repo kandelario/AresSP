@@ -7,7 +7,10 @@ use App\Http\Requests\UpdateClienteRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\ClienteRepository;
 use Illuminate\Http\Request;
-use Flash;
+//use Flash;
+use Laracasts\Flash\Flash;
+
+use App\Models\PaymentType;
 
 class ClienteController extends AppBaseController
 {
@@ -35,7 +38,8 @@ class ClienteController extends AppBaseController
      */
     public function create()
     {
-        return view('clientes.create');
+        $payment_types = PaymentType::all();
+        return view('clientes.create', compact('payment_types'));
     }
 
     /**

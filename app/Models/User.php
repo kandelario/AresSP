@@ -25,6 +25,8 @@ class User extends Authenticatable
         'email',
         'email_verified_at',
         'password',
+        'image',
+        //'enable',
     ];
 
     /**
@@ -42,6 +44,7 @@ class User extends Authenticatable
         'email' => 'string',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'image' => 'string',
     ];
 
     public static array $rules = array(

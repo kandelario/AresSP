@@ -10,6 +10,7 @@ class Cliente extends Model
 
     public $fillable = [
         'nombre',
+        'razon_social',
         'nGuardias',
         'guardia_sueldo_dia',
         'guardia_sueldo_mes',
@@ -43,6 +44,7 @@ class Cliente extends Model
 
     protected $casts = [
         'nombre' => 'string',
+        'razon_social' => 'string',
         'guardia_sueldo_dia' => 'float',
         'guardia_sueldo_mes' => 'float',
         'jefe_turno_sueldo_dia' => 'float',
@@ -70,18 +72,19 @@ class Cliente extends Model
 
     public static array $rules = [
         'nombre' => 'required|string|max:255',
+        'razon_social' => 'required|string|max:255',
         'nGuardias' => 'nullable',
         'guardia_sueldo_dia' => 'required|numeric',
         'guardia_sueldo_mes' => 'required|numeric',
         'n_jefe_turno' => 'nullable',
-        'jefe_turno_sueldo_dia' => 'required|numeric',
-        'jefe_turno_sueldo_mes' => 'required|numeric',
+        'jefe_turno_sueldo_dia' => 'numeric',
+        'jefe_turno_sueldo_mes' => 'numeric',
         'n_jefe_servicio' => 'nullable',
-        'jefe_serv_sueldo_dia' => 'required|numeric',
-        'jefe_serv_sueldo_mes' => 'required|numeric',
+        'jefe_serv_sueldo_dia' => 'numeric',
+        'jefe_serv_sueldo_mes' => 'numeric',
         'n_monitorista' => 'nullable',
-        'monitor_sueldoxdia' => 'required|numeric',
-        'monitor_sueldoxmes' => 'required|numeric',
+        'monitor_sueldoxdia' => 'numeric',
+        'monitor_sueldoxmes' => 'numeric',
         'n_canino' => 'nullable',
         'costocanino' => 'nullable|numeric',
         'facturaxmes' => 'nullable|numeric',
@@ -99,7 +102,7 @@ class Cliente extends Model
         'constancia_sf' => 'nullable|string|max:255',
         'created_at' => 'required',
         'updated_at' => 'required',
-        'enable' => 'required|boolean',
+        'enable' => 'boolean',
         'paymentID' => 'required'
     ];
 

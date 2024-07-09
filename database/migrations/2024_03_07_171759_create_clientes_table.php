@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('nombre');
+            $table->string('razon_social');
             //$table->integer('personal')->nullable();//número de personas requeridas
             $table->integer('nGuardias')->nullable();//número de personas requeridas Guardias
             $table->float('guardia_sueldo_dia', 8, 2);//sueldo por día de un guardia
