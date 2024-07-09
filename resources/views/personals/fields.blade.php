@@ -30,17 +30,17 @@
 
 <!-- Fecha Cumple Field -->
 <div class="form-group col-sm-6">
-    @php
+    {{-- @php
         $str = $personal->fecha_cumple;
         $var = str_replace("00:00:00", "", $str);
         $personal->fecha_cumple = $var;
-    @endphp
+    @endphp --}}
         
     {!! Form::label('fecha_cumple', 'Fecha de Cumpleaños:') !!}
     {!! Form::text('fecha_cumple', null, ['class' => 'form-control']) !!}
-    {{
+    {{-- {{
         $personal->fecha_cumple
-    }}
+    }} --}}
 </div>
 
 @push('page_scripts')
