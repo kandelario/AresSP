@@ -11,74 +11,74 @@
 </div>
 
 <!-- Nguardias Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('nGuardias', 'N° de Guardias:') !!}
     {!! Form::number('nGuardias', 0, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Guardia Sueldo Dia Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('guardia_sueldo_dia', 'Sueldo Dia (Guardia):') !!}
     {!! Form::number('guardia_sueldo_dia', 0, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Guardia Sueldo Mes Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('guardia_sueldo_mes', 'Sueldo Mes (Guardia):') !!}
     {!! Form::number('guardia_sueldo_mes', 0, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- N Jefe Turno Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('n_jefe_turno', 'Jefe Turno:') !!}
     {!! Form::number('n_jefe_turno', 0, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Jefe Turno Sueldo Dia Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('jefe_turno_sueldo_dia', 'Sueldo Dia (Jefe Turno):') !!}
     {!! Form::number('jefe_turno_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Jefe Turno Sueldo Mes Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('jefe_turno_sueldo_mes', 'Sueldo Mes (Jefe Turno):') !!}
     {!! Form::number('jefe_turno_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- N Jefe Servicio Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
     {!! Form::number('n_jefe_servicio', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Jefe Serv Sueldo Dia Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('jefe_serv_sueldo_dia', 'Sueldo Dia (Jefe de Servicio):') !!}
     {!! Form::number('jefe_serv_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Jefe Serv Sueldo Mes Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('jefe_serv_sueldo_mes', 'Sueldo Mes (Jefe de Servicio):') !!}
     {!! Form::number('jefe_serv_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- N Monitorista Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('n_monitorista', 'N° de Monitoristas:') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('n_monitorista', 'Personal extra (otros):') !!}
     {!! Form::number('n_monitorista', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Monitor Sueldoxdia Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('monitor_sueldoxdia', 'Sueldo por día (monitorista):') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('monitor_sueldoxdia', 'Sueldo por día (otros):') !!}
     {!! Form::number('monitor_sueldoxdia', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Monitor Sueldoxmes Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('monitor_sueldoxmes', 'Sueldo por mes (monitorista):') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('monitor_sueldoxmes', 'Sueldo por mes (otros):') !!}
     {!! Form::number('monitor_sueldoxmes', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
@@ -95,25 +95,25 @@
 </div>
 
 <!-- Facturaxmes Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('facturaxmes', 'Factura por mes:') !!}
     {!! Form::number('facturaxmes', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Iva Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('iva', 'IVA:') !!}
     {!! Form::number('iva', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Iva Retenido Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('iva_retenido', 'IVA Retenido:') !!}
     {!! Form::number('iva_retenido', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Total Factura Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('total_factura', 'Total a Facturar:') !!}
     {!! Form::number('total_factura', null, ['class' => 'form-control', 'required']) !!}
 </div>
@@ -129,6 +129,8 @@
         $('#fecha_emision').datepicker()
     </script>
 @endpush
+
+<div class="form-group col-sm-6"></div>
 
 <!-- Nombre Contacto1 Field -->
 <div class="form-group col-sm-6">

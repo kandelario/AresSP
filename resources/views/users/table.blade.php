@@ -5,6 +5,9 @@
 <style type="text/css" href="https://cdn.datatables.net/responsive/3.0.1/css/responsive.bootstrap4.css"></style>
 @stop --}}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+
 <div class="card-body p-0">
     <div class="table-responsive">
         <table class="table" id="user-table">
@@ -69,3 +72,11 @@
     } );
 </script>
 @stop --}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.js') }}"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+<script>
+    new DataTable('#user-table');
+</script>
