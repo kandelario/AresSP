@@ -7,7 +7,9 @@ use App\Http\Requests\UpdateAssignmentRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\AssignmentRepository;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
+
+use App\Models\Cliente;
 
 class AssignmentController extends AppBaseController
 {
@@ -35,7 +37,8 @@ class AssignmentController extends AppBaseController
      */
     public function create()
     {
-        return view('assignments.create');
+        $clientes = cliente::all();
+        return view('assignments.create', compact('clientes'));
     }
 
     /**

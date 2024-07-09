@@ -27,6 +27,17 @@
 
 <!-- Cliente Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('cliente_id', 'Cliente Id:') !!}
-    {!! Form::number('cliente_id', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('cliente_id', 'Clientes:') !!}
+    {{-- {!! Form::number('cliente_id', null, ['class' => 'form-control', 'required']) !!} --}}
+    <select name="cliente_id" id="cliente_id" class="form-control">
+        @if (!isset($clientes))
+            @foreach ($clientes as $cliente)
+                <option value="{{$cliente['id']}}">{{$cliente['nombre']}}</option>
+            @endforeach
+        @else
+            <option value="">No existen clientes</option>
+        @endif
+        
+    </select>
+
 </div>
