@@ -35,7 +35,7 @@ class PersonalRepository extends BaseRepository
         'comprobante_domicilio',
         'comprobante_estudios',
         'recomendaciones',
-        'recomendación_doc',
+        'recomendacion_doc',
         'certificado_medico',
         'antecedentes_no_penales',
         'cartilla',

@@ -7,7 +7,7 @@ use App\Http\Requests\UpdatePersonalRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\PersonalRepository;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 
 class PersonalController extends AppBaseController
 {
@@ -76,7 +76,7 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('No se encontró al personal Personal');
 
             return redirect(route('personals.index'));
         }
@@ -92,14 +92,21 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Personal no encontrado');
 
             return redirect(route('personals.index'));
         }
 
+        // if($request->fecha_cumple == ''){
+        //     $request->fecha_cumple = $personal->fecha_cumple;
+        // }
+        // if($request->fecha_inicio_serv == ''){
+        //     $request->fecha_inicio_serv = $personal->fecha_inicio_serv;
+        // }
+
         $personal = $this->personalRepository->update($request->all(), $id);
 
-        Flash::success('Personal updated successfully.');
+        Flash::success('Personal actualizado correctamente.');
 
         return redirect(route('personals.index'));
     }
@@ -114,7 +121,7 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Personal no encontrado');
 
             return redirect(route('personals.index'));
         }

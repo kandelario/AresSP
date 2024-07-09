@@ -70,6 +70,7 @@ class Personal extends Model
         'nss_doc' => 'boolean',
         'comprobante_domicilio' => 'boolean',
         'comprobante_estudios' => 'boolean',
+        'recomendaciones' => 'integer',
         'recomendación_doc' => 'boolean',
         'certificado_medico' => 'boolean',
         'antecedentes_no_penales' => 'boolean',
@@ -104,14 +105,14 @@ class Personal extends Model
         'nss_doc' => 'required|boolean',
         'comprobante_domicilio' => 'required|boolean',
         'comprobante_estudios' => 'required|boolean',
-        // 'recomendaciones' => 'required',
-        'recomendación_doc' => 'boolean',
+        'recomendaciones' => 'required|numeric',
+        'recomendacion_doc' => 'boolean',
         'certificado_medico' => 'boolean',
         'antecedentes_no_penales' => 'required|boolean',
         'cartilla' => 'boolean',
         // 'created_at' => 'required',
         // 'updated_at' => 'required',
-        // 'enable' => 'boolean'
+        'enable' => 'boolean'
     ];
 
     

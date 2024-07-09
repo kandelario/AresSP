@@ -1,6 +1,9 @@
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" /> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="personals-table">
+        <table class="display table table-striped text-center" id="myTable">
             <thead>
             <tr>
                 <th>Name</th>
@@ -35,7 +38,7 @@
                 <th>Antecedentes No Penales</th>
                 <th>Cartilla</th>
                 <th>Estatus</th>
-                <th colspan="3">Action</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -167,7 +170,7 @@
                     </td>
                     <td class="text-uppercase text-center">{{ $personal->recomendaciones }}</td>
                     <td class="text-uppercase text-center">
-                        @if ($personal->recomendación_doc == 1)
+                        @if ($personal->recomendacion_doc == 1)
                             Si
                         @else
                             No
@@ -194,18 +197,20 @@
                             No
                         @endif
                     </td>
-                    @if ($personal->enable == 1)
-                        <td class="text-uppercase text-center text-success">Activo</td>
-                    @elseif($personal->enable == 0)
-                        <td class="text-uppercase text-center text-danger">Inactivo</td>
-                    @endif
+                    <td class="text-uppercase text-center text-success">
+                        @if ($personal->enable == 1)
+                            <span class="text-success">Activo</span>
+                        @elseif($personal->enable == 0)
+                            <span class="text-danger">Inactivo</span>
+                        @endif
+                    </td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['personals.destroy', $personal->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('personals.show', [$personal->id]) }}"
+                            {{-- <a href="{{ route('personals.show', [$personal->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
-                            </a>
+                            </a> --}}
                             <a href="{{ route('personals.edit', [$personal->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
@@ -226,3 +231,14 @@
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> --}}
+<script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
+{{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script> --}}
+<script src="{{ asset('/assets/js/dataTables.js') }}"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+<script>
+    new DataTable('#myTable');
+</script>
