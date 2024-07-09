@@ -13,25 +13,25 @@
 <!-- Nguardias Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('nGuardias', 'N° de Guardias:') !!}
-    {!! Form::number('nGuardias', 0, ['class' => 'form-control']) !!}
+    {!! Form::number('nGuardias', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Guardia Sueldo Dia Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('guardia_sueldo_dia', 'Sueldo Dia (Guardia):') !!}
-    {!! Form::number('guardia_sueldo_dia', 0, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('guardia_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Guardia Sueldo Mes Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('guardia_sueldo_mes', 'Sueldo Mes (Guardia):') !!}
-    {!! Form::number('guardia_sueldo_mes', 0, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('guardia_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- N Jefe Turno Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('n_jefe_turno', 'Jefe Turno:') !!}
-    {!! Form::number('n_jefe_turno', 0, ['class' => 'form-control']) !!}
+    {!! Form::number('n_jefe_turno', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Jefe Turno Sueldo Dia Field -->
