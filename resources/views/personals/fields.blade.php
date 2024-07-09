@@ -53,9 +53,9 @@
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_inicio_serv', 'Fecha de Inicio de Servicio:') !!}
     {!! Form::date('fecha_inicio_serv', null, ['class' => 'form-control']) !!}
-    {{
+    {{-- {{
         $personal->fecha_inicio_serv
-    }}
+    }} --}}
 </div>
 
 @push('page_scripts')
