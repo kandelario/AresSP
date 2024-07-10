@@ -1,11 +1,14 @@
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" /> --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+<link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
+<link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="display table table-striped text-center" id="myTable">
+        <table class="display nowrap table table-striped text-center" id="myTable">
             <thead>
             <tr>
+                <th>N. Empleado</th>
                 <th>Name</th>
                 <th>Domicilio</th>
                 <th>Telefonos</th>
@@ -44,6 +47,7 @@
             <tbody>
             @foreach($personals as $personal)
                 <tr>
+                    <td class="text-uppercase">{{ $personal->n_emp }}</td>
                     <td class="text-uppercase">{{ $personal->name }}</td>
                     <td class="text-uppercase">{{ $personal->domicilio }}</td>
                     <td class="text-uppercase">{{ $personal->telefonos }}</td>
@@ -238,7 +242,21 @@
 <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
 {{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script> --}}
 <script src="{{ asset('/assets/js/dataTables.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.buttons.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.dataTables.js') }}"></script>
+<script src="{{ asset('/assets/js/jszip.min.js') }}"></script>
+<script src="{{ asset('/assets/js/pdfmake.min.js') }}"></script>
+<script src="{{ asset('/assets/js/vfs_fonts.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 <script>
-    new DataTable('#myTable');
+    //new DataTable('#myTable');
+    new DataTable('#myTable', {
+    layout: {
+        topStart: {
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        }
+    }
+});
 </script>

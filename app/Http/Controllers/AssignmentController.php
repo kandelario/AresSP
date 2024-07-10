@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
 use App\Models\Cliente;
+use App\Models\Personal;
 
 class AssignmentController extends AppBaseController
 {
@@ -38,6 +39,8 @@ class AssignmentController extends AppBaseController
     public function create()
     {
         $clientes = cliente::all();
+        //$personal = Personal::all();
+        $personal = Personal::where('name', )->get();
         return view('assignments.create', compact('clientes'));
     }
 

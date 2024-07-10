@@ -1,7 +1,16 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    <select name="cliente_id" id="cliente_id" class="form-control">
+        @if (!isset($clientes))
+            @foreach ($clientes as $cliente)
+                <option value="{{$cliente['id']}}">{{$cliente['nombre']}}</option>
+            @endforeach
+        @else
+            <option value="">No existe Personal</option>
+        @endif
+    </select>
 </div>
 
 <!-- Fecha Inicio Serv Field -->
@@ -37,7 +46,6 @@
         @else
             <option value="">No existen clientes</option>
         @endif
-        
     </select>
 
 </div>

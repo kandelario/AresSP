@@ -9,6 +9,7 @@ class Personal extends Model
     public $table = 'personals';
 
     public $fillable = [
+        'n_emp',
         'name',
         'domicilio',
         'telefonos',
@@ -44,6 +45,7 @@ class Personal extends Model
     ];
 
     protected $casts = [
+        'n_emp' => 'string',
         'name' => 'string',
         'domicilio' => 'string',
         'telefonos' => 'string',
@@ -79,6 +81,7 @@ class Personal extends Model
     ];
 
     public static array $rules = [
+        'n_emp' => 'required|string|max:255',
         'name' => 'required|string|max:255',
         'domicilio' => 'required|string|max:255',
         'telefonos' => 'required|string|max:255',
@@ -115,5 +118,4 @@ class Personal extends Model
         'enable' => 'boolean'
     ];
 
-    
 }

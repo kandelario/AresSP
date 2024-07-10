@@ -1,11 +1,17 @@
+<!-- N_Emp Field -->
+<div class="form-group col-sm-4">
+    {!! Form::label('n_emp', 'Número de Empleado:') !!}
+    {!! Form::text('n_emp', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+</div>
+
 <!-- Name Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('name', 'Nombre Completo:') !!}
     {!! Form::text('name', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
 <!-- Domicilio Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('domicilio', 'Domicilio:') !!}
     {!! Form::text('domicilio', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
@@ -37,7 +43,7 @@
     @endphp --}}
         
     {!! Form::label('fecha_cumple', 'Fecha de Cumpleaños:') !!}
-    {!! Form::text('fecha_cumple', null, ['class' => 'form-control']) !!}
+    {!! Form::date('fecha_cumple', null, ['class' => 'form-control']) !!}
     {{-- {{
         $personal->fecha_cumple
     }} --}}
