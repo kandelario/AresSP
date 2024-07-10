@@ -1,6 +1,11 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+<link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
+<link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
+
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="clientes-table">
+        <table class="display nowrap table table-striped" id="clientes-table">
             <thead>
             <tr>
                 <th>Nombre</th>
@@ -33,7 +38,7 @@
                 <th>Constancia Sf</th>
                 <th>Enable</th>
                 <th>Paymentid</th>
-                <th colspan="3">Action</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -96,3 +101,29 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.buttons.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.dataTables.js') }}"></script>
+<script src="{{ asset('/assets/js/jszip.min.js') }}"></script>
+<script src="{{ asset('/assets/js/pdfmake.min.js') }}"></script>
+<script src="{{ asset('/assets/js/vfs_fonts.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+<script>
+    new DataTable('#clientes-table', {
+    layout: {
+        topStart: {
+            buttons: [
+                // 'copy',
+                // 'csv',
+                'excel',
+                // 'pdf',
+                'print'
+            ]
+        }
+    }
+});
+</script>

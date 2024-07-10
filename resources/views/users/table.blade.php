@@ -7,18 +7,20 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+<link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
+<link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
 <div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table" id="user-table">
+        <table class="display nowrap table table-striped" id="user-table">
             <thead>
             <tr>
-                <th>Nombre de usuario</th>
-                <th>Correo electrónico</th>
-                <th>Fecha de verificación del correo electrónico</th>
+                <th class="text-center">Nombre de usuario</th>
+                <th class="text-center">Correo electrónico</th>
+                <th class="text-center">Fecha de verificación del correo electrónico</th>
                 {{-- <th>Password</th> --}}
                 {{-- <th>Remember Token</th> --}}
-                <th colspan="3">Acciones</th>
+                <th class="text-center">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -29,7 +31,7 @@
                     <td>{{ $user->email_verified_at }}</td>
                     {{-- <td>{{ $user->password }}</td> --}}
                     {{-- <td>{{ $user->remember_token }}</td> --}}
-                    <td  style="width: 120px">
+                    <td style="width: 120px">
                         {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="{{ route('users.show', [$user->id]) }}"
@@ -76,7 +78,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('/assets/js/dataTables.js') }}"></script>
+<script src="{{ asset('/assets/js/dataTables.buttons.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.dataTables.js') }}"></script>
+<script src="{{ asset('/assets/js/jszip.min.js') }}"></script>
+<script src="{{ asset('/assets/js/pdfmake.min.js') }}"></script>
+<script src="{{ asset('/assets/js/vfs_fonts.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 <script>
-    new DataTable('#user-table');
+    new DataTable('#user-table', {
+    layout: {
+        topStart: {
+            buttons: [
+                // 'copy',
+                // 'csv',
+                'excel',
+                // 'pdf',
+                'print'
+            ]
+        }
+    }
+});
 </script>
