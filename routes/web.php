@@ -20,10 +20,9 @@ Route::get('home', function(){
     return view('home');
 });
 Route::get('admin', [HomeController::class, 'index'])->name('admin.index')->middleware('auth');
-Auth::routes();
-
-Auth::routes();
 
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+
+Auth::routes();

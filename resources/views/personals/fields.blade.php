@@ -250,7 +250,7 @@
     </div>
 </div>
 
-<div class="form-group col-sm-12 row">
+<div class="form-group col-sm-12 row text-center">
     <!-- Curp Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('curp', 'CURP:') !!}
@@ -258,26 +258,33 @@
     </div>
 
     <!-- Recomendaciones Field -->
-    <div class="form-group col-sm-3">
-        {!! Form::label('recomendaciones', 'Recomendaciones Entregadas:') !!}
+    <div class="form-group col-sm-3 text-center">
+        {!! Form::label('recomendaciones', 'n° Recomendaciones:') !!}
         {!! Form::number('recomendaciones', null, ['class' => 'form-control', 'required']) !!}
         {{-- {!! Form::text('recomendaciones', null, ['class' => 'form-control', 'required']) !!} --}}
     </div>
 
     <!-- Rfc Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-3 text-center">
         {!! Form::label('rfc', 'RFC:') !!}
         {!! Form::text('rfc', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 
     <!-- Nss Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-3 text-center">
         {!! Form::label('nss', 'NSS:') !!}
         {!! Form::text('nss', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 </div>
 
+<div class="form-group col-sm-12 row text-center">
+    <!-- Other Field -->
+    <div class="form-group col-sm-3 text-center">
+        {!! Form::label('otro_doc_nombre', 'Otro Documento:') !!}
+        {!! Form::text('otro_doc_nombre', null, ['class' => 'form-control text-uppercase', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    </div>
 
+</div>
 
 
 <!-- Enable Field -->

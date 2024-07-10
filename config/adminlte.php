@@ -392,11 +392,11 @@ return [
                 'icon' => 'fas fa-fw fa-check ml-3',
                 'url'        => 'admin/assignments',
                 ],
-                [
-                'text'       => 'Horarios',
-                'icon' => 'fas fa-fw fa-clock ml-3',
-                'url'        => '#',
-                ],
+                // [
+                // 'text'       => 'Horarios',
+                // 'icon' => 'fas fa-fw fa-clock ml-3',
+                // 'url'        => '#',
+                // ],
             ],
         ],
         [

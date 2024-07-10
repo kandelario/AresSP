@@ -49,6 +49,9 @@ return new class extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
+
+            $table->string('otro_doc_nombre');
+            $table->boolean('otro_doc')->default(false);
         });
     }
 

@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\DB;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
+
 class InventarioController extends AppBaseController
 {
     /** @var InventarioRepository $inventarioRepository*/
@@ -27,10 +30,13 @@ class InventarioController extends AppBaseController
      */
     public function index(Request $request)
     {
+        // $this->inv_export_pdf();
         $inventarios = $this->inventarioRepository->paginate(10);
 
         return view('inventarios.index')
             ->with('inventarios', $inventarios);
+
+        
     }
 
     /**
@@ -159,5 +165,11 @@ class InventarioController extends AppBaseController
         Flash::success('Inventario deleted successfully.');
 
         return redirect(route('inventarios.index'));
+    }
+
+    public function inv_export_pdf(){
+        $inventario = $this->inventarioRepository->paginate(100);
+        $pdf = Pdf::loadView('inventarios.pdf', $inventario);
+        return $pdf->download('reprorte_inventarios.pdf');
     }
 }

@@ -10,6 +10,9 @@ use App\Http\Controllers\AssignmentController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Inventario;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 Route::resource('/users', UserController::class)->names('users')->middleware('auth');
 
 Route::resource('/inventarios', InventarioController::class)->names('inventarios')->middleware('auth');
