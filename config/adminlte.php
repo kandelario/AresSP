@@ -383,7 +383,7 @@ return [
             //'url'        => 'admin/personals',
             'submenu' => [
                 [
-                'text'       => 'Mostrar',
+                'text'       => 'Listado',
                 'icon' => 'fas fa-fw fa-list ml-3',
                 'url'        => 'admin/personals',
                 ],

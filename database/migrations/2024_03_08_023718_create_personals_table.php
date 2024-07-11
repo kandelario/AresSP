@@ -52,7 +52,9 @@ return new class extends Migration
 
             $table->string('otro_doc_nombre');
             $table->boolean('otro_doc')->default(false);
+
         });
+
     }
 
     /**

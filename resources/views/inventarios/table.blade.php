@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
-<div class="card-body p-0">
+<div class="card-body p-2">
     
     <div class="table-responsive">
         <table class="table" id="inventarios-table">
@@ -25,9 +25,9 @@
             <tbody>
             @foreach($inventarios as $inventario)
                 <tr>
-                    <td>{{ $inventario->nombre }}</td>
-                    <td>{{ $inventario->existencia }}</td>
-                    <td>
+                    <td class="text-center">{{ $inventario->nombre }}</td>
+                    <td class="text-center">{{ $inventario->existencia }}</td>
+                    <td class="text-center">
                         @if($inventario->image)
                             <img src="{{asset('assets/inventary_imgs/' . $inventario->image)}}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;">
                         @else
@@ -35,7 +35,7 @@
                         @endif
                         {{-- {{ if($inventario->image){asset('assets/inventary_imgs/' . $inventario->image)}else{asset('assets/inventary_imgs/default.webp')} }}--}}
                     </td> 
-                    <td  style="width: 120px">
+                    <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['inventarios.destroy', $inventario->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="{{ route('inventarios.show', [$inventario->id]) }}"
@@ -87,7 +87,9 @@
                 'print'
             ]
         }
-    }
+    },
+    paginate: false,
+    select: true
 });
 </script>
 

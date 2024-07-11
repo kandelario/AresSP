@@ -132,4 +132,8 @@ class PersonalController extends AppBaseController
 
         return redirect(route('personals.index'));
     }
+
+    public function pdf(){
+        return dd('hello world');
+    }
 }
