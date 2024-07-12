@@ -383,14 +383,24 @@ return [
             //'url'        => 'admin/personals',
             'submenu' => [
                 [
-                'text'       => 'Listado',
-                'icon' => 'fas fa-fw fa-list ml-3',
+                'text'       => 'Ver',
+                'icon' => 'fas fa-fw fa-search ml-3',
                 'url'        => 'admin/personals',
                 ],
                 [
                 'text'       => 'Asignar a Cliente',
                 'icon' => 'fas fa-fw fa-check ml-3',
                 'url'        => 'admin/assignments',
+                ],
+                [
+                'text'       => 'Asistencias',
+                'icon' => 'fas fa-fw fa-list ml-3',
+                'url'        => 'admin/asistencias',
+                ],
+                [
+                'text'       => 'Vacaciones',
+                'icon' => 'fas fa-fw fa-plane ml-3',
+                'url'        => 'admin/vacaciones',
                 ],
                 // [
                 // 'text'       => 'Horarios',
@@ -463,18 +473,71 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'asset' => true,
+                    'location' => '/assets/js/jquery.min.3.7.1.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/dataTables.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assetsjs/dataTables.buttons.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/buttons.dataTables.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/jszip.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/pdfmake.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/vfs_fonts.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/buttons.html5.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/assets/js/buttons.print.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    // 'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'asset' => true,
+                    // 'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => '/assets/css/dataTables.dataTables.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    // 'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => '/assets/css/buttons.dataTables.css',
                 ],
             ],
         ],

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <section class="content-header">
@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                    Create Payment Types
+                    Nuevo Tipo de Pago
                     </h1>
                 </div>
             </div>
@@ -30,8 +30,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('paymentTypes.index') }}" class="btn btn-default"> Cancel </a>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('paymentTypes.index') }}" class="btn btn-default"> Cancelar </a>
             </div>
 
             {!! Form::close() !!}

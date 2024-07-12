@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('n_emp');
             $table->string('name');
             $table->string('domicilio');
-            $table->string('telefonos');
-            $table->string('telefono_contacto');
-            $table->string('email');
+            $table->string('telefonos')->nullable();
+            $table->string('telefono_contacto')->nullable();
+            $table->string('email')->nullable();
             $table->date("fecha_cumple")->nullable();
             $table->date("fecha_inicio_serv")->nullable();
             $table->boolean('solicitud')->default(false);
@@ -33,11 +33,11 @@ return new class extends Migration
             $table->boolean('honorarios')->default(false);
             $table->boolean('identificacion_oficial')->default(false);
             $table->boolean('acta_nacimiento')->default(false);
-            $table->string('curp');
+            $table->string('curp')->nullable();
             $table->boolean('curp_doc')->default(false);
-            $table->string('rfc');
+            $table->string('rfc')->nullable();
             $table->boolean('rfc_doc')->default(false);
-            $table->string('nss');
+            $table->string('nss')->nullable();
             $table->boolean('nss_doc')->default(false);
             $table->boolean('comprobante_domicilio')->default(false);
             $table->boolean('comprobante_estudios')->default(false);
@@ -50,8 +50,42 @@ return new class extends Migration
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
 
-            $table->string('otro_doc_nombre');
+            $table->string('otro_doc_nombre')->nullable();
             $table->boolean('otro_doc')->default(false);
+
+            $table->integer('epp_pantalon_n')->default(0);
+            $table->string('epp_pantalon_talla')->nullable();
+
+            $table->integer('epp_camisola_n')->default(0);
+            $table->string('epp_camisola_talla')->nullable();
+
+            $table->integer('epp_gorra_n')->default(0);
+            $table->string('epp_gorra_talla')->nullable();
+
+            $table->integer('epp_fornitura_n')->default(0);
+            $table->string('epp_fornitura_talla')->nullable();
+
+            $table->integer('epp_gas_n')->default(0);
+
+            $table->integer('epp_pr24_n')->default(0);
+
+            $table->integer('epp_credencial_n')->default(0);
+
+            $table->integer('epp_chamarra_n')->default(0);
+            $table->string('epp_chamarra_talla')->nullable();
+
+            $table->integer('epp_chaleco_n')->default(0);
+            $table->string('epp_chaleco_talla')->nullable();
+
+            $table->integer('epp_coipa_n')->default(0);
+
+            $table->integer('epp_guantes_n')->default(0);
+            $table->string('epp_guantes_talla')->nullable();
+
+            $table->integer('epp_lampara_n')->default(0);
+            $table->integer('epp_cubrebocas_n')->default(0);
+            $table->integer('epp_tapones_n')->default(0);
+            $table->integer('epp_lentes_n')->default(0);
 
         });
 

@@ -9,9 +9,6 @@ use App\Repositories\PersonalRepository;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
-use Illuminate\Http\JsonResponse;
-use Exception;
-
 class PersonalController extends AppBaseController
 {
     /** @var PersonalRepository $personalRepository*/
@@ -46,33 +43,13 @@ class PersonalController extends AppBaseController
      */
     public function store(CreatePersonalRequest $request)
     {
-        try {
-            $input = $request->all();
+        $input = $request->all();
 
-            $personal = $this->personalRepository->create($input);
+        $personal = $this->personalRepository->create($input);
 
-            Flash::success('Personal saved successfully.');
+        Flash::success('Personal saved successfully.');
 
-            return redirect(route('personals.index'));
-
-        } catch (Exception $e) {
-              
-            $message = $e->getMessage();
-            var_dump('Exception Message: '. $message);
-  
-            $code = $e->getCode();       
-            var_dump('Exception Code: '. $code);
-  
-            $string = $e->__toString();       
-            var_dump('Exception String: '. $string);
-  
-            exit;
-        }
-  
-        return response()->json($personal);
-        
-        //return dd($request);
-        
+        return redirect(route('personals.index'));
     }
 
     /**
@@ -99,7 +76,7 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('No se encontró al personal Personal');
 
             return redirect(route('personals.index'));
         }
@@ -115,14 +92,21 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Personal no encontrado');
 
             return redirect(route('personals.index'));
         }
 
+        // if($request->fecha_cumple == ''){
+        //     $request->fecha_cumple = $personal->fecha_cumple;
+        // }
+        // if($request->fecha_inicio_serv == ''){
+        //     $request->fecha_inicio_serv = $personal->fecha_inicio_serv;
+        // }
+
         $personal = $this->personalRepository->update($request->all(), $id);
 
-        Flash::success('Personal updated successfully.');
+        Flash::success('Personal actualizado correctamente.');
 
         return redirect(route('personals.index'));
     }
@@ -137,7 +121,7 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Personal no encontrado');
 
             return redirect(route('personals.index'));
         }
@@ -147,5 +131,9 @@ class PersonalController extends AppBaseController
         Flash::success('Personal deleted successfully.');
 
         return redirect(route('personals.index'));
+    }
+
+    public function pdf(){
+        return dd('hello world');
     }
 }

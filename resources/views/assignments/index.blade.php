@@ -15,7 +15,7 @@
                     <h1>Asignación de Personal a empresas</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
+                    <a class="btn btn-outline-warning float-right"
                        href="{{ route('assignments.create') }}">
                         Nueva Asignación
                     </a>

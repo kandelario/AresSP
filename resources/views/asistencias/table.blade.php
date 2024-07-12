@@ -3,34 +3,52 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
-<div class="card-body p-2">
+<div class="card-body p-0">
     <div class="table-responsive">
-        <table class="table table-striped table-bordered nowrap" id="assignments-table">
+        <table class="table" id="asistencias-table">
             <thead>
             <tr>
-                <th class="text-center">Nombre</th>
-                <th class="text-center">Inicio Servicio</th>
-                <th class="text-center">Activo</th>
-                <th class="text-center">Cliente Id</th>
-                <th class="text-center">Action</th>
+                <th class="text-center">Fecha Asistencia</th>
+                <th class="text-center">Asistio</th>
+                <th class="text-center">Personal</th>
+                <th class="text-center">Acción</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($assignments as $assignment)
+            @foreach($asistencias as $asistencia)
                 <tr>
-                    <td>{{ $assignment->name }}</td>
-                    <td>{{ $assignment->fecha_inicio_serv }}</td>
-                    <td>{{ $assignment->enable }}</td>
-                    <td>{{ $assignment->cliente_id }}</td>
-                    <td  style="width: 120px">
-                        {!! Form::open(['route' => ['assignments.destroy', $assignment->id], 'method' => 'delete']) !!}
+                    <td class="text-center">{{ $asistencia->hoy }}</td>
+                    <td class="text-center">
+                        {{ $asistencia->asistio }}
+                        @if ($asistencia->asistio == 1)
+                            {{ "Sí" }}
+                        @else
+                            {{ "No" }}
+                        @endif
+                    </td class="text-center">
+                    <td class="text-center">
+                        @if (isset($personals))
+                            @foreach($personals as $personal)
+                                @if ($personal->id == $asistencia->idPersonal)
+                                    {{$personal->name}}
+                                @else
+                                    {{"Personal no registrado en listado de personal."}}
+                                @endif
+                            @endforeach    
+                        @else
+                            {{"No hay personal registrado."}}
+                        @endif
+                        
+                    </td>
+                    <td class="text-center" style="width: 120px">
+                        {!! Form::open(['route' => ['asistencias.destroy', $asistencia->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('assignments.show', [$assignment->id]) }}"
-                            class='btn btn-default btn-xs'>
+                            <a href="{{ route('asistencias.show', [$asistencia->id]) }}"
+                               class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
                             </a>
-                            <a href="{{ route('assignments.edit', [$assignment->id]) }}"
-                            class='btn btn-default btn-xs'>
+                            <a href="{{ route('asistencias.edit', [$asistencia->id]) }}"
+                               class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
@@ -45,7 +63,7 @@
 
     <div class="card-footer clearfix">
         <div class="float-right">
-            @include('adminlte-templates::common.paginate', ['records' => $assignments])
+            @include('adminlte-templates::common.paginate', ['records' => $asistencias])
         </div>
     </div>
 </div>
@@ -62,7 +80,8 @@
 <script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 <script>
-    new DataTable('#assignments-table', {
+    
+    new DataTable('#asistencias-table', {
     layout: {
         topStart: {
             buttons: [

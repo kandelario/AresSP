@@ -41,7 +41,8 @@ class AssignmentController extends AppBaseController
         $clientes = cliente::all();
         //$personal = Personal::all();
         $personal = Personal::where('name', )->get();
-        return view('assignments.create', compact('clientes'));
+        return view('assignments.create', compact('clientes'))
+        ->with('personals', $personal);
     }
 
     /**

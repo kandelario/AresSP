@@ -124,6 +124,7 @@
                 'print'
             ]
         }
-    }
+    },
+    paginate: false
 });
 </script>

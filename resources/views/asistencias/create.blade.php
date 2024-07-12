@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                    Nuevo Personal
+                    Registrar Asistencias
                     </h1>
                 </div>
             </div>
@@ -19,19 +19,19 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'personals.store']) !!}
+            {!! Form::open(['route' => 'asistencias.store']) !!}
 
             <div class="card-body">
 
                 <div class="row">
-                    @include('personals.fields')
+                    @include('asistencias.fields')
                 </div>
 
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('personals.index') }}" class="btn btn-default"> Cancel </a>
+                {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('asistencias.index') }}" class="btn btn-default"> Cancelar </a>
             </div>
 
             {!! Form::close() !!}

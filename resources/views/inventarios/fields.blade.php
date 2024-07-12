@@ -7,7 +7,7 @@
 <!-- Existencia Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('existencia', 'Existencia:') !!}
-    {!! Form::number('existencia', 1, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('existencia', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- password Field -->

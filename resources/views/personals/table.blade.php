@@ -1,220 +1,321 @@
-{{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" /> --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
+
 <div class="card-body p-2">
     <div class="table-responsive">
-        <table class="display nowrap table table-striped text-center" id="myTable">
+        <table class="display nowrap table table-striped text-center" id="personals-table">
             <thead>
             <tr>
-                <th>N. Empleado</th>
-                <th>Name</th>
-                <th>Domicilio</th>
-                <th>Telefonos</th>
-                <th>Telefono Contacto</th>
-                <th>Email</th>
-                <th>Fecha Cumple</th>
-                <th>Fecha Inicio Serv</th>
-                <th>Solicitud</th>
-                <th>Check List Ingreso</th>
-                <th>Carta Compromiso</th>
-                <th>Resguardo</th>
-                <th>Contrato</th>
-                <th>Retencion</th>
-                <th>Renuncia</th>
-                <th>Actas Administrativas</th>
-                <th>Honorarios</th>
-                <th>Identificacion Oficial</th>
-                <th>Acta Nacimiento</th>
-                <th>Curp</th>
-                <th>Curp Doc</th>
-                <th>Rfc</th>
-                <th>Rfc Doc</th>
-                <th>Nss</th>
-                <th>Nss Doc</th>
-                <th>Comprobante Domicilio</th>
-                <th>Comprobante Estudios</th>
-                <th>Recomendaciones</th>
-                <th>Recomendación Doc</th>
-                <th>Certificado Medico</th>
-                <th>Antecedentes No Penales</th>
-                <th>Cartilla</th>
-                <th>Estatus</th>
-                <th>Action</th>
+                <th class="text-center">N° Emp</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Domicilio</th>
+                <th class="text-center">Teléfonos</th>
+                <th class="text-center">Teléfono Contacto</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Fecha Cumpleaños</th>
+                <th class="text-center">Fecha Inicio Serv</th>
+                <th class="text-center">Solicitud</th>
+                <th class="text-center">Check List Ingreso</th>
+                <th class="text-center">Carta Compromiso</th>
+                <th class="text-center">Resguardo</th>
+                <th class="text-center">Contrato</th>
+                <th class="text-center">Retención</th>
+                <th class="text-center">Renuncia</th>
+                <th class="text-center">Actas Administrativas</th>
+                <th class="text-center">Honorarios</th>
+                <th class="text-center">Identificacion Oficial</th>
+                <th class="text-center">Acta Nacimiento</th>
+                <th class="text-center">CURP</th>
+                <th class="text-center">CURP Doc</th>
+                <th class="text-center">RFC</th>
+                <th class="text-center">RFC Doc</th>
+                <th class="text-center">NSS</th>
+                <th class="text-center">NSS Doc</th>
+                <th class="text-center">Comprobante Domicilio</th>
+                <th class="text-center">Comprobante Estudios</th>
+                <th class="text-center">Recomendaciones</th>
+                <th class="text-center">Recomendación Doc.</th>
+                <th class="text-center">Certificado Medico</th>
+                <th class="text-center">Antecedentes No Penales</th>
+                <th class="text-center">Cartilla</th>
+                <th class="text-center">Activo</th>
+                <th class="text-center">Otro Doc. Nombre</th>
+                <th class="text-center">Otro Doc.</th>
+                <th class="text-center">EPP Pantalon (cantidad)</th>
+                <th class="text-center">EPP Pantalon Talla</th>
+                <th class="text-center">EPP Camisola (cantidad)</th>
+                <th class="text-center">EPP Camisola Talla</th>
+                <th class="text-center">EPP Gorra (cantidad)</th>
+                <th class="text-center">EPP Gorra Talla</th>
+                <th class="text-center">EPP Fornitura (cantidad)</th>
+                <th class="text-center">EPP Fornitura Talla</th>
+                <th class="text-center">EPP Gas (cantidad)</th>
+                <th class="text-center">EPP Pr24 (cantidad)</th>
+                <th class="text-center">EPP Credencial (cantidad)</th>
+                <th class="text-center">EPP Chamarra (cantidad)</th>
+                <th class="text-center">EPP Chamarra Talla</th>
+                <th class="text-center">EPP Chaleco (cantidad)</th>
+                <th class="text-center">EPP Chaleco Talla</th>
+                <th class="text-center">EPP Coipa (cantidad)</th>
+                <th class="text-center">EPP Guantes (cantidad)</th>
+                <th class="text-center">EPP Guantes Talla</th>
+                <th class="text-center">EPP Lampara (cantidad)</th>
+                <th class="text-center">EPP Cubrebocas (cantidad)</th>
+                <th class="text-center">EPP Tapones (cantidad)</th>
+                <th class="text-center">EPP Lentes (cantidad)</th>
+                <th class="text-center">Acción</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="text-uppercase">
+                
             @foreach($personals as $personal)
                 <tr>
-                    <td class="text-uppercase">{{ $personal->n_emp }}</td>
-                    <td class="text-uppercase">{{ $personal->name }}</td>
-                    <td class="text-uppercase">{{ $personal->domicilio }}</td>
-                    <td class="text-uppercase">{{ $personal->telefonos }}</td>
-                    <td class="text-uppercase">{{ $personal->telefono_contacto }}</td>
-                    <td class="text-uppercase">{{ $personal->email }}</td>
-                    <td class="text-uppercase">{{ $personal->fecha_cumple }}</td>
-                    <td class="text-uppercase">{{ $personal->fecha_inicio_serv }}</td>
-
-                    <td class="text-uppercase text-center">
-                        {{-- {{ $personal->solicitud }} --}}
+                    <td class="text-center">{{ $personal->n_emp }}</td>
+                    <td class="text-center">{{ $personal->name }}</td>
+                    <td class="text-center">{{ $personal->domicilio }}</td>
+                    <td class="text-center">{{ $personal->telefonos }}</td>
+                    <td class="text-center">{{ $personal->telefono_contacto }}</td>
+                    <td class="text-center">{{ $personal->email }}</td>
+                    <td class="text-center">{{ substr($personal->fecha_cumple, 0, 10) }}</td>
+                    <td class="text-center">{{ substr($personal->fecha_inicio_serv, 0, 10) }}</td>
+                    <td class="text-center">
                         @if ($personal->solicitud == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->check_list_ingreso == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->carta_compromiso == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->resguardo == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->contrato == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->retencion == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->renuncia == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->actas_administrativas == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->honorarios == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->identificacion_oficial == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->acta_nacimiento == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase">{{ $personal->curp }}</td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">{{ $personal->curp }}</td>
+                    <td class="text-center">
                         @if ($personal->curp_doc == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase">{{ $personal->rfc }}</td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">{{ $personal->rfc }}</td>
+                    <td class="text-center">
                         @if ($personal->rfc_doc == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase">{{ $personal->nss }}</td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">{{ $personal->nss }}</td>
+                    <td class="text-center">
                         @if ($personal->nss_doc == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->comprobante_domicilio == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->comprobante_estudios == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">{{ $personal->recomendaciones }}</td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">{{ $personal->recomendaciones }}</td>
+                    <td class="text-center">
                         @if ($personal->recomendacion_doc == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->certificado_medico == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->antecedentes_no_penales == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center">
+                    <td class="text-center">
                         @if ($personal->cartilla == 1)
-                            Si
+                            {{ 'Sí' }}
                         @else
-                            No
+                            {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-uppercase text-center text-success">
+                    <td class="text-center">
                         @if ($personal->enable == 1)
-                            <span class="text-success">Activo</span>
-                        @elseif($personal->enable == 0)
-                            <span class="text-danger">Inactivo</span>
+                            {{ 'Personal Activo' }}
+                        @else
+                            {{ 'Personal Inactivo' }}
                         @endif
                     </td>
-                    <td  style="width: 120px">
+                    <td class="text-center">
+                        @if ($personal->otro_doc_nombre != '')
+                            {{ $personal->otro_doc_nombre }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">
+                        @if ($personal->otro_doc == 1)
+                            {{ 'Sí' }}
+                        @else
+                            {{ 'No' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_pantalon_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_pantalon_talla != '')
+                            {{ $personal->epp_pantalon_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_camisola_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_camisola_talla != '')
+                            {{ $personal->epp_camisola_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_gorra_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_gorra_talla != '')
+                            {{ $personal->epp_gorra_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_fornitura_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_fornitura_talla != '')
+                            {{ $personal->epp_fornitura_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_gas_n }}</td>
+                    <td class="text-center">{{ $personal->epp_pr24_n }}</td>
+                    <td class="text-center">{{ $personal->epp_credencial_n }}</td>
+                    <td class="text-center">{{ $personal->epp_chamarra_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_chamarra_talla != '')
+                            {{ $personal->epp_chamarra_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_chaleco_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_chaleco_talla != '')
+                            {{ $personal->epp_chaleco_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_coipa_n }}</td>
+                    <td class="text-center">{{ $personal->epp_guantes_n }}</td>
+                    <td class="text-center">
+                        @if ($personal->epp_guantes_talla != '')
+                            {{ $personal->epp_guantes_talla }}
+                        @else
+                            {{ 'N/A' }}
+                        @endif
+                    </td>
+                    <td class="text-center">{{ $personal->epp_lampara_n }}</td>
+                    <td class="text-center">{{ $personal->epp_cubrebocas_n }}</td>
+                    <td class="text-center">{{ $personal->epp_tapones_n }}</td>
+                    <td class="text-center">{{ $personal->epp_lentes_n }}</td>
+                    <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['personals.destroy', $personal->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            {{-- <a href="{{ route('personals.show', [$personal->id]) }}"
+                            <a href="{{ route('personals.show', [$personal->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
-                            </a> --}}
+                            </a>
                             <a href="{{ route('personals.edit', [$personal->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
@@ -237,10 +338,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-{{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script> --}}
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> --}}
 <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
-{{-- <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script> --}}
 <script src="{{ asset('/assets/js/dataTables.js') }}"></script>
 <script src="{{ asset('/assets/js/dataTables.buttons.js') }}"></script>
 <script src="{{ asset('/assets/js/buttons.dataTables.js') }}"></script>
@@ -251,8 +349,8 @@
 <script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 <script>
-    //new DataTable('#myTable');
-    new DataTable('#myTable', {
+
+    new DataTable('#personals-table', {
     layout: {
         topStart: {
             buttons: [
@@ -263,6 +361,8 @@
                 'print'
             ]
         }
-    }
+    },
+    paginate: false,
+    select: true
 });
 </script>

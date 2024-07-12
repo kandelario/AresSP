@@ -54,3 +54,10 @@
         <p>Assignments</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('asistencias.index') }}" class="nav-link {{ Request::is('asistencias*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Asistencias</p>
+    </a>
+</li>

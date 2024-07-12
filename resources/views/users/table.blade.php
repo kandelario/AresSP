@@ -10,14 +10,14 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
-<div class="card-body p-0">
+<div class="card-body p-2">
     <div class="table-responsive">
         <table class="display nowrap table table-striped" id="user-table">
             <thead>
             <tr>
                 <th class="text-center">Nombre de usuario</th>
                 <th class="text-center">Correo electrónico</th>
-                <th class="text-center">Fecha de verificación del correo electrónico</th>
+                {{-- <th class="text-center">Fecha de verificación del correo electrónico</th> --}}
                 {{-- <th>Password</th> --}}
                 {{-- <th>Remember Token</th> --}}
                 <th class="text-center">Acciones</th>
@@ -26,12 +26,12 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->email_verified_at }}</td>
+                    <td class="text-center">{{ $user->name }}</td>
+                    <td class="text-center">{{ $user->email }}</td>
+                    {{-- <td>{{ $user->email_verified_at }}</td> --}}
                     {{-- <td>{{ $user->password }}</td> --}}
                     {{-- <td>{{ $user->remember_token }}</td> --}}
-                    <td style="width: 120px">
+                    <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="{{ route('users.show', [$user->id]) }}"
@@ -98,6 +98,7 @@
                 'print'
             ]
         }
-    }
+    },
+    paginate: false
 });
 </script>

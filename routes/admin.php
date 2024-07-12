@@ -7,6 +7,7 @@ use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\AsistenciaController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,6 @@ Route::resource('/tipos-de-pago', PaymentTypeController::class)->names('tipos_pa
 
 Route::resource('/clientes', ClienteController::class)->names('clientes')->middleware('auth');
 
-Route::resource('/assignments', AssignmentController::class)->names('assignments')->middleware('auth');
+Route::resource('/asistencias', AsistenciaController::class)->names('asistencias')->middleware('auth');
 
-//Auth::routes();
+Route::resource('/assignments', AssignmentController::class)->names('assignments')->middleware('auth');
