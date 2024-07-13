@@ -12,6 +12,7 @@
                        href="{{ route('inventarios.create') }}">
                         Agregar nuevo articulo
                     </a>
+                    <a href="{{route('InventariotoPDF')}}" target="blank" class="btn btn-primary float-right mr-2">Mandar a PDF</a>
                 </div>
             </div>
         </div>

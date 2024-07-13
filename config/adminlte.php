@@ -397,11 +397,11 @@ return [
                 'icon' => 'fas fa-fw fa-list ml-3',
                 'url'        => 'admin/asistencias',
                 ],
-                [
-                'text'       => 'Vacaciones',
-                'icon' => 'fas fa-fw fa-plane ml-3',
-                'url'        => 'admin/vacaciones',
-                ],
+                // [
+                // 'text'       => 'Vacaciones',
+                // 'icon' => 'fas fa-fw fa-plane ml-3',
+                // 'url'        => 'admin/vacaciones',
+                // ],
                 // [
                 // 'text'       => 'Horarios',
                 // 'icon' => 'fas fa-fw fa-clock ml-3',

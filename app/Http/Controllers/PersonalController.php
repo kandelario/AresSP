@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePersonalRequest;
 use App\Http\Requests\UpdatePersonalRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Personal;
 use App\Repositories\PersonalRepository;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
 use Illuminate\Http\JsonResponse;
 use Exception;
+
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PersonalController extends AppBaseController
 {
@@ -147,5 +150,11 @@ class PersonalController extends AppBaseController
         Flash::success('Personal deleted successfully.');
 
         return redirect(route('personals.index'));
+    }
+
+    public function PersonaltoPDF(){
+        $personal = Personal::all();
+        $pdf = Pdf::loadView('personals.personaltopdf', compact('personal'));
+        return $pdf->stream();
     }
 }

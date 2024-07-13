@@ -168,8 +168,8 @@ class InventarioController extends AppBaseController
     }
 
     public function inv_export_pdf(){
-        $inventario = $this->inventarioRepository->paginate(100);
-        $pdf = Pdf::loadView('inventarios.pdf', $inventario);
-        return $pdf->download('reprorte_inventarios.pdf');
+        $inventario = Inventario::all();
+        $pdf = Pdf::loadView('inventarios.topdf', compact('inventario'));
+        return $pdf->stream();
     }
 }

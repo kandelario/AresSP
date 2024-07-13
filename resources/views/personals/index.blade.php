@@ -8,6 +8,7 @@
                     <h1>Personal</h1>
                 </div>
                 <div class="col-sm-6">
+                    {{-- <a href="{{route('PersonaltoPDF')}}" class="btn btn-primary float-right ml-2">Mandar a PDF</a> --}}
                     <a class="btn btn-primary float-right"
                        href="{{ route('personals.create') }}">
                         Nueno Personal

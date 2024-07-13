@@ -5,14 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>
-Personal Details
-                    </h1>
+                    <h1>Detalle del Personal <span class="text-capitalize bold">{{$personal->name}}</span></h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
                        href="{{ route('personals.index') }}">
-                                                    Back
+                                                    Regresar
                                             </a>
                 </div>
             </div>

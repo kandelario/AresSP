@@ -309,37 +309,61 @@
     <!-- Epp Pantalon N Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('epp_pantalon_n', 'Epp Pantalón (cantidad):') !!}
-        {!! Form::number('epp_pantalon_n', null, ['class' => 'form-control text-uppercase']) !!}
+        @if (isset($personal->epp_pantalon_n))
+            {!! Form::number('epp_pantalon_n', $personal->epp_pantalon_n, ['class' => 'form-control text-uppercase']) !!}
+        @else
+            {!! Form::number('epp_pantalon_n', 0, ['class' => 'form-control text-uppercase']) !!}    
+        @endif
     </div>
 
     <!-- Epp Pantalon Talla Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('epp_pantalon_talla', 'Epp Pantalón Talla:') !!}
-        {!! Form::text('epp_pantalon_talla', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        @if (isset($personal->epp_pantalon_talla))
+            {!! Form::number('epp_pantalon_talla', $personal->epp_pantalon_talla, ['class' => 'form-control text-uppercase']) !!}
+        @else
+            {!! Form::number('epp_pantalon_talla', 'N/A', ['class' => 'form-control text-uppercase']) !!}    
+        @endif
     </div>
 
     <!-- Epp Camisola N Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('epp_camisola_n', 'Epp Camisola (cantidad):') !!}
-        {!! Form::number('epp_camisola_n', null, ['class' => 'form-control text-uppercase']) !!}
+        @if (isset($personal->epp_camisola_n))
+            {!! Form::number('epp_camisola_n', $personal->epp_camisola_n, ['class' => 'form-control text-uppercase']) !!}
+        @else
+            {!! Form::number('epp_camisola_n', 0, ['class' => 'form-control text-uppercase']) !!}    
+        @endif
     </div>
 
     <!-- Epp Camisola Talla Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('epp_camisola_talla', 'Epp Camisola Talla:') !!}
-        {!! Form::text('epp_camisola_talla', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        @if (isset($personal->epp_camisola_talla))
+            {!! Form::number('epp_camisola_talla', $personal->epp_camisola_talla, ['class' => 'form-control text-uppercase']) !!}
+        @else
+            {!! Form::number('epp_camisola_talla', 'N/A', ['class' => 'form-control text-uppercase']) !!}    
+        @endif
     </div>
 
     <!-- Epp Gorra N Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('epp_gorra_n', 'Epp Gorra (cantidad):') !!}
-        {!! Form::number('epp_gorra_n', null, ['class' => 'form-control text-uppercase']) !!}
+        @if (isset($personal->epp_gorra_n))
+            {!! Form::number('epp_gorra_n', $personal->epp_gorra_n, ['class' => 'form-control text-uppercase']) !!}
+        @else
+            {!! Form::number('epp_gorra_n', 0, ['class' => 'form-control text-uppercase']) !!}    
+        @endif
     </div>
 
     <!-- Epp Gorra Talla Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('epp_gorra_talla', 'Epp Gorra Talla:') !!}
-        {!! Form::text('epp_gorra_talla', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        @if (isset($personal->epp_gorra_talla))
+            {!! Form::number('epp_gorra_talla', $personal->epp_gorra_talla, ['class' => 'form-control text-uppercase']) !!}
+        @else
+            {!! Form::number('epp_gorra_talla', 'N/A', ['class' => 'form-control text-uppercase']) !!}    
+        @endif
     </div>
 
     <!-- Epp Fornitura N Field -->
