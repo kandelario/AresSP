@@ -23,15 +23,22 @@
     <select name="itemID" id="itemID" class="form-control">
         @if (isset($inventarios))
             @foreach ($inventarios as $item)
-                @if ($movimientos->itemID == $item->id)
-                    <option value="{{$item->id}}" selected>
-                        {{$item->nombre . ' (' . $item->existencia . ')'}}
-                    </option>    
+                @if (isset($movimientos) && count($movimientos) > 0)
+                    @if ($movimientos->itemID == $item->id)
+                        <option value="{{$item->id}}" selected>
+                            {{$item->nombre . ' (' . $item->existencia . ')'}}
+                        </option>    
+                    @else
+                        <option value="{{$item->id}}">
+                            {{$item->nombre . ' (' . $item->existencia . ')'}}
+                        </option>
+                    @endif
                 @else
                     <option value="{{$item->id}}">
                         {{$item->nombre . ' (' . $item->existencia . ')'}}
                     </option>
                 @endif
+                    
                 {{-- <option value="{{$item['id']}}">
                     {{$item['nombre'] . ' (' . $item['existencia'] . ')'}}
                 </option> --}}

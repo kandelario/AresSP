@@ -52,7 +52,7 @@ class MovimientosController extends AppBaseController
     {
         $usuario = Auth::user();
         // $inventarios = DB::table('inventarios')->get();
-        $inventario = Inventario::all();
+        $inventario = DB::table('inventarios')->get();
         return view('movimientos.create')
             ->with('inventarios', $inventario)
             ->with('usuario', $usuario);
