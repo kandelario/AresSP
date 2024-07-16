@@ -3,9 +3,9 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
-<div class="card-body p-0">
+<div class="card-body p-2">
     <div class="table-responsive">
-        <table class="table" id="asistencias-table">
+        <table class="display nowrap table table-striped" id="asistencias-table">
             <thead>
             <tr>
                 <th class="text-center">Fecha Asistencia</th>

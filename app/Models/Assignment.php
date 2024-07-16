@@ -9,26 +9,24 @@ class Assignment extends Model
     public $table = 'assignments';
 
     public $fillable = [
-        'name',
+        // 'name',
         'fecha_inicio_serv',
         'enable',
         'cliente_id',
         'puesto',
-        'personal_id'
+        'personal_id',
+        'observaciones'
     ];
 
     protected $casts = [
-        'name' => 'string',
+        // 'name' => 'string',
         'fecha_inicio_serv' => 'date',
         'enable' => 'boolean'
     ];
 
     public static array $rules = [
-        'name' => 'required|string|max:255',
+        // 'name' => 'required|string|max:255',
         'fecha_inicio_serv' => 'required',
-        'created_at' => 'required',
-        'updated_at' => 'required',
-        'enable' => 'required|boolean',
         'cliente_id' => 'required',
         'puesto' => 'required|string',
         'personal_id' => 'required',

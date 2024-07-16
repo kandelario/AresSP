@@ -43,7 +43,7 @@
                 <th class="text-center">Activo</th>
                 <th class="text-center">Otro Doc. Nombre</th>
                 <th class="text-center">Otro Doc.</th>
-                <th class="text-center">EPP Pantalon (cantidad)</th>
+                {{-- <th class="text-center">EPP Pantalon (cantidad)</th>
                 <th class="text-center">EPP Pantalon Talla</th>
                 <th class="text-center">EPP Camisola (cantidad)</th>
                 <th class="text-center">EPP Camisola Talla</th>
@@ -64,7 +64,8 @@
                 <th class="text-center">EPP Lampara (cantidad)</th>
                 <th class="text-center">EPP Cubrebocas (cantidad)</th>
                 <th class="text-center">EPP Tapones (cantidad)</th>
-                <th class="text-center">EPP Lentes (cantidad)</th>
+                <th class="text-center">EPP Lentes (cantidad)</th> --}}
+                <th class="text-center">Observaciones</th>
                 <th class="text-center">Acción</th>
             </tr>
             </thead>
@@ -245,7 +246,7 @@
                             {{ 'No' }}
                         @endif
                     </td>
-                    <td class="text-center">{{ $personal->epp_pantalon_n }}</td>
+                    {{-- <td class="text-center">{{ $personal->epp_pantalon_n }}</td>
                     <td class="text-center">
                         @if ($personal->epp_pantalon_talla != '')
                             {{ $personal->epp_pantalon_talla }}
@@ -308,7 +309,8 @@
                     <td class="text-center">{{ $personal->epp_lampara_n }}</td>
                     <td class="text-center">{{ $personal->epp_cubrebocas_n }}</td>
                     <td class="text-center">{{ $personal->epp_tapones_n }}</td>
-                    <td class="text-center">{{ $personal->epp_lentes_n }}</td>
+                    <td class="text-center">{{ $personal->epp_lentes_n }}</td> --}}
+                    <td class="text-center">{{ $personal->observaciones }}</td>
                     <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['personals.destroy', $personal->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

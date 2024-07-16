@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Cliente;
 use App\Repositories\ClienteRepository;
 use Illuminate\Http\Request;
 //use Flash;
@@ -27,10 +28,14 @@ class ClienteController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $clientes = $this->clienteRepository->paginate(10);
+        $clientes = $this->clienteRepository->paginate(100);
+        // $clientes = Cliente::all();
+        $tipos_pago = PaymentType::all();
+
 
         return view('clientes.index')
-            ->with('clientes', $clientes);
+            ->with('clientes', $clientes)
+            ->with('tipos_pago', $tipos_pago);
     }
 
     /**

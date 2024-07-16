@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Personal;
 use App\Models\Inventario;
+use App\Models\Movimientos;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Support\Facades\Auth;
 
 class MovimientosController extends AppBaseController
 {
@@ -28,14 +33,15 @@ class MovimientosController extends AppBaseController
      */
     public function index(Request $request)
     {
+        // $usuario = Auth::user();
         $movimientos = $this->movimientosRepository->paginate(10);
-        $personal = Personal::all();
+        $usuarios = DB::table('users')->get();
         $inventarios = DB::table('inventarios')->get();
         // $inventarios = $this->InventarioRepository->paginate(100);;
 
         return view('movimientos.index')
             ->with('movimientos', $movimientos)
-            ->with('personal', $personal)
+            ->with('usuarios', $usuarios)
             ->with('inventarios', $inventarios);
     }
 
@@ -44,9 +50,12 @@ class MovimientosController extends AppBaseController
      */
     public function create()
     {
+        $usuario = Auth::user();
         // $inventarios = DB::table('inventarios')->get();
         $inventario = Inventario::all();
-        return view('movimientos.create')->with('inventarios', $inventario);
+        return view('movimientos.create')
+            ->with('inventarios', $inventario)
+            ->with('usuario', $usuario);
     }
 
     /**
@@ -54,13 +63,48 @@ class MovimientosController extends AppBaseController
      */
     public function store(CreateMovimientosRequest $request)
     {
-        $input = $request->all();
+        // $input = $request->all();
 
-        $movimientos = $this->movimientosRepository->create($input);
+        $validate = Validator::make($request->all(),[
+            'entrada' => 'required', 
+            'salida' => 'required', 
+            'itemID' => 'required',
+            'userID' => 'required'
+        ]);
+        if ($validate->fails()) return response()->json(['success'=>false, 'message'=>$validate->errors()->all()]);
+        
+        DB::beginTransaction();
+        try{
 
-        Flash::success('Movimientos saved successfully.');
+            $newMov = new Movimientos();
+            $newMov->entrada = $request->entrada;
+            $newMov->salida = $request->salida;
+            $newMov->itemID = $request->itemID;
+            $newMov->userID = $request->userID;
+            $newMov->save();
 
-        return redirect(route('movimientos.index'));
+            $item = Inventario::find($request->itemID);
+            $resta = $item->existencia - $request->salida;
+            $item->existencia = $resta;
+            $item->save();
+
+            DB::commit();
+            //return response()->json(['success'=>true,'message'=>'All right to make User!']);
+            Flash::success('Salida generada satisfactoriamente.');
+            return redirect(route('movimientos.index'));
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['success'=>false, 'message'=>$e->getMessage()]);
+        }
+
+
+
+        // $item = DB::table('inventarios')->where('id', '=', $request->itemID);
+        
+        // $movimientos = $this->movimientosRepository->create($input);
+
+        
     }
 
     /**
@@ -69,6 +113,8 @@ class MovimientosController extends AppBaseController
     public function show($id)
     {
         $movimientos = $this->movimientosRepository->find($id);
+        $inventarios = DB::table('inventarios')->get();
+        $usuarios = DB::table('users')->get();
 
         if (empty($movimientos)) {
             Flash::error('Movimientos not found');
@@ -76,7 +122,10 @@ class MovimientosController extends AppBaseController
             return redirect(route('movimientos.index'));
         }
 
-        return view('movimientos.show')->with('movimientos', $movimientos);
+        return view('movimientos.show')
+            ->with('movimientos', $movimientos)
+            ->with('inventarios', $inventarios)
+            ->with('usuarios', $usuarios);
     }
 
     /**
@@ -85,6 +134,7 @@ class MovimientosController extends AppBaseController
     public function edit($id)
     {
         $movimientos = $this->movimientosRepository->find($id);
+        $inventarios = DB::table('inventarios')->get();
 
         if (empty($movimientos)) {
             Flash::error('Movimientos not found');
@@ -92,7 +142,9 @@ class MovimientosController extends AppBaseController
             return redirect(route('movimientos.index'));
         }
 
-        return view('movimientos.edit')->with('movimientos', $movimientos);
+        return view('movimientos.edit')
+            ->with('movimientos', $movimientos)
+            ->with('inventarios', $inventarios);
     }
 
     /**
@@ -101,16 +153,31 @@ class MovimientosController extends AppBaseController
     public function update($id, UpdateMovimientosRequest $request)
     {
         $movimientos = $this->movimientosRepository->find($id);
-
+        
         if (empty($movimientos)) {
-            Flash::error('Movimientos not found');
+            Flash::error('Salida no encontrada');
 
             return redirect(route('movimientos.index'));
         }
+        /*DB::beginTransaction();
+        try {
+            $item = Inventario::find($request->itemID);
+        
+            if($movimientos->salida < $request->salida){
+                $suma = $item->existencia - $request->salida;
+                $item->existencia = $suma;
+                $item->save();
+            }
 
+            DB::commit();
+            Flash::success('Salida generada satisfactoriamente.');
+            return redirect(route('movimientos.index'));
+        } catch (\Throwable $th) {
+            
+        }*/
         $movimientos = $this->movimientosRepository->update($request->all(), $id);
 
-        Flash::success('Movimientos updated successfully.');
+        Flash::success('Salida actualizada con éxito.');
 
         return redirect(route('movimientos.index'));
     }

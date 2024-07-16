@@ -11,6 +11,7 @@ use Laracasts\Flash\Flash;
 
 use App\Models\Cliente;
 use App\Models\Personal;
+use Illuminate\Support\Facades\DB;
 
 class AssignmentController extends AppBaseController
 {
@@ -28,9 +29,11 @@ class AssignmentController extends AppBaseController
     public function index(Request $request)
     {
         $assignments = $this->assignmentRepository->paginate(10);
+        $clientes = DB::table('clientes')->get();
 
         return view('assignments.index')
-            ->with('assignments', $assignments);
+            ->with('assignments', $assignments)
+            ->with('clientes', $clientes);
     }
 
     /**

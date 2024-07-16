@@ -16,12 +16,13 @@ return new class extends Migration
 
         Schema::create('assignments', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->autoIncrement();
-            $table->string('name');
+            // $table->string('name');
             $table->date("fecha_inicio_serv");
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
             $table->string('puesto');
+            $table->string('observaciones');
         });
 
         Schema::table('assignments', function (Blueprint $table) {

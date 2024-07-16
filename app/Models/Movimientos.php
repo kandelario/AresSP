@@ -11,7 +11,9 @@ class Movimientos extends Model
     public $fillable = [
         'entrada',
         'salida',
-        'itemID'
+        'itemID',
+        'observaciones',
+        'userID'
     ];
 
     protected $casts = [
@@ -19,10 +21,10 @@ class Movimientos extends Model
     ];
 
     public static array $rules = [
-        'entrada' => 'required',
-        'salida' => 'required',
-        'created_at' => 'required',
-        'updated_at' => 'required',
+        'entrada' => 'numeric',
+        'salida' => 'numeric',
+        // 'created_at' => 'required',
+        // 'updated_at' => 'required',
         'itemID' => 'required'
     ];
 

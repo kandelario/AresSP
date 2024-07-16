@@ -298,12 +298,21 @@
             @endif
         </div>
         
+        <div class="form-group col-sm-3">
+            {!! Form::label('observaciones', 'Observaciones:') !!}
+            @if (isset($personal->recomendaciones) && $personal->recomendaciones != "")
+                {!! Form::text('observaciones', $personal->recomendaciones, ['class' => 'form-control']) !!}    
+            @else
+                {!! Form::text('observaciones', null, ['class' => 'form-control']) !!}
+            @endif
+            
+        </div>
     </div>
         
 
 </div>
 
-<div class="row form-group card-body m-0 p-0">
+{{-- <div class="row form-group card-body m-0 p-0">
     <div class="col-sm-12 mb-2 text-center"><h3>Equipo de Protección Personal y Uniforme</h3></div>
 
     <!-- Epp Pantalon N Field -->
@@ -467,4 +476,4 @@
         
     </div>
 
-</div>
+</div> --}}

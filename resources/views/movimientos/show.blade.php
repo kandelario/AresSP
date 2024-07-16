@@ -1,19 +1,15 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>
-Movimientos Details
-                    </h1>
+                    <h1>Detalle de la salirda #{{ $movimientos->id }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
-                       href="{{ route('movimientos.index') }}">
-                                                    Back
-                                            </a>
+                       href="{{ route('movimientos.index') }}">Volver</a>
                 </div>
             </div>
         </div>

@@ -8,20 +8,30 @@
         <table class="table table-striped table-bordered nowrap" id="assignments-table">
             <thead>
             <tr>
-                <th class="text-center">Nombre</th>
-                <th class="text-center">Inicio Servicio</th>
-                <th class="text-center">Activo</th>
-                <th class="text-center">Cliente Id</th>
-                <th class="text-center">Action</th>
+                <th class="text-center">Fecha Inicio Servicio</th>
+                <th class="text-center">Puesto</th>
+                <th class="text-center">Cliente</th>
+                <th class="text-center">Observaciones</th>
+                <th class="text-center">Acciones</th>
             </tr>
             </thead>
             <tbody>
             @foreach($assignments as $assignment)
                 <tr>
-                    <td>{{ $assignment->name }}</td>
                     <td>{{ $assignment->fecha_inicio_serv }}</td>
-                    <td>{{ $assignment->enable }}</td>
-                    <td>{{ $assignment->cliente_id }}</td>
+                    <td>{{ $assignment->puesto }}</td>
+                    <td>
+                        @if (isset($clientes) && count($clientes) > 0)
+                            @foreach ($clientes as $cliente)
+                                @if ($cliente->id == $assignment->cliente_id)
+                                    {{ $cliente->nombre }}
+                                @endif
+                            @endforeach
+                        @else
+                            {{ 'No existe el cliente solicitado' }}
+                        @endif
+                    </td>
+                    <td>{{ $assignment->observaciones }}</td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['assignments.destroy', $assignment->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

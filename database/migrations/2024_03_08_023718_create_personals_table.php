@@ -53,39 +53,41 @@ return new class extends Migration
             $table->string('otro_doc_nombre')->nullable();
             $table->boolean('otro_doc')->default(false);
 
-            $table->integer('epp_pantalon_n')->default(0);
-            $table->string('epp_pantalon_talla')->nullable();
+            // $table->integer('epp_pantalon_n')->default(0);
+            // $table->string('epp_pantalon_talla')->nullable();
 
-            $table->integer('epp_camisola_n')->default(0);
-            $table->string('epp_camisola_talla')->nullable();
+            // $table->integer('epp_camisola_n')->default(0);
+            // $table->string('epp_camisola_talla')->nullable();
 
-            $table->integer('epp_gorra_n')->default(0);
-            $table->string('epp_gorra_talla')->nullable();
+            // $table->integer('epp_gorra_n')->default(0);
+            // $table->string('epp_gorra_talla')->nullable();
 
-            $table->integer('epp_fornitura_n')->default(0);
-            $table->string('epp_fornitura_talla')->nullable();
+            // $table->integer('epp_fornitura_n')->default(0);
+            // $table->string('epp_fornitura_talla')->nullable();
 
-            $table->integer('epp_gas_n')->default(0);
+            // $table->integer('epp_gas_n')->default(0);
 
-            $table->integer('epp_pr24_n')->default(0);
+            // $table->integer('epp_pr24_n')->default(0);
 
-            $table->integer('epp_credencial_n')->default(0);
+            // $table->integer('epp_credencial_n')->default(0);
 
-            $table->integer('epp_chamarra_n')->default(0);
-            $table->string('epp_chamarra_talla')->nullable();
+            // $table->integer('epp_chamarra_n')->default(0);
+            // $table->string('epp_chamarra_talla')->nullable();
 
-            $table->integer('epp_chaleco_n')->default(0);
-            $table->string('epp_chaleco_talla')->nullable();
+            // $table->integer('epp_chaleco_n')->default(0);
+            // $table->string('epp_chaleco_talla')->nullable();
 
-            $table->integer('epp_coipa_n')->default(0);
+            // $table->integer('epp_coipa_n')->default(0);
 
-            $table->integer('epp_guantes_n')->default(0);
-            $table->string('epp_guantes_talla')->nullable();
+            // $table->integer('epp_guantes_n')->default(0);
+            // $table->string('epp_guantes_talla')->nullable();
 
-            $table->integer('epp_lampara_n')->default(0);
-            $table->integer('epp_cubrebocas_n')->default(0);
-            $table->integer('epp_tapones_n')->default(0);
-            $table->integer('epp_lentes_n')->default(0);
+            // $table->integer('epp_lampara_n')->default(0);
+            // $table->integer('epp_cubrebocas_n')->default(0);
+            // $table->integer('epp_tapones_n')->default(0);
+            // $table->integer('epp_lentes_n')->default(0);
+
+            $table->string('observaciones')->nullable();
 
         });
 

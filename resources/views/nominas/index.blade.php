@@ -25,9 +25,9 @@
                 <div class="table-responsive">
                     
                     <div class="row p-0 m-0">
-                        <div class="col-sm-12">
+                        {{-- <div class="col-sm-12">
                             <h4>Filtros</h4>
-                        </div>
+                        </div> --}}
                         <div class="form-group col-sm-3">
                             <label for="_inicio">Fecha inicio:</label>
                             <input type="date" name="_inicio" id="_inicio" class="form-control">

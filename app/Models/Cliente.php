@@ -72,10 +72,10 @@ class Cliente extends Model
 
     public static array $rules = [
         'nombre' => 'required|string|max:255',
-        'razon_social' => 'required|string|max:255',
+        'razon_social' => 'string|max:255',
         'nGuardias' => 'nullable',
-        'guardia_sueldo_dia' => 'required|numeric',
-        'guardia_sueldo_mes' => 'required|numeric',
+        'guardia_sueldo_dia' => 'numeric',
+        'guardia_sueldo_mes' => 'numeric',
         'n_jefe_turno' => 'nullable',
         'jefe_turno_sueldo_dia' => 'numeric',
         'jefe_turno_sueldo_mes' => 'numeric',
@@ -88,9 +88,9 @@ class Cliente extends Model
         'n_canino' => 'nullable',
         'costocanino' => 'nullable|numeric',
         'facturaxmes' => 'nullable|numeric',
-        'iva' => 'required|numeric',
+        'iva' => 'numeric',
         'iva_retenido' => 'nullable|numeric',
-        'total_factura' => 'required|numeric',
+        'total_factura' => 'numeric',
         'fecha_emision' => 'nullable',
         'nombre_contacto1' => 'nullable|string|max:255',
         'email_contact1' => 'nullable|string|max:255',
@@ -100,10 +100,10 @@ class Cliente extends Model
         'vigencia' => 'nullable',
         'observaciones' => 'nullable|string|max:65535',
         'constancia_sf' => 'nullable|string|max:255',
-        'created_at' => 'required',
-        'updated_at' => 'required',
+        // 'created_at' => 'required',
+        // 'updated_at' => 'required',
         'enable' => 'boolean',
-        'paymentID' => 'required'
+        // 'paymentID' => 'required'
     ];
 
     public function paymentid(): \Illuminate\Database\Eloquent\Relations\BelongsTo

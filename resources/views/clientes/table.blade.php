@@ -3,28 +3,28 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
-<div class="card-body p-0">
+<div class="card-body p-2">
     <div class="table-responsive">
         <table class="display nowrap table table-striped" id="clientes-table">
             <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Nguardias</th>
-                <th>Guardia Sueldo Dia</th>
-                <th>Guardia Sueldo Mes</th>
-                <th>N Jefe Turno</th>
+                <th>N° guardias contratados</th>
+                <th>Sueldo Dia (Guardia)</th>
+                <th>Sueldo Mes (Guardia)</th>
+                <th>N° Jefe Turno</th>
                 <th>Jefe Turno Sueldo Dia</th>
                 <th>Jefe Turno Sueldo Mes</th>
                 <th>N Jefe Servicio</th>
                 <th>Jefe Serv Sueldo Dia</th>
                 <th>Jefe Serv Sueldo Mes</th>
-                <th>N Monitorista</th>
+                <th>N° Monitorista</th>
                 <th>Monitor Sueldoxdia</th>
                 <th>Monitor Sueldoxmes</th>
-                <th>N Canino</th>
-                <th>Costocanino</th>
-                <th>Facturaxmes</th>
-                <th>Iva</th>
+                <th>N° Canino</th>
+                <th>Costo x canino</th>
+                <th>Factura x mes</th>
+                <th>IVA</th>
                 <th>Iva Retenido</th>
                 <th>Total Factura</th>
                 <th>Fecha Emision</th>
@@ -32,13 +32,13 @@
                 <th>Email Contact1</th>
                 <th>Nombre Contacto2</th>
                 <th>Email Contact2</th>
-                <th>Rfc</th>
+                <th>RFC</th>
                 <th>Vigencia</th>
                 <th>Observaciones</th>
-                <th>Constancia Sf</th>
-                <th>Enable</th>
-                <th>Paymentid</th>
-                <th>Action</th>
+                <th>Constancia S. F.</th>
+                <th>Habilitado</th>
+                <th>Tipo de Pago</th>
+                <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -73,7 +73,21 @@
                     <td>{{ $cliente->observaciones }}</td>
                     <td>{{ $cliente->constancia_sf }}</td>
                     <td>{{ $cliente->enable }}</td>
-                    <td>{{ $cliente->paymentID }}</td>
+                    <td>
+                        @if (isset($tipos_pago) && count($tipos_pago) > 0)
+                            @foreach ($tipos_pagp as $tipo_pago)
+                                @if ($tipo_pago->id == $cliente->paymentID)
+                                    {{$tipo_pago->name}}
+                                @else
+                                    
+                                @endif
+                            @endforeach
+                        @else
+                            {{'No hay tipo de pago registrados aun.'}}
+                        @endif
+                        {{ $cliente->paymentID }}
+
+                    </td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
