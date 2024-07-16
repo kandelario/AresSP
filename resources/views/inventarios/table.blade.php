@@ -26,7 +26,6 @@
                         @else
                             <img src="{{asset('assets/inventary_imgs/default.webp')}}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;">
                         @endif
-                        {{-- {{ if($inventario->image){asset('assets/inventary_imgs/' . $inventario->image)}else{asset('assets/inventary_imgs/default.webp')} }}--}}
                     </td> 
                     <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['inventarios.destroy', $inventario->id], 'method' => 'delete']) !!}
@@ -39,7 +38,7 @@
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Esta seguro que desea eliminar el registro?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
@@ -68,20 +67,19 @@
 <script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 <script>
-    //new DataTable('#myTable');
     new DataTable('#inventarios-table', {
-    layout: {
+    /*layout: {
         topStart: {
             buttons: [
-                // 'copy',
-                // 'csv',
+                'copy',
+                'csv',
                 'excel',
-                // 'pdf',
+                'pdf',
                 'print'
             ]
         }
-    },
-    paginate: false,
-    select: true
-});
+    },*/
+        paginate: false,
+        select: true
+    });
 </script>

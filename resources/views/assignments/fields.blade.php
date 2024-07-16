@@ -15,9 +15,9 @@
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Nombre:') !!}
+    {!! Form::label('name', 'Nombre del personal:') !!}
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
-    <select name="cliente_id" id="cliente_id" class="form-control">
+    <select name="name" id="name" class="form-control">
         @if (isset($personals))
             @foreach ($personals as $personal)
                 <option value="{{$personal['id']}}">{{$personal['name']}}</option>

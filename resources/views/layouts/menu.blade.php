@@ -61,3 +61,10 @@
         <p>Asistencias</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('movimientos.index') }}" class="nav-link {{ Request::is('movimientos*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Movimientos</p>
+    </a>
+</li>

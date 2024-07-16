@@ -6,14 +6,16 @@ use App\Http\Requests\CreateInventarioRequest;
 use App\Http\Requests\UpdateInventarioRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Inventario;
+use App\Models\Personal;
 use App\Repositories\InventarioRepository;
 use Illuminate\Http\Request;
-// use Flash;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\DB;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
+
+use App\Models\Movimientos;
 
 class InventarioController extends AppBaseController
 {
@@ -30,13 +32,10 @@ class InventarioController extends AppBaseController
      */
     public function index(Request $request)
     {
-        // $this->inv_export_pdf();
         $inventarios = $this->inventarioRepository->paginate(10);
-
         return view('inventarios.index')
-            ->with('inventarios', $inventarios);
-
-        
+        ->with('inventarios', $inventarios);
+            
     }
 
     /**
@@ -53,20 +52,26 @@ class InventarioController extends AppBaseController
     public function store(CreateInventarioRequest $request)
     {
         $inventario = new Inventario();
-        //dd($request->hasFile('image'));
-        $inventario->nombre = $request->nombre;
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $destiny = 'assets/inventary_imgs/';
-            $old_name = str_replace(" ", "_", $request->nombre);
-            $fileName = time().'_'.$old_name . '.' . $file->clientExtension();
-            $uploadSuccess = $request->file('image')->move($destiny, $fileName);
-            $inventario->image = $fileName;
+        $movimientos = new Movimientos();
+        if($request->movimiento == 'entrada'){
+            $inventario->nombre = $request->nombre;
+            if($request->hasFile('image')){
+                $file = $request->file('image');
+                $destiny = 'assets/inventary_imgs/';
+                $old_name = str_replace(" ", "_", $request->nombre);
+                $fileName = time().'_'.$old_name . '.' . $file->clientExtension();
+                $uploadSuccess = $request->file('image')->move($destiny, $fileName);
+                $inventario->image = $fileName;
+                
+            }else{
+                $request->request->remove('image');
+            }
+            $inventario->existencia = $request->existencia;
+
+        }elseif($request->movimiento == 'salida'){
             
-        }else{
-            $request->request->remove('image');
         }
-        $inventario->existencia = $request->existencia;
+        
         $inventario->save();
 
         
@@ -171,5 +176,14 @@ class InventarioController extends AppBaseController
         $inventario = Inventario::all();
         $pdf = Pdf::loadView('inventarios.topdf', compact('inventario'));
         return $pdf->stream();
+    }
+
+    public function salidas(){
+        $personal = Personal::all();
+        // $items = Inventario::all();
+        $items = $this->inventarioRepository->paginate(100);
+        return view('inventarios.salidas')
+            ->with('personal', $personal)
+            ->with('items', $items);
     }
 }

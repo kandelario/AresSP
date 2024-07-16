@@ -8,6 +8,7 @@ use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\NominasController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +24,19 @@ Route::resource('/clientes', ClienteController::class)->names('clientes')->middl
 
 Route::get('/InventariotoPDF', [InventarioController::class, 'inv_export_pdf'])->name('InventariotoPDF');
 
+Route::get('/inventarios/salidas', [InventarioController::class, 'salidas'])->name('inventarios/salidas');
+
 Route::resource('/inventarios', InventarioController::class)->names('inventarios')->middleware('auth');
+
+Route::resource('movimientos', App\Http\Controllers\MovimientosController::class);
+
+Route::group(['prefix' => 'nominas'], function(){
+    Route::get('/', [NominasController::class, 'index'])->name('nominas.index');
+    Route::post('/', [NominasController::class, 'mostrar'])->name('nominas.mostrar');
+    Route::post('mostrar', [NominasController::class, 'generar'])->name('nominas.generar');
+    // Route::post('recibo/{idPersonal}', [NominasController::class, 'recibo'])->name('nominas.recibo');
+    Route::get('recibo', [NominasController::class, 'recibo'])->name('nominas.recibo');
+});
 
 Route::get('/PersonaltoPDF', [PersonalController::class, 'PersonaltoPDF'])->name('PersonaltoPDF');
 

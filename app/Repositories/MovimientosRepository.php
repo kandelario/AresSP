@@ -2,18 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Models\Assignment;
+use App\Models\Movimientos;
 use App\Repositories\BaseRepository;
 
-class AssignmentRepository extends BaseRepository
+class MovimientosRepository extends BaseRepository
 {
     protected $fieldSearchable = [
-        'name',
-        'fecha_inicio_serv',
-        'enable',
-        'cliente_id',
-        'puesto',
-        'personal_id'
+        'entrada',
+        'salida',
+        'itemID'
     ];
 
     public function getFieldsSearchable(): array
@@ -23,6 +20,6 @@ class AssignmentRepository extends BaseRepository
 
     public function model(): string
     {
-        return Assignment::class;
+        return Movimientos::class;
     }
 }

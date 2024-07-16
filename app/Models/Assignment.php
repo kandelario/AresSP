@@ -12,7 +12,9 @@ class Assignment extends Model
         'name',
         'fecha_inicio_serv',
         'enable',
-        'cliente_id'
+        'cliente_id',
+        'puesto',
+        'personal_id'
     ];
 
     protected $casts = [
@@ -27,7 +29,9 @@ class Assignment extends Model
         'created_at' => 'required',
         'updated_at' => 'required',
         'enable' => 'required|boolean',
-        'cliente_id' => 'required'
+        'cliente_id' => 'required',
+        'puesto' => 'required|string',
+        'personal_id' => 'required',
     ];
 
     public function cliente(): \Illuminate\Database\Eloquent\Relations\BelongsTo

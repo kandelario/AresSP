@@ -21,11 +21,17 @@ return new class extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->boolean('enable')->default(true);
+            $table->string('puesto');
         });
 
         Schema::table('assignments', function (Blueprint $table) {
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes')->onUpdate('cascade');
+        });
+
+        Schema::table('assignments', function (Blueprint $table) {
+            $table->unsignedBigInteger('personal_id');
+            $table->foreign('personal_id')->references('id')->on('personals')->onUpdate('cascade');
         });
     }
 

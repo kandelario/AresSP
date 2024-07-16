@@ -12,20 +12,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventarios', function (Blueprint $table) {
+        Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->integer('existencia');
-            $table->string('image')->nullable()->default(null);
+            $table->integer('entrada');
+            $table->integer('salida');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-            $table->boolean('enable')->default(true);
         }); 
 
-        DB::table('inventarios')->insert([
-            [ 'nombre' => 'PR-24', 'existencia' => 40, 'image' => 'article_image_1.webp', 'enable' => 1],
-            [ 'nombre' => 'Gas Pimienta con Estuche', 'existencia' => 160, 'image' => '1711501071_Gas_Pimienta_con_Estuche.webp' , 'enable' => 1],
-        ]);
+        ///se agrega llave forania con la tabla movimientos, el campo es itemID.
+        Schema::table('movimientos', function (Blueprint $table) {
+            $table->unsignedBigInteger('itemID');
+            $table->foreign('itemID')->references('id')->on('inventarios')->onUpdate('cascade');
+        });
     }
 
     /**
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventarios');
+        Schema::dropIfExists('inventario_movimientos');
     }
 };

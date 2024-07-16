@@ -344,16 +344,34 @@ return [
                 
             // ],
             
-        ],[
-            'text' => 'Inventario',
-            'icon' => 'fas fa-fw fa-vest text-warning',
-            'url' => 'admin/inventarios',
-        ],
-        // [
-        //     'text' => 'Tipos de Pago',
-        //     'icon' => 'fas fa-fw fa-money text-warning',
-        //     'url' => 'admin/tipos-de-pago',
+        ],//[
+        //     'text' => 'Inventario',
+        //     'icon' => 'fas fa-fw fa-vest text-warning',
+        //     'url' => 'admin/inventarios',
         // ],
+        [
+            'text'       => 'Almacen',
+            'icon' => 'fas fa-fw fa-vest text-warning',
+            //'url'        => 'admin/personals',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'icon' => 'fas fa-fw fa-plus text-warning ml-3',
+                    'url' => 'admin/inventarios',
+                ],
+                [
+                    'text' => 'Salidas',
+                    'icon' => 'fas fa-fw fa-minus text-warning ml-3',
+                    'url' => 'admin/movimientos',
+                ],
+                // [
+                //     'text' => 'Reportes',
+                //     'icon' => 'fas fa-fw fa-file text-warning ml-3',
+                //     'url' => '#',
+                // ],
+                
+            ],
+        ],
         [
             // 'text' => 'Perfiles de usuario',
             // 'icon' => 'fas fa-fw fa-lock text-warning',
@@ -430,6 +448,11 @@ return [
             //     'url'        => '#',
             //     ],
             // ],
+        ],
+        [
+            'text' => 'Nóminas',
+            'icon' => 'fas fa-fw fa-file text-warning',
+            'url' => 'admin/nominas',
         ],
     ],
 
