@@ -9,7 +9,8 @@ class AsistenciaRepository extends BaseRepository
 {
     protected $fieldSearchable = [
         'hoy',
-        'asistio',
+        'falto',
+        'observaciones',
         'idPersonal'
     ];
 

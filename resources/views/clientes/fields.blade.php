@@ -10,7 +10,7 @@
 {{-- Razón Social --}}
 <div class="form-group col-sm-4">
     {!! Form::label('razon_social', 'Razón Social:') !!}
-    {!! Form::text('razon_social', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    {!! Form::text('razon_social', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
     @error('razon_social')
         <p class="error-message">{{ "El campo razón social es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -37,7 +37,7 @@
 <!-- Guardia Sueldo Dia Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('guardia_sueldo_dia', 'Sueldo Dia (Guardia):') !!}
-    {!! Form::number('guardia_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('guardia_sueldo_dia', null, ['class' => 'form-control']) !!}
     @error('guardia_sueldo_dia')
         <p class="error-message">{{ "El campo sueldo de guardias por día es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -46,7 +46,7 @@
 <!-- Guardia Sueldo Mes Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('guardia_sueldo_mes', 'Sueldo Mes (Guardia):') !!}
-    {!! Form::number('guardia_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('guardia_sueldo_mes', null, ['class' => 'form-control']) !!}
     @error('guardia_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de guardias por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -64,7 +64,7 @@
 <!-- Jefe Turno Sueldo Dia Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('jefe_turno_sueldo_dia', 'Sueldo Dia (Jefe Turno):') !!}
-    {!! Form::number('jefe_turno_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('jefe_turno_sueldo_dia', null, ['class' => 'form-control']) !!}
     @error('n_jefe_turno')
         <p class="error-message">{{ "El campo cantidad de jefe de turno por día es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -73,7 +73,7 @@
 <!-- Jefe Turno Sueldo Mes Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('jefe_turno_sueldo_mes', 'Sueldo Mes (Jefe Turno):') !!}
-    {!! Form::number('jefe_turno_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('jefe_turno_sueldo_mes', null, ['class' => 'form-control']) !!}
     @error('jefe_turno_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de jefe de turno por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -91,7 +91,7 @@
 <!-- Jefe Serv Sueldo Dia Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('jefe_serv_sueldo_dia', 'Sueldo Dia (Jefe de Servicio):') !!}
-    {!! Form::number('jefe_serv_sueldo_dia', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('jefe_serv_sueldo_dia', null, ['class' => 'form-control']) !!}
     @error('n_jefe_servicio')
         <p class="error-message">{{ "El campo cantidad de jefe de servicio por día es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -100,7 +100,7 @@
 <!-- Jefe Serv Sueldo Mes Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('jefe_serv_sueldo_mes', 'Sueldo Mes (Jefe de Servicio):') !!}
-    {!! Form::number('jefe_serv_sueldo_mes', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('jefe_serv_sueldo_mes', null, ['class' => 'form-control']) !!}
     @error('jefe_serv_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de jefe de servicio por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -118,7 +118,7 @@
 <!-- Monitor Sueldoxdia Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('monitor_sueldoxdia', 'Sueldo por día (otros):') !!}
-    {!! Form::number('monitor_sueldoxdia', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('monitor_sueldoxdia', null, ['class' => 'form-control']) !!}
     @error('monitor_sueldoxdia')
         <p class="error-message">{{ "El campo sueldo de otros personal por día es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -127,7 +127,7 @@
 <!-- Monitor Sueldoxmes Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('monitor_sueldoxmes', 'Sueldo por mes (otros):') !!}
-    {!! Form::number('monitor_sueldoxmes', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('monitor_sueldoxmes', null, ['class' => 'form-control']) !!}
     @error('monitor_sueldoxmes')
         <p class="error-message">{{ "El campo sueldo de otros personal por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -163,7 +163,7 @@
 <!-- Iva Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('iva', 'IVA:') !!}
-    {!! Form::number('iva', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('iva', null, ['class' => 'form-control']) !!}
     @error('iva')
         <p class="error-message">{{ "El campo iva es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -181,7 +181,7 @@
 <!-- Total Factura Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('total_factura', 'Total a Facturar:') !!}
-    {!! Form::number('total_factura', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::number('total_factura', null, ['class' => 'form-control']) !!}
     @error('total_factura')
         <p class="error-message">{{ "El campo total a facturar es requerido y no cumple con lo especificado." }}</p>
     @enderror
@@ -278,7 +278,6 @@
 <!-- Paymentid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('paymentID', 'Tipo de Pago:') !!}
-    {{-- {!! Form::number('paymentID', null, ['class' => 'form-control', 'required']) !!} --}}
     <select name="paymentID" id="paymentID" class="form-control">
         @foreach ($payment_types as $payment_type)
             <option value="{{$payment_type['id']}}">{{$payment_type['type']}}</option>

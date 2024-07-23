@@ -9,8 +9,9 @@
             <thead>
             <tr>
                 <th class="text-center">Fecha Asistencia</th>
-                <th class="text-center">Asistio</th>
+                <th class="text-center">Faltó</th>
                 <th class="text-center">Personal</th>
+                <th class="text-center">Observaciones</th>
                 <th class="text-center">Acción</th>
             </tr>
             </thead>
@@ -19,8 +20,8 @@
                 <tr>
                     <td class="text-center">{{ $asistencia->hoy }}</td>
                     <td class="text-center">
-                        {{ $asistencia->asistio }}
-                        @if ($asistencia->asistio == 1)
+                        {{ $asistencia->falto }}
+                        @if ($asistencia->falto == 1)
                             {{ "Sí" }}
                         @else
                             {{ "No" }}
@@ -40,6 +41,7 @@
                         @endif
                         
                     </td>
+                    <td>{{$asistencia->observaciones}}</td>
                     <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['asistencias.destroy', $asistencia->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

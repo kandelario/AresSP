@@ -10,24 +10,20 @@ class Asistencia extends Model
 
     public $fillable = [
         'hoy',
-        'asistio',
+        'falto',
         'idPersonal',
-        'puesto'
+        'observaciones'
     ];
 
     protected $casts = [
         'hoy' => 'date',
-        'asistio' => 'boolean',
-        'puesto' => 'string'
+        'falto' => 'boolean',
+        'observaciones' => 'string'
     ];
 
     public static array $rules = [
         'hoy' => 'required',
-        'asistio' => 'boolean',
-        // 'created_at' => 'required',
-        // 'updated_at' => 'required',
-        'idPersonal' => 'required',
-        'puesto' => 'required|string'
+        'idPersonal' => 'required'
     ];
 
     public function idpersonal(): \Illuminate\Database\Eloquent\Relations\BelongsTo

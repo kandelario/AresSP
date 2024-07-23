@@ -8,7 +8,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('idPersonal', 'Personal:') !!}
     <select name="idPersonal" id="idPersonal" class="form-control">
-        @if (isset($personals))
+        @if (isset($personals) && count($personals) > 0)
             @foreach ($personals as $personal)
                 <option value="{{$personal['id']}}">{{$personal['name']}}</option>
             @endforeach
@@ -18,23 +18,16 @@
     </select>
 </div>
 
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#hoy').datepicker()
-    </script>
-@endpush
-
-<!-- Puesto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('puesto', 'Puesto:') !!}
-    {!! Form::text('puesto', null, ['class' => 'form-control','id'=>'hoy']) !!}
+    {!! Form::label('observaciones', 'Observaciones:') !!}
+    {!! Form::text('observaciones', null, ['class' => 'form-control','id'=>'hoy']) !!}
 </div>
 
 <!-- Asistio Field -->
 <div class="form-group col-sm-6">
     <div class="form-check">
-        {!! Form::hidden('asistio', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('asistio', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('asistio', 'Asistio', ['class' => 'form-check-label']) !!}
+        {!! Form::hidden('falto', 0, ['class' => 'form-check-input']) !!}
+        {!! Form::checkbox('falto', '1', null, ['class' => 'form-check-input']) !!}
+        {!! Form::label('falto', 'Faltó este días', ['class' => 'form-check-label']) !!}
     </div>
 </div>

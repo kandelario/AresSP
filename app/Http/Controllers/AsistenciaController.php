@@ -13,6 +13,8 @@ use Laracasts\Flash\Flash;
 use App\Repositories\PersonalRepository;
 use App\Models\Personal;
 
+use Illuminate\Support\Facades\DB;
+
 class AsistenciaController extends AppBaseController
 {
     /** @var AsistenciaRepository $asistenciaRepository*/
@@ -45,7 +47,7 @@ class AsistenciaController extends AppBaseController
      */
     public function create()
     {
-        $personals = Personal::all();
+        $personals = DB::table('asistencias')->get();
         return view('asistencias.create')
         ->with('personals', $personals);
     }

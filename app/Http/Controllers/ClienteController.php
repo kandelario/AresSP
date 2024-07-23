@@ -53,8 +53,17 @@ class ClienteController extends AppBaseController
     public function store(CreateClienteRequest $request)
     {
         $input = $request->all();
-
         $cliente = $this->clienteRepository->create($input);
+
+        // if($request->hasFile('constancia_sf')){
+        //     $file = $request->file('constancia_sf');
+        //     $destiny = 'assets/clients_files/';
+        //     $fileName = 'csf_' . $cliente->id . '.' . $file->clientExtension();
+        //     $uploadSuccess = $request->file('constancia_sf')->move($destiny, $fileName);
+        //     $cliente->constancia_sf = $fileName;
+        // }
+
+        
 
         Flash::success('Cliente saved successfully.');
 
@@ -106,9 +115,19 @@ class ClienteController extends AppBaseController
             return redirect(route('clientes.index'));
         }
 
+        if($request->hasFile('constancia_sf')){
+            $file = $request->file('constancia_sf');
+            $destiny = 'assets/clients_files/';
+            $fileName = 'csf_' . $cliente->id . '.' . $file->clientExtension();
+            $uploadSuccess = $request->file('constancia_sf')->move($destiny, $fileName);
+            $cliente->constancia_sf = $fileName;
+        }
+
+        $cliente->save();
+
         $cliente = $this->clienteRepository->update($request->all(), $id);
 
-        Flash::success('Cliente updated successfully.');
+        Flash::success('Cliente actualizado satisfactoriamente.');
 
         return redirect(route('clientes.index'));
     }

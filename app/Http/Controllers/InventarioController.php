@@ -16,6 +16,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
 
 use App\Models\Movimientos;
+use PhpParser\Node\Stmt\TryCatch;
 
 class InventarioController extends AppBaseController
 {
@@ -53,7 +54,8 @@ class InventarioController extends AppBaseController
     {
         $inventario = new Inventario();
         $movimientos = new Movimientos();
-        if($request->movimiento == 'entrada'){
+        DB::beginTransaction();
+        try {
             $inventario->nombre = $request->nombre;
             if($request->hasFile('image')){
                 $file = $request->file('image');
@@ -67,12 +69,17 @@ class InventarioController extends AppBaseController
                 $request->request->remove('image');
             }
             $inventario->existencia = $request->existencia;
-
-        }elseif($request->movimiento == 'salida'){
+            $inventario->save();
+            DB::commit();
+            Flash::success('Salida generada satisfactoriamente.');
+            return redirect(route('inventarios.index'));
             
+        } catch (\Exception $e) {
+            DB::rollback();
+            // return response()->json(['success'=>false, 'message'=>$e->getMessage()]);
+            Flash::success('Error al intentar registrar el nuevo item. Detalle del error (' . $e->getMessage() . ')');
         }
         
-        $inventario->save();
 
         
 
@@ -126,6 +133,13 @@ class InventarioController extends AppBaseController
             Flash::error('Inventario not found');
 
             return redirect(route('inventarios.index'));
+        }
+        try{
+
+        }catch(\Exception $e){
+            DB::rollback();
+            // return response()->json(['success'=>false, 'message'=>$e->getMessage()]);
+            Flash::success('Error al intentar registrar el nuevo item. Detalle del error (' . $e->getMessage() . ')');
         }
 
         $inventario = $this->inventarioRepository->update($request->all(), $id);

@@ -100,10 +100,7 @@ class Cliente extends Model
         'vigencia' => 'nullable',
         'observaciones' => 'nullable|string|max:65535',
         'constancia_sf' => 'nullable|string|max:255',
-        // 'created_at' => 'required',
-        // 'updated_at' => 'required',
-        'enable' => 'boolean',
-        // 'paymentID' => 'required'
+        'enable' => 'boolean'
     ];
 
     public function paymentid(): \Illuminate\Database\Eloquent\Relations\BelongsTo

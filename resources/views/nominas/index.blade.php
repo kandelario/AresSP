@@ -51,32 +51,33 @@
                     </div>
 
                     <div class="row p-0 m-0">
-                        <div class="col-sm-6">
-                            <a class="btn btn-primary float-left"
-                               href="{{ route('nominas.mostrar') }}">
-                               Generar Nóminas
-                            </a>
-                        </div>
+                        {{-- <a class="btn btn-primary float-left"
+                            href="{{ route('nominas.mostrar') }}">
+                            Generar Nóminas
+                        </a> --}}
+                        <a class="btn btn-primary float-left m-1 col-sm-2"
+                            href="#">
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                            Generar Nóminas
+                        </a>
+                        <a class="btn btn-primary m-1 col-sm-2"
+                            href="{{ route('nominas.recibo') }}" target="blank" id="btnPrint">
+                            <i class="fas fa-fw fa-print"></i>
+                            Imprimir Recibo
+                        </a>
                     </div>
 
-                    <div class="row p-0 m-0">
-                        <div class="col-sm-6">
-                            <a class="btn btn-primary float-left"
-                               href="{{ route('nominas.recibo') }}">
-                               Recibo
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="container">
-
-                    </div>
+                    
 
 
-                    <div class="card-footer">
+                    {{-- <div class="card-footer">
                         {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                         <a href="{{ route('nominas.index') }}" class="btn btn-default"> Cancelar </a>
-                    </div>
+                    </div> --}}
+                </div>
+
+                <div class="row p-0 m-0 mt-4" id="print-content">
+                    @include('nominas.recibo')
                 </div>
             </div>
 
