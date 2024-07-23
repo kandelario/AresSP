@@ -39,7 +39,7 @@
 <table class="table table-responsive col-sm-12 carta fs-8 border-0">
     <thead>
         <tr>
-            <th class="text-center border gris" colspan="4">RECIBO DE NÓMINA</th>
+            <th class="text-center border gris" colspan="4">RECIBO DE NÓMINA (MUESTRA)</th>
         </tr>
         <tr><th colspan="4" class="border-0"></th></tr>
         <tr>
