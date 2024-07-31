@@ -50,49 +50,49 @@
             <td class="col-sm-2 border">Nombre:</td>
             <td class="text-justify col-sm-4 fw-bold border">Ares Agencia de Seguridad Privada</td>
             <td class="col-sm-2 border">Nombre:</td>
-            <td class="text-justify col-sm-4 fw-bold border">Candelario Pacheco</td>
+            <td class="text-justify col-sm-4 fw-bold border"></td>
         </tr>
         <tr>
-            <td class="border text-right">Razón Social:</td>
+            <td class="border text-left">Razón Social:</td>
             <td class="border text-justify fw-bold">Adriana Castilla Guzman</td>
             <td class="border">Puesto:</td>
-            <td class="border text-justify fw-bold">Jefe de Servicio</td>
+            <td class="border text-justify fw-bold"></td>
         </tr>
         <tr>
-            <td class="border text-right">R.F.C.:</td>
+            <td class="border text-left">R.F.C.:</td>
             <td class="border fw-bold">CAGX600525DB8</th>
             <td class="border">R.F.C:</td>
-            <td class="border text-justify fw-bold">PAOC830125KQ1</td>
+            <td class="border text-justify fw-bold"></td>
             
         </tr>
         <tr>
             <td class="border">Reg. Patronal</td>
             <td class="border fw-bold">B4747130101</td>
             <td class="border">Num. Emp.</td>
-            <td class="border text-justify fw-bold">KD001</td>
+            <td class="border text-justify fw-bold"></td>
         </tr>
         <tr>
             <td class="border">Periodo:</td>
-            <td class="border fw-bold">01/07/2024 - 15/07/2024</td>
+            <td class="border fw-bold"> - </td>
             <td class="border">CURP</td>
-            <td class="border fw-bold">PAOC830125HSQCRN07</td>
+            <td class="border fw-bold"></td>
         </tr>
         <tr>
             <td class="border">Lugar de Serv.:</td>
-            <td class="border fw-bold">Municipio</td>
+            <td class="border fw-bold"></td>
             <td class="border">IMSS:</td>
-            <td class="border fw-bold">26408872220</td>
+            <td class="border fw-bold"></td>
         </tr>
-        <tr>
+        {{-- <tr>
             <td class="border" colspan="2"></td>
             <td class="border">IMSS:</td>
             <td class="border fw-bold">26408872220</td>
-        </tr>
+        </tr> --}}
         <tr>
             <td class="border">Salario Diario</td>
-            <td class="border fw-bold">$450.00</td>
+            <td class="border fw-bold">$0.00</td>
             <td class="border">Salario Mensual</td>
-            <td class="border fw-bold">$13,500.00</td>
+            <td class="border fw-bold">$0.00</td>
         </tr>
     </thead>
     <tbody>

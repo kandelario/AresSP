@@ -28,25 +28,49 @@
                         {{-- <div class="col-sm-12">
                             <h4>Filtros</h4>
                         </div> --}}
+                        
+
                         <div class="form-group col-sm-3">
-                            <label for="_inicio">Fecha inicio:</label>
-                            <input type="date" name="_inicio" id="_inicio" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="_fin">Fecha fin:</label>
-                            <input type="date" name="_fin" id="_fin" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="_fin">Personal:</label>
-                            <select name="idPersonal" id="idPersonal" class="form-control">
+                            <label for="_fin">Clientes:</label>
+                            <a class="btn btn-outline-warning m-1"
+                                href="{{ route('clientes.create') }}" target="blank" title="Clic aquí para ir a registrar un nuevo cliente.">
+                                <i class="fas fa-fw fa-plus"></i>
+                            </a>
+                            <select name="idCliente" id="idCliente" class="form-control">
                                 @if (isset($clientes) && count($clientes) > 0)
                                     @foreach ($clientes as $cliente)
                                         <option value="{{$cliente['id']}}">{{$cliente['nombre']}}</option>
                                     @endforeach
                                 @else
-                                    <option value="">No existen Clientes</option>
+                                    <option value="">No existen Clientes Registrados</option>
                                 @endif
                             </select>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="_fin">Personal:</label>
+                            <a class="btn btn-outline-warning m-1"
+                                href="{{ route('personals.create') }}" target="blank" title="Clic aquí para ir a registrar nuevo personal.">
+                                <i class="fas fa-fw fa-plus"></i>
+                            </a>
+                            <select name="idPersonal" id="idPersonal" class="form-control disabled">
+                                @if (isset($personal) && count($persona) > 0)
+                                    @foreach ($persona as $persona)
+                                        <option value="{{$persona['id']}}">{{$persona['nombre']}}</option>
+                                    @endforeach
+                                @else
+                                    <option value="">No existen Personal asignado para este cliente</option>
+                                @endif
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="_inicio">Inicio del periodo:</label>
+                            <input type="date" name="_inicio" id="_inicio" class="form-control">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="_fin">Fin del periodo:</label>
+                            <input type="date" name="_fin" id="_fin" class="form-control float-left">
                         </div>
                     </div>
 
@@ -89,5 +113,7 @@
 @endsection
 
 <script>
-
+    $({
+        document.getElementById()
+    });
 </script>

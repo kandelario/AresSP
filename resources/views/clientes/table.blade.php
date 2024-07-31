@@ -75,17 +75,15 @@
                     <td>{{ $cliente->enable }}</td>
                     <td>
                         @if (isset($tipos_pago) && count($tipos_pago) > 0)
-                            @foreach ($tipos_pagp as $tipo_pago)
+                            @foreach ($tipos_pago as $tipo_pago)
                                 @if ($tipo_pago->id == $cliente->paymentID)
-                                    {{$tipo_pago->name}}
-                                @else
-                                    
+                                    {{$tipo_pago->type}}
                                 @endif
                             @endforeach
                         @else
-                            {{'No hay tipo de pago registrados aun.'}}
+                            {{'No hay tipo de pago registrados aún.'}}
                         @endif
-                        {{ $cliente->paymentID }}
+                        {{-- {{ $cliente->paymentID }} --}}
 
                     </td>
                     <td  style="width: 120px">
