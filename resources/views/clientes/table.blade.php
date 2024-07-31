@@ -9,18 +9,18 @@
             <thead>
             <tr>
                 <th>Nombre</th>
-                <th>N° guardias contratados</th>
-                <th>Sueldo Dia (Guardia)</th>
-                <th>Sueldo Mes (Guardia)</th>
+                <th>N° personal asignado</th>
+                <th>Costo Dia (Guardia)</th>
+                <th>Costo Mes (Guardia)</th>
                 <th>N° Jefe Turno</th>
-                <th>Jefe Turno Sueldo Dia</th>
-                <th>Jefe Turno Sueldo Mes</th>
+                <th>Costo Dia (Jefe Turno)</th>
+                <th>Costo Mes (Jefe Turno)</th>
                 <th>N Jefe Servicio</th>
-                <th>Jefe Serv Sueldo Dia</th>
-                <th>Jefe Serv Sueldo Mes</th>
+                <th>Costo x Dia (Jefe Servicio)</th>
+                <th>Costo x Mes (Jefe Servicio)</th>
                 <th>N° Monitorista</th>
-                <th>Monitor Sueldoxdia</th>
-                <th>Monitor Sueldoxmes</th>
+                <th>Costo x dia (Monitor)</th>
+                <th>Costo x mes (Monitor)</th>
                 <th>N° Canino</th>
                 <th>Costo x canino</th>
                 <th>Factura x mes</th>
@@ -43,37 +43,37 @@
             </thead>
             <tbody>
             @foreach($clientes as $cliente)
-                <tr>
-                    <td>{{ $cliente->nombre }}</td>
-                    <td>{{ $cliente->nGuardias }}</td>
-                    <td>{{ $cliente->guardia_sueldo_dia }}</td>
-                    <td>{{ $cliente->guardia_sueldo_mes }}</td>
-                    <td>{{ $cliente->n_jefe_turno }}</td>
-                    <td>{{ $cliente->jefe_turno_sueldo_dia }}</td>
-                    <td>{{ $cliente->jefe_turno_sueldo_mes }}</td>
-                    <td>{{ $cliente->n_jefe_servicio }}</td>
-                    <td>{{ $cliente->jefe_serv_sueldo_dia }}</td>
-                    <td>{{ $cliente->jefe_serv_sueldo_mes }}</td>
-                    <td>{{ $cliente->n_monitorista }}</td>
-                    <td>{{ $cliente->monitor_sueldoxdia }}</td>
-                    <td>{{ $cliente->monitor_sueldoxmes }}</td>
-                    <td>{{ $cliente->n_canino }}</td>
-                    <td>{{ $cliente->costocanino }}</td>
-                    <td>{{ $cliente->facturaxmes }}</td>
-                    <td>{{ $cliente->iva }}</td>
-                    <td>{{ $cliente->iva_retenido }}</td>
-                    <td>{{ $cliente->total_factura }}</td>
-                    <td>{{ $cliente->fecha_emision }}</td>
-                    <td>{{ $cliente->nombre_contacto1 }}</td>
-                    <td>{{ $cliente->email_contact1 }}</td>
-                    <td>{{ $cliente->nombre_contacto2 }}</td>
-                    <td>{{ $cliente->email_contact2 }}</td>
-                    <td>{{ $cliente->rfc }}</td>
-                    <td>{{ $cliente->vigencia }}</td>
-                    <td>{{ $cliente->observaciones }}</td>
-                    <td>{{ $cliente->constancia_sf }}</td>
-                    <td>{{ $cliente->enable }}</td>
-                    <td>
+                <tr class="text-center">
+                    <td class="text-center">{{ $cliente->nombre }}</td>
+                    <td class="text-center">{{ $cliente->nGuardias }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->guardia_sueldo_dia, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->guardia_sueldo_mes, 0) }}</td>
+                    <td class="text-center">{{ $cliente->n_jefe_turno }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->jefe_turno_sueldo_dia, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->jefe_turno_sueldo_mes, 2) }}</td>
+                    <td class="text-center">{{ $cliente->n_jefe_servicio }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->jefe_serv_sueldo_dia, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->jefe_serv_sueldo_mes, 2) }}</td>
+                    <td class="text-center">{{ $cliente->n_monitorista }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->monitor_sueldoxdia, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->monitor_sueldoxmes, 2) }}</td>
+                    <td class="text-center">{{ $cliente->n_canino }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->costocanino, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->facturaxmes, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->iva, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->iva_retenido, 2) }}</td>
+                    <td class="text-center">{{ "$". number_format($cliente->total_factura, 2) }}</td>
+                    <td class="text-center">{{ $cliente->fecha_emision }}</td>
+                    <td class="text-center">{{ $cliente->nombre_contacto1 }}</td>
+                    <td class="text-center">{{ $cliente->email_contact1 }}</td>
+                    <td class="text-center">{{ $cliente->nombre_contacto2 }}</td>
+                    <td class="text-center">{{ $cliente->email_contact2 }}</td>
+                    <td class="text-center">{{ $cliente->rfc }}</td>
+                    <td class="text-center">{{ $cliente->vigencia }}</td>
+                    <td class="text-center">{{ $cliente->observaciones }}</td>
+                    <td class="text-center">{{ $cliente->constancia_sf }}</td>
+                    <td class="text-center">{{ $cliente->enable }}</td>
+                    <td class="text-center">
                         @if (isset($tipos_pago) && count($tipos_pago) > 0)
                             @foreach ($tipos_pago as $tipo_pago)
                                 @if ($tipo_pago->id == $cliente->paymentID)
@@ -86,7 +86,7 @@
                         {{-- {{ $cliente->paymentID }} --}}
 
                     </td>
-                    <td  style="width: 120px">
+                    <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="{{ route('clientes.show', [$cliente->id]) }}"
