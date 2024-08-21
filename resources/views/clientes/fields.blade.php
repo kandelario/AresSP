@@ -65,13 +65,13 @@
 
 <!-- Guardia Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('guardia_sueldo', 'Sueldo Guardia:') !!}
-    @if (isset($cliente->guardia_sueldo))
-        {!! Form::number('guardia_sueldo', $cliente->guardia_sueldo, ['class' => 'form-control']) !!}
+    {!! Form::label('sueldo_guardia', 'Sueldo Guardia:') !!}
+    @if (isset($cliente->sueldo_guardia))
+        {!! Form::number('sueldo_guardia', $cliente->sueldo_guardia, ['class' => 'form-control']) !!}
     @else
-        {!! Form::number('guardia_sueldo', null, ['class' => 'form-control']) !!}
+        {!! Form::number('sueldo_guardia', null, ['class' => 'form-control']) !!}
     @endif
-    @error('guardia_sueldo')
+    @error('sueldo_guardia')
         <p class="error-message">{{ "El campo sueldo de guardias por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
@@ -105,14 +105,14 @@
 
 <!-- Jefe de Turno Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('jefe_turno_sueldo', 'Sueldo Jefe de Turno:') !!}
+    {!! Form::label('sueldo_jefe_turno', 'Sueldo Jefe de Turno:') !!}
     
-    @if (isset($cliente->jefe_turno_sueldo))
-        {!! Form::number('jefe_turno_sueldo', $cliente->jefe_turno_sueldo, ['class' => 'form-control']) !!}
+    @if (isset($cliente->sueldo_jefe_turno))
+        {!! Form::number('sueldo_jefe_turno', $cliente->sueldo_jefe_turno, ['class' => 'form-control']) !!}
     @else
-        {!! Form::number('jefe_turno_sueldo', null, ['class' => 'form-control']) !!}
+        {!! Form::number('sueldo_jefe_turno', null, ['class' => 'form-control']) !!}
     @endif
-    @error('jefe_turno_sueldo')
+    @error('sueldo_jefe_turno')
         <p class="error-message">{{ "El campo sueldo de jefe de turno es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
@@ -148,14 +148,14 @@
 
 <!-- Jefe de Servicio Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('jefe_servicio_sueldo', 'Sueldo Jefe de Servicio:') !!}
+    {!! Form::label('sueldo_jefe_servicio', 'Sueldo Jefe de Servicio:') !!}
     
-    @if (isset($cliente->jefe_servicio_sueldo))
-        {!! Form::number('jefe_servicio_sueldo', $cliente->jefe_servicio_sueldo, ['class' => 'form-control']) !!}
+    @if (isset($cliente->sueldo_jefe_servicio))
+        {!! Form::number('sueldo_jefe_servicio', $cliente->sueldo_jefe_servicio, ['class' => 'form-control']) !!}
     @else
-        {!! Form::number('jefe_servicio_sueldo', null, ['class' => 'form-control']) !!}
+        {!! Form::number('sueldo_jefe_servicio', null, ['class' => 'form-control']) !!}
     @endif
-    @error('jefe_servicio_sueldo')
+    @error('sueldo_jefe_servicio')
         <p class="error-message">{{ "El campo sueldo de jefe de servicio es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
@@ -189,14 +189,14 @@
 
 <!-- Cargo Extra Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('p_extra_sueldo', 'Sueldo Personal Extra:') !!}
+    {!! Form::label('sueldo_p_extra', 'Sueldo Personal Extra:') !!}
     
-    @if (isset($cliente->p_extra_sueldo))
-        {!! Form::number('p_extra_sueldo', $cliente->p_extra_sueldo, ['class' => 'form-control']) !!}
+    @if (isset($cliente->sueldo_p_extra))
+        {!! Form::number('sueldo_p_extra', $cliente->sueldo_p_extra, ['class' => 'form-control']) !!}
     @else
-        {!! Form::number('p_extra_sueldo', null, ['class' => 'form-control']) !!}
+        {!! Form::number('sueldo_p_extra', null, ['class' => 'form-control']) !!}
     @endif
-    @error('p_extra_sueldo')
+    @error('sueldo_p_extra')
         <p class="error-message">{{ "El campo sueldo de personal extra es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
