@@ -92,6 +92,7 @@ class ClienteController extends AppBaseController
     public function edit($id)
     {
         $cliente = $this->clienteRepository->find($id);
+        $payment_types = PaymentType::all();
 
         if (empty($cliente)) {
             Flash::error('Cliente not found');
@@ -99,7 +100,9 @@ class ClienteController extends AppBaseController
             return redirect(route('clientes.index'));
         }
 
-        return view('clientes.edit')->with('cliente', $cliente);
+        return view('clientes.edit')
+            ->with('cliente', $cliente)
+            ->with('payment_types', $payment_types);
     }
 
     /**

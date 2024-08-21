@@ -1,3 +1,4 @@
+{{-- @dd($cliente) --}}
 <!-- Nombre Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('nombre', 'Nombre:') !!}
@@ -26,7 +27,7 @@
 </div>
 
 <!-- Nguardias Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('nGuardias', 'N° de Personal:') !!}
     {!! Form::number('nGuardias', null, ['class' => 'form-control']) !!}
     @error('nGuardias')
@@ -34,26 +35,49 @@
     @enderror
 </div>
 
-<!-- Guardia Sueldo Dia Field -->
-<div class="form-group col-sm-4">
+<!-- Guardia Costo Dia Field -->
+<div class="form-group col-sm-3">
     {!! Form::label('guardia_sueldo_dia', 'Costo Dia (Guardia):') !!}
-    {!! Form::number('guardia_sueldo_dia', null, ['class' => 'form-control']) !!}
+    {!! Form::number('guardia_sueldo_dia', null, ['class' => 'form-control', 'step' => 'any']) !!}
     @error('guardia_sueldo_dia')
         <p class="error-message">{{ "El campo sueldo de guardias por día es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
 
-<!-- Guardia Sueldo Mes Field -->
-<div class="form-group col-sm-4">
+<!-- Guardia Costo Mes Field -->
+<div class="form-group col-sm-3">
     {!! Form::label('guardia_sueldo_mes', 'Costo Mes (Guardia):') !!}
-    {!! Form::number('guardia_sueldo_mes', null, ['class' => 'form-control']) !!}
+    
+    @if (isset($cliente->guardia_sueldo_mes))
+        {{-- {!! Form::number('guardia_sueldo_mes', number_format($cliente->guardia_sueldo_mes, 2), ['class' => 'form-control']) !!} --}}
+        @php
+            $costo_guardia_mes = number_format($cliente->guardia_sueldo_mes);
+        @endphp
+
+        {!! Form::number('guardia_sueldo_mes', $cliente->guardia_sueldo_mes, ['class' => 'form-control']) !!}
+    @else
+        {!! Form::number('guardia_sueldo_mes', null, ['class' => 'form-control']) !!}
+    @endif
     @error('guardia_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de guardias por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
 
+<!-- Guardia Sueldo -->
+<div class="form-group col-sm-3">
+    {!! Form::label('guardia_sueldo', 'Sueldo Guardia:') !!}
+    @if (isset($cliente->guardia_sueldo))
+        {!! Form::number('guardia_sueldo', $cliente->guardia_sueldo, ['class' => 'form-control']) !!}
+    @else
+        {!! Form::number('guardia_sueldo', null, ['class' => 'form-control']) !!}
+    @endif
+    @error('guardia_sueldo')
+        <p class="error-message">{{ "El campo sueldo de guardias por mes es requerido y no cumple con lo especificado." }}</p>
+    @enderror
+</div>
+
 <!-- N Jefe Turno Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('n_jefe_turno', 'Jefe Turno:') !!}
     {!! Form::number('n_jefe_turno', null, ['class' => 'form-control']) !!}
     @error('n_jefe_turno')
@@ -61,8 +85,8 @@
     @enderror
 </div>
 
-<!-- Jefe Turno Sueldo Dia Field -->
-<div class="form-group col-sm-4">
+<!-- Jefe Turno Costo Dia Field -->
+<div class="form-group col-sm-3">
     {!! Form::label('jefe_turno_sueldo_dia', 'Costo Dia (Jefe Turno):') !!}
     {!! Form::number('jefe_turno_sueldo_dia', null, ['class' => 'form-control']) !!}
     @error('n_jefe_turno')
@@ -70,8 +94,8 @@
     @enderror
 </div>
 
-<!-- Jefe Turno Sueldo Mes Field -->
-<div class="form-group col-sm-4">
+<!-- Jefe Turno costo Mes Field -->
+<div class="form-group col-sm-3">
     {!! Form::label('jefe_turno_sueldo_mes', 'Costo Mes (Jefe Turno):') !!}
     {!! Form::number('jefe_turno_sueldo_mes', null, ['class' => 'form-control']) !!}
     @error('jefe_turno_sueldo_mes')
@@ -79,8 +103,22 @@
     @enderror
 </div>
 
+<!-- Jefe de Turno Sueldo -->
+<div class="form-group col-sm-3">
+    {!! Form::label('jefe_turno_sueldo', 'Sueldo Jefe de Turno:') !!}
+    
+    @if (isset($cliente->jefe_turno_sueldo))
+        {!! Form::number('jefe_turno_sueldo', $cliente->jefe_turno_sueldo, ['class' => 'form-control']) !!}
+    @else
+        {!! Form::number('jefe_turno_sueldo', null, ['class' => 'form-control']) !!}
+    @endif
+    @error('jefe_turno_sueldo')
+        <p class="error-message">{{ "El campo sueldo de jefe de turno es requerido y no cumple con lo especificado." }}</p>
+    @enderror
+</div>
+
 <!-- N Jefe Servicio Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
     {!! Form::number('n_jefe_servicio', null, ['class' => 'form-control']) !!}
     @error('n_jefe_servicio')
@@ -89,7 +127,7 @@
 </div>
 
 <!-- Jefe Serv Sueldo Dia Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('jefe_serv_sueldo_dia', 'Costo Dia (Jefe de Servicio):') !!}
     {!! Form::number('jefe_serv_sueldo_dia', null, ['class' => 'form-control']) !!}
     @error('n_jefe_servicio')
@@ -97,8 +135,10 @@
     @enderror
 </div>
 
+
+
 <!-- Jefe Serv Sueldo Mes Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('jefe_serv_sueldo_mes', 'Costo Mes (Jefe de Servicio):') !!}
     {!! Form::number('jefe_serv_sueldo_mes', null, ['class' => 'form-control']) !!}
     @error('jefe_serv_sueldo_mes')
@@ -106,8 +146,22 @@
     @enderror
 </div>
 
+<!-- Jefe de Servicio Sueldo -->
+<div class="form-group col-sm-3">
+    {!! Form::label('jefe_servicio_sueldo', 'Sueldo Jefe de Servicio:') !!}
+    
+    @if (isset($cliente->jefe_servicio_sueldo))
+        {!! Form::number('jefe_servicio_sueldo', $cliente->jefe_servicio_sueldo, ['class' => 'form-control']) !!}
+    @else
+        {!! Form::number('jefe_servicio_sueldo', null, ['class' => 'form-control']) !!}
+    @endif
+    @error('jefe_servicio_sueldo')
+        <p class="error-message">{{ "El campo sueldo de jefe de servicio es requerido y no cumple con lo especificado." }}</p>
+    @enderror
+</div>
+
 <!-- N Monitorista Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('n_monitorista', 'Personal extra (otros):') !!}
     {!! Form::number('n_monitorista', null, ['class' => 'form-control']) !!}
     @error('n_monitorista')
@@ -116,7 +170,7 @@
 </div>
 
 <!-- Monitor Sueldoxdia Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('monitor_sueldoxdia', 'Costo por día (otros):') !!}
     {!! Form::number('monitor_sueldoxdia', null, ['class' => 'form-control']) !!}
     @error('monitor_sueldoxdia')
@@ -125,11 +179,25 @@
 </div>
 
 <!-- Monitor Sueldoxmes Field -->
-<div class="form-group col-sm-4">
+<div class="form-group col-sm-3">
     {!! Form::label('monitor_sueldoxmes', 'Costo por mes (otros):') !!}
     {!! Form::number('monitor_sueldoxmes', null, ['class' => 'form-control']) !!}
     @error('monitor_sueldoxmes')
         <p class="error-message">{{ "El campo sueldo de otros personal por mes es requerido y no cumple con lo especificado." }}</p>
+    @enderror
+</div>
+
+<!-- Cargo Extra Sueldo -->
+<div class="form-group col-sm-3">
+    {!! Form::label('p_extra_sueldo', 'Sueldo Personal Extra:') !!}
+    
+    @if (isset($cliente->p_extra_sueldo))
+        {!! Form::number('p_extra_sueldo', $cliente->p_extra_sueldo, ['class' => 'form-control']) !!}
+    @else
+        {!! Form::number('p_extra_sueldo', null, ['class' => 'form-control']) !!}
+    @endif
+    @error('p_extra_sueldo')
+        <p class="error-message">{{ "El campo sueldo de personal extra es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
 
@@ -190,17 +258,17 @@
 <!-- Fecha Emision Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_emision', 'Fecha de Emisión:') !!}
-    {!! Form::date('fecha_emision', null, ['class' => 'form-control','id'=>'fecha_emision']) !!}
+
+    @if (isset($cliente->fecha_emision))
+        {!! Form::date('fecha_emision', substr($cliente->fecha_emision, 0, 10), ['class' => 'form-control','id'=>'vigencia']) !!}
+    @else
+        {!! Form::date('fecha_emision', null, ['class' => 'form-control','id'=>'vigencia']) !!}
+    @endif
+
     @error('fecha_emision')
         <p class="error-message">{{ "El campo fecha de emisión a facturar es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#fecha_emision').datepicker()
-    </script>
-@endpush
 
 <div class="form-group col-sm-6"></div>
 
@@ -245,17 +313,16 @@
 <!-- Vigencia Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('vigencia', 'Vigencia:') !!}
-    {!! Form::date('vigencia', null, ['class' => 'form-control','id'=>'vigencia']) !!}
+    @if (isset($cliente->vigencia))
+        {!! Form::date('vigencia', substr($cliente->vigencia, 0, 10), ['class' => 'form-control','id'=>'vigencia']) !!}
+    @else
+        {!! Form::date('vigencia', null, ['class' => 'form-control','id'=>'vigencia']) !!}
+    @endif
+    
     @error('vigencia')
         <p class="error-message">{{ "El campo vigencia es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#vigencia').datepicker()
-    </script>
-@endpush
 
 <!-- Observaciones Field -->
 <div class="form-group col-sm-12 col-lg-12">
@@ -279,9 +346,29 @@
 <div class="form-group col-sm-6">
     {!! Form::label('paymentID', 'Tipo de Pago:') !!}
     <select name="paymentID" id="paymentID" class="form-control">
-        @foreach ($payment_types as $payment_type)
-            <option value="{{$payment_type['id']}}">{{$payment_type['type']}}</option>
-        @endforeach
+        @if (isset($cliente->paymentID))
+            @if (isset($payment_types))
+                @foreach ($payment_types as $payment_type)
+                    @if ($cliente->paymentID == $payment_type->id)
+                        <option value="{{$payment_type['id']}}" selected>{{$payment_type['type']}}</option>
+                    @else
+                        <option value="{{$payment_type['id']}}">{{$payment_type['type']}}</option>
+                    @endif
+                @endforeach
+            @else
+                <option value="">No existe un tipo de pago registrado</option>
+            @endif
+                
+        @else
+            @if (isset($payment_types))
+                @foreach ($payment_types as $payment_type)
+                    <option value="{{$payment_type['id']}}">{{$payment_type['type']}}</option>
+                @endforeach
+            @else
+                <option value="">No existe un tipo de pago registrado</option>
+            @endif
+        @endif
+        
     </select>
     @error('paymentID')
         <p class="error-message">{{ "El campo tipo de pago es requerido y no cumple con lo especificado." }}</p>

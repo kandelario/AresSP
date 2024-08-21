@@ -39,7 +39,11 @@ class Cliente extends Model
         'observaciones',
         'constancia_sf',
         'enable',
-        'paymentID'
+        'paymentID',
+        'sueldo_guardia',
+        'sueldo_jefe_turno',
+        'sueldo_jefe_servicio',
+        'sueldo_p_extra'
     ];
 
     protected $casts = [
@@ -67,7 +71,11 @@ class Cliente extends Model
         'vigencia' => 'date',
         'observaciones' => 'string',
         'constancia_sf' => 'string',
-        'enable' => 'boolean'
+        'enable' => 'boolean',
+        'sueldo_guardia' => 'float',
+        'sueldo_jefe_turno' => 'float',
+        'sueldo_jefe_servicio' => 'float',
+        'sueldo_p_extra' => 'float'
     ];
 
     public static array $rules = [
@@ -100,7 +108,11 @@ class Cliente extends Model
         'vigencia' => 'nullable',
         'observaciones' => 'nullable|string|max:65535',
         'constancia_sf' => 'nullable|string|max:255',
-        'enable' => 'boolean'
+        'enable' => 'boolean',
+        'sueldo_guardia' => 'nullable',
+        'sueldo_jefe_turno' => 'nullable',
+        'sueldo_jefe_servicio' => 'nullable',
+        'sueldo_p_extra' => 'nullable'
     ];
 
     public function paymentid(): \Illuminate\Database\Eloquent\Relations\BelongsTo
