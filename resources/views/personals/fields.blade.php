@@ -294,7 +294,7 @@
             @if (isset($personal->recomendaciones) && $personal->recomendaciones != 0)
                 {!! Form::number('recomendaciones', $personal->recomendaciones, ['class' => 'form-control text-uppercase']) !!}
             @else
-                {!! Form::number('recomendaciones', null, ['class' => 'form-control text-uppercase']) !!}
+                {!! Form::number('recomendaciones', 0, ['class' => 'form-control text-uppercase']) !!}
             @endif
         </div>
         
@@ -303,7 +303,7 @@
             @if (isset($personal->recomendaciones) && $personal->recomendaciones != "")
                 {!! Form::text('observaciones', $personal->recomendaciones, ['class' => 'form-control']) !!}    
             @else
-                {!! Form::text('observaciones', null, ['class' => 'form-control']) !!}
+                {!! Form::text('observaciones', 0, ['class' => 'form-control']) !!}
             @endif
             
         </div>

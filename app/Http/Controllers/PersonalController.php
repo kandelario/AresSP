@@ -52,8 +52,12 @@ class PersonalController extends AppBaseController
         try {
             $input = $request->all();
 
-            $personal = $this->personalRepository->create($input);
+            // if($input->n_emp == ""){
+            //     Flash::error('Es necesario agregar un número de empleado.');    
+            // }
 
+            $personal = $this->personalRepository->create($input);
+            
             Flash::success('Personal saved successfully.');
 
             return redirect(route('personals.index'));
