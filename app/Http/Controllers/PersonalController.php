@@ -10,6 +10,8 @@ use App\Repositories\PersonalRepository;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\JsonResponse;
 use Exception;
 
@@ -49,37 +51,90 @@ class PersonalController extends AppBaseController
      */
     public function store(CreatePersonalRequest $request)
     {
+        //dd($request);
+        
         try {
             $input = $request->all();
 
             // if($input->n_emp == ""){
             //     Flash::error('Es necesario agregar un número de empleado.');    
             // }
+            $personal = new Personal();
 
-            $personal = $this->personalRepository->create($input);
+            $personal->n_emp = $request->n_emp;
+            $personal->name = $request->name;
+            $personal->domicilio = $request->domicilio;
+            $personal->telefonos = $request->telefonos;
+            $personal->telefono_contacto = $request->telefono_contacto;
+            $personal->email = $request->email;
+            $personal->fecha_cumple = $request->fecha_cumple;
+            $personal->fecha_inicio_serv = $request->fecha_inicio_serv;
+            $personal->solicitud = $request->solicitud;
+            $personal->check_list_ingreso = $request->check_list_ingreso;
+            $personal->carta_compromiso = $request->carta_compromiso;
+            $personal->resguardo = $request->resguardo;
+            $personal->contrato = $request->contrato;
+
+            $personal->retencion = $request->retencion;
+            $personal->renuncia = $request->renuncia;
+            $personal->actas_administrativas = $request->actas_administrativas;
+            $personal->honorarios = $request->honorarios;
+            $personal->identificacion_oficial = $request->identificacion_oficial;
+            $personal->acta_nacimiento = $request->acta_nacimiento;
+            $personal->curp = $request->curp;
+            $personal->curp_doc = $request->curp_doc;
+            $personal->rfc = $request->rfc;
+            $personal->rfc_doc = $request->rfc_doc;
+            $personal->nss = $request->nss;
+            $personal->nss_doc = $request->nss_doc;
+            $personal->comprobante_domicilio = $request->comprobante_domicilio;
+            $personal->comprobante_estudios = $request->comprobante_estudios;
+            $personal->recomendaciones = $request->recomendaciones;
+            $personal->recomendacion_doc = $request->recomendacion_doc;
+            $personal->certificado_medico = $request->certificado_medico;
+            $personal->antecedentes_no_penales = $request->antecedentes_no_penales;
+            $personal->enable = $request->enable;
+            $personal->otro_doc_nombre = $request->otro_doc_nombre;
+            $personal->otro_doc = $request->otro_doc;
+            $personal->observaciones = $request->observaciones;
             
-            Flash::success('Personal saved successfully.');
+            //método para guardar la fotografía del personal a registrar.
+            if($request->hasFile('foto')){
+                $file = $request->file('foto');
+                $destiny = 'assets/personal/';
+                // if(!file_exists($destiny)){
+                //     mkdir($destiny, 0777);
+                // }
+                $fileName = 'p_' . $request->curp . '.' . $file->clientExtension();
+                $uploadSuccess = $request->file('foto')->move($destiny, $fileName);
+                $personal->foto = $fileName;
+                $personal->save();
+                Flash::success('Personal registrado satisfactoriamente.');
+            }else{
+                //$request->remove('foto');
+                $personal->save();
+                Flash::success('Personal registrado satisfactoriamente, sinembargo, la imagen no pudo guardarse, comuniquese con el administrador del sitio.');
+            }
 
             return redirect(route('personals.index'));
 
         } catch (Exception $e) {
-              
+            
             $message = $e->getMessage();
-            var_dump('Exception Message: '. $message);
-  
+            var_dump('Mensaje de error: '. $message);
+
             $code = $e->getCode();       
-            var_dump('Exception Code: '. $code);
-  
+            var_dump('Código del error: '. $code);
+
             $string = $e->__toString();       
-            var_dump('Exception String: '. $string);
-  
+            var_dump('Cadena de texto del error: '. $string);
+
             exit;
         }
-  
+
         return response()->json($personal);
         
         //return dd($request);
-        
     }
 
     /**
@@ -90,7 +145,7 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Persona no encontrada');
 
             return redirect(route('personals.index'));
         }
@@ -119,17 +174,69 @@ class PersonalController extends AppBaseController
      */
     public function update($id, UpdatePersonalRequest $request)
     {
+        //dd($request);
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Personal no encontrado');
 
             return redirect(route('personals.index'));
         }
 
-        $personal = $this->personalRepository->update($request->all(), $id);
+        //$personal = $this->personalRepository->update($request->all(), $id);
+        $personal->n_emp = $request->n_emp;
+        $personal->name = $request->name;
+        $personal->domicilio = $request->domicilio;
+        $personal->telefonos = $request->telefonos;
+        $personal->telefono_contacto = $request->telefono_contacto;
+        $personal->email = $request->email;
+        $personal->fecha_cumple = $request->fecha_cumple;
+        $personal->fecha_inicio_serv = $request->fecha_inicio_serv;
+        $personal->solicitud = $request->solicitud;
+        $personal->check_list_ingreso = $request->check_list_ingreso;
+        $personal->carta_compromiso = $request->carta_compromiso;
+        $personal->resguardo = $request->resguardo;
+        $personal->contrato = $request->contrato;
 
-        Flash::success('Personal updated successfully.');
+        $personal->retencion = $request->retencion;
+        $personal->renuncia = $request->renuncia;
+        $personal->actas_administrativas = $request->actas_administrativas;
+        $personal->honorarios = $request->honorarios;
+        $personal->identificacion_oficial = $request->identificacion_oficial;
+        $personal->acta_nacimiento = $request->acta_nacimiento;
+        $personal->curp = $request->curp;
+        $personal->curp_doc = $request->curp_doc;
+        $personal->rfc = $request->rfc;
+        $personal->rfc_doc = $request->rfc_doc;
+        $personal->nss = $request->nss;
+        $personal->nss_doc = $request->nss_doc;
+        $personal->comprobante_domicilio = $request->comprobante_domicilio;
+        $personal->comprobante_estudios = $request->comprobante_estudios;
+        $personal->recomendaciones = $request->recomendaciones;
+        $personal->recomendacion_doc = $request->recomendacion_doc;
+        $personal->certificado_medico = $request->certificado_medico;
+        $personal->antecedentes_no_penales = $request->antecedentes_no_penales;
+        $personal->enable = $request->enable;
+        $personal->otro_doc_nombre = $request->otro_doc_nombre;
+        $personal->otro_doc = $request->otro_doc;
+        $personal->observaciones = $request->observaciones;
+        //$personal->foto = $request->foto;
+
+         //método para guardar la fotografía del personal a registrar.
+         if($request->hasFile('foto')){
+            $file = $request->file('foto');
+            $destiny = 'assets/personal/';
+            $fileName = 'p_' . $id . '.' . $file->clientExtension();
+            $uploadSuccess = $request->file('foto')->move($destiny, $fileName);
+            $personal->foto = $fileName;
+
+        }else{
+            //$request->remove('foto');
+        }
+
+        $personal->save();
+
+        Flash::success('Personal actualizado correctamente.');
 
         return redirect(route('personals.index'));
     }
@@ -144,14 +251,14 @@ class PersonalController extends AppBaseController
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
-            Flash::error('Personal not found');
+            Flash::error('Personal no encontrado');
 
             return redirect(route('personals.index'));
         }
 
         $this->personalRepository->delete($id);
 
-        Flash::success('Personal deleted successfully.');
+        Flash::success('Personal eliminado de manera permanente del sistema.');
 
         return redirect(route('personals.index'));
     }

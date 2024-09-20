@@ -2,6 +2,34 @@
 
     <div class="col-sm-12 mb-2 text-center"><h3>Datos personales</h3></div>
 
+    <div class="form-group col-sm-12 text-center border-1">
+        @if (isset($personal->foto))
+            @if (file_exists('assets/personal/' . $personal->foto))
+                <img src="{{asset('/assets/personal/'. $personal->foto)}}" alt="imagen del empleado {{$personal->n_emp . '-' . $personal->name}}" class="center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px; border-radius:150px;">
+            @else
+                <div class="row text-center col-sm-12">
+                    <div class="col">
+                        <img src="{{asset('/assets/personal/SVG/p_default_2.svg')}}" alt="imagen de {{$personal->name}}" class="text-center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px;">
+                    </div>
+                    
+                </div>
+                <span class="text-center">{{'No existe imagen para el personal ' . '"' . $personal->name . '"'}}</span>
+            @endif
+            
+        @else
+            <img src="{{asset('/assets/personal/SVG/p_default_2.svg')}}" alt="imagen del trabajador" class="center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px;">
+        @endif
+        <div class="row text-center col-sm-12">
+            <div class="col form-group col-sm-4" style="margin: 0 auto;">
+                <!-- image Field -->
+                {{-- <div class="form-group col-sm-4 text-center"> --}}
+                    {!! Form::label('foto', 'Imagen del personal:') !!}
+                    {!! Form::file('foto', ['class' => 'form-control file', 'accept' => 'image/*']) !!}
+                {{-- </div> --}}
+            </div>
+        </div>
+    </div>
+
     <!-- N Emp Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('n_emp', 'N Emppleado:') !!}
@@ -59,21 +87,21 @@
         @endif
         
     </div>
-    
+
     <!-- Curp Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4">
         {!! Form::label('curp', 'CURP:') !!}
         {!! Form::text('curp', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 
     <!-- Rfc Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4">
         {!! Form::label('rfc', 'RFC:') !!}
         {!! Form::text('rfc', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 
     <!-- Nss Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4">
         {!! Form::label('nss', 'NSS:') !!}
         {!! Form::text('nss', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
@@ -227,15 +255,6 @@
         </div>
     </div>
 
-    <!-- Recomendacion Doc Field -->
-    <div class="form-group col-sm-3">
-        <div class="form-check">
-            {!! Form::hidden('recomendacion_doc', 0, ['class' => 'form-check-input']) !!}
-            {!! Form::checkbox('recomendacion_doc', '1', null, ['class' => 'form-check-input']) !!}
-            {!! Form::label('recomendacion_doc', 'Recomendación Doc', ['class' => 'form-check-label']) !!}
-        </div>
-    </div>
-
     <!-- Certificado Medico Field -->
     <div class="form-group col-sm-3">
         <div class="form-check">
@@ -272,6 +291,15 @@
         </div>
     </div>
 
+        <!-- Recomendacion Doc Field -->
+        <div class="form-group col-sm-3">
+            <div class="form-check">
+                {!! Form::hidden('recomendacion_doc', 0, ['class' => 'form-check-input']) !!}
+                {!! Form::checkbox('recomendacion_doc', '1', null, ['class' => 'form-check-input']) !!}
+                {!! Form::label('recomendacion_doc', 'Recomendación Doc', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
+
     <!-- Otro Doc Field -->
     <div class="form-group col-sm-3">
         <div class="form-check">
@@ -282,12 +310,6 @@
     </div>
 
     <div class="row form-group p-0 col-sm-12">
-        <!-- Otro Doc Nombre Field -->
-        <div class="form-group col-sm-3">
-            {!! Form::label('otro_doc_nombre', 'Otro Doc. Nombre:') !!}
-            {!! Form::text('otro_doc_nombre', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
-        </div>
-        
         <!-- Recomendaciones Field -->
         <div class="form-group col-sm-3">
             {!! Form::label('recomendaciones', 'Recomendaciones:') !!}
@@ -297,13 +319,19 @@
                 {!! Form::number('recomendaciones', 0, ['class' => 'form-control text-uppercase']) !!}
             @endif
         </div>
-        
+
+        <!-- Otro Doc Nombre Field -->
         <div class="form-group col-sm-3">
+            {!! Form::label('otro_doc_nombre', 'Otro Doc. Nombre:') !!}
+            {!! Form::text('otro_doc_nombre', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        </div>
+
+        <div class="form-group col-sm-12">
             {!! Form::label('observaciones', 'Observaciones:') !!}
-            @if (isset($personal->recomendaciones) && $personal->recomendaciones != "")
-                {!! Form::text('observaciones', $personal->recomendaciones, ['class' => 'form-control']) !!}    
+            @if (isset($personal->observaciones) && $personal->observaciones != "")
+                {!! Form::textarea('observaciones', $personal->observaciones, ['class' => 'form-control']) !!}    
             @else
-                {!! Form::text('observaciones', 0, ['class' => 'form-control']) !!}
+                {!! Form::textarea('observaciones', null, ['class' => 'form-control']) !!}
             @endif
             
         </div>

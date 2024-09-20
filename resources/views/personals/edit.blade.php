@@ -19,7 +19,7 @@
 
         <div class="card">
 
-            {!! Form::model($personal, ['route' => ['personals.update', $personal->id], 'method' => 'patch']) !!}
+            {!! Form::model($personal, ['route' => ['personals.update', $personal->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
 
             <div class="card-body">
                 <div class="row">
@@ -28,8 +28,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('personals.index') }}" class="btn btn-default"> Cancel </a>
+                {!! Form::submit(' Guardar ', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('personals.index') }}" class="btn btn-default"> Cancelar </a>
             </div>
 
             {!! Form::close() !!}

@@ -1,6 +1,25 @@
 <div class="row form-group card-body m-0 mt-4 p-0">
     <div class="col-sm-12 mb-2 text-center"><h3>Datos personales</h3></div>
 
+    <div class="form-group col-sm-12 text-center border-1">
+        @if (isset($personal->foto))
+            @if (file_exists('assets/personal/' . $personal->foto))
+                <img src="{{asset('/assets/personal/'. $personal->foto)}}" alt="imagen de {{$personal->name}}" class="center rounded-5" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px; border-radius: 150px;">
+            @else
+                <div class="row text-center col-sm-12">
+                    <div class="col">
+                        <img src="{{asset('/assets/personal/SVG/p_default_2.svg')}}" alt="imagen de {{$personal->name}}" class="text-center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px;">
+                    </div>
+                    
+                </div>
+                <span class="text-center">{{'No existe el archivo ' . '"' . $personal->foto . '"'}}</span>
+            @endif
+            
+        @else
+            <img src="{{asset('/assets/personal/SVG/p_default_2.svg')}}" alt="imagen de {{$personal->name}}" class="center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px;">
+        @endif
+    </div>
+
     <!-- N Emp Field -->
     <div class="col-sm-3 text-uppercase text-center">
         {!! Form::label('n_emp', 'N° Emp:') !!}
@@ -28,7 +47,12 @@
     <!-- Telefono Contacto Field -->
     <div class="col-sm-3 text-uppercase text-center">
         {!! Form::label('telefono_contacto', 'Teléfono Contacto:') !!}
-        <p>{{ $personal->telefono_contacto }}</p>
+        @if (isset($personal->telefono_contacto))
+            <p>{{ $personal->telefono_contacto }}</p>    
+        @else
+            <p>{{'N/A'}}</p>
+        @endif
+        
     </div>
 
     <!-- Email Field -->
@@ -236,9 +260,16 @@
         {!! Form::label('recomendaciones', 'Recomendaciones:') !!}
         <p>{{ $personal->recomendaciones }}</p>
     </div>
+
+    <div class="col-sm-12 mb-2 text-center"><h3>Observaciones</h3></div>
+    <!-- Observaciones Field -->
+    <div class="col-sm-12 text-uppercase text-center">
+        <p style="text-align: justify;" class="col-sm-12">{{ $personal->observaciones }}</p>
+    </div>
+
 </div>
 
-<div class="row form-group card-body m-0 mt-4 p-0">
+{{-- <div class="row form-group card-body m-0 mt-4 p-0">
     <div class="col-sm-12 mb-2 text-center"><h3>Equipo de Protección Personal y Uniforme</h3></div>
 
     <!-- Recomendacion Doc Field -->
@@ -534,7 +565,7 @@
             <p>{{'N/A'}}</p>
         @endif
     </div>
-</div>
+</div> --}}
 
 
 

@@ -9,14 +9,15 @@
             <thead>
             <tr>
                 <th class="text-center">N° Emp</th>
+                <th class="text-center">Foto</th>
                 <th class="text-center">Nombre</th>
-                <th class="text-center">Domicilio</th>
+                {{-- <th class="text-center">Domicilio</th>
                 <th class="text-center">Teléfonos</th>
                 <th class="text-center">Teléfono Contacto</th>
-                <th class="text-center">Email</th>
+                <th class="text-center">Email</th> --}}
                 <th class="text-center">Fecha Cumpleaños</th>
                 <th class="text-center">Fecha Inicio Serv</th>
-                <th class="text-center">Solicitud</th>
+                {{-- <th class="text-center">Solicitud</th>
                 <th class="text-center">Check List Ingreso</th>
                 <th class="text-center">Carta Compromiso</th>
                 <th class="text-center">Resguardo</th>
@@ -39,10 +40,11 @@
                 <th class="text-center">Recomendación Doc.</th>
                 <th class="text-center">Certificado Medico</th>
                 <th class="text-center">Antecedentes No Penales</th>
-                <th class="text-center">Cartilla</th>
+                <th class="text-center">Cartilla</th> --}}
                 <th class="text-center">Activo</th>
-                <th class="text-center">Otro Doc. Nombre</th>
-                <th class="text-center">Otro Doc.</th>
+                {{-- <th class="text-center">Otro Doc. Nombre</th>
+                <th class="text-center">Otro Doc.</th> --}}
+
                 {{-- <th class="text-center">EPP Pantalon (cantidad)</th>
                 <th class="text-center">EPP Pantalon Talla</th>
                 <th class="text-center">EPP Camisola (cantidad)</th>
@@ -65,30 +67,59 @@
                 <th class="text-center">EPP Cubrebocas (cantidad)</th>
                 <th class="text-center">EPP Tapones (cantidad)</th>
                 <th class="text-center">EPP Lentes (cantidad)</th> --}}
-                <th class="text-center">Observaciones</th>
+                {{-- <th class="text-center">Observaciones</th> --}}
+                
                 <th class="text-center">Acción</th>
             </tr>
             </thead>
             <tbody class="text-uppercase">
-                
             @foreach($personals as $personal)
                 <tr>
                     <td class="text-center">{{ $personal->n_emp }}</td>
+                    <td class="text-center">
+                        
+                        @if ($personal->foto != null)
+                            @if (file_exists('assets/personal/' . $personal->foto))
+                                <img src="{{ asset('assets/personal/' . $personal->foto) }}" alt="{{ $personal->name }}" style="width: auto; heigth: auto; max-width: 150px; max-heigth: 150px; min-width:100px; min-heigth: 100px; border-radius:80px;">
+                            @else
+                                <img src="{{ asset('assets/personal/SVG/p_default_2.svg') }}" alt="Sin imagen encontrada para esta persona." style="width: auto; heigth: auto; max-width: 150px; max-heigth: 150px; min-width:100px; min-heigth: 100px;">
+                            @endif
+                            
+                        @else
+                            <img src="{{ asset('assets/personal/SVG/p_default_2.svg') }}" alt="Sin imagen encontrada para esta persona." style="width: auto; heigth: auto; max-width: 150px; max-heigth: 150px; min-width:100px; min-heigth: 100px;">
+                        @endif
+
+                        {{-- @if ($personal->foto != null)
+                            @if (file_exists('assets/personal/' . $personal->foto))
+                                <img src="{{ assets('assets/personal/' . $personal->foto) }}" alt="{{ $personal->name }}" width="200">
+                            @else
+                                <img src="{{ assets('assets/personal/svg/p_default.svg') }}" alt="Sin imagen encontrada para esta persona." width="200">    
+                            @endif
+                        @else
+                            <img src="{{ assets('assets/personal/svg/p_default.svg') }}" alt="Sin imagen encontrada para esta persona." width="200">
+                        @endif --}}
+                    </td>
                     <td class="text-center">{{ $personal->name }}</td>
-                    <td class="text-center">{{ $personal->domicilio }}</td>
-                    <td class="text-center">{{ $personal->telefonos }}</td>
-                    <td class="text-center">{{ $personal->telefono_contacto }}</td>
-                    <td class="text-center">{{ $personal->email }}</td>
+                    {{-- <td class="text-center">{{ $personal->domicilio }}</td>
+                    <td class="text-center">{{ $personal->telefonos }}</td> --}}
+                    {{-- <td class="text-center">
+                        @if (isset($personal->telefono_contacto))
+                            {{ $personal->telefono_contacto }}    
+                        @else
+                            {{'N/A'}}
+                        @endif
+                    </td> --}}
+                    {{-- <td class="text-center">{{ $personal->email }}</td> --}}
                     <td class="text-center">{{ substr($personal->fecha_cumple, 0, 10) }}</td>
                     <td class="text-center">{{ substr($personal->fecha_inicio_serv, 0, 10) }}</td>
-                    <td class="text-center">
+                    {{-- <td class="text-center">
                         @if ($personal->solicitud == 1)
                             {{ 'Sí' }}
                         @else
                             {{ 'No' }}
                         @endif
-                    </td>
-                    <td class="text-center">
+                    </td> --}}
+                    {{-- <td class="text-center">
                         @if ($personal->check_list_ingreso == 1)
                             {{ 'Sí' }}
                         @else
@@ -224,7 +255,7 @@
                         @else
                             {{ 'No' }}
                         @endif
-                    </td>
+                    </td> --}}
                     <td class="text-center">
                         @if ($personal->enable == 1)
                             {{ 'Personal Activo' }}
@@ -232,7 +263,7 @@
                             {{ 'Personal Inactivo' }}
                         @endif
                     </td>
-                    <td class="text-center">
+                    {{-- <td class="text-center">
                         @if ($personal->otro_doc_nombre != '')
                             {{ $personal->otro_doc_nombre }}
                         @else
@@ -245,7 +276,7 @@
                         @else
                             {{ 'No' }}
                         @endif
-                    </td>
+                    </td> --}}
                     {{-- <td class="text-center">{{ $personal->epp_pantalon_n }}</td>
                     <td class="text-center">
                         @if ($personal->epp_pantalon_talla != '')
@@ -310,7 +341,9 @@
                     <td class="text-center">{{ $personal->epp_cubrebocas_n }}</td>
                     <td class="text-center">{{ $personal->epp_tapones_n }}</td>
                     <td class="text-center">{{ $personal->epp_lentes_n }}</td> --}}
-                    <td class="text-center">{{ $personal->observaciones }}</td>
+
+                    {{-- <td class="text-center">{{ $personal->observaciones }}</td> --}}
+                    
                     <td class="text-center" style="width: 120px">
                         {!! Form::open(['route' => ['personals.destroy', $personal->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

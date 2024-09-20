@@ -154,7 +154,7 @@ class InventarioController extends AppBaseController
             $inventario->image = $fileName;
             
         }else{
-            $request->request->remove('image');
+            //$request->remove('image');
         }
         //$inventario->updated_at = ;
         $inventario->save();
