@@ -133,18 +133,18 @@ class MovimientosController extends AppBaseController
      */
     public function edit($id)
     {
-        $movimientos = $this->movimientosRepository->find($id);
-        $inventarios = DB::table('inventarios')->get();
+        $salida = $this->movimientosRepository->find($id);
+        $item = DB::table('inventarios')->where('id', $salida->itemID)->first();
 
-        if (empty($movimientos)) {
-            Flash::error('Movimientos not found');
+        if (empty($salida)) {
+            Flash::error('Salida de almacen no encontrada');
 
             return redirect(route('movimientos.index'));
         }
 
         return view('movimientos.edit')
-            ->with('movimientos', $movimientos)
-            ->with('inventarios', $inventarios);
+            ->with('salida', $salida)
+            ->with('item', $item);
     }
 
     /**

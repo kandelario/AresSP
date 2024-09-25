@@ -41,11 +41,12 @@ class AssignmentController extends AppBaseController
      */
     public function create()
     {
-        $clientes = cliente::all();
+        $clientes = Cliente::all();
         //$personal = Personal::all();
-        $personal = Personal::where('name', )->get();
-        return view('assignments.create', compact('clientes'))
-        ->with('personals', $personal);
+        $personal = Personal::all();
+        return view('assignments.create')
+        ->with('personals', $personal)
+        ->with('clientes', $clientes);
     }
 
     /**

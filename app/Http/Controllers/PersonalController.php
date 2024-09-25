@@ -17,6 +17,8 @@ use Exception;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 
+use Illuminate\Support\Facades\Validator;
+
 class PersonalController extends AppBaseController
 {
     /** @var PersonalRepository $personalRepository*/
@@ -51,14 +53,9 @@ class PersonalController extends AppBaseController
      */
     public function store(CreatePersonalRequest $request)
     {
-        //dd($request);
-        
+        DB::beginTransaction();
         try {
-            $input = $request->all();
-
-            // if($input->n_emp == ""){
-            //     Flash::error('Es necesario agregar un número de empleado.');    
-            // }
+            //$input = $request->all();
             $personal = new Personal();
 
             $personal->n_emp = $request->n_emp;
@@ -102,10 +99,8 @@ class PersonalController extends AppBaseController
             if($request->hasFile('foto')){
                 $file = $request->file('foto');
                 $destiny = 'assets/personal/';
-                // if(!file_exists($destiny)){
-                //     mkdir($destiny, 0777);
-                // }
-                $fileName = 'p_' . $request->curp . '.' . $file->clientExtension();
+                $pName = str_replace(' ', '_', $request->name);
+                $fileName = 'p_' . $pName . '.' . $file->clientExtension();
                 $uploadSuccess = $request->file('foto')->move($destiny, $fileName);
                 $personal->foto = $fileName;
                 $personal->save();
@@ -115,11 +110,11 @@ class PersonalController extends AppBaseController
                 $personal->save();
                 Flash::success('Personal registrado satisfactoriamente, sinembargo, la imagen no pudo guardarse, comuniquese con el administrador del sitio.');
             }
-
+            DB::commit();
             return redirect(route('personals.index'));
 
         } catch (Exception $e) {
-            
+            DB::rollback();
             $message = $e->getMessage();
             var_dump('Mensaje de error: '. $message);
 
@@ -132,7 +127,7 @@ class PersonalController extends AppBaseController
             exit;
         }
 
-        return response()->json($personal);
+        return response()->json($personal)->with($request);
         
         //return dd($request);
     }
@@ -225,8 +220,9 @@ class PersonalController extends AppBaseController
          //método para guardar la fotografía del personal a registrar.
          if($request->hasFile('foto')){
             $file = $request->file('foto');
+            $pName = str_replace(' ', '_', $request->name);
             $destiny = 'assets/personal/';
-            $fileName = 'p_' . $id . '.' . $file->clientExtension();
+            $fileName = 'p_' . $pName . '.' . $file->clientExtension();
             $uploadSuccess = $request->file('foto')->move($destiny, $fileName);
             $personal->foto = $fileName;
 

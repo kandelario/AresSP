@@ -51,13 +51,13 @@
     <!-- Telefonos Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('telefonos', 'Teléfonos:') !!}
-        {!! Form::text('telefonos', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        {!! Form::text('telefonos', null, ['class' => 'form-control text-uppercase', 'minlength' => 0, 'maxlength' => 10]) !!}
     </div>
 
     <!-- Telefono Contacto Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('telefono_contacto', 'Teléfono Contacto:') !!}
-        {!! Form::text('telefono_contacto', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        {!! Form::text('telefono_contacto', null, ['class' => 'form-control text-uppercase', 'minlength' => 0, 'maxlength' => 10]) !!}
     </div>
 
     <!-- Email Field -->

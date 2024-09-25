@@ -22,7 +22,6 @@
             {!! Form::open(['route' => 'assignments.store']) !!}
 
             <div class="card-body">
-
                 <div class="row">
                     @include('assignments.fields')
                 </div>
