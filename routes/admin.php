@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Inventario;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Personal;
+use App\Http\Controllers\RazonSocialController;
 
 Route::resource('/asistencias', AsistenciaController::class)->names('asistencias')->middleware('auth');
 
@@ -41,6 +42,8 @@ Route::group(['prefix' => 'nominas'], function(){
 Route::get('/PersonaltoPDF', [PersonalController::class, 'PersonaltoPDF'])->name('PersonaltoPDF');
 
 Route::resource('/personals', PersonalController::class)->names('personals')->middleware('auth');
+
+Route::resource('/razon-socials', RazonSocialController::class)->names('razon-socials')->middleware('auth');
 
 Route::resource('/tipos-de-pago', PaymentTypeController::class)->names('tipos_pagos')->middleware('auth');
 

@@ -68,3 +68,10 @@
         <p>Movimientos</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('razonSocials.index') }}" class="nav-link {{ Request::is('razonSocials*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Razon Socials</p>
+    </a>
+</li>

@@ -373,6 +373,11 @@ return [
             ],
         ],
         [
+            'text'    => 'Razón Social',
+            'icon'    => 'fas fa-fw fa-users text-warning',
+            'url'  => 'admin/razon-socials',
+        ],
+        [
             // 'text' => 'Perfiles de usuario',
             // 'icon' => 'fas fa-fw fa-lock text-warning',
             // 'url'  => 'admin/users/destroy',
