@@ -396,38 +396,6 @@ return [
         ],
         ['header' => 'Seguridad Privada'],
         [
-            'text'       => 'Personal',
-            'icon' => 'fas fa-fw fa-archive text-warning',
-            //'url'        => 'admin/personals',
-            'submenu' => [
-                [
-                'text'       => 'Ver',
-                'icon' => 'fas fa-fw fa-search ml-3',
-                'url'        => 'admin/personals',
-                ],
-                [
-                'text'       => 'Asignar a Cliente',
-                'icon' => 'fas fa-fw fa-check ml-3',
-                'url'        => 'admin/assignments',
-                ],
-                [
-                'text'       => 'Asistencias',
-                'icon' => 'fas fa-fw fa-list ml-3',
-                'url'        => 'admin/asistencias',
-                ],
-                // [
-                // 'text'       => 'Vacaciones',
-                // 'icon' => 'fas fa-fw fa-plane ml-3',
-                // 'url'        => 'admin/vacaciones',
-                // ],
-                // [
-                // 'text'       => 'Horarios',
-                // 'icon' => 'fas fa-fw fa-clock ml-3',
-                // 'url'        => '#',
-                // ],
-            ],
-        ],
-        [
             'text'       => 'Clientes',
             'icon' => 'fas fa-fw fa-address-book text-warning',
             'url'        => 'admin/clientes',
@@ -449,6 +417,39 @@ return [
             //     ],
             // ],
         ],
+        [
+            'text'       => 'Personal',
+            'icon' => 'fas fa-fw fa-archive text-warning',
+            //'url'        => 'admin/personals',
+            'submenu' => [
+                [
+                'text'       => 'Ver',
+                'icon' => 'fas fa-fw fa-search ml-3',
+                'url'        => 'admin/personals',
+                ],
+                [
+                'text'       => 'Asignar a Servicio',
+                'icon' => 'fas fa-fw fa-check ml-3',
+                'url'        => 'admin/assignments',
+                ],
+                [
+                'text'       => 'Asistencias',
+                'icon' => 'fas fa-fw fa-list ml-3',
+                'url'        => 'admin/asistencias',
+                ],
+                // [
+                // 'text'       => 'Vacaciones',
+                // 'icon' => 'fas fa-fw fa-plane ml-3',
+                // 'url'        => 'admin/vacaciones',
+                // ],
+                // [
+                // 'text'       => 'Horarios',
+                // 'icon' => 'fas fa-fw fa-clock ml-3',
+                // 'url'        => '#',
+                // ],
+            ],
+        ],
+        
         [
             'text' => 'Nóminas',
             'icon' => 'fas fa-fw fa-file text-warning',

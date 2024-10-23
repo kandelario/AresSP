@@ -47,9 +47,9 @@
 <div class="form-group col-sm-12">
     {!! Form::label('observaciones', 'Observaciones:') !!}
     @if (isset($asignacion) && count($asignacion) > 0)
-        {!! Form::textarea('observaciones', $asignacion->observaciones, ['class' => 'form-control','id'=>'fecha_inicio_serv']) !!}
+        {!! Form::textarea('observaciones', $asignacion->observaciones, ['class' => 'form-control', 'style' => 'resize:none']) !!}
     @else
-        {!! Form::textarea('observaciones', null, ['class' => 'form-control','id'=>'fecha_inicio_serv', 'style' => 'resize:none']) !!}
+        {!! Form::textarea('observaciones', null, ['class' => 'form-control', 'style' => 'resize:none']) !!}
     @endif
 </div>
 

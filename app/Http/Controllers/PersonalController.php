@@ -19,6 +19,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 use Illuminate\Support\Facades\Validator;
 
+use App\Models\Asistencia;
+
 class PersonalController extends AppBaseController
 {
     /** @var PersonalRepository $personalRepository*/
@@ -263,5 +265,11 @@ class PersonalController extends AppBaseController
         $personal = Personal::all();
         $pdf = Pdf::loadView('personals.personaltopdf', compact('personal'));
         return $pdf->stream();
+    }
+
+    public function AsistenciaoFalta($personalID, Request $request){
+        $persona = Personal::find($personalID);
+        $nuevaAsistencia = new Asistencia();
+        //$nuevaAsistencia->hoy = 
     }
 }
