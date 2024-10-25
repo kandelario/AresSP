@@ -84,7 +84,7 @@
 
 <!-- Guardia Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_guardia', 'Sueldo Guardia:') !!}
+    {!! Form::label('sueldo_guardia', 'Sueldo Mensual de Guardia:') !!}
     @if (isset($cliente->sueldo_guardia))
         {!! Form::number('sueldo_guardia', $cliente->sueldo_guardia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -139,7 +139,7 @@
 
 <!-- Jefe de Turno Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_jefe_turno', 'Sueldo Jefe de Turno:') !!}
+    {!! Form::label('sueldo_jefe_turno', 'Sueldo Mensual de Jefe de Turno:') !!}
     
     @if (isset($cliente->sueldo_jefe_turno))
         {!! Form::number('sueldo_jefe_turno', $cliente->sueldo_jefe_turno, ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -192,7 +192,7 @@
 
 <!-- Jefe de Servicio Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_jefe_servicio', 'Sueldo Jefe de Servicio:') !!}
+    {!! Form::label('sueldo_jefe_servicio', 'Sueldo Mensual de Jefe de Servicio:') !!}
     
     @if (isset($cliente->sueldo_jefe_servicio))
         {!! Form::number('sueldo_jefe_servicio', $cliente->sueldo_jefe_servicio, ['class' => 'form-control']) !!}
@@ -245,7 +245,7 @@
 
 <!-- Cargo Extra Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_p_extra', 'Sueldo Personal Extra:') !!}
+    {!! Form::label('sueldo_p_extra', 'Sueldo Mensual de Personal Extra:') !!}
     
     @if (isset($cliente->sueldo_p_extra))
         {!! Form::number('sueldo_p_extra', $cliente->sueldo_p_extra, ['class' => 'form-control', 'step' => '0.01']) !!}
