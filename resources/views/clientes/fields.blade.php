@@ -72,7 +72,7 @@
     {!! Form::label('guardia_sueldo_mes', 'Costo Mes (Guardia):') !!}
 
     @if (isset($cliente->guardia_sueldo_mes))
-        {!! Form::number('guardia_sueldo_mes', number_format($cliente->guardia_sueldo_mes), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('guardia_sueldo_mes', $cliente->guardia_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('guardia_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -86,7 +86,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('sueldo_guardia', 'Sueldo Guardia:') !!}
     @if (isset($cliente->sueldo_guardia))
-        {!! Form::number('sueldo_guardia', number_format($cliente->sueldo_guardia), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('sueldo_guardia', $cliente->sueldo_guardia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('sueldo_guardia', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -99,7 +99,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('n_jefe_turno', 'N° Jefe Turno:') !!}
     @if (isset($cliente->n_jefe_turno))
-        {!! Form::number('n_jefe_turno', number_format($cliente->n_jefe_turno), ['class' => 'form-control']) !!}
+        {!! Form::number('n_jefe_turno', $cliente->n_jefe_turno, ['class' => 'form-control']) !!}
     @else
         {!! Form::number('n_jefe_turno', 0, ['class' => 'form-control']) !!}
     @endif
@@ -112,7 +112,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('jefe_turno_sueldo_dia', 'Costo Dia (Jefe Turno):') !!}
     @if (isset($cliente->jefe_turno_sueldo_dia))
-        {!! Form::number('jefe_turno_sueldo_dia', number_format($cliente->jefe_turno_sueldo_dia), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_turno_sueldo_dia', $cliente->jefe_turno_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('jefe_turno_sueldo_dia', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -128,7 +128,7 @@
     {!! Form::label('jefe_turno_sueldo_mes', 'Costo Mes (Jefe Turno):') !!}
 
     @if (isset($cliente->jefe_turno_sueldo_mes))
-        {!! Form::number('jefe_turno_sueldo_mes', number_format($cliente->jefe_turno_sueldo_mes), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_turno_sueldo_mes', $cliente->jefe_turno_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('jefe_turno_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -142,7 +142,7 @@
     {!! Form::label('sueldo_jefe_turno', 'Sueldo Jefe de Turno:') !!}
     
     @if (isset($cliente->sueldo_jefe_turno))
-        {!! Form::number('sueldo_jefe_turno', number_format($cliente->sueldo_jefe_turno), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('sueldo_jefe_turno', $cliente->sueldo_jefe_turno, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('sueldo_jefe_turno', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -155,7 +155,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
     @if (isset($cliente->n_jefe_servicio))
-        {!! Form::number('n_jefe_servicio', number_format($cliente->n_jefe_servicio), ['class' => 'form-control']) !!}
+        {!! Form::number('n_jefe_servicio', $cliente->n_jefe_servicio, ['class' => 'form-control']) !!}
     @else
         {!! Form::number('n_jefe_servicio', 0, ['class' => 'form-control']) !!}
     @endif
@@ -168,7 +168,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('jefe_serv_sueldo_dia', 'Costo Dia (Jefe de Servicio):') !!}
     @if (isset($cliente->jefe_serv_sueldo_dia))
-        {!! Form::number('jefe_serv_sueldo_dia', number_format($cliente->jefe_serv_sueldo_dia), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_serv_sueldo_dia', $cliente->jefe_serv_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('jefe_serv_sueldo_dia', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -181,7 +181,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('jefe_serv_sueldo_mes', 'Costo Mes (Jefe de Servicio):') !!}
     @if (isset($cliente->jefe_serv_sueldo_mes))
-        {!! Form::number('jefe_serv_sueldo_mes', number_format($cliente->jefe_serv_sueldo_mes), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_serv_sueldo_mes', $cliente->jefe_serv_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('jefe_serv_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -195,7 +195,7 @@
     {!! Form::label('sueldo_jefe_servicio', 'Sueldo Jefe de Servicio:') !!}
     
     @if (isset($cliente->sueldo_jefe_servicio))
-        {!! Form::number('sueldo_jefe_servicio', number_format($cliente->sueldo_jefe_servicio), ['class' => 'form-control']) !!}
+        {!! Form::number('sueldo_jefe_servicio', $cliente->sueldo_jefe_servicio, ['class' => 'form-control']) !!}
     @else
         {!! Form::number('sueldo_jefe_servicio', '0.00', ['class' => 'form-control']) !!}
     @endif
@@ -221,7 +221,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('monitor_sueldoxdia', 'Costo por día (otros):') !!}
     @if (isset($cliente->monitor_sueldoxdia))
-        {!! Form::number('monitor_sueldoxdia', number_format($cliente->monitor_sueldoxdia), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('monitor_sueldoxdia', $cliente->monitor_sueldoxdia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('monitor_sueldoxdia', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -234,7 +234,7 @@
 <div class="form-group col-sm-3">
     {!! Form::label('monitor_sueldoxmes', 'Costo por mes (otros):') !!}
     @if (isset($cliente->monitor_sueldoxmes))
-        {!! Form::number('monitor_sueldoxmes', number_format($cliente->monitor_sueldoxmes), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('monitor_sueldoxmes', $cliente->monitor_sueldoxmes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('monitor_sueldoxmes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -248,7 +248,7 @@
     {!! Form::label('sueldo_p_extra', 'Sueldo Personal Extra:') !!}
     
     @if (isset($cliente->sueldo_p_extra))
-        {!! Form::number('sueldo_p_extra', number_format($cliente->sueldo_p_extra), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('sueldo_p_extra', $cliente->sueldo_p_extra, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('sueldo_p_extra', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -275,7 +275,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('costocanino', 'Costo por canino:') !!}
     @if (isset($cliente->costocanino))
-        {!! Form::number('costocanino', number_format($cliente->costocanino), ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('costocanino', $cliente->costocanino, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::number('costocanino', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
     @endif
@@ -289,9 +289,6 @@
 <div class="form-group col-sm-3">
     {!! Form::label('monto_facturar', 'Monto a Facturar:') !!}
     @if (isset($cliente->monto_facturar))
-        {{-- @php
-            $monto_a_facturar =  number_format($cliente->monto_facturar, 2);
-        @endphp --}}
         {!! Form::text('monto_facturar', $cliente->monto_facturar, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::text('monto_facturar', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -305,9 +302,6 @@
 <div class="form-group col-sm-3">
     {!! Form::label('iva', 'IVA:') !!}
     @if (isset($cliente->iva))
-        {{-- @php
-            $iva =  number_format($cliente->iva, 2);
-        @endphp --}}
         {!! Form::text('iva', $cliente->iva, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
         {!! Form::text('iva', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
