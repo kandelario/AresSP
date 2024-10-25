@@ -207,7 +207,7 @@
 <!-- N Monitorista Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('n_monitorista', 'Personal extra (otros):') !!}
-    @if ($cliente->n_monitorista)
+    @if (isset($cliente->n_monitorista))
         {!! Form::number('n_monitorista', $cliente->n_monitorista, ['class' => 'form-control']) !!}
     @else
         {!! Form::number('n_monitorista', 0, ['class' => 'form-control']) !!}
@@ -260,7 +260,7 @@
 <!-- N Canino Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('n_canino', 'N° de Caninos:') !!}
-    @if ($cliente->n_canino)
+    @if (isset($cliente->n_canino))
         {!! Form::number('n_canino', $cliente->n_canino, ['class' => 'form-control']) !!}
     @else
         {!! Form::number('n_canino', 0, ['class' => 'form-control']) !!}
