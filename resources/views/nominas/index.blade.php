@@ -29,8 +29,24 @@
                             <h4>Filtros</h4>
                         </div> --}}
                         
+                        <div class="form-group col-sm-4">
+                            <label for="_fin">Razón Social:</label>
+                            <a class="btn btn-outline-info m-1"
+                                href="{{ route('razon-socials.create') }}" target="blank" title="Clic aquí para ir a registrar una nueva razón social.">
+                                <i class="fas fa-fw fa-plus"></i>
+                            </a>
+                            <select name="razon-social" id="razon-social" class="form-control">
+                                @if (isset($RazonesSociales) && count($RazonesSociales) > 0)
+                                    @foreach ($RazonesSociales as $razon)
+                                        <option value="{{$razon['id']}}">{{$razon['razon_nombre']}}</option>
+                                    @endforeach
+                                @else
+                                    <option value="">No existen Razones Registradas</option>
+                                @endif
+                            </select>
+                        </div>
 
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-4">
                             <label for="_fin">Clientes:</label>
                             <a class="btn btn-outline-warning m-1"
                                 href="{{ route('clientes.create') }}" target="blank" title="Clic aquí para ir a registrar un nuevo cliente.">
@@ -47,7 +63,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-4">
                             <label for="_fin">Personal:</label>
                             <a class="btn btn-outline-warning m-1"
                                 href="{{ route('personals.create') }}" target="blank" title="Clic aquí para ir a registrar nuevo personal.">
@@ -71,6 +87,14 @@
                         <div class="form-group col-sm-3">
                             <label for="_fin">Fin del periodo:</label>
                             <input type="date" name="_fin" id="_fin" class="form-control float-left">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-2">
+                        <div class="col-sm-12 h3">Datos de la nómina</div>
+                        <div class="form-group col-sm-3">
+                            <label for="sueldo">Sueldo:</label>
+                            <input type="number" name="sueldo" id="sueldo" class="form-control float-left">
                         </div>
                     </div>
 

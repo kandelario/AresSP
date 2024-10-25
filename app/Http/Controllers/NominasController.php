@@ -8,6 +8,7 @@ use App\Models\Personal;
 use App\Models\Cliente;
 use App\Models\Assignment;
 use App\Models\Asistencia;
+use App\Models\RazonSocial;
 
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +16,14 @@ class NominasController extends Controller
 {
     public function index()
     {
+        $razones_sociales = RazonSocial::all();
         $clientes = Cliente::all();
-        return view('nominas.index')->with('clientes', $clientes);
+
+        
+
+        return view('nominas.index')
+        ->with('clientes', $clientes)
+        ->with('RazonesSociales', $razones_sociales);
         // $inventarios = $this->inventarioRepository->paginate(10);
         // return view('inventarios.index')
         // ->with('inventarios', $inventarios);

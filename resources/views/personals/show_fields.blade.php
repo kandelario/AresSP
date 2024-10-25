@@ -63,7 +63,7 @@
 
     <!-- Fecha Cumple Field -->
     <div class="col-sm-3 text-uppercase text-center">
-        {!! Form::label('fecha_cumple', 'Fecha Cumpleaños:') !!}
+        {!! Form::label('fecha_cumple', 'Fecha de Nacimiento:') !!}
         <p>{{ substr($personal->fecha_cumple, 0, 10) }}</p>
     </div>
 

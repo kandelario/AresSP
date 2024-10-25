@@ -32,7 +32,7 @@
 
     <!-- N Emp Field -->
     <div class="form-group col-sm-4">
-        {!! Form::label('n_emp', 'N Emppleado:') !!}
+        {!! Form::label('n_emp', 'N° Empleado:') !!}
         {!! Form::text('n_emp', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
     </div>
 
@@ -68,7 +68,7 @@
 
     <!-- Fecha Cumple Field -->
     <div class="form-group col-sm-4">
-        {!! Form::label('fecha_cumple', 'Fecha Cumpleaños:') !!}
+        {!! Form::label('fecha_cumple', 'Fecha de Nacimiento:') !!}
         @if (isset($personal->fecha_cumple) && ($personal->fecha_cumple != ""))
             {!! Form::date('fecha_cumple', str_replace(' 00:00:00', '', $personal->fecha_cumple), ['class' => 'form-control text-uppercase','id'=>'fecha_cumple']) !!}
         @else
@@ -286,7 +286,7 @@
     <div class="form-group col-sm-3">
         <div class="form-check">
             {!! Form::hidden('enable', 0, ['class' => 'form-check-input']) !!}
-            {!! Form::checkbox('enable', '1', null, ['class' => 'form-check-input']) !!}
+            {!! Form::checkbox('enable', '1', null, ['class' => 'form-check-input', 'checked' => 'checked']) !!}
             {!! Form::label('enable', 'Personal Activo', ['class' => 'form-check-label']) !!}
         </div>
     </div>

@@ -11,7 +11,7 @@
                     {{-- <a href="{{route('PersonaltoPDF')}}" class="btn btn-primary float-right ml-2">Mandar a PDF</a> --}}
                     <a class="btn btn-primary float-right"
                        href="{{ route('personals.create') }}">
-                        Nueno Personal
+                        Nuevo Personal
                     </a>
                 </div>
             </div>

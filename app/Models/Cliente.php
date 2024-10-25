@@ -43,7 +43,11 @@ class Cliente extends Model
         'sueldo_guardia',
         'sueldo_jefe_turno',
         'sueldo_jefe_servicio',
-        'sueldo_p_extra'
+        'sueldo_p_extra',
+        'personal_total',
+        'monto_facturar',
+        'personal_total',
+        'fechas_facturacion'
     ];
 
     protected $casts = [
@@ -62,7 +66,7 @@ class Cliente extends Model
         'iva' => 'float',
         'iva_retenido' => 'float',
         'total_factura' => 'float',
-        'fecha_emision' => 'date',
+        'fecha_emision' => 'string',
         'nombre_contacto1' => 'string',
         'email_contact1' => 'string',
         'nombre_contacto2' => 'string',
@@ -75,7 +79,10 @@ class Cliente extends Model
         'sueldo_guardia' => 'float',
         'sueldo_jefe_turno' => 'float',
         'sueldo_jefe_servicio' => 'float',
-        'sueldo_p_extra' => 'float'
+        'sueldo_p_extra' => 'float',
+        'monto_facturar' => 'float',
+        'personal_total' => 'integer',
+        'fechas_facturacion' => 'string'
     ];
 
     public static array $rules = [
@@ -99,20 +106,23 @@ class Cliente extends Model
         'iva' => 'numeric',
         'iva_retenido' => 'nullable|numeric',
         'total_factura' => 'numeric',
-        'fecha_emision' => 'nullable',
+        'fecha_emision' => 'nullable|string',
         'nombre_contacto1' => 'nullable|string|max:255',
         'email_contact1' => 'nullable|string|max:255',
         'nombre_contacto2' => 'nullable|string|max:255',
         'email_contact2' => 'nullable|string|max:255',
         'rfc' => 'nullable|string|max:255',
-        'vigencia' => 'nullable',
+        'vigencia' => 'nullable|date',
         'observaciones' => 'nullable|string|max:65535',
         'constancia_sf' => 'nullable|string|max:255',
         'enable' => 'boolean',
         'sueldo_guardia' => 'nullable',
         'sueldo_jefe_turno' => 'nullable',
         'sueldo_jefe_servicio' => 'nullable',
-        'sueldo_p_extra' => 'nullable'
+        'sueldo_p_extra' => 'nullable',
+        'monto_facturar' => 'nullable',
+        'personal_total' => 'nullable',
+        'fechas_facturacion' => 'nullable|string'
     ];
 
     public function paymentid(): \Illuminate\Database\Eloquent\Relations\BelongsTo

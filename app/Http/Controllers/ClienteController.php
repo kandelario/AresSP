@@ -113,7 +113,7 @@ class ClienteController extends AppBaseController
         $cliente = $this->clienteRepository->find($id);
 
         if (empty($cliente)) {
-            Flash::error('Cliente not found');
+            Flash::error('Cliente no encontrado');
 
             return redirect(route('clientes.index'));
         }
