@@ -67,7 +67,8 @@ class Personal extends Model
         // 'epp_tapones_n',
         // 'epp_lentes_n',
         'observaciones',
-        'foto'
+        'foto',
+        'const_sit_fiscal_doc'
     ];
 
     protected $casts = [
@@ -129,6 +130,7 @@ class Personal extends Model
         // 'epp_lentes_n' => 'integer',
         'observaciones' => 'string',
         'foto' => 'string',
+        'const_sit_fiscal_doc' => 'boolean'
     ];
 
     public static array $rules = [
@@ -192,6 +194,7 @@ class Personal extends Model
         // 'epp_tapones_n' => 'nullable',
         // 'epp_lentes_n' => 'nullable'
         'foto' => 'nullable',
+        'const_sit_fiscal_doc' => 'nullable|boolean',
     ];
 
     public function asistencias(): \Illuminate\Database\Eloquent\Relations\HasMany

@@ -96,6 +96,7 @@ class PersonalController extends AppBaseController
             $personal->otro_doc_nombre = $request->otro_doc_nombre;
             $personal->otro_doc = $request->otro_doc;
             $personal->observaciones = $request->observaciones;
+            $personal->const_sit_fiscal_doc = $request->const_sit_fiscal_doc;
             
             //método para guardar la fotografía del personal a registrar.
             if($request->hasFile('foto')){
@@ -218,6 +219,7 @@ class PersonalController extends AppBaseController
         $personal->otro_doc = $request->otro_doc;
         $personal->observaciones = $request->observaciones;
         //$personal->foto = $request->foto;
+        $personal->const_sit_fiscal_doc = $request->const_sit_fiscal_doc;
 
          //método para guardar la fotografía del personal a registrar.
          if($request->hasFile('foto')){

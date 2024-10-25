@@ -309,6 +309,15 @@
         </div>
     </div>
 
+    <!-- Situación fiscal doc. Field -->
+    <div class="form-group col-sm-3">
+        <div class="form-check">
+            {!! Form::hidden('const_sit_fiscal_doc', 0, ['class' => 'form-check-input']) !!}
+            {!! Form::checkbox('const_sit_fiscal_doc', '1', null, ['class' => 'form-check-input']) !!}
+            {!! Form::label('const_sit_fiscal_doc', 'Constancia de siutación fisacal Doc.', ['class' => 'form-check-label']) !!}
+        </div>
+    </div>
+
     <div class="row form-group p-0 col-sm-12">
         <!-- Recomendaciones Field -->
         <div class="form-group col-sm-3">
