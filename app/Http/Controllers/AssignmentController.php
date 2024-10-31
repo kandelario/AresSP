@@ -11,6 +11,7 @@ use Laracasts\Flash\Flash;
 
 use App\Models\Cliente;
 use App\Models\Personal;
+use App\Repositories\PersonalRepository;
 use Illuminate\Support\Facades\DB;
 
 class AssignmentController extends AppBaseController
@@ -29,11 +30,29 @@ class AssignmentController extends AppBaseController
     public function index(Request $request)
     {
         $assignments = $this->assignmentRepository->paginate(10);
+        $personal = Personal::all();
         $clientes = DB::table('clientes')->get();
 
+        $trabajadores_asignados = [];
+        foreach($assignments as $assignment){
+            foreach($clientes as $cliente){
+                foreach($personal as $persona){
+                    if($assignment->cliente_id == $cliente->id){
+                        if($persona->id ==  $assignment->personal_id){
+                            array_push($trabajadores_asignados, ['id' => $assignment->id, 'fecha_inicio_serv' => date($assignment->fecha_inicio_serv), 'puesto' => $assignment->puesto, 'personal_id' => $persona->id, 'persona_name' => $persona->name, 'n_emp' => $persona->n_emp, 'cliente_id' => $cliente->id, 'cliente_name' => $cliente->nombre]);
+                        }
+                        
+                    }
+                    
+                }
+            }
+                
+        }
+        // dd($trabajadores_asignados);
+        // return response()->json($trabajadores_asignados);
         return view('assignments.index')
-            ->with('assignments', $assignments)
-            ->with('clientes', $clientes);
+            ->with('trabajadores_asignados', $trabajadores_asignados)
+            ->with('assignments', $assignments);
     }
 
     /**
@@ -54,11 +73,17 @@ class AssignmentController extends AppBaseController
      */
     public function store(CreateAssignmentRequest $request)
     {
+        $request->validate([
+            'cliente_id' => 'required',
+            'personal_id' => 'required',
+            'fecha_inicio_serv' => 'required',
+            'puesto' => 'required',
+        ]);
         $input = $request->all();
 
         $assignment = $this->assignmentRepository->create($input);
 
-        Flash::success('Assignment saved successfully.');
+        Flash::success('Asignación realizada satisfactoriamente.');
 
         return redirect(route('assignments.index'));
     }
@@ -69,6 +94,7 @@ class AssignmentController extends AppBaseController
     public function show($id)
     {
         $assignment = $this->assignmentRepository->find($id);
+        $personal = Personal::all()->where('id', '=', $assignment->personal_id);
 
         if (empty($assignment)) {
             Flash::error('Assignment not found');

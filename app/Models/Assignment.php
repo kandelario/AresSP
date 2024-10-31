@@ -14,8 +14,7 @@ class Assignment extends Model
         'enable',
         'cliente_id',
         'puesto',
-        'personal_id',
-        'observaciones'
+        'personal_id'
     ];
 
     protected $casts = [
@@ -26,9 +25,9 @@ class Assignment extends Model
 
     public static array $rules = [
         // 'name' => 'required|string|max:255',
-        'fecha_inicio_serv' => 'required',
+        // 'fecha_inicio_serv' => 'required',
         'cliente_id' => 'required',
-        'puesto' => 'required|string',
+        // 'puesto' => 'required|string',
         'personal_id' => 'required',
     ];
 

@@ -8,38 +8,32 @@
         <table class="table table-striped table-bordered nowrap" id="assignments-table">
             <thead>
             <tr>
+                <th class="text-center">ID</th>
                 <th class="text-center">Fecha Inicio Servicio</th>
                 <th class="text-center">Puesto</th>
                 <th class="text-center">Cliente</th>
-                <th class="text-center">Observaciones</th>
+                <th class="text-center">Personal</th>
                 <th class="text-center">Acciones</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($assignments as $assignment)
+            {{-- @dd($trabajadores_asignados) --}}
+            @foreach($trabajadores_asignados as $trabajador_asignado)
                 <tr>
-                    <td>{{ $assignment->fecha_inicio_serv }}</td>
-                    <td>{{ $assignment->puesto }}</td>
-                    <td>
-                        @if (isset($clientes) && count($clientes) > 0)
-                            @foreach ($clientes as $cliente)
-                                @if ($cliente->id == $assignment->cliente_id)
-                                    {{ $cliente->nombre }}
-                                @endif
-                            @endforeach
-                        @else
-                            {{ 'No existe el cliente solicitado' }}
-                        @endif
-                    </td>
-                    <td>{{ $assignment->observaciones }}</td>
-                    <td  style="width: 120px">
-                        {!! Form::open(['route' => ['assignments.destroy', $assignment->id], 'method' => 'delete']) !!}
+                    {{-- @dd($trabajador_asignado) --}}
+                    <td class="text-center">{{ $trabajador_asignado['id'] }}</td>
+                    <td class="text-center">{{ substr($trabajador_asignado['fecha_inicio_serv'], 0, 10) }}</td>
+                    <td class="text-center">{{ $trabajador_asignado['puesto'] }}</td>
+                    <td class="text-center">{{ $trabajador_asignado['cliente_name'] }}</td>
+                    <td class="text-center">{{ $trabajador_asignado['persona_name'] }}</td>
+                    <td class="text-center">
+                        {!! Form::open(['route' => ['assignments.destroy', $trabajador_asignado['id']], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('assignments.show', [$assignment->id]) }}"
+                            <a href="{{ route('assignments.show', [$trabajador_asignado['id']]) }}"
                             class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
                             </a>
-                            <a href="{{ route('assignments.edit', [$assignment->id]) }}"
+                            <a href="{{ route('assignments.edit', [$trabajador_asignado['id']]) }}"
                             class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
