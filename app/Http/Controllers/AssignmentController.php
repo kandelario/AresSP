@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateAssignmentRequest;
 use App\Http\Requests\UpdateAssignmentRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Assignment;
 use App\Repositories\AssignmentRepository;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
@@ -48,8 +49,6 @@ class AssignmentController extends AppBaseController
             }
                 
         }
-        // dd($trabajadores_asignados);
-        // return response()->json($trabajadores_asignados);
         return view('assignments.index')
             ->with('trabajadores_asignados', $trabajadores_asignados)
             ->with('assignments', $assignments);
@@ -93,16 +92,30 @@ class AssignmentController extends AppBaseController
      */
     public function show($id)
     {
-        $assignment = $this->assignmentRepository->find($id);
-        $personal = Personal::all()->where('id', '=', $assignment->personal_id);
-
+        $assignments = $this->assignmentRepository->find($id);
         if (empty($assignment)) {
-            Flash::error('Assignment not found');
+            Flash::error('Asignación no encontrada');
 
             return redirect(route('assignments.index'));
         }
+        $clientes = Cliente::all()->where('id', '=', $assignments->cliente_id);
+        $personas = Personal::all()->where('id', '=', $assignments->personal_id);
+        
+        $clientee = [];
+        $personaa = [];
 
-        return view('assignments.show')->with('assignment', $assignment);
+        foreach($clientes as $cliente){
+            $clientee = $cliente;
+        }
+
+        foreach($personas as $persona){
+            $personaa = $persona;
+        }
+
+        return view('assignments.show')
+            ->with('assignments', $assignments)
+            ->with('clientee', $clientee)
+            ->with('personaa', $personaa);
     }
 
     /**
@@ -111,14 +124,32 @@ class AssignmentController extends AppBaseController
     public function edit($id)
     {
         $assignment = $this->assignmentRepository->find($id);
-
         if (empty($assignment)) {
             Flash::error('Assignment not found');
 
             return redirect(route('assignments.index'));
         }
 
-        return view('assignments.edit')->with('assignment', $assignment);
+        $clientes = Cliente::all()->where('id', '=', $assignment->cliente_id);
+        $clientess = Cliente::all();
+        $personas = Personal::all()->where('id', '=', $assignment->personal_id);
+        $personal = Personal::all();
+
+
+        foreach($clientes as $cliente){
+            $client = $cliente;
+        }
+
+        foreach($personas as $person){
+            $persona = $person;
+        }
+
+        return view('assignments.edit')
+            ->with('assignment', $assignment)
+            ->with('client', $client)
+            ->with('clientes', $clientess)
+            ->with('persona', $persona)
+            ->with('personal', $personal);
     }
 
     /**

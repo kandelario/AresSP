@@ -4,13 +4,20 @@
     {{-- {!! Form::number('cliente_id', null, ['class' => 'form-control', 'required']) !!} --}}
     <select name="cliente_id" id="cliente_id" class="form-control">
         <option value="">Seleccione un cliente</option>
+
         @if (isset($clientes) && count($clientes) > 0)
             @foreach ($clientes as $cliente)
-                <option value="{{$cliente['id']}}" {{ old('cliente_id') == $cliente['id'] ? 'selected' : '' }}>{{$cliente['nombre']}}</option>
+                @if (isset($client) && $client) != "")
+                    <option value="{{ $cliente->id }}" {{ $client->id == $cliente->id ? 'selected' : '' }}>{{ $cliente->nombre }}</option>
+                @else
+                    <option value="{{ $cliente->id }}" {{ old('cliente_id') == $cliente->id ? 'selected' : '' }}>{{ $cliente->nombre }}</option>
+                @endif
+                
             @endforeach
         @else
             <option value="">No existen clientes</option>
         @endif
+
     </select>
     @error('cliente_id')
         <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
@@ -24,13 +31,21 @@
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
         <option value="">Seleccione una persona</option>
-        @if (isset($personals) && count($personals) > 0)
-            @foreach ($personals as $personal)
-                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-            @endforeach
+        @if (isset($persona) && $persona->id != "")
+            @foreach ($personal as $person)
+                <option value="{{$person->id}}" {{ $person->id == $persona->id ? 'selected' : '' }}>{{$person->name}}</option>
+            @endforeach    
         @else
-            <option value="">No existe Personal</option>
+            @if (isset($personals) && count($personals) > 0)
+                @foreach ($personals as $personal)
+                    
+                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                @endforeach
+            @else
+                <option value="">No existe Personal</option>
+            @endif    
         @endif
+        
         
     </select>
     @error('personal_id')
@@ -42,7 +57,11 @@
 <!-- Fecha Inicio Serv Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha_inicio_serv', 'Fecha Inicio Serv:') !!}
-    {!! Form::date('fecha_inicio_serv', old('personal_id') != '' ? old('personal_id') : null, ['class' => 'form-control','id'=>'fecha_inicio_serv']) !!}
+    @if (isset($assignment) && $assignment->fecha_inicio_serv != "")
+        {!! Form::date('fecha_inicio_serv', substr($assignment->fecha_inicio_serv, 0, 10), ['class' => 'form-control','id'=>'fecha_inicio_serv']) !!}
+    @else
+        {!! Form::date('fecha_inicio_serv', old('personal_id') != '' ? old('personal_id') : null, ['class' => 'form-control','id'=>'fecha_inicio_serv']) !!}    
+    @endif
     @error('fecha_inicio_serv')
         <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
         <span class="text-danger"><em>El campo Fecha de inicio de servicio es requerido para continuar con la asignación.</em></span>

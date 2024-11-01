@@ -9,10 +9,12 @@
             <thead>
             <tr>
                 <th class="text-center">ID</th>
-                <th class="text-center">Fecha Inicio Servicio</th>
-                <th class="text-center">Puesto</th>
                 <th class="text-center">Cliente</th>
                 <th class="text-center">Personal</th>
+                <th class="text-center">Fecha Inicio Servicio</th>
+                <th class="text-center">Puesto</th>
+                
+                
                 <th class="text-center">Acciones</th>
             </tr>
             </thead>
@@ -22,10 +24,10 @@
                 <tr>
                     {{-- @dd($trabajador_asignado) --}}
                     <td class="text-center">{{ $trabajador_asignado['id'] }}</td>
-                    <td class="text-center">{{ substr($trabajador_asignado['fecha_inicio_serv'], 0, 10) }}</td>
-                    <td class="text-center">{{ $trabajador_asignado['puesto'] }}</td>
                     <td class="text-center">{{ $trabajador_asignado['cliente_name'] }}</td>
                     <td class="text-center">{{ $trabajador_asignado['persona_name'] }}</td>
+                    <td class="text-center">{{ substr($trabajador_asignado['fecha_inicio_serv'], 0, 10) }}</td>
+                    <td class="text-center">{{ $trabajador_asignado['puesto'] }}</td>
                     <td class="text-center">
                         {!! Form::open(['route' => ['assignments.destroy', $trabajador_asignado['id']], 'method' => 'delete']) !!}
                         <div class='btn-group'>

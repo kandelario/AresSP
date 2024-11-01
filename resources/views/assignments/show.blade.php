@@ -5,15 +5,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>
-Assignment Details
-                    </h1>
+                    <h1>Detalles de la Asignación</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('assignments.index') }}">
-                                                    Back
-                                            </a>
+                    <a class="btn btn-default float-right" href="{{ route('assignments.index') }}">Regresar</a>
                 </div>
             </div>
         </div>
