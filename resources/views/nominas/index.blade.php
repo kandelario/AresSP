@@ -376,7 +376,7 @@
                                             <td height="6" class="col-sm-4 fw-bold td">$</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-right"><p>Total de Percepciones:</p></td>
+                                            <td colspan="2" class="text-right"><p>Sueldo Bruto:</p></td>
                                             <td class="tet-center"><p class="">$</p></td>
                                         </tr>
                                     </table>
@@ -421,7 +421,7 @@
                                 <td colspan="4" class="m-0 p-0">
                                     <table class="col-sm-12 fs-8 m-2 p-0">
                                         <tr class="tr">
-                                            <td class="td">Pago Total:</td>
+                                            <td class="td">Sueldo Neto:</td>
                                             <td class="td"></td>
                                             <td class="fw-bold td">$</td>
                                         </tr>
