@@ -439,8 +439,13 @@ return [
                 ],
                 [
                 'text'       => 'Asistencias',
-                'icon' => 'fas fa-fw fa-list ml-3',
+                'icon' => 'fa fa-calendar ml-3',
                 'url'        => 'admin/asistencias',
+                ],
+                [
+                'text'       => 'Siglas (Asistencias)',
+                'icon' => 'fa fa-tags ml-3',
+                'url'        => 'admin/sigla-asistencias-personals',
                 ],
                 // [
                 // 'text'       => 'Vacaciones',

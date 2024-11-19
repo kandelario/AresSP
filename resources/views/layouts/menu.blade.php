@@ -75,3 +75,10 @@
         <p>Razon Socials</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('siglaAsistenciasPersonals.index') }}" class="nav-link {{ Request::is('siglaAsistenciasPersonals*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Sigla Asistencias Personals</p>
+    </a>
+</li>

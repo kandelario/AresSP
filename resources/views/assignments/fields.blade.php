@@ -7,7 +7,7 @@
 
         @if (isset($clientes) && count($clientes) > 0)
             @foreach ($clientes as $cliente)
-                @if (isset($client) && $client) != "")
+                @if (isset($client) && $client != "")
                     <option value="{{ $cliente->id }}" {{ $client->id == $cliente->id ? 'selected' : '' }}>{{ $cliente->nombre }}</option>
                 @else
                     <option value="{{ $cliente->id }}" {{ old('cliente_id') == $cliente->id ? 'selected' : '' }}>{{ $cliente->nombre }}</option>

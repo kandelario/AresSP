@@ -6,7 +6,9 @@ use App\Http\Requests\CreateAsistenciaRequest;
 use App\Http\Requests\UpdateAsistenciaRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\AsistenciaRepository;
+use App\Models\SiglaAsistenciasPersonal;
 use App\Models\Asistencia;
+use App\Models\Assignment;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
@@ -32,6 +34,7 @@ class AsistenciaController extends AppBaseController
     public function index(Request $request)
     {
         $asistencias = $this->asistenciaRepository->paginate(10);
+        $asignaciones = Assignment::all();
         // $asistencias = Asistencia::all();
 
          $personals = Personal::all();
@@ -39,7 +42,8 @@ class AsistenciaController extends AppBaseController
 
         return view('asistencias.index')
             ->with('asistencias', $asistencias)
-            ->with('personals', $personals);
+            ->with('personals', $personals)
+            ->with('asignaciones', $asignaciones);
     }
 
     /**
@@ -47,9 +51,11 @@ class AsistenciaController extends AppBaseController
      */
     public function create()
     {
+        $siglas = SiglaAsistenciasPersonal::all();
         $personals = DB::table('asistencias')->get();
         return view('asistencias.create')
-        ->with('personals', $personals);
+        ->with('personals', $personals)
+        ->with('siglas', $siglas);
     }
 
     /**
@@ -57,6 +63,12 @@ class AsistenciaController extends AppBaseController
      */
     public function store(CreateAsistenciaRequest $request)
     {
+        $request->validate([
+            'hoy' => 'required',
+            'knowledge' => 'required',
+            'idSiglas' => 'required'
+        ]);
+
         $input = $request->all();
 
         $asistencia = $this->asistenciaRepository->create($input);

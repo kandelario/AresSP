@@ -80,6 +80,6 @@
             ]
         }
     },
-    paginate: false
+    paginate: true
 });
 </script>

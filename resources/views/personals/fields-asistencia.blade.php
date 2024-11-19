@@ -1,3 +1,8 @@
+@if (isset($personal_id))
+    {!! Form::text('idPersonal', $personal->id, ['class' => 'form-control', 'required']) !!}
+@endif
+
+
 <!-- Hoy Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hoy', 'Fecha:') !!}
@@ -58,12 +63,3 @@
         <span class="text-danger"><em>Es necesario seleccionar unas siglas para continuar con el registro de asistencia.</em></span>
     @enderror
 </div>
-{{-- @if (isset($idPersonal))
-    {!! Form::number('idPersonal', {{  $idPersonal }}, ['class' => 'form-control', 'required']) !!}
-@else
-    @if (isset(old('idPersonal')))
-        {!! Form::number('idPersonal', {{  old('idPersonal') }}, ['class' => 'form-control', 'required']) !!}
-    @else
-        {!! Form::number('idPersonal', null, ['class' => 'form-control', 'required']) !!}
-    @endif
-@endif --}}

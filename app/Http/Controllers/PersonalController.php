@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePersonalRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Personal;
 use App\Repositories\PersonalRepository;
+use App\Models\SiglaAsistenciasPersonal;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 
@@ -37,9 +38,11 @@ class PersonalController extends AppBaseController
     public function index(Request $request)
     {
         $personals = $this->personalRepository->paginate(10);
+        $siglas = SiglaAsistenciasPersonal::all();
 
         return view('personals.index')
-            ->with('personals', $personals);
+            ->with('personals', $personals)
+            ->with('siglas', $siglas);
     }
 
     /**
@@ -269,9 +272,11 @@ class PersonalController extends AppBaseController
         return $pdf->stream();
     }
 
-    public function AsistenciaoFalta($personalID, Request $request){
-        $persona = Personal::find($personalID);
+    public function PaseLista(Request $request){
+        //$persona = Personal::find($personalID);
         $nuevaAsistencia = new Asistencia();
-        //$nuevaAsistencia->hoy = 
+        $nuevaAsistencia->hoy = $request->hoy;
+        $nuevaAsistencia->idPersonal = $request->idPersonal;
+        $nuevaAsistencia->idSiglas = $request->idSiglas;
     }
 }

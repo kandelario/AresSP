@@ -79,7 +79,7 @@
             ]
         }
     },
-    paginate: false,
+    paginate: true,
     select: true
 });
 </script>

@@ -4,41 +4,40 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
 
 <div class="card-body p-2">
-    
     <div class="table-responsive">
-        <table class="display nowrap table table-striped text-center" id="inventarios-table">
+        <table class="table" id="sigla-asistencias-personals-table">
             <thead>
             <tr>
-                <th class="text-center">Nombre</th>
-                <th class="text-center">Existencia</th>
-                <th class="text-center">Imagen</th>
-                <th class="text-center">Action</th>
+                <th class="text-center">Siglas</th>
+                <th class="text-center">Significado</th>
+                <th class="text-center">Active</th>
+                <th class="text-center">Acció</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($inventarios as $inventario)
+            @foreach($siglaAsistenciasPersonals as $siglaAsistenciasPersonal)
                 <tr>
-                    <td class="text-center">{{ $inventario->nombre }}</td>
-                    <td class="text-center">{{ $inventario->existencia }}</td>
+                    <td class="text-center">{{ $siglaAsistenciasPersonal->name }}</td>
+                    <td class="text-center">{{ $siglaAsistenciasPersonal->knowledge }}</td>
                     <td class="text-center">
-                        @if($inventario->image)
-                            <img src="{{asset('assets/inventary_imgs/' . $inventario->image)}}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;">
+                        @if ($siglaAsistenciasPersonal->active == 1)
+                            {{ 'Siglas activas' }}
                         @else
-                            <img src="{{asset('assets/inventary_imgs/default.webp')}}" alt="" style="width: auto; height: auto;max-width: 100px; max-height: 100px;">
+                            {{ 'Siglas inactivas' }}
                         @endif
-                    </td> 
-                    <td class="text-center" style="width: 120px">
-                        {!! Form::open(['route' => ['inventarios.destroy', $inventario->id], 'method' => 'delete']) !!}
+                    </td>
+                    <td class="text-center">
+                        {!! Form::open(['route' => ['sigla-asistencias-personals.destroy', $siglaAsistenciasPersonal->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('inventarios.show', [$inventario->id]) }}"
+                            <a href="{{ route('sigla-asistencias-personals.show', [$siglaAsistenciasPersonal->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
                             </a>
-                            <a href="{{ route('inventarios.edit', [$inventario->id]) }}"
+                            <a href="{{ route('sigla-asistencias-personals.edit', [$siglaAsistenciasPersonal->id]) }}"
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Esta seguro que desea eliminar el registro?')"]) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
@@ -50,11 +49,10 @@
 
     <div class="card-footer clearfix">
         <div class="float-right">
-            @include('adminlte-templates::common.paginate', ['records' => $inventarios])
+            @include('adminlte-templates::common.paginate', ['records' => $siglaAsistenciasPersonals])
         </div>
     </div>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('/assets/js/dataTables.js') }}"></script>
@@ -67,7 +65,7 @@
 <script src="{{ asset('/assets/js/buttons.print.min.js') }}"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 <script>
-    new DataTable('#inventarios-table', {
+    new DataTable('#sigla-asistencias-personals-table', {
     layout: {
         topStart: {
             buttons: [
@@ -79,7 +77,6 @@
             ]
         }
     },
-        paginate: true,
-        select: true
-    });
+    paginate: true
+});
 </script>

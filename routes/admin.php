@@ -9,6 +9,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\NominasController;
+use App\Http\Controllers\SiglaAsistenciasPersonalController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,7 @@ Route::get('/inventarios/salidas', [InventarioController::class, 'salidas'])->na
 
 Route::resource('/inventarios', InventarioController::class)->names('inventarios')->middleware('auth');
 
-Route::resource('movimientos', App\Http\Controllers\MovimientosController::class);
+Route::resource('movimientos', App\Http\Controllers\MovimientosController::class)->names('movimientos')->middleware('auth');
 
 Route::group(['prefix' => 'nominas'], function(){
     Route::get('/', [NominasController::class, 'index'])->name('nominas.index');
@@ -42,23 +43,12 @@ Route::group(['prefix' => 'nominas'], function(){
 Route::get('/PersonaltoPDF', [PersonalController::class, 'PersonaltoPDF'])->name('PersonaltoPDF');
 
 Route::resource('/personals', PersonalController::class)->names('personals')->middleware('auth');
+Route::get('/personals/pase_lista', [PersonalController::class, 'PaseLista'])->name('personal.pase_lista');
 
 Route::resource('/razon-socials', RazonSocialController::class)->names('razon-socials')->middleware('auth');
+
+Route::resource('/sigla-asistencias-personals', SiglaAsistenciasPersonalController::class)->names('sigla-asistencias-personals')->middleware('auth');
 
 Route::resource('/tipos-de-pago', PaymentTypeController::class)->names('tipos_pagos')->middleware('auth');
 
 Route::resource('/users', UserController::class)->names('users')->middleware('auth');
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -94,15 +94,20 @@
             <td class="border">Salario Mensual</td>
             <td class="border fw-bold">$0.00</td>
         </tr>
+        <tr>
+            <td>Periodo de liquidación.</td>
+            <td>Fecha inicial:</td>
+            <td>Fecha final:</td>
+            <td>n° días:</td>
+        </tr>
     </thead>
     <tbody>
         <tr><td class="border-0" colspan="4"></td></tr>
         <tr>
-            <td colspan="2" class="text-center border gris fw-bold">Percepciones</td>
-            <td colspan="2" class="text-center border gris fw-bold">Deducciones</td>
+            <td colspan="4" class="text-center border gris fw-bold">Percepciones</td>
         </tr>
         <tr>
-            <td colspan="2" class="border">
+            <td class="border" colspan="4">
                 <table class="table fs-8" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="col-sm-4 text-center">Concepto</td>
@@ -131,7 +136,12 @@
                     </tr>
                 </table>
             </td>
-            <td colspan="2" class="border">
+        </tr>
+        <tr>
+            <td colspan="4" class="text-center border gris fw-bold">Deducciones</td>
+        </tr>
+        <tr>
+            <td class="border" colspan="4">
                 <table class="table fs-8" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="col-sm-4 text-center">Concepto</td>

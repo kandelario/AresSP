@@ -88,16 +88,6 @@
                         @else
                             <img src="{{ asset('assets/personal/SVG/p_default_2.svg') }}" alt="Sin imagen encontrada para esta persona." style="width: auto; heigth: auto; max-width: 150px; max-heigth: 150px; min-width:100px; min-heigth: 100px;">
                         @endif
-
-                        {{-- @if ($personal->foto != null)
-                            @if (file_exists('assets/personal/' . $personal->foto))
-                                <img src="{{ assets('assets/personal/' . $personal->foto) }}" alt="{{ $personal->name }}" width="200">
-                            @else
-                                <img src="{{ assets('assets/personal/svg/p_default.svg') }}" alt="Sin imagen encontrada para esta persona." width="200">    
-                            @endif
-                        @else
-                            <img src="{{ assets('assets/personal/svg/p_default.svg') }}" alt="Sin imagen encontrada para esta persona." width="200">
-                        @endif --}}
                     </td>
                     <td class="text-center">{{ $personal->name }}</td>
                     {{-- <td class="text-center">{{ $personal->domicilio }}</td>
@@ -355,9 +345,9 @@
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {{-- <a href="#{{ route('asistencias.create') }}" target="blank" class="btn btn-default btn-xs" rel="Asistencia" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <a href="#{{ route('personal.pase_lista', ['personal_id' => $personal->id]) }}" target="blank" class="btn btn-default btn-xs" rel="Asistencia" data-bs-toggle="modal" data-bs-target="#PaseListaModal">
                                 <i class="fas fa-user-check"></i>
-                            </a> --}}
+                            </a>
                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('¿Estas seguro que lo deseas eliminar?')"]) !!}
                         </div>
                         {!! Form::close() !!}
@@ -376,11 +366,11 @@
 </div>
 
 {{-- modal --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color:transparent;">
+<div class="modal fade" id="PaseListaModal" tabindex="-1" aria-labelledby="PaseListaModalLabel" aria-hidden="true" style="background-color:transparent;">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Asistencia</h1>
+          <h1 class="modal-title fs-5" id="PaseListaModalLabel">Registrar Asistencia</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -395,14 +385,14 @@
                     <div class="card-body">
         
                         <div class="row">
-                            @include('asistencias.fields')
+                            @include('personals.fields-asistencia')
                         </div>
         
                     </div>
         
                     <div class="card-footer">
-                        {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
-                        <a href="{{ route('asistencias.index') }}" class="btn btn-default"> Cancelar </a>
+                        {{-- {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!} --}}
+                        <a href="{{ route('personals.index') }}" class="btn btn-default"> Cancelar </a>
                     </div>
         
                     {!! Form::close() !!}
@@ -411,8 +401,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Registrar</button>
         </div>
       </div>
     </div>

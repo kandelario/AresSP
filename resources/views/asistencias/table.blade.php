@@ -8,6 +8,11 @@
         <table class="display nowrap table table-striped" id="asistencias-table">
             <thead>
             <tr>
+                <th class="text-center">Servicio</th>
+                <th class="text-center">N° Emp.</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Puesto</th>
+                <th class="text-center">Servicio</th>
                 <th class="text-center">Fecha Asistencia</th>
                 <th class="text-center">Faltó</th>
                 <th class="text-center">Personal</th>
@@ -16,7 +21,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($asistencias as $asistencia)
+            {{-- @foreach($asistencias as $asistencia)
                 <tr>
                     <td class="text-center">{{ $asistencia->hoy }}</td>
                     <td class="text-center">
@@ -58,7 +63,55 @@
                         {!! Form::close() !!}
                     </td>
                 </tr>
-            @endforeach
+            @endforeach --}}
+            @if (isset($asignaciones))
+                {{-- @foreach($asignaciones as $asignacion)
+                    <tr>
+                        <td class="text-center">{{ $asignacion->hoy }}</td>
+                        <td class="text-center">
+                            {{ $asistencia->falto }}
+                            @if ($asistencia->falto == 1)
+                                {{ "Sí" }}
+                            @else
+                                {{ "No" }}
+                            @endif
+                        </td class="text-center">
+                        <td class="text-center">
+                            @if (isset($personals))
+                                @foreach($personals as $personal)
+                                    @if ($personal->id == $asistencia->idPersonal)
+                                        {{$personal->name}}
+                                    @else
+                                        {{"Personal no registrado en listado de personal."}}
+                                    @endif
+                                @endforeach    
+                            @else
+                                {{"No hay personal registrado."}}
+                            @endif
+                            
+                        </td>
+                        <td>{{$asistencia->observaciones}}</td>
+                        <td class="text-center" style="width: 120px">
+                            {!! Form::open(['route' => ['asistencias.destroy', $asistencia->id], 'method' => 'delete']) !!}
+                            <div class='btn-group'>
+                                <a href="{{ route('asistencias.show', [$asistencia->id]) }}"
+                                class='btn btn-default btn-xs'>
+                                    <i class="far fa-eye"></i>
+                                </a>
+                                <a href="{{ route('asistencias.edit', [$asistencia->id]) }}"
+                                class='btn btn-default btn-xs'>
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            </div>
+                            {!! Form::close() !!}
+                        </td>
+                    </tr>
+                @endforeach --}}
+            @else
+                {{"No hay personal asignado a servicios activos."}}
+            @endif
+            
             </tbody>
         </table>
     </div>

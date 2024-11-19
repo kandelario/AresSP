@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('asistencias', function (Blueprint $table) {
-            $table->dropColumn('falto');
+            $table->unsignedBigInteger('idSiglas');
+            $table->foreign('idSiglas')->references('id')->on('siglas_asistencia_personal')->onUpdate('cascade');
         });
     }
 };
