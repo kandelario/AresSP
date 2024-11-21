@@ -12,7 +12,8 @@ class Asistencia extends Model
         'hoy',
         'falto',
         'idPersonal',
-        'observaciones'
+        'observaciones',
+        'idSiglas'
     ];
 
     protected $casts = [
@@ -23,7 +24,8 @@ class Asistencia extends Model
 
     public static array $rules = [
         'hoy' => 'required',
-        'idPersonal' => 'required'
+        'idPersonal' => 'required',
+        'idSiglas' => 'required'
     ];
 
     public function idpersonal(): \Illuminate\Database\Eloquent\Relations\BelongsTo
