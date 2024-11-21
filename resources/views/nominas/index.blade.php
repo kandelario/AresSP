@@ -175,7 +175,7 @@
                                 href="{{ route('nominas.mostrar') }}">
                                 Generar Nóminas
                             </a> --}}
-                            <a class="btn btn-primary col-sm-2 float-left m-1" href="#">
+                            <a class="btn btn-primary col-sm-2 float-left m-1 unwrap" href="#">
                                 <i class="fa fa-cogs" aria-hidden="true"></i>
                                 Generar Nóminas
                             </a>

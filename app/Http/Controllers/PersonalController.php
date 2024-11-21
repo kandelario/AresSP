@@ -114,7 +114,7 @@ class PersonalController extends AppBaseController
             }else{
                 //$request->remove('foto');
                 $personal->save();
-                Flash::success('Personal registrado satisfactoriamente, sin embargo, la imagen no pudo guardarse, comuniquese con el administrador del sitio.');
+                Flash::success('Personal registrado satisfactoriamente.');
             }
             DB::commit();
             return redirect(route('personals.index'));
