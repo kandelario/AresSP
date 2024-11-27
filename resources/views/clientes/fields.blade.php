@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 <!-- Nombre Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('nombre', 'Nombre:') !!}
@@ -41,7 +42,7 @@
 </div>
 
 <!-- Nguardias Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('nGuardias', 'N° de Guardias:') !!}
     @if (isset($cliente->nGuardias))
         {!! Form::number('nGuardias', $cliente->nGuardias, ['class' => 'form-control']) !!}
@@ -54,7 +55,7 @@
 </div>
 
 <!-- Guardia Costo Dia Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('guardia_sueldo_dia', 'Costo Dia (Guardia):') !!}
     @if (isset($cliente->guardia_sueldo_dia))
         {!! Form::number('guardia_sueldo_dia', $cliente->guardia_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -68,18 +69,23 @@
 </div>
 
 <!-- Guardia Costo Mes Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('guardia_sueldo_mes', 'Costo Mes (Guardia):') !!}
 
     @if (isset($cliente->guardia_sueldo_mes))
         {!! Form::number('guardia_sueldo_mes', $cliente->guardia_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::number('guardia_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('guardia_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     
     @error('guardia_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de guardias por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
+</div>
+
+<div class="form-group col-sm-3">
+    {!! Form::label('guardias_costo_mes', 'Costo Mes (Total Guardias):') !!}
+    {!! Form::number('guardias_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
 </div>
 
 <!-- Guardia Sueldo -->
@@ -96,7 +102,7 @@
 </div>
 
 <!-- N Jefe Turno Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('n_jefe_turno', 'N° Jefe Turno:') !!}
     @if (isset($cliente->n_jefe_turno))
         {!! Form::number('n_jefe_turno', $cliente->n_jefe_turno, ['class' => 'form-control']) !!}
@@ -109,8 +115,8 @@
 </div>
 
 <!-- Jefe Turno Costo Dia Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('jefe_turno_sueldo_dia', 'Costo Dia (Jefe Turno):') !!}
+<div class="form-group col-sm-2">
+    {!! Form::label('jefe_turno_sueldo_dia', 'Costo Dia (J. Turno):') !!}
     @if (isset($cliente->jefe_turno_sueldo_dia))
         {!! Form::number('jefe_turno_sueldo_dia', $cliente->jefe_turno_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -124,22 +130,27 @@
 </div>
 
 <!-- Jefe Turno costo Mes Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('jefe_turno_sueldo_mes', 'Costo Mes (Jefe Turno):') !!}
+<div class="form-group col-sm-2">
+    {!! Form::label('jefe_turno_sueldo_mes', 'Costo Mes (J. Turno):') !!}
 
     @if (isset($cliente->jefe_turno_sueldo_mes))
         {!! Form::number('jefe_turno_sueldo_mes', $cliente->jefe_turno_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::number('jefe_turno_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_turno_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     @error('jefe_turno_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de jefe de turno por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
 
+<div class="form-group col-sm-3">
+    {!! Form::label('jefe_turno_costo_mes', 'Costo Mes (Total J. de Turno):') !!}
+    {!! Form::number('jefe_turno_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+</div>
+
 <!-- Jefe de Turno Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_jefe_turno', 'Sueldo Mensual de Jefe de Turno:') !!}
+    {!! Form::label('sueldo_jefe_turno', 'Sueldo Mensual de J. de Turno:') !!}
     
     @if (isset($cliente->sueldo_jefe_turno))
         {!! Form::number('sueldo_jefe_turno', $cliente->sueldo_jefe_turno, ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -152,7 +163,7 @@
 </div>
 
 <!-- N Jefe Servicio Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
     @if (isset($cliente->n_jefe_servicio))
         {!! Form::number('n_jefe_servicio', $cliente->n_jefe_servicio, ['class' => 'form-control']) !!}
@@ -165,8 +176,8 @@
 </div>
 
 <!-- Jefe Serv Sueldo Dia Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('jefe_serv_sueldo_dia', 'Costo Dia (Jefe de Servicio):') !!}
+<div class="form-group col-sm-2">
+    {!! Form::label('jefe_serv_sueldo_dia', 'Costo Dia (J. de Serv.):') !!}
     @if (isset($cliente->jefe_serv_sueldo_dia))
         {!! Form::number('jefe_serv_sueldo_dia', $cliente->jefe_serv_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -178,21 +189,26 @@
 </div>
 
 <!-- Jefe Serv Sueldo Mes Field -->
-<div class="form-group col-sm-3">
-    {!! Form::label('jefe_serv_sueldo_mes', 'Costo Mes (Jefe de Servicio):') !!}
+<div class="form-group col-sm-2">
+    {!! Form::label('jefe_serv_sueldo_mes', 'Costo Mes (J. de Serv.):') !!}
     @if (isset($cliente->jefe_serv_sueldo_mes))
         {!! Form::number('jefe_serv_sueldo_mes', $cliente->jefe_serv_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::number('jefe_serv_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_serv_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     @error('jefe_serv_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de jefe de servicio por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
 
+<div class="form-group col-sm-3">
+    {!! Form::label('jefe_servicio_costo_mes', 'Costo Mes (Total J. de Serv.):') !!}
+    {!! Form::number('jefe_servicio_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+</div>
+
 <!-- Jefe de Servicio Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_jefe_servicio', 'Sueldo Mensual de Jefe de Servicio:') !!}
+    {!! Form::label('sueldo_jefe_servicio', 'Sueldo Mensual de J. de Serv.:') !!}
     
     @if (isset($cliente->sueldo_jefe_servicio))
         {!! Form::number('sueldo_jefe_servicio', $cliente->sueldo_jefe_servicio, ['class' => 'form-control']) !!}
@@ -205,7 +221,7 @@
 </div>
 
 <!-- N Monitorista Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('n_monitorista', 'Personal extra (otros):') !!}
     @if (isset($cliente->n_monitorista))
         {!! Form::number('n_monitorista', $cliente->n_monitorista, ['class' => 'form-control']) !!}
@@ -218,7 +234,7 @@
 </div>
 
 <!-- Monitor Sueldoxdia Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('monitor_sueldoxdia', 'Costo por día (otros):') !!}
     @if (isset($cliente->monitor_sueldoxdia))
         {!! Form::number('monitor_sueldoxdia', $cliente->monitor_sueldoxdia, ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -231,16 +247,21 @@
 </div>
 
 <!-- Monitor Sueldoxmes Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-2">
     {!! Form::label('monitor_sueldoxmes', 'Costo por mes (otros):') !!}
     @if (isset($cliente->monitor_sueldoxmes))
         {!! Form::number('monitor_sueldoxmes', $cliente->monitor_sueldoxmes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::number('monitor_sueldoxmes', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('monitor_sueldoxmes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     @error('monitor_sueldoxmes')
         <p class="error-message">{{ "El campo sueldo de otros personal por mes es requerido y no cumple con lo especificado." }}</p>
     @enderror
+</div>
+
+<div class="form-group col-sm-3">
+    {!! Form::label('monitor_costo_mes', 'Costo total por Mes (Otros):') !!}
+    {!! Form::number('monitor_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
 </div>
 
 <!-- Cargo Extra Sueldo -->
@@ -291,7 +312,7 @@
     @if (isset($cliente->monto_facturar))
         {!! Form::text('monto_facturar', $cliente->monto_facturar, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::text('monto_facturar', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::text('monto_facturar', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     @error('monto_facturar')
         <p class="error-message">{{ "El campo monto a facturar es requerido y no cumple con lo especificado." }}</p>
@@ -304,7 +325,7 @@
     @if (isset($cliente->iva))
         {!! Form::text('iva', $cliente->iva, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::text('iva', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::text('iva', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     @error('iva')
         <p class="error-message">{{ "El campo iva es requerido y no cumple con lo especificado." }}</p>
@@ -330,7 +351,7 @@
     @if (isset($cliente->total_factura))
         {!! Form::text('total_factura', $cliente->total_factura, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::text('total_factura', '0.00', ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::text('total_factura', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
     @endif
     @error('total_factura')
         <p class="error-message">{{ "El campo total a facturar es requerido y no cumple con lo especificado." }}</p>
@@ -453,3 +474,129 @@
         <p class="error-message">{{ "El campo tipo de pago es requerido y no cumple con lo especificado." }}</p>
     @enderror
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script>
+    $(function(){
+        var _costo_guardia_mes = 0;
+        var _costo_jefe_turno_mes = 0;
+        var _costo_jefe_servicio_mes = 0;
+        var _costo_monitor_mes = 0;
+        var _costo_canino_mes = 0;
+        var monto_x_facturar = 0;
+        var _iva_ = 0;
+        var _sub_total = 0;
+        var _total = 0;
+
+        $("#guardia_sueldo_dia").on('keyup',function(){
+            SubTotalGUardia();
+            Subtotales();
+            IVA();
+            Total();
+        });
+
+        $("#jefe_turno_sueldo_dia").on('keyup',function(){
+            SubTotalJefeTurno();
+            Subtotales();
+            IVA();
+            Total();
+        });
+
+        $("#jefe_serv_sueldo_dia").on('keyup',function(){
+            SubTotalJefeServicio();
+            Subtotales();
+            IVA();
+            Total();
+        });
+
+        $("#monitor_sueldoxdia").on('keyup',function(){
+            SubTotalMonitor();
+            Subtotales();
+            IVA();
+            Total();
+        });
+
+        $("#costocanino").on('keyup',function(){
+            _costo_canino_mes = document.getElementById('costocanino').value;
+            Subtotales();
+            IVA();
+            Total();
+        });
+
+        function SubTotalGUardia(){
+            var guardia_sueldo_mes = document.getElementById('guardia_sueldo_mes');
+            var costo_diario = document.getElementById('guardia_sueldo_dia');
+            _costo_guardia_mes = getOneDecimal((costo_diario.value * 30));
+            _costo_guardia_mes > 0 ? guardia_sueldo_mes.value = _costo_guardia_mes : guardia_sueldo_mes.value = 0.00;
+            document.getElementById('guardias_costo_mes').value = (_costo_guardia_mes * document.getElementById('nGuardias').value);
+        }
+
+        function SubTotalJefeTurno(){
+            var costo_jefe_turno_mes = document.getElementById('jefe_turno_sueldo_mes');
+            var costo_jefe_turno_dia = document.getElementById('jefe_turno_sueldo_dia');
+            _costo_jefe_turno_mes = getOneDecimal((costo_jefe_turno_dia.value * 30));
+            costo_jefe_turno_mes.value = _costo_jefe_turno_mes;
+            document.getElementById('jefe_turno_costo_mes').value = (_costo_jefe_turno_mes * document.getElementById('n_jefe_turno').value);
+        }
+
+        function SubTotalJefeServicio(){
+            var costo_jefe_serv_mes = document.getElementById('jefe_serv_sueldo_mes');
+            var costo_jefe_serv_dia = document.getElementById('jefe_serv_sueldo_dia');
+            _costo_jefe_servicio_mes = getOneDecimal((costo_jefe_serv_dia.value * 30));
+            costo_jefe_serv_mes.value = _costo_jefe_servicio_mes;
+            document.getElementById('jefe_servicio_costo_mes').value = (_costo_jefe_servicio_mes * document.getElementById('n_jefe_servicio').value);
+        }
+
+        function SubTotalMonitor(){
+            var costo_monitor_mes = document.getElementById('monitor_sueldoxmes');
+            var costo_monitor_dia = document.getElementById('monitor_sueldoxdia');
+            _costo_monitor_mes = getOneDecimal((costo_monitor_dia.value * 30));
+            costo_monitor_mes.value = _costo_monitor_mes;
+            document.getElementById('monitor_costo_mes').value = (_costo_monitor_mes * document.getElementById('n_monitorista').value);
+        }
+
+        function Subtotales(){
+            //var total_factura = document.getElementById('total_factura');
+            var _n_guardias = document.getElementById('nGuardias');
+            var _n_jefe_turno = document.getElementById('n_jefe_turno');
+            var _n_jefe_servicio = document.getElementById('n_jefe_servicio');
+            var _n_monitor = document.getElementById('n_monitorista');
+            var _n_canino = document.getElementById('n_canino');
+
+            var monto_facturar = document.getElementById('monto_facturar');
+            monto_facturar.value = parseFloat(_costo_guardia_mes * _n_guardias.value) + parseFloat(_costo_jefe_turno_mes * _n_jefe_turno.value) + parseFloat(_costo_jefe_servicio_mes * _n_jefe_servicio.value) + parseFloat(_costo_monitor_mes * _n_monitor.value) + parseFloat(_costo_canino_mes * _n_canino.value);
+        }
+
+        function IVA(){
+            var monto_facturar = document.getElementById('monto_facturar');
+            var _iva = document.getElementById('iva');
+            var sacar_iva = parseFloat(monto_facturar.value) * .16;
+            _iva.value = getOneDecimal(sacar_iva);
+            _iva_ = getOneDecimal(sacar_iva);
+        }
+
+        function Total(){
+            var monto_facturar = document.getElementById('monto_facturar');
+            var total_factura = document.getElementById('total_factura');
+            _total = getOneDecimal(monto_facturar.value) + getOneDecimal(_iva_);
+            total_factura.value = _total;
+        }
+
+        function getOneDecimal(num) {
+           return Math.floor(num * 10) / 10;
+        }
+
+        function InitTotales(){
+            SubTotalGUardia();
+            SubTotalJefeTurno();
+            SubTotalJefeServicio();
+            SubTotalMonitor();
+            Subtotales();
+            IVA();
+            Total();
+        }
+
+        InitTotales();
+    });
+</script>
