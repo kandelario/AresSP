@@ -345,7 +345,7 @@
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="#{{ route('personal.pase_lista', ['personal_id' => $personal->id]) }}" target="blank" class="btn btn-default btn-xs" rel="Asistencia" data-bs-toggle="modal" data-bs-target="#PaseListaModal">
+                            <a href="/personals/pase_lista/{{ $personal->id }}/{{ $personal->name }}" target="blank" class="btn btn-default btn-xs" rel="Asistencia" data-bs-toggle="modal" data-bs-target="#PaseListaModal">
                                 <i class="fas fa-user-check"></i>
                             </a>
                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('¿Estas seguro que lo deseas eliminar?')"]) !!}
@@ -402,7 +402,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Registrar</button>
+          {{-- <button type="button" class="btn btn-primary">Registrar</button> --}}
         </div>
       </div>
     </div>
@@ -424,17 +424,43 @@
 
     new DataTable('#personals-table', {
     layout: {
-        topStart: {
-            buttons: [
-                // 'copy',
-                // 'csv',
-                'excel',
-                // 'pdf',
-                'print'
-            ]
+            topStart: {
+                buttons: [
+                    // 'copy',
+                    // 'csv',
+                    'excel',
+                    // 'pdf',
+                    'print'
+                ]
+            }
+        },
+        paginate: false,
+        select: true
+    });
+
+    $(function(){
+        setTimeout(() => {
+            //EsHoy();
+        }, 1500);
+
+
+        function EsHoy(){
+            var fecha = new Date();
+            var mes = fecha.getMonth()+1;
+            var dia = fecha.getDate();
+            var ano = fecha.getFullYear();
+            if(dia < 10){
+                dia = '0' + dia;
+            }
+            if(mes < 10){
+                mes = '0' + mes;
+            }
+            var _hoy = ano + '/' + mes + '/' + dia;
+            
+            document.getElementById('hoy').innerHTML = _hoy;
+            alert(_hoy);
         }
-    },
-    paginate: false,
-    select: true
-});
+    });
+
+    
 </script>

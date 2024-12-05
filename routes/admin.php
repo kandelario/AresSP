@@ -43,7 +43,12 @@ Route::group(['prefix' => 'nominas'], function(){
 Route::get('/PersonaltoPDF', [PersonalController::class, 'PersonaltoPDF'])->name('PersonaltoPDF');
 
 Route::resource('/personals', PersonalController::class)->names('personals')->middleware('auth');
-Route::get('/personals/pase_lista', [PersonalController::class, 'PaseLista'])->name('personal.pase_lista');
+//Route::get('/personals/pase_lista/{peronal_id}/{peronal_name}', [PersonalController::class, 'PaseLista'])->name('personal.pase_lista');
+Route::get('/personals/pase_lista/{peronal_id}/{personal_name}', function($personal_id, $personal_name){
+    return view('personal.fields-asistencia')
+        ->with($personal_id)
+        ->with($personal_name);
+})->name('personal.pase_lista');
 
 Route::resource('/razon-socials', RazonSocialController::class)->names('razon-socials')->middleware('auth');
 

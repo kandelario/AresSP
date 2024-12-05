@@ -29,7 +29,9 @@
 
 <!-- Personal Total -->
 <div class="form-group col-sm-3">
-    {!! Form::label('personal_total', 'Personal Total:') !!}
+    <small>
+        {!! Form::label('personal_total', 'Personal Total:') !!}
+    </small>
     @if (isset($cliente->personal_total))
         {!! Form::number('personal_total', $cliente->personal_total, ['class' => 'form-control']) !!}
     @else
@@ -43,7 +45,9 @@
 
 <!-- Nguardias Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('nGuardias', 'N° de Guardias:') !!}
+    <small class="text-center">
+        {!! Form::label('nGuardias', 'N° de Guardias:') !!}
+    </small>
     @if (isset($cliente->nGuardias))
         {!! Form::number('nGuardias', $cliente->nGuardias, ['class' => 'form-control']) !!}
     @else
@@ -56,7 +60,9 @@
 
 <!-- Guardia Costo Dia Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('guardia_sueldo_dia', 'Costo Dia (Guardia):') !!}
+    <small>
+        {!! Form::label('guardia_sueldo_dia', 'Costo Dia (Guardia):') !!}
+    </small>
     @if (isset($cliente->guardia_sueldo_dia))
         {!! Form::number('guardia_sueldo_dia', $cliente->guardia_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -70,12 +76,14 @@
 
 <!-- Guardia Costo Mes Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('guardia_sueldo_mes', 'Costo Mes (Guardia):') !!}
+    <small>
+        {!! Form::label('guardia_sueldo_mes', 'Costo Mes (Guardia):') !!}
+    </small>
 
     @if (isset($cliente->guardia_sueldo_mes))
-        {!! Form::number('guardia_sueldo_mes', $cliente->guardia_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('guardia_sueldo_mes', $cliente->guardia_sueldo_mes, ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @else
-        {!! Form::number('guardia_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::number('guardia_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     
     @error('guardia_sueldo_mes')
@@ -84,13 +92,17 @@
 </div>
 
 <div class="form-group col-sm-3">
-    {!! Form::label('guardias_costo_mes', 'Costo Mes (Total Guardias):') !!}
-    {!! Form::number('guardias_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+    <small>
+        {!! Form::label('guardias_costo_mes', 'Costo Mes (Total Guardias):') !!}
+    </small>
+    {!! Form::number('guardias_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
 </div>
 
 <!-- Guardia Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_guardia', 'Sueldo Mensual de Guardia:') !!}
+    <small>
+        {!! Form::label('sueldo_guardia', 'Sueldo Mensual de Guardia:') !!}
+    </small>
     @if (isset($cliente->sueldo_guardia))
         {!! Form::number('sueldo_guardia', $cliente->sueldo_guardia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -103,7 +115,9 @@
 
 <!-- N Jefe Turno Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('n_jefe_turno', 'N° Jefe Turno:') !!}
+    <small>
+        {!! Form::label('n_jefe_turno', 'N° Jefe Turno:') !!}
+    </small>
     @if (isset($cliente->n_jefe_turno))
         {!! Form::number('n_jefe_turno', $cliente->n_jefe_turno, ['class' => 'form-control']) !!}
     @else
@@ -116,7 +130,9 @@
 
 <!-- Jefe Turno Costo Dia Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('jefe_turno_sueldo_dia', 'Costo Dia (J. Turno):') !!}
+    <small>
+        {!! Form::label('jefe_turno_sueldo_dia', 'Costo Dia (J. Turno):') !!}
+    </small>
     @if (isset($cliente->jefe_turno_sueldo_dia))
         {!! Form::number('jefe_turno_sueldo_dia', $cliente->jefe_turno_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -131,12 +147,14 @@
 
 <!-- Jefe Turno costo Mes Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('jefe_turno_sueldo_mes', 'Costo Mes (J. Turno):') !!}
+    <small>
+        {!! Form::label('jefe_turno_sueldo_mes', 'Costo Mes (J. Turno):') !!}
+    </small>
 
     @if (isset($cliente->jefe_turno_sueldo_mes))
-        {!! Form::number('jefe_turno_sueldo_mes', $cliente->jefe_turno_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
+        {!! Form::number('jefe_turno_sueldo_mes', $cliente->jefe_turno_sueldo_mes, ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @else
-        {!! Form::number('jefe_turno_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::number('jefe_turno_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     @error('jefe_turno_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de jefe de turno por mes es requerido y no cumple con lo especificado." }}</p>
@@ -144,13 +162,17 @@
 </div>
 
 <div class="form-group col-sm-3">
-    {!! Form::label('jefe_turno_costo_mes', 'Costo Mes (Total J. de Turno):') !!}
-    {!! Form::number('jefe_turno_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+    <small>
+        {!! Form::label('jefe_turno_costo_mes', 'Costo Mes (Total J. de Turno):') !!}
+    </small>
+    {!! Form::number('jefe_turno_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
 </div>
 
 <!-- Jefe de Turno Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_jefe_turno', 'Sueldo Mensual de J. de Turno:') !!}
+    <small>
+        {!! Form::label('sueldo_jefe_turno', 'Sueldo Mensual de J. de Turno:') !!}
+    </small>
     
     @if (isset($cliente->sueldo_jefe_turno))
         {!! Form::number('sueldo_jefe_turno', $cliente->sueldo_jefe_turno, ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -164,7 +186,9 @@
 
 <!-- N Jefe Servicio Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
+    <small>
+        {!! Form::label('n_jefe_servicio', 'N° Jefe de Servicio:') !!}
+    </small>
     @if (isset($cliente->n_jefe_servicio))
         {!! Form::number('n_jefe_servicio', $cliente->n_jefe_servicio, ['class' => 'form-control']) !!}
     @else
@@ -177,7 +201,9 @@
 
 <!-- Jefe Serv Sueldo Dia Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('jefe_serv_sueldo_dia', 'Costo Dia (J. de Serv.):') !!}
+    <small>
+        {!! Form::label('jefe_serv_sueldo_dia', 'Costo Dia (J. de Serv.):') !!}
+    </small>
     @if (isset($cliente->jefe_serv_sueldo_dia))
         {!! Form::number('jefe_serv_sueldo_dia', $cliente->jefe_serv_sueldo_dia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -190,11 +216,13 @@
 
 <!-- Jefe Serv Sueldo Mes Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('jefe_serv_sueldo_mes', 'Costo Mes (J. de Serv.):') !!}
+    <small>
+        {!! Form::label('jefe_serv_sueldo_mes', 'Costo Mes (J. de Serv.):') !!}
+    </small>
     @if (isset($cliente->jefe_serv_sueldo_mes))
         {!! Form::number('jefe_serv_sueldo_mes', $cliente->jefe_serv_sueldo_mes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::number('jefe_serv_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::number('jefe_serv_sueldo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     @error('jefe_serv_sueldo_mes')
         <p class="error-message">{{ "El campo sueldo de jefe de servicio por mes es requerido y no cumple con lo especificado." }}</p>
@@ -202,13 +230,17 @@
 </div>
 
 <div class="form-group col-sm-3">
-    {!! Form::label('jefe_servicio_costo_mes', 'Costo Mes (Total J. de Serv.):') !!}
-    {!! Form::number('jefe_servicio_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+    <small>
+        {!! Form::label('jefe_servicio_costo_mes', 'Costo Mes (Total J. de Serv.):') !!}
+    </small>
+    {!! Form::number('jefe_servicio_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
 </div>
 
 <!-- Jefe de Servicio Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_jefe_servicio', 'Sueldo Mensual de J. de Serv.:') !!}
+    <small>
+        {!! Form::label('sueldo_jefe_servicio', 'Sueldo Mensual de J. de Serv.:') !!}
+    </small>
     
     @if (isset($cliente->sueldo_jefe_servicio))
         {!! Form::number('sueldo_jefe_servicio', $cliente->sueldo_jefe_servicio, ['class' => 'form-control']) !!}
@@ -222,7 +254,9 @@
 
 <!-- N Monitorista Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('n_monitorista', 'Personal extra (otros):') !!}
+    <small>
+        {!! Form::label('n_monitorista', 'Personal extra (otros):') !!}
+    </small>
     @if (isset($cliente->n_monitorista))
         {!! Form::number('n_monitorista', $cliente->n_monitorista, ['class' => 'form-control']) !!}
     @else
@@ -235,7 +269,9 @@
 
 <!-- Monitor Sueldoxdia Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('monitor_sueldoxdia', 'Costo por día (otros):') !!}
+    <small>
+        {!! Form::label('monitor_sueldoxdia', 'Costo por día (otros):') !!}
+    </small>
     @if (isset($cliente->monitor_sueldoxdia))
         {!! Form::number('monitor_sueldoxdia', $cliente->monitor_sueldoxdia, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
@@ -248,11 +284,13 @@
 
 <!-- Monitor Sueldoxmes Field -->
 <div class="form-group col-sm-2">
-    {!! Form::label('monitor_sueldoxmes', 'Costo por mes (otros):') !!}
+    <small>
+        {!! Form::label('monitor_sueldoxmes', 'Costo por mes (otros):') !!}
+    </small>
     @if (isset($cliente->monitor_sueldoxmes))
         {!! Form::number('monitor_sueldoxmes', $cliente->monitor_sueldoxmes, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::number('monitor_sueldoxmes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::number('monitor_sueldoxmes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     @error('monitor_sueldoxmes')
         <p class="error-message">{{ "El campo sueldo de otros personal por mes es requerido y no cumple con lo especificado." }}</p>
@@ -260,13 +298,17 @@
 </div>
 
 <div class="form-group col-sm-3">
-    {!! Form::label('monitor_costo_mes', 'Costo total por Mes (Otros):') !!}
-    {!! Form::number('monitor_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+    <small>
+        {!! Form::label('monitor_costo_mes', 'Costo total por Mes (Otros):') !!}
+    </small>
+    {!! Form::number('monitor_costo_mes', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
 </div>
 
 <!-- Cargo Extra Sueldo -->
 <div class="form-group col-sm-3">
-    {!! Form::label('sueldo_p_extra', 'Sueldo Mensual de Personal Extra:') !!}
+    <small>
+        {!! Form::label('sueldo_p_extra', 'Sueldo Mensual de Personal Extra:') !!}
+    </small>
     
     @if (isset($cliente->sueldo_p_extra))
         {!! Form::number('sueldo_p_extra', $cliente->sueldo_p_extra, ['class' => 'form-control', 'step' => '0.01']) !!}
@@ -312,7 +354,7 @@
     @if (isset($cliente->monto_facturar))
         {!! Form::text('monto_facturar', $cliente->monto_facturar, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::text('monto_facturar', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::text('monto_facturar', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     @error('monto_facturar')
         <p class="error-message">{{ "El campo monto a facturar es requerido y no cumple con lo especificado." }}</p>
@@ -325,7 +367,7 @@
     @if (isset($cliente->iva))
         {!! Form::text('iva', $cliente->iva, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::text('iva', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::text('iva', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     @error('iva')
         <p class="error-message">{{ "El campo iva es requerido y no cumple con lo especificado." }}</p>
@@ -351,7 +393,7 @@
     @if (isset($cliente->total_factura))
         {!! Form::text('total_factura', $cliente->total_factura, ['class' => 'form-control', 'step' => '0.01']) !!}
     @else
-        {!! Form::text('total_factura', '0.00', ['class' => 'form-control', 'step' => '0.01', 'disabled']) !!}
+        {!! Form::text('total_factura', '0.00', ['class' => 'form-control', 'step' => '0.01', 'readonly']) !!}
     @endif
     @error('total_factura')
         <p class="error-message">{{ "El campo total a facturar es requerido y no cumple con lo especificado." }}</p>
