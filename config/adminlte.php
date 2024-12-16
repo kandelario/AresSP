@@ -323,26 +323,37 @@ return [
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users text-warning',
-            'url'  => 'admin/users',
-            // 'submenu' => [
-            //     [
-            //         'text' => 'Nuevo',
-            //         'icon'    => 'fas fa-fw fa-user-plus ml-3',
-            //         'url'  => 'users/create',
-            //     ],
-            //     [
-            //         'text' => 'Editar',
-            //         'icon' => 'fas fa-fw fa-pen ml-3',
-            //         'url'  => 'users/edit',
-                    
-            //     ],
+            // 'url'  => 'admin/users',
+            'submenu' => [
+                [
+                    'text' => 'Ver',
+                    'icon'    => 'fas fa-fw fa-search ml-3',
+                    'url'  => 'admin/users',
+                ],
+                [
+                    'text' => 'Roles y Permisos',
+                    'icon' => 'fas fa-fw fa-pen ml-3',
+                    'submenu' => [
+                        [
+                            'text' => 'Roles',
+                            // 'icon' => 'fas fa-fw fa-pen ml-3',
+                            'url'  => 'admin/roles',
+                        ],
+                        [
+                            'text' => 'Permisos',
+                            // 'icon' => 'fas fa-fw fa-pen ml-3',
+                            'url'  => 'admin/permissions',
+                        ],
+                        
+                    ]
+                ],
                 // [
-                //     'text' => 'Eliminar',
-                //     'icon' => 'fas fa-fw fa-trash ml-3',
-                //     'url'  => 'users/destroy',
+                //     'text' => 'Reportes',
+                //     'icon' => 'fas fa-fw fa-file text-warning ml-3',
+                //     'url' => '#',
                 // ],
                 
-            // ],
+            ],
             
         ],//[
         //     'text' => 'Inventario',

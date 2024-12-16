@@ -63,8 +63,9 @@ class AssignmentController extends AppBaseController
         //$personal = Personal::all();
         $personal = Personal::all();
         return view('assignments.create')
-        ->with('personals', $personal)
+        // ->with('personals', $personal)
         ->with('clientes', $clientes);
+        
     }
 
     /**
@@ -192,5 +193,10 @@ class AssignmentController extends AppBaseController
         Flash::success('Assignment deleted successfully.');
 
         return redirect(route('assignments.index'));
+    }
+
+    public function return_personal_not_assigned(Request $request){
+        $assigned_personal = DB::table('assignments')->get()->where(['cliente_id' => $request->cliente_id]);
+        return $assigned_personal;
     }
 }

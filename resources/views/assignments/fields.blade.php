@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 <!-- Cliente Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cliente_id', 'Clientes:') !!}
@@ -91,3 +92,31 @@
         {!! Form::label('enable', 'Enable', ['class' => 'form-check-label']) !!}
     </div>
 </div> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+
+<script>
+    $(function(){
+        document.getElementById('cliente_id').addEventListener('change', function(){
+            // var client_id = document.getElementById('cliente_id');
+            if(document.getElementById('cliente_id').value != ''){
+                GetPersonal(this.value);
+            }
+            
+        });
+    });
+    function GetPersonal(_client_){
+        alert(_client_);
+        $.ajax({
+            async: false,
+            cache: false,
+            url: 'return_personal_not_assigned',
+            data: 'cliente_id=' + _client_,
+            success: function(result){
+                console.log = result;
+                alert(result);
+            } 
+        });
+    }
+</script>

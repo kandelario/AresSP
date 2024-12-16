@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                    Asignar Personal a Cliente
+                        Edit Role
                     </h1>
                 </div>
             </div>
@@ -15,22 +15,21 @@
 
     <div class="content px-3">
 
-        {{-- @include('adminlte-templates::common.errors') --}}
+        @include('adminlte-templates::common.errors')
 
         <div class="card">
 
-            {!! Form::open(['route' => 'assignments.store']) !!}
+            {!! Form::model($role, ['route' => ['roles.update', $role->id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">
-                    @include('assignments.fields')
+                    @include('roles.fields')
                 </div>
-
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('assignments.index') }}" class="btn btn-default"> Cancelar </a>
+                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('roles.index') }}" class="btn btn-default"> Cancel </a>
             </div>
 
             {!! Form::close() !!}
@@ -38,5 +37,3 @@
         </div>
     </div>
 @endsection
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

@@ -9,7 +9,9 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\NominasController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SiglaAsistenciasPersonalController;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,10 +19,13 @@ use App\Models\Inventario;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Personal;
 use App\Http\Controllers\RazonSocialController;
+use App\Models\Assignment;
 
 Route::resource('/asistencias', AsistenciaController::class)->names('asistencias')->middleware('auth');
 
+Route::post('assignments/return_personal_not_assigned', [AssignmentController::class, 'return_personal_not_assigned'])->name('return_personal_not_assigned');
 Route::resource('/assignments', AssignmentController::class)->names('assignments')->middleware('auth');
+
 
 Route::resource('/clientes', ClienteController::class)->names('clientes')->middleware('auth');
 
@@ -40,6 +45,8 @@ Route::group(['prefix' => 'nominas'], function(){
     Route::get('recibo', [NominasController::class, 'recibo'])->name('nominas.recibo');
 });
 
+Route::resource('permissions', PermissionController::class)->middleware('auth');
+
 Route::get('/PersonaltoPDF', [PersonalController::class, 'PersonaltoPDF'])->name('PersonaltoPDF');
 
 Route::resource('/personals', PersonalController::class)->names('personals')->middleware('auth');
@@ -51,6 +58,8 @@ Route::get('/personals/pase_lista/{peronal_id}/{personal_name}', function($perso
 })->name('personal.pase_lista');
 
 Route::resource('/razon-socials', RazonSocialController::class)->names('razon-socials')->middleware('auth');
+
+Route::resource('/roles', RoleController::class)->middleware('auth');
 
 Route::resource('/sigla-asistencias-personals', SiglaAsistenciasPersonalController::class)->names('sigla-asistencias-personals')->middleware('auth');
 
