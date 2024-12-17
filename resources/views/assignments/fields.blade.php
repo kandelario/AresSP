@@ -39,8 +39,17 @@
         @else
             @if (isset($personals) && count($personals) > 0)
                 @foreach ($personals as $personal)
-                    
-                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                    @foreach ($asignados as $asignado)
+                        @if ($asignado->personal_id == $personal->id)
+                            @foreach ($clientes as $cliente)
+                                @if ($cliente->id == $asignado->cliente_id)
+                                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
+                                @endif
+                            @endforeach
+                        @else
+                            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                        @endif
+                    @endforeach
                 @endforeach
             @else
                 <option value="">No existe Personal</option>
