@@ -34,8 +34,32 @@
         <option value="">Seleccione una persona</option>
         @if (isset($personals) && !isset($persona))
             @foreach ($personals as $personal)
-                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                @if (isset($asignados))
+                    @foreach ($asignados as $asignado)
+                        @if ($asignado->personal_id == $personal->id)
+                            @if (isset($clientes))
+                                @foreach ($clientes as $cliente)
+                                    @if ($cliente->id == $asignado->cliente_id)
+                                        <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>    
+                                    @else
+                                        <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                                    @endif
+                                    
+                                @endforeach
+                            @else
+                                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                            @endif
+                        @else
+                            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                        @endif
+                    @endforeach
+                @else
+                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                @endif
+                
             @endforeach
+        @else
+            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
         @endif
         
         {{-- @if (isset($personals) && !isset($persona))
