@@ -63,6 +63,7 @@ class AssignmentController extends AppBaseController
         $personal = Personal::all();
         $asignados = DB::table('assignments')->get(['personal_id', 'cliente_id']);
         // $personal = DB::table('personals')->get()->where('id', '!=', $asignados);
+        dd($personal);
         return view('assignments.create')
         ->with('personals', $personal)
         ->with('asignados', $asignados)
