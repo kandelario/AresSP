@@ -35,7 +35,6 @@
         @if (isset($personals) && !isset($persona))
             @foreach ($personals as $personal)
                     <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                @endif
             @endforeach
         @endif
 
