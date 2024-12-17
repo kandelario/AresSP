@@ -43,6 +43,8 @@
                                     <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
                                 @endif
                             @endforeach
+                        @else
+                            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
                         @endif
                     @endforeach    
                 @else
