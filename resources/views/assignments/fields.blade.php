@@ -32,29 +32,28 @@
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
         <option value="">Seleccione una persona</option>
-        @if (isset($persona) && $persona->id != "")
-            @foreach ($personal as $person)
-                <option value="{{$person->id}}" {{ $person->id == $persona->id ? 'selected' : '' }}>{{$person->name}}</option>
-            @endforeach    
-        @else
-            @if (isset($personals) && count($personals) > 0)
-                @foreach ($personals as $personal)
-                    @foreach ($asignados as $asignado)
-                        @if ($asignado->personal_id == $personal->id)
-                            @foreach ($clientes as $cliente)
-                                @if ($cliente->id == $asignado->cliente_id)
-                                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
-                                @endif
-                            @endforeach
-                        @else
-                            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                        @endif
-                    @endforeach
+        @if (isset($personals) && count($personals) > 0)
+            @foreach ($personals as $personal)
+                @foreach ($asignados as $asignado)
+                    @if ($asignado->personal_id == $personal->id)
+                        @foreach ($clientes as $cliente)
+                            @if ($cliente->id == $asignado->cliente_id)
+                                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
+                            @endif
+                        @endforeach
+                    @else
+                        <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                    @endif
                 @endforeach
-            @else
-                <option value="">No existe Personal</option>
-            @endif    
+            @endforeach
+        @else
+            @if (isset($persona) && $persona->id != "")
+                @foreach ($personal as $person)
+                    <option value="{{$person->id}}" {{ $person->id == $persona->id ? 'selected' : '' }}>{{$person->name}}</option>
+                @endforeach    
+            @endif
         @endif
+        
         
         
     </select>
