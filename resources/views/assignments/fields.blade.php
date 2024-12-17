@@ -116,7 +116,7 @@
         });
     });
     function GetPersonal(_client_){
-        alert(_client_);
+        //alert(_client_);
         $.ajax({
             async: false,
             cache: false,
