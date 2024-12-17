@@ -32,6 +32,7 @@
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
         <option value="">Seleccione una persona</option>
+        @dd($personals)
         @if (isset($personals) && count($personals) > 0)
             @foreach ($personals as $personal)
                 @foreach ($asignados as $asignado)
