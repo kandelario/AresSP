@@ -33,7 +33,7 @@
     <select name="personal_id" id="personal_id" class="form-control">
         <option value="">Seleccione una persona</option>
         
-        @if (isset($personals))
+        @if (isset($personals) && !isset($persona))
             @foreach ($personals as $personal)
                 @if (isset($asignados))
                     @foreach ($asignados as $asignado)
