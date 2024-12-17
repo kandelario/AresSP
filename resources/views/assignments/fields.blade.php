@@ -34,19 +34,21 @@
         <option value="">Seleccione una persona</option>
         
         @if (isset($personals))
-        <option value="">Si entra por que existe la variable</option>
             @foreach ($personals as $personal)
-                @foreach ($asignados as $asignado)
-                    @if ($asignado->personal_id == $personal->id)
-                        @foreach ($clientes as $cliente)
-                            @if ($cliente->id == $asignado->cliente_id)
-                                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
-                            @endif
-                        @endforeach
-                    @else
-                        <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                    @endif
-                @endforeach
+                @if (isset($asignados))
+                    @foreach ($asignados as $asignado)
+                        @if ($asignado->personal_id == $personal->id)
+                            @foreach ($clientes as $cliente)
+                                @if ($cliente->id == $asignado->cliente_id)
+                                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach    
+                @else
+                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                @endif
+                
             @endforeach
         @else
             @if (isset($persona) && $persona->id != "")
