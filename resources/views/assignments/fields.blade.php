@@ -25,14 +25,14 @@
         <span class="text-danger"><em>Es necesario seleccionar un servicio para continuar con la asignación.</em></span>
     @enderror
 </div>
-
+@dd($personals)
 <!-- Personal Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('personal_id', 'Nombre del personal:') !!}
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
         <option value="">Seleccione una persona</option>
-        @dd($personals)
+        
         @if (isset($personals) && count($personals) > 0)
             @foreach ($personals as $personal)
                 @foreach ($asignados as $asignado)
