@@ -25,7 +25,7 @@
         <span class="text-danger"><em>Es necesario seleccionar un servicio para continuar con la asignación.</em></span>
     @enderror
 </div>
-@dd($personals)
+{{-- @dd($personals) --}}
 <!-- Personal Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('personal_id', 'Nombre del personal:') !!}
