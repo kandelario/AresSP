@@ -34,6 +34,13 @@
         <option value="">Seleccione una persona</option>
         @if (isset($personals) && !isset($persona))
             @foreach ($personals as $personal)
+                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+                @endif
+            @endforeach
+        @endif
+
+        {{-- @if (isset($personals) && !isset($persona))
+            @foreach ($personals as $personal)
                 @if (isset($asignados))
                     @foreach ($asignados as $asignado)
                         @if ($asignado->personal_id == $personal->id)
@@ -60,7 +67,7 @@
             @endforeach
         @else
             <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-        @endif
+        @endif --}}
         
         {{-- @if (isset($personals) && !isset($persona))
             @foreach ($personals as $personal)
