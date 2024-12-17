@@ -34,6 +34,7 @@
         <option value="">Seleccione una persona</option>
         
         @if (isset($personals))
+        <option value="">Si entra por que existe la variable</option>
             @foreach ($personals as $personal)
                 @foreach ($asignados as $asignado)
                     @if ($asignado->personal_id == $personal->id)
