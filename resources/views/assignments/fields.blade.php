@@ -31,12 +31,15 @@
     {!! Form::label('personal_id', 'Nombre del personal:') !!}
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
-        {{-- @if (isset($personals))
-            
-        @else
-            
-        @endif --}}
         @if (isset($personals))
+            <option value="">Seleccione una persona</option>
+            @foreach ($personals as $personal)
+                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+            @endforeach
+        @else
+            <option value="">Sin personal registrado para asignar</option>
+        @endif
+        {{-- @if (isset($personals))
             <option value="">Seleccione una persona</option>
             @foreach ($personals as $personal)
                 @if (isset($asignados) && $asignados != null)
@@ -55,7 +58,7 @@
             @endforeach
         @else
             <option value="">Sin personal registrado para asignar</option>
-        @endif
+        @endif --}}
 
         {{-- @if (isset($personals) && !isset($persona))
             @foreach ($personals as $personal)
