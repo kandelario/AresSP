@@ -31,7 +31,7 @@
     {!! Form::label('personal_id', 'Nombre del personal:') !!}
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
-        @if (isset($personals) && !isset($persona))
+        @if (isset($personals))
             <option value="">Seleccione una persona</option>
             @foreach ($personals as $personal)
                 @if (isset($asignados))
