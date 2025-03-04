@@ -588,7 +588,7 @@
             if(this.value != ''){
                 _sueldo.value = this.value;
                 var _nuevo_sueldo = new Intl.NumberFormat().format(this.value);
-                console.log(_nuevo_sueldo);
+                // console.log(_nuevo_sueldo);
                 _sueldo_mensual.innerHTML = '$' + _nuevo_sueldo;
             }else{
                 _sueldo.value = '0.00';
