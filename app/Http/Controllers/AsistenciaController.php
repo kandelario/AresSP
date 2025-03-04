@@ -14,6 +14,7 @@ use Laracasts\Flash\Flash;
 
 use App\Repositories\PersonalRepository;
 use App\Models\Personal;
+use App\Models\Cliente;
 
 use Illuminate\Support\Facades\DB;
 
@@ -150,5 +151,21 @@ class AsistenciaController extends AppBaseController
         Flash::success('Asistencia deleted successfully.');
 
         return redirect(route('asistencias.index'));
+    }
+
+    public function asistencias(){
+        $personal = Personal::all();
+        $clientes = Cliente::all();
+        $asignaciones = Assignment::all();
+        return view('asistencias.asistencias')
+            ->with('personal', $personal)
+            ->with('clientes', $clientes)
+            ->with('asignaciones', $asignaciones);
+    }
+
+    public function getpersonal(Request $request){
+        dd($request);
+        $asignados = DB::table('assignments')->get()->where('cliente_id', '=', $request->id_cliente);
+        return $asignados;
     }
 }

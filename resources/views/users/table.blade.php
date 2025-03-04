@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             @foreach($users as $user)
-                @if ($user->email != 'cande.pacheco@gmail.com' && Auth())
+                @if (Auth::user()->id == 1)
                     <tr>
                         <td class="text-center">{{ $user->name }}</td>
                         <td class="text-center">{{ $user->email }}</td>
@@ -48,8 +48,29 @@
                             {!! Form::close() !!}
                         </td>
                     </tr>
-                @else
-                    
+                @elseif($user->id > 1)
+                    <tr>
+                        <td class="text-center">{{ $user->name }}</td>
+                        <td class="text-center">{{ $user->email }}</td>
+                        {{-- <td>{{ $user->email_verified_at }}</td> --}}
+                        {{-- <td>{{ $user->password }}</td> --}}
+                        {{-- <td>{{ $user->remember_token }}</td> --}}
+                        <td class="text-center" style="width: 120px">
+                            {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                            <div class='btn-group'>
+                                <a href="{{ route('users.show', [$user->id]) }}"
+                                class='btn btn-default btn-xs'>
+                                    <i class="far fa-eye"></i>
+                                </a>
+                                <a href="{{ route('users.edit', [$user->id]) }}"
+                                class='btn btn-default btn-xs'>
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            </div>
+                            {!! Form::close() !!}
+                        </td>
+                    </tr>
                 @endif
                 
             @endforeach

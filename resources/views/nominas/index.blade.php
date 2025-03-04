@@ -32,26 +32,32 @@
         /* max-height: 27.94cm; */
         overflow: hidden;
     }
-    .tr{
+    /* .tr{
         height: auto;
         max-height: 1rem !important;
     }
     .td{
         height: auto;
         max-height: 1rem !important;
-    }
+    } */
     table{
+        border: none;
         padding: 0;
         margin: 0;
         overflow: hidden !important;
+        font-size: .6rem;
     }
     tr{
         padding: 0;
         margin: 0;
+        height: auto;
+        max-height: .5rem;
     }
     td{
         padding: 0;
         margin: 0;
+        height: auto;
+        max-height: .5rem;
     }
     .logo{
         max-width: 2cm;
@@ -116,7 +122,7 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="_fin">Clientes:</label>
+                            <label for="idCliente">Clientes:</label>
                             <a class="btn btn-outline-warning m-1"
                                 href="{{ route('clientes.create') }}" target="blank" title="Clic aquí para ir a registrar un nuevo cliente.">
                                 <i class="fas fa-fw fa-plus"></i>
@@ -134,7 +140,7 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="_fin">Personal:</label>
+                            <label for="idPersonal">Personal:</label>
                             <a class="btn btn-outline-warning m-1"
                                 href="{{ route('personals.create') }}" target="blank" title="Clic aquí para ir a registrar nuevo personal.">
                                 <i class="fas fa-fw fa-plus"></i>
@@ -165,7 +171,7 @@
                         <div class="col-sm-12">
                             <div class="form-group col-sm-3">
                                 <label for="sueldo">Sueldo:</label>
-                                <input type="number" name="sueldo" id="sueldo" class="form-control float-left">
+                                <input type="number" name="_sueldo" id="_sueldo" class="form-control float-left">
                             </div>
                         </div>
                             
@@ -194,7 +200,7 @@
 
                 <div class="p-0 m-0 border carta" id="print-content">
 
-                    <table class="table table-responsive col-sm-12 fs-8 border-0 m-0 p-0">
+                    <table class="table table-responsive col-sm-12">
 
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
                         <style>
@@ -204,9 +210,8 @@
                                 #nav {
                                     display: none !important;
                                 }
-                                .gris{background-color: gray !important;}
-                                table{
-                                    overflow: hidden;
+                                .gris{
+                                    background-color: gray !important;
                                 }
                                 .fs-7{
                                     font-size: 1rem;
@@ -233,26 +238,31 @@
                                     /* max-height: 27.94cm; */
                                     overflow: hidden;
                                 }
-                                .tr{
+                                /* .tr{
                                     height: auto;
                                     max-height: 1rem !important;
                                 }
                                 .td{
                                     height: auto;
-                                    max-height: 1rem !important;
-                                }
+                                    max-height: .5rem !important;
+                                } */
                                 table{
                                     padding: 0;
                                     margin: 0;
                                     overflow: hidden !important;
+                                    font-size: .6rem;
                                 }
                                 tr{
                                     padding: 0;
                                     margin: 0;
+                                    height: auto;
+                                    max-height: .6rem !important;
                                 }
                                 td{
                                     padding: 0;
                                     margin: 0;
+                                    height: auto;
+                                    max-height: .6rem !important;
                                 }
                                 .logo{
                                     max-width: 2cm;
@@ -265,6 +275,12 @@
                                 }
                                 .gris{
                                     background-color: gray !important;
+                                }
+                                .text-left{
+                                    text-align: left !important;
+                                }
+                                .text-right{
+                                    text-align: right !important;
                                 }
                             }
                         </style>
@@ -324,7 +340,10 @@
                                 <td class="border">Salario Diario</td>
                                 <td class="border fw-bold"></td>
                                 <td class="border">Salario Mensual</td>
-                                <td class="border fw-bold">$0.00</td>
+                                <td class="border fw-bold">
+                                    <p id="_sueldo_mensual">$0.00</p>
+                                    <input type="hidden" name="h_sueldo" id="h_sueldo" value="0.00">
+                                </td>
                             </tr>
                             <tr class="tr">
                                 <td colspan="4" class="td border-0">
@@ -373,11 +392,12 @@
                                         <tr class="tr">
                                             <td height="6" class="col-sm-4 td">Prima Dominical:</td>
                                             <td height="6" class="col-sm-4 td text-center">-</td>
-                                            <td height="6" class="col-sm-4 fw-bold td">$</td>
+                                            <td height="6" class="col-sm-4 fw-bold td text-left">$</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-right"><p>Sueldo Bruto:</p></td>
-                                            <td class="tet-center"><p class="">$</p></td>
+                                            <td></td>
+                                            <td class="text-right"><p>Sueldo Bruto:</p></td>
+                                            <td class="text-left"><p class="">$</p></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -403,14 +423,15 @@
                                             <td class="col-sm-4 text-center">-</td>
                                             <td class="col-sm-4 fw-bold">$</td>
                                         </tr>
-                                        <tr>
+                                        <tr style="border-bottom: 1px;">
                                             <td class="col-sm-4 border-0">Desc. Infonavit</td>
                                             <td class="col-sm-4 text-center border-0">-</td>
                                             <td class="col-sm-4 fw-bold border-0">$</td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-right"><p>Total de Deducciones:</p></td>
-                                            <td class="tet-center"><p class="">$</p></td>
+                                            <td></td>
+                                            <td class="text-right"><p>Total de Deducciones:</p></td>
+                                            <td class="tet-left"><p class="">$</p></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -534,6 +555,44 @@
                 }
             }else{
                 pf_fin.innerHTML = '';
+            }
+        });
+
+        $('#idCliente').on('change', function(){
+            var id_cliente = document.getElementById('idCliente');
+            var results = '';
+            // alert(id_cliente.value);
+            $.ajax({
+                async: false,
+                cache: false,
+                url: '/admin/nominas/mis_guardias',
+                method: 'GET',
+                data: 'id_cliente=' + id_cliente.value,
+                success: function(responce){
+                    results = responce;
+                    // console.log(results);
+                }
+            });
+            var _personal = '';
+            var _p_select = document.getElementById('idPersonal');
+            _p_select.innerHTML = "<option value=''>SELECCIONAR PERSONAL</option>";
+            results.forEach(function(_personal){
+                _p_select.innerHTML += "<option value='" + _personal.id + "'>" + _personal.name + "</option>";
+            });
+            // alert(results[0].cliente_id);
+        });
+
+        $('#_sueldo').on('keyup', function(){
+            var _sueldo = document.getElementById('h_sueldo');
+            var _sueldo_mensual = document.getElementById('_sueldo_mensual');
+            if(this.value != ''){
+                _sueldo.value = this.value;
+                var _nuevo_sueldo = new Intl.NumberFormat().format(this.value);
+                console.log(_nuevo_sueldo);
+                _sueldo_mensual.innerHTML = '$' + _nuevo_sueldo;
+            }else{
+                _sueldo.value = '0.00';
+                _sueldo_mensual.innerHTML = '$0.00';
             }
         });
     });

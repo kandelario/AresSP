@@ -62,4 +62,20 @@ class NominasController extends Controller
         /*->with('persona', $persona)
         ->with('asignacion', $asignacion)*/;
     }
+
+    public function MisGuardias(Request $request){
+        // return $request->id_cliente;
+        if($request->id_cliente != null){
+            $id_cliente = $request->id_cliente;
+            $id_p_asignado = Assignment::where('cliente_id', $id_cliente)->get('personal_id');
+            $p_asignado = Personal::wherein('id', $id_p_asignado)->get();
+            // $p_asignado = DB::table('assignments')->select('id')->where('cliente_id', $request->id_cliente)->latest();
+            return response()->json($p_asignado);
+            // return $p_asignado;
+            // $personal = DB::table('users')->select('*')->whereIn($p_asignado);
+        }else{
+            return 'Debe seleccionar un cliente';
+        }
+        
+    }
 }

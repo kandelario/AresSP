@@ -332,16 +332,18 @@ return [
                 ],
                 [
                     'text' => 'Roles y Permisos',
-                    'icon' => 'fas fa-fw fa-pen ml-3',
+                    'icon' => 'fa fa-check-square ml-3',
                     'submenu' => [
                         [
                             'text' => 'Roles',
-                            // 'icon' => 'fas fa-fw fa-pen ml-3',
+                            'icon' => 'fa fa-user-secret ml-4',
+                            // 'icon' => 'fa fa-user-secret ml-3',
                             'url'  => 'admin/roles',
                         ],
                         [
                             'text' => 'Permisos',
-                            // 'icon' => 'fas fa-fw fa-pen ml-3',
+                            'icon' => 'fa fa-eye-slash ml-4',
+                            // 'icon' => 'fa fa-eye-slash ml-3',
                             'url'  => 'admin/permissions',
                         ],
                         
@@ -367,12 +369,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Entradas',
-                    'icon' => 'fas fa-fw fa-plus text-warning ml-3',
+                    'icon' => 'fas fa-fw fa-plus ml-3',
                     'url' => 'admin/inventarios',
                 ],
                 [
                     'text' => 'Salidas',
-                    'icon' => 'fas fa-fw fa-minus text-warning ml-3',
+                    'icon' => 'fas fa-fw fa-minus ml-3',
                     'url' => 'admin/movimientos',
                 ],
                 // [
@@ -452,6 +454,11 @@ return [
                 'text'       => 'Asistencias',
                 'icon' => 'fa fa-calendar ml-3',
                 'url'        => 'admin/asistencias',
+                ],
+                [
+                'text' => 'Formulario Asistencias',
+                'icon' => 'fa fa-table ml-3',
+                'url' => 'admin/asistencias/formulario',
                 ],
                 [
                 'text'       => 'Siglas (Asistencias)',

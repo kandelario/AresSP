@@ -19,9 +19,16 @@ use App\Models\Inventario;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Personal;
 use App\Http\Controllers\RazonSocialController;
+use App\Models\Asistencia;
 use App\Models\Assignment;
 
+// Route::get('/asistencias/formulario', function(){
+//     return view('asistencias.asistencias');
+// });
+Route::get('/asistencias/formulario', [AsistenciaController::class, 'asistencias'])->name('asistencias.formulario')->middleware('auth');
+Route::post('/asistencias/personal', [AsistenciaController::class, 'getpersonal'])->name('asistencias.personal')->middleware('auth');
 Route::resource('/asistencias', AsistenciaController::class)->names('asistencias')->middleware('auth');
+
 
 Route::post('assignments/return_personal_not_assigned', [AssignmentController::class, 'return_personal_not_assigned'])->name('return_personal_not_assigned');
 Route::resource('/assignments', AssignmentController::class)->names('assignments')->middleware('auth');
@@ -43,6 +50,7 @@ Route::group(['prefix' => 'nominas'], function(){
     Route::post('mostrar', [NominasController::class, 'generar'])->name('nominas.generar');
     // Route::post('recibo/{idPersonal}', [NominasController::class, 'recibo'])->name('nominas.recibo');
     Route::get('recibo', [NominasController::class, 'recibo'])->name('nominas.recibo');
+    Route::get('/mis_guardias', [NominasController::class, 'MisGuardias']);
 });
 
 Route::resource('permissions', PermissionController::class)->middleware('auth');
@@ -56,6 +64,10 @@ Route::get('/personals/pase_lista/{peronal_id}/{personal_name}', function($perso
         ->with($personal_id)
         ->with($personal_name);
 })->name('personal.pase_lista');
+
+Route::get('/profile/{user_id}', function($user_id){
+    return view('admin.profile')->with('user_id', $user_id);
+});
 
 Route::resource('/razon-socials', RazonSocialController::class)->names('razon-socials')->middleware('auth');
 

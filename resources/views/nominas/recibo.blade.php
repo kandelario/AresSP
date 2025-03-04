@@ -92,7 +92,7 @@
             <td class="border">Salario Diario</td>
             <td class="border fw-bold">$0.00</td>
             <td class="border">Salario Mensual</td>
-            <td class="border fw-bold">$0.00</td>
+            <td class="border fw-bold">$<span id="_sueldo_mensual">0.00</span></td>
         </tr>
         <tr>
             <td>Periodo de liquidación.</td>
