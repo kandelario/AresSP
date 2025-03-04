@@ -580,6 +580,8 @@
                 results.forEach(function(_personal){
                     _p_select.innerHTML += "<option value='" + _personal.id + "'>" + _personal.name + "</option>";
                 });
+            }else{
+                _p_select.innerHTML = "<option value=''>No existen Personal asignado para este cliente</option>";
             }
             
             // alert(results[0].cliente_id);
