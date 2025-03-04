@@ -570,15 +570,18 @@
                 data: 'id_cliente=' + id_cliente.value,
                 success: function(responce){
                     results = responce;
-                    // console.log(results);
+                    console.log(results.length);
                 }
             });
             var _personal = '';
             var _p_select = document.getElementById('idPersonal');
-            _p_select.innerHTML = "<option value=''>SELECCIONAR PERSONAL</option>";
-            results.forEach(function(_personal){
-                _p_select.innerHTML += "<option value='" + _personal.id + "'>" + _personal.name + "</option>";
-            });
+            if(results.length >= 1){
+                _p_select.innerHTML = "<option value=''>SELECCIONAR PERSONAL</option>";
+                results.forEach(function(_personal){
+                    _p_select.innerHTML += "<option value='" + _personal.id + "'>" + _personal.name + "</option>";
+                });
+            }
+            
             // alert(results[0].cliente_id);
         });
 
