@@ -16,11 +16,6 @@
     </section>
 
     <div class="content px-3">
-        
-        
-
-        
-
         <div class="card">
 
             {!! Form::open(['route' => 'asistencias.formulario']) !!}
@@ -51,10 +46,7 @@
                             <div class="h4">Resultados</div>
                         </div>
                         <div class="card-body">
-                            <div class="row" id="fields">
-                                {{-- @include('asistencias.fields') --}}
-                                
-                            </div>
+                            <div class="row" id="fields"></div>
                         </div>
                     </div>
                 </div>
@@ -87,11 +79,13 @@
     $(function(){
         document.getElementById('cliente').addEventListener('change', function(){
             // alert('si entró');
-            ShowFields(this.value);
+            if(this.value != '')
+                ShowFields(this.value);
+            else
+                document.getElementById('fields').innerHTML = '';
         });
     });
     function TraerPersonal(id_cliente){
-        // alert(id_cliente);
         console.log('cliente id= ' + id_cliente);
         var result = null;
         $.ajax({
@@ -99,14 +93,15 @@
             async: false,
             type: 'post',
             data:  'id_cliente =' + id_cliente,
-            url: '/asistencias/personal',
+            url: 'asistencias/personal',
+            // url: "{{ route('asistencias.personal') }}",
             success: function(responce){
                 result = responce;
-            },
+            }/*,
             error: function(request, error){
                 result = "Request: " + JSON.stringify(request)
-                console.log(result);
-            }
+                console.log = result + " - Error:" + error;
+            }*/
         });
         return result;
     }
@@ -116,8 +111,8 @@
         //document.getElementById('fields').innerHTML = idCliente;
         var _divConainer = "<div class='row'></div>";
         var _divColumn = "<div class='col-sm-4'></div>";
-        var data = TraerPersonal(idCliente);
-        console.log(data);
-        document.getElementById('fields').innerHTML = data;
+        // var data = TraerPersonal(idCliente);
+        document.getElementById('fields').innerHTML = '';
+        // document.getElementById('fields').innerHTML = data;
     }
 </script>

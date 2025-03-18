@@ -26,8 +26,8 @@ use App\Models\Assignment;
 //     return view('asistencias.asistencias');
 // });
 Route::get('/asistencias/formulario', [AsistenciaController::class, 'asistencias'])->name('asistencias.formulario')->middleware('auth');
-Route::post('/asistencias/personal', [AsistenciaController::class, 'getpersonal'])->name('asistencias.personal')->middleware('auth');
-Route::resource('/asistencias', AsistenciaController::class)->names('asistencias')->middleware('auth');
+Route::post('/asistencias/personal', [AsistenciaController::class, 'getpersonal'])->name('asistencias.personal');
+Route::resource('/asistencias', AsistenciaController::class)->names('asistencias');
 
 
 Route::post('assignments/return_personal_not_assigned', [AssignmentController::class, 'return_personal_not_assigned'])->name('return_personal_not_assigned');

@@ -156,7 +156,12 @@ class AsistenciaController extends AppBaseController
     public function asistencias(){
         $personal = Personal::all();
         $clientes = Cliente::all();
-        $asignaciones = Assignment::all();
+        $clientes_id = DB::table('clientes')->get('id');
+        // $asignaciones = Assignment::all();
+
+        $asignaciones = DB::table('assignments')->whereIn('cliente_id', $clientes_id);
+        $personal_asignado = DB::table('assignments')->get();
+
         return view('asistencias.asistencias')
             ->with('personal', $personal)
             ->with('clientes', $clientes)
@@ -164,7 +169,7 @@ class AsistenciaController extends AppBaseController
     }
 
     public function getpersonal(Request $request){
-        dd($request);
+        // dd($request);
         $asignados = DB::table('assignments')->get()->where('cliente_id', '=', $request->id_cliente);
         return $asignados;
     }
