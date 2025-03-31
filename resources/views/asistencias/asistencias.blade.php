@@ -1,10 +1,15 @@
 @extends('adminlte::page')
 
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 <link rel="stylesheet" href="{{ asset('/assets/css/dataTables.dataTables.css') }}">
-<link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}">
+<link rel="stylesheet" href="{{ asset('/assets/css/buttons.dataTables.css') }}"> --}}
+<style>
+    .w-1{
+        width: 4rem;
+    }
+</style>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -18,35 +23,62 @@
     <div class="content px-3">
         <div class="card">
 
-            {!! Form::open(['route' => 'asistencias.formulario']) !!}
-            {!! Form::hidden('token', csrf_token() ) !!}
+            {!! Form::open(['route' => 'asistencias.personal', 'method' => 'post']) !!}
+            {{-- {!! Form::hidden('token', csrf_token() ) !!} --}}
 
             <div class="card-body">
-                <div class="form-group col-sm-4">
-                    {!! Form::label('cliente', 'Cientes:') !!}
-                    <select name="cliente" id="cliente" class="form-control">
-                        @if (isset($clientes) && count($clientes) > 0)
-                            <option value="">Seleccione el cliente</option>
-                            @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
-                            @endforeach
-                        @else
-                            <option value="">No existen clientes</option>
-                        @endif
-                
-                    </select>
-                    @error('idSiglas')
-                        <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
-                        <span class="text-danger"><em>Es necesario seleccionar unas siglas para continuar con el registro de asistencia.</em></span>
-                    @enderror
+                <div class="row">
+                    {{-- <div class="form-group col-sm-4">
+                        {!! Form::label('cliente', 'Cientes:') !!}
+                        <select name="cliente" id="cliente" class="form-control">
+                            @if (isset($clientes) && count($clientes) > 0)
+                                <option value="">Seleccione el cliente</option>
+                                @foreach ($clientes as $cliente)
+                                    <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                                @endforeach
+                            @else
+                                <option value="">No existen clientes</option>
+                            @endif
+                    
+                        </select>
+                        @error('cliente')
+                            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+                            <span class="text-danger"><em>No se ha seleccionado un cliente o no existe ninguno con personal asignado.</em></span>
+                        @enderror
+                    </div> --}}
+                    <div class="form-group col-sm-4">
+                        {!! Form::label('_mes', 'Seleccione el mes:') !!}
+                        <select name="_mes" id="_mes" class="form-control">
+                            <option value="">Seleccione el mes</option>
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Abril</option>
+                            <option value="05">Mayo</option>
+                            <option value="06">Junio</option>
+                            <option value="07">Julio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                        @error('cliente')
+                            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+                            <span class="text-danger"><em>No se ha seleccionado un cliente o no existe ninguno con personal asignado.</em></span>
+                        @enderror
+                    </div>
                 </div>
+                
                 <div>
                     <div class="card">
                         <div class="card-header">
-                            <div class="h4">Resultados</div>
+                            <div class="h4">Personal por Cliente</div>
                         </div>
-                        <div class="card-body">
-                            <div class="row" id="fields"></div>
+                        <div class="card-body p-2">
+                            <div class="table-responsive" id="fields">
+                                @include('asistencias.form')
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,8 +87,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('asistencias.index') }}" class="btn btn-default"> Cancelar </a>
+                {{-- {!! Form::submit('Guardar', ['class' => 'btn btn-primary disabled']) !!} --}}
+                {{-- <a href="{{ route('asistencias.formulario') }}" class="btn btn-default"> Cancelar </a> --}}
             </div>
 
             {!! Form::close() !!}
@@ -92,9 +124,8 @@
             cache: false,
             async: false,
             type: 'post',
-            data:  'id_cliente =' + id_cliente,
-            url: 'asistencias/personal',
-            // url: "{{ route('asistencias.personal') }}",
+            data:  $('#'),
+            url: "{{ route('asistencias.personal') }}",
             success: function(responce){
                 result = responce;
             }/*,
@@ -111,8 +142,8 @@
         //document.getElementById('fields').innerHTML = idCliente;
         var _divConainer = "<div class='row'></div>";
         var _divColumn = "<div class='col-sm-4'></div>";
-        // var data = TraerPersonal(idCliente);
+        var data = TraerPersonal(idCliente);
         document.getElementById('fields').innerHTML = '';
-        // document.getElementById('fields').innerHTML = data;
+        document.getElementById('fields').innerHTML = data;
     }
 </script>

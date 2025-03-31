@@ -21,12 +21,21 @@ use App\Models\Personal;
 use App\Http\Controllers\RazonSocialController;
 use App\Models\Asistencia;
 use App\Models\Assignment;
+use Illuminate\Http\Request;
 
 // Route::get('/asistencias/formulario', function(){
 //     return view('asistencias.asistencias');
 // });
 Route::get('/asistencias/formulario', [AsistenciaController::class, 'asistencias'])->name('asistencias.formulario')->middleware('auth');
-Route::post('/asistencias/personal', [AsistenciaController::class, 'getpersonal'])->name('asistencias.personal');
+// Route::post('/asistencias/personal', [AsistenciaController::class, 'getpersonal'])->name('asistencias.personal');
+Route::post('/asistencias/show', function(Request $request){
+    // return view('asistencias.form')->with('request', $request);
+    // return dd($request->all());
+})->name('asistencias.personal');
+Route::post('/asistencias/set', function(Request $request){
+    // return view('asistencias.form')->with('request', $request);
+    return dd($request->all());
+})->name('asistencias.personal');
 Route::resource('/asistencias', AsistenciaController::class)->names('asistencias');
 
 

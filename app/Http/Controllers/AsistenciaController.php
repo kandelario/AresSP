@@ -156,16 +156,18 @@ class AsistenciaController extends AppBaseController
     public function asistencias(){
         $personal = Personal::all();
         $clientes = Cliente::all();
-        $clientes_id = DB::table('clientes')->get('id');
-        // $asignaciones = Assignment::all();
-
-        $asignaciones = DB::table('assignments')->whereIn('cliente_id', $clientes_id);
-        $personal_asignado = DB::table('assignments')->get();
+        $siglas = SiglaAsistenciasPersonal::pluck('name', 'id');
+        $asignaciones = Assignment::select('assignments.id', 'assignments.fecha_inicio_serv', 'assignments.enable', 'assignments.puesto', 
+            'assignments.cliente_id', 'assignments.personal_id', 'personals.name', 'personals.n_emp', 'clientes.nombre')
+            ->join('personals', 'personals.id', '=', 'assignments.personal_id')
+            ->join('clientes', 'clientes.id', '=', 'assignments.cliente_id')->get();
+        // return $asignaciones;
 
         return view('asistencias.asistencias')
             ->with('personal', $personal)
             ->with('clientes', $clientes)
-            ->with('asignaciones', $asignaciones);
+            ->with('asignaciones', $asignaciones)
+            ->with('siglas', $siglas);
     }
 
     public function getpersonal(Request $request){
