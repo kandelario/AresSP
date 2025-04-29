@@ -1,7 +1,7 @@
 <!-- Code -->
 <div class="form-group col-sm-6">
     {!! Form::label('codigo', 'Código:') !!}
-    {!! Form::text('codigo', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+    {!! Form::text('codigo', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
 </div>
 
 <!-- Nombre Field -->
