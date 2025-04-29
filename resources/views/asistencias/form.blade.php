@@ -1,5 +1,5 @@
 @if (isset($clientes))
-    <table class="display nowrap table table-striped">
+    <table class="display nowrap table table-striped small text-center">
         <thead>
             <th>
                 {{-- <p id="empresa-" class="display text-nowrap">
@@ -9,7 +9,7 @@
             <td>
                 <label for="day-1" class="form-label center">Lunes</label>
                 <select class="form-control w-1" name="day-1" id="day-1">
-                    <option value="01">01</option>
+                    <option value="01" selected>01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
                     <option value="04">04</option>
@@ -46,7 +46,7 @@
                 <label for="day-2" class="form-label center">Martes</label>
                 <select class="form-control w-1" name="day-2" id="day-2">
                     <option value="01">01</option>
-                    <option value="02">02</option>
+                    <option value="02" selected>02</option>
                     <option value="03">03</option>
                     <option value="04">04</option>
                     <option value="05">05</option>
@@ -83,7 +83,7 @@
                 <select class="form-control w-1" name="day-3" id="day-3">
                     <option value="01">01</option>
                     <option value="02">02</option>
-                    <option value="03">03</option>
+                    <option value="03" selected>03</option>
                     <option value="04">04</option>
                     <option value="05">05</option>
                     <option value="06">06</option>
@@ -120,7 +120,7 @@
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
-                    <option value="04">04</option>
+                    <option value="04" selected>04</option>
                     <option value="05">05</option>
                     <option value="06">06</option>
                     <option value="07">07</option>
@@ -157,7 +157,7 @@
                     <option value="02">02</option>
                     <option value="03">03</option>
                     <option value="04">04</option>
-                    <option value="05">05</option>
+                    <option value="05" selected>05</option>
                     <option value="06">06</option>
                     <option value="07">07</option>
                     <option value="08">08</option>
@@ -194,7 +194,7 @@
                     <option value="03">03</option>
                     <option value="04">04</option>
                     <option value="05">05</option>
-                    <option value="06">06</option>
+                    <option value="06" selected>06</option>
                     <option value="07">07</option>
                     <option value="08">08</option>
                     <option value="09">09</option>
@@ -231,7 +231,7 @@
                     <option value="04">04</option>
                     <option value="05">05</option>
                     <option value="06">06</option>
-                    <option value="07">07</option>
+                    <option value="07" selected>07</option>
                     <option value="08">08</option>
                     <option value="09">09</option>
                     <option value="10">10</option>
@@ -268,7 +268,7 @@
                     <option value="05">05</option>
                     <option value="06">06</option>
                     <option value="07">07</option>
-                    <option value="08">08</option>
+                    <option value="08" selected>08</option>
                     <option value="09">09</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
@@ -305,7 +305,7 @@
                     <option value="06">06</option>
                     <option value="07">07</option>
                     <option value="08">08</option>
-                    <option value="09">09</option>
+                    <option value="09" selected>09</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
@@ -342,7 +342,7 @@
                     <option value="07">07</option>
                     <option value="08">08</option>
                     <option value="09">09</option>
-                    <option value="10">10</option>
+                    <option value="10" selected>10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
                     <option value="13">13</option>
@@ -379,7 +379,7 @@
                     <option value="08">08</option>
                     <option value="09">09</option>
                     <option value="10">10</option>
-                    <option value="11">11</option>
+                    <option value="11" selected>11</option>
                     <option value="12">12</option>
                     <option value="13">13</option>
                     <option value="14">14</option>
@@ -416,7 +416,7 @@
                     <option value="09">09</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
-                    <option value="12">12</option>
+                    <option value="12" selected>12</option>
                     <option value="13">13</option>
                     <option value="14">14</option>
                     <option value="15">15</option>
@@ -453,7 +453,7 @@
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
-                    <option value="13">13</option>
+                    <option value="13" selected>13</option>
                     <option value="14">14</option>
                     <option value="15">15</option>
                     <option value="16">16</option>
@@ -490,7 +490,7 @@
                     <option value="11">11</option>
                     <option value="12">12</option>
                     <option value="13">13</option>
-                    <option value="14">14</option>
+                    <option value="14" selected>14</option>
                     <option value="15">15</option>
                     <option value="16">16</option>
                     <option value="17">17</option>
@@ -527,7 +527,7 @@
                     <option value="12">12</option>
                     <option value="13">13</option>
                     <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="15" selected>15</option>
                     <option value="16">16</option>
                     <option value="17">17</option>
                     <option value="18">18</option>
@@ -550,16 +550,17 @@
         <tbody>
             @foreach ($clientes as $cliente)
                 <tr>
-                    <td colspan="18" class="h3 text-uppercase">{{ $cliente->nombre }}</td>
+                    <td colspan="18" class="h4 text-uppercase text-left">{{ $cliente->nombre }}</td>
                 </tr>
                 @foreach ($asignaciones as $personal)
+                    
                     @if ($personal->cliente_id == $cliente->id)
                         <tr class="display text-nowrap h-10">
                             <td class="display text-nowrap">
-                                <p class="display nowrap h6">
+                                <p class="display nowrap small text-left">
                                     {{-- Personal n° --}}
                                     {{ $personal->name }}
-                                    {!! Form::hidden('id_personal_' . $personal->n_emp, $personal->personal_id) !!}
+                                    {!! Form::hidden('id_personal_' . $personal->n_emp, $personal->personal_id, ['class' => 'form-control bold personal']) !!}
                                 </p>
                             </td>
 

@@ -69,6 +69,7 @@ class InventarioController extends AppBaseController
                 $request->request->remove('image');
             }
             $inventario->existencia = $request->existencia;
+            $inventario->codigo = $request->codigo;
             $inventario->save();
             DB::commit();
             Flash::success('Salida generada satisfactoriamente.');

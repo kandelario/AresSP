@@ -9,6 +9,7 @@
         <table class="display nowrap table table-striped text-center" id="inventarios-table">
             <thead>
             <tr>
+                <th class="text-center">Código</th>
                 <th class="text-center">Nombre</th>
                 <th class="text-center">Existencia</th>
                 <th class="text-center">Imagen</th>
@@ -18,6 +19,7 @@
             <tbody>
             @foreach($inventarios as $inventario)
                 <tr>
+                    <td class="text-center">{{ $inventario->codigo }}</td>
                     <td class="text-center">{{ $inventario->nombre }}</td>
                     <td class="text-center">{{ $inventario->existencia }}</td>
                     <td class="text-center">

@@ -11,12 +11,14 @@ class Inventario extends Model
     public $fillable = [
         'nombre',
         'existencia',
-        'imagen'
+        'imagen',
+        'codigo'
     ];
 
     protected $casts = [
         'nombre' => 'string',
-        'imagen' => 'string'
+        'imagen' => 'string',
+        'codigo' => 'string'
     ];
 
     public static array $rules = [
@@ -24,8 +26,7 @@ class Inventario extends Model
         'existencia' => 'required',
         // 'imagen' => 'required',
         'created_at' => 'nullable',
-        'updated_at' => 'nullable'
-    ];
-
-    
+        'updated_at' => 'nullable',
+        'codigo' => 'nullable'
+    ];    
 }

@@ -1,3 +1,9 @@
+<!-- Code -->
+<div class="form-group col-sm-6">
+    {!! Form::label('codigo', 'Código:') !!}
+    {!! Form::text('codigo', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!}
+</div>
+
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nombre', 'Nombre:') !!}

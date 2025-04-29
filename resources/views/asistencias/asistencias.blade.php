@@ -9,6 +9,9 @@
     .w-1{
         width: 4rem;
     }
+    .personal{
+        color: chocolate;
+    }
 </style>
     <section class="content-header">
         <div class="container-fluid">
@@ -48,7 +51,7 @@
                     </div> --}}
                     <div class="form-group col-sm-4">
                         {!! Form::label('_mes', 'Seleccione el mes:') !!}
-                        <select name="_mes" id="_mes" class="form-control">
+                        <select name="_mes" id="_mes" class="form-control" required>
                             <option value="">Seleccione el mes</option>
                             <option value="01">Enero</option>
                             <option value="02">Febrero</option>
@@ -65,7 +68,7 @@
                         </select>
                         @error('cliente')
                             <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
-                            <span class="text-danger"><em>No se ha seleccionado un cliente o no existe ninguno con personal asignado.</em></span>
+                            <span class="text-danger"><em>No se ha seleccionado un mes para registrar asistencias del personal, porfavor verifique.</em></span>
                         @enderror
                     </div>
                 </div>
@@ -87,7 +90,7 @@
             </div>
 
             <div class="card-footer">
-                {{-- {!! Form::submit('Guardar', ['class' => 'btn btn-primary disabled']) !!} --}}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary disabled']) !!}
                 {{-- <a href="{{ route('asistencias.formulario') }}" class="btn btn-default"> Cancelar </a> --}}
             </div>
 
