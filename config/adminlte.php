@@ -491,7 +491,7 @@ return [
                 [
                 'text'       => 'Tabla de configuración de Nóminas',
                 'icon' => 'fas fa-fw fa-edit ml-3',
-                'url'        => 'admin/nominas',
+                'url'        => '#admin/nominas',
                 ],
                 // [
                 // 'text'       => 'Asistencias',
