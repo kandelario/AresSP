@@ -90,7 +90,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                {{-- {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!} --}}
+                <a href="#" class="btn btn-info" title="En este momento no se encuentra disponible el poder guardar."> Guardar </a>
                 {{-- <a href="{{ route('asistencias.formulario') }}" class="btn btn-default"> Cancelar </a> --}}
             </div>
 
