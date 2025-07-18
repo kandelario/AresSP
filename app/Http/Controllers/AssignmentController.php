@@ -60,13 +60,17 @@ class AssignmentController extends AppBaseController
     public function create()
     {
         $clientes = Cliente::all();
-        $personals = Personal::all();
-        $asignados = DB::table('assignments')->get(['personal_id', 'cliente_id']);
+        $personals = Personal::all()->keyBy('id');
+        // $asignados = DB::table('assignments')->get(['personal_id', 'cliente_id']);
+        $asignados = Assignment::all()->keyBy('personal_id');
+        $diferencia = $personals->diff($asignados);
+        // dd($diferencia);
         // $personal = DB::table('personals')->get()->where('id', '!=', $asignados);
         return view('assignments.create')
         ->with('personals', $personals)
         ->with('asignados', $asignados)
-        ->with('clientes', $clientes);
+        ->with('clientes', $clientes)
+        ->with('diferencia', $diferencia);
         
     }
 

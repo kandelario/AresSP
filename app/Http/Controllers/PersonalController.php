@@ -21,11 +21,17 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Asistencia;
+use App\Models\Assignment;
+use App\Repositories\AssignmentRepository;
+use App\Models\Cliente;
+
+
 
 class PersonalController extends AppBaseController
 {
     /** @var PersonalRepository $personalRepository*/
     private $personalRepository;
+    private $assignmentRepository;
 
     public function __construct(PersonalRepository $personalRepo)
     {
@@ -50,7 +56,11 @@ class PersonalController extends AppBaseController
      */
     public function create()
     {
-        return view('personals.create');
+        $assignments = Assignment::all();
+        $clientes = Cliente::all();
+        return view('personals.create')
+        ->with('assignments', $assignments)
+        ->with('clientes', $clientes);
     }
 
     /**
@@ -159,15 +169,21 @@ class PersonalController extends AppBaseController
      */
     public function edit($id)
     {
-        $personal = $this->personalRepository->find($id);
+        $personals = $this->personalRepository->find($id);
+        $assignments = DB::table('assignments')->get()->where('personal_id', '=', $id);
+        // dd($assignments);
+        $clientes = Cliente::all();
 
-        if (empty($personal)) {
+        if (empty($personals)) {
             Flash::error('Personal not found');
 
             return redirect(route('personals.index'));
         }
 
-        return view('personals.edit')->with('personal', $personal);
+        return view('personals.edit')
+        ->with('personals', $personals)
+        ->with('assignments', $assignments)
+        ->with('clientes', $clientes);
     }
 
     /**
@@ -175,7 +191,10 @@ class PersonalController extends AppBaseController
      */
     public function update($id, UpdatePersonalRequest $request)
     {
-        //dd($request);
+
+        $request->validate([
+            'fecha_inicio_serv' => 'required'
+        ]);
         $personal = $this->personalRepository->find($id);
 
         if (empty($personal)) {
@@ -236,8 +255,13 @@ class PersonalController extends AppBaseController
         }else{
             //$request->remove('foto');
         }
-
         $personal->save();
+
+        $assignment = Assignment::findOrFail($request->assignment_id);
+        $assignment->fecha_inicio_serv = $request->fecha_inicio_serv;
+        $assignment->puesto = $request->puesto;
+        $assignment->cliente_id = $request->cliente_id;
+        $assignment->save();
 
         Flash::success('Personal actualizado correctamente.');
 

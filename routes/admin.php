@@ -28,14 +28,9 @@ use Illuminate\Http\Request;
 // });
 Route::get('/asistencias/formulario', [AsistenciaController::class, 'asistencias'])->name('asistencias.formulario')->middleware('auth');
 // Route::post('/asistencias/personal', [AsistenciaController::class, 'getpersonal'])->name('asistencias.personal');
-Route::post('/asistencias/show', function(Request $request){
-    // return view('asistencias.form')->with('request', $request);
-    // return dd($request->all());
-})->name('asistencias.personal');
-Route::post('/asistencias/set', function(Request $request){
-    // return view('asistencias.form')->with('request', $request);
-    return dd($request->all());
-})->name('asistencias.personal');
+// Route::post('/asistencias/show', [AsistenciaController::class, 'store'])->name('asistencias.personal');
+
+Route::post('/asistencias/set', [AsistenciaController::class, 'set'])->name('asistencias.personal');
 Route::resource('/asistencias', AsistenciaController::class)->names('asistencias');
 
 

@@ -26,12 +26,12 @@
     <div class="content px-3">
         <div class="card">
 
-            {!! Form::open(['route' => 'asistencias.personal', 'method' => 'post']) !!}
+            {!! Form::open(['route' => 'asistencias.personal']) !!}
             {{-- {!! Form::hidden('token', csrf_token() ) !!} --}}
 
             <div class="card-body">
                 <div class="row">
-                    {{-- <div class="form-group col-sm-4">
+                    <div class="form-group col-sm-4">
                         {!! Form::label('cliente', 'Cientes:') !!}
                         <select name="cliente" id="cliente" class="form-control">
                             @if (isset($clientes) && count($clientes) > 0)
@@ -48,7 +48,7 @@
                             <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
                             <span class="text-danger"><em>No se ha seleccionado un cliente o no existe ninguno con personal asignado.</em></span>
                         @enderror
-                    </div> --}}
+                    </div>
                     <div class="form-group col-sm-4">
                         {!! Form::label('_mes', 'Seleccione el mes:') !!}
                         <select name="_mes" id="_mes" class="form-control" required>
@@ -66,7 +66,7 @@
                             <option value="11">Noviembre</option>
                             <option value="12">Diciembre</option>
                         </select>
-                        @error('cliente')
+                        @error('_mes')
                             <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
                             <span class="text-danger"><em>No se ha seleccionado un mes para registrar asistencias del personal, porfavor verifique.</em></span>
                         @enderror
@@ -90,7 +90,7 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary disabled']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                 {{-- <a href="{{ route('asistencias.formulario') }}" class="btn btn-default"> Cancelar </a> --}}
             </div>
 
@@ -120,25 +120,25 @@
                 document.getElementById('fields').innerHTML = '';
         });
     });
-    function TraerPersonal(id_cliente){
-        console.log('cliente id= ' + id_cliente);
-        var result = null;
-        $.ajax({
-            cache: false,
-            async: false,
-            type: 'post',
-            data:  $('#'),
-            url: "{{ route('asistencias.personal') }}",
-            success: function(responce){
-                result = responce;
-            }/*,
-            error: function(request, error){
-                result = "Request: " + JSON.stringify(request)
-                console.log = result + " - Error:" + error;
-            }*/
-        });
-        return result;
-    }
+    // function TraerPersonal(id_cliente){
+    //     console.log('cliente id= ' + id_cliente);
+    //     var result = null;
+    //     $.ajax({
+    //         cache: false,
+    //         async: false,
+    //         type: 'post',
+    //         data:  $('#'),
+    //         url: "{{ route('asistencias.personal') }}",
+    //         success: function(responce){
+    //             result = responce;
+    //         }/*,
+    //         error: function(request, error){
+    //             result = "Request: " + JSON.stringify(request)
+    //             console.log = result + " - Error:" + error;
+    //         }*/
+    //     });
+    //     return result;
+    // }
 
     function ShowFields(idCliente){
         // console.log(idCliente);

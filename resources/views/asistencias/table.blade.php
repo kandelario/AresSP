@@ -8,19 +8,81 @@
         <table class="display nowrap table table-striped" id="asistencias-table">
             <thead>
             <tr>
-                <th class="text-center">Servicio</th>
+                <th class="text-center">Cliente</th>
                 <th class="text-center">N° Emp.</th>
-                <th class="text-center">Nombre</th>
-                <th class="text-center">Puesto</th>
-                <th class="text-center">Servicio</th>
-                <th class="text-center">Fecha Asistencia</th>
-                <th class="text-center">Faltó</th>
                 <th class="text-center">Personal</th>
+                <th class="text-center">Puesto</th>
+                <th class="text-center">Fecha Asistencia</th>
+                <th class="text-center">Siglas</th>
                 <th class="text-center">Observaciones</th>
                 <th class="text-center">Acción</th>
             </tr>
             </thead>
             <tbody>
+                @foreach ($asistencias as $asistencia)
+                <tr>
+                    <td class="text-center">
+                        @foreach ($personals as $personal)
+                            @if ($asistencia->idPersonal == $personal->id)
+                                @foreach ($asignaciones as $asignacion)
+                                    @if ($asignacion->personal_id == $personal->id)
+                                        @foreach ($clientes as $cliente)
+                                            @if ($asignacion->cliente_id == $cliente->id)
+                                                {{ $cliente->nombre }}
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </td>
+                    <td class="text-center">
+                        @foreach ($personals as $personal)
+                            @if ($asistencia->idPersonal == $personal->id)
+                                {{ $personal->n_emp }}
+                            @endif
+                        @endforeach
+                    </td>
+                    <td class="text-center">
+                        @foreach ($personals as $personal)
+                            @if ($asistencia->idPersonal == $personal->id)
+                                {{ $personal->name }}
+                            @endif
+                        @endforeach
+                    </td>
+                    <td class="text-center">
+                        @foreach ($asignaciones as $asignacion)
+                            @if ($asignacion->personal_id == $asistencia->idPersonal)
+                                {{$asignacion->puesto}}
+                            @endif
+                        @endforeach
+                    </td>
+                    <td class="text-center">{{ substr($asistencia->hoy, 0, 10) }}</td>
+                    <td class="text-center">
+                        @foreach ($siglas as $sigla)
+                            @if ($sigla->id == $asistencia->idSiglas)
+                                {{$sigla->name . ' - ' . $sigla->knowledge}}
+                            @endif
+                        @endforeach
+                    </td class="text-center">
+                    <td>{{$asistencia->observaciones}}</td>
+                    <td class="text-center" style="width: 120px">
+                        {!! Form::open(['route' => ['asistencias.destroy', $asistencia->id], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            <a href="{{ route('asistencias.show', [$asistencia->id]) }}"
+                               class='btn btn-default btn-xs'>
+                                <i class="far fa-eye"></i>
+                            </a>
+                            <a href="{{ route('asistencias.edit', [$asistencia->id]) }}"
+                               class='btn btn-default btn-xs'>
+                                <i class="far fa-edit"></i>
+                            </a>
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </td>
+                </tr>    
+                @endforeach
             {{-- @foreach($asistencias as $asistencia)
                 <tr>
                     <td class="text-center">{{ $asistencia->hoy }}</td>

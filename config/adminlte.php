@@ -481,7 +481,44 @@ return [
         [
             'text' => 'Nóminas',
             'icon' => 'fas fa-fw fa-file text-warning',
-            'url' => 'admin/nominas',
+            // 'url' => 'admin/nominas',
+            'submenu' => [
+                [
+                'text'       => 'Generar Nóminas',
+                'icon' => 'fas fa-fw fa-print ml-3',
+                'url'        => 'admin/nominas',
+                ],
+                [
+                'text'       => 'Tabla de configuración de Nóminas',
+                'icon' => 'fas fa-fw fa-edit ml-3',
+                'url'        => 'admin/nominas',
+                ],
+                // [
+                // 'text'       => 'Asistencias',
+                // 'icon' => 'fa fa-calendar ml-3',
+                // 'url'        => 'admin/asistencias',
+                // ],
+                // [
+                // 'text' => 'Formulario Asistencias',
+                // 'icon' => 'fa fa-table ml-3',
+                // 'url' => 'admin/asistencias/formulario',
+                // ],
+                // [
+                // 'text'       => 'Siglas (Asistencias)',
+                // 'icon' => 'fa fa-tags ml-3',
+                // 'url'        => 'admin/sigla-asistencias-personals',
+                // ],
+                // [
+                // 'text'       => 'Vacaciones',
+                // 'icon' => 'fas fa-fw fa-plane ml-3',
+                // 'url'        => 'admin/vacaciones',
+                // ],
+                // [
+                // 'text'       => 'Horarios',
+                // 'icon' => 'fas fa-fw fa-clock ml-3',
+                // 'url'        => '#',
+                // ],
+            ],
         ],
     ],
 

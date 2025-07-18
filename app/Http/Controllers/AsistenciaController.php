@@ -40,11 +40,15 @@ class AsistenciaController extends AppBaseController
 
          $personals = Personal::all();
         //$personals = $this->PersonalRepository->paginate(100);
+        $clientes = Cliente::all();
+        $siglas = SiglaAsistenciasPersonal::all();
 
         return view('asistencias.index')
             ->with('asistencias', $asistencias)
             ->with('personals', $personals)
-            ->with('asignaciones', $asignaciones);
+            ->with('asignaciones', $asignaciones)
+            ->with('clientes', $clientes)
+            ->with('siglas', $siglas);
     }
 
     /**
@@ -53,9 +57,14 @@ class AsistenciaController extends AppBaseController
     public function create()
     {
         $siglas = SiglaAsistenciasPersonal::all();
-        $personals = DB::table('asistencias')->get();
+        // $personals = DB::table('asistencias')->get();
+        $clientes = Cliente::all();
+        $personals = Personal::all();
+        $asignments = DB::table('assignments')->get();
         return view('asistencias.create')
+        ->with('clientes', $clientes)
         ->with('personals', $personals)
+        ->with('asignments', $asignments)
         ->with('siglas', $siglas);
     }
 
@@ -66,17 +75,34 @@ class AsistenciaController extends AppBaseController
     {
         $request->validate([
             'hoy' => 'required',
-            'knowledge' => 'required',
+            'idPersonal' => 'required',
             'idSiglas' => 'required'
         ]);
-
-        $input = $request->all();
-
-        $asistencia = $this->asistenciaRepository->create($input);
+        // dd($request);
+        
+        // $input = $request->all();
+        // $asistencia = $this->asistenciaRepository->create($input);
+        Asistencia::create([
+            'hoy' => $request->input('hoy'),
+            'idPersonal' => $request->input('idPersonal'),
+            'idSiglas' => $request->input('idSiglas')
+        ]);
 
         Flash::success('Asistencia saved successfully.');
 
         return redirect(route('asistencias.index'));
+    }
+
+    public function set(Request $request){
+        $lista = "";
+        foreach($request as $key => $value){
+            if($lista == ""){
+                $lista = $$request[$key] . " = " . $value;
+            }else{
+                $lista .= "; " . $request[$key] . " = " . $value;
+            }
+            
+        }
     }
 
     /**
@@ -101,14 +127,22 @@ class AsistenciaController extends AppBaseController
     public function edit($id)
     {
         $asistencia = $this->asistenciaRepository->find($id);
-
+        $personals = Personal::all();
+        $clientes = Cliente::all();
+        $asignaciones = Assignment::all();
+        $siglas = SiglaAsistenciasPersonal::all();
         if (empty($asistencia)) {
             Flash::error('Asistencia not found');
 
             return redirect(route('asistencias.index'));
         }
 
-        return view('asistencias.edit')->with('asistencia', $asistencia);
+        return view('asistencias.edit')
+        ->with('asistencia', $asistencia)
+        ->with('personals', $personals)
+        ->with('clientes', $clientes)
+        ->with('asignaciones', $asignaciones)
+        ->with('siglas', $siglas);
     }
 
     /**

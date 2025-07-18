@@ -31,94 +31,14 @@
     {!! Form::label('personal_id', 'Nombre del personal:') !!}
     {{-- {!! Form::text('name', null, ['class' => 'form-control', 'required', 'maxlength' => 255, 'maxlength' => 255]) !!} --}}
     <select name="personal_id" id="personal_id" class="form-control">
-        @if (isset($personals))
+        @if (isset($diferencia))
             <option value="">Seleccione una persona</option>
-            @foreach ($personals as $personal)
-                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
+            @foreach ($diferencia as $diff)
+                <option value="{{$diff['id']}}" {{ old('personal_id') == $diff['id'] ? 'selected' : '' }}>{{$diff['name']}}</option>
             @endforeach
         @else
             <option value="">Sin personal registrado para asignar</option>
         @endif
-        {{-- @if (isset($personals))
-            <option value="">Seleccione una persona</option>
-            @foreach ($personals as $personal)
-                @if (isset($asignados) && $asignados != null)
-                    @foreach ($asignados as $asignado)
-                        @if ($asignado->personal_id == $personal->id)
-                            @foreach ($clientes as $cliente)
-                                @if ($cliente->id == $asignado->cliente_id)
-                                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span>(asignado actualmente a {{ $cliente->nombre }})</span></option>
-                                @endif
-                            @endforeach
-                        @endif
-                    @endforeach
-                @else
-                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                @endif
-            @endforeach
-        @else
-            <option value="">Sin personal registrado para asignar</option>
-        @endif --}}
-
-        {{-- @if (isset($personals) && !isset($persona))
-            @foreach ($personals as $personal)
-                @if (isset($asignados))
-                    @foreach ($asignados as $asignado)
-                        @if ($asignado->personal_id == $personal->id)
-                            @if (isset($clientes))
-                                @foreach ($clientes as $cliente)
-                                    @if ($cliente->id == $asignado->cliente_id)
-                                        <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>    
-                                    @else
-                                        <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                                    @endif
-                                    
-                                @endforeach
-                            @else
-                                <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                            @endif
-                        @else
-                            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                        @endif
-                    @endforeach
-                @else
-                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                @endif
-                
-            @endforeach
-        @else
-            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-        @endif --}}
-        
-        {{-- @if (isset($personals) && !isset($persona))
-            @foreach ($personals as $personal)
-                @if (isset($asignados))
-                    @foreach ($asignados as $asignado)
-                        @if ($asignado->personal_id == $personal->id)
-                            @foreach ($clientes as $cliente)
-                                @if ($cliente->id == $asignado->cliente_id)
-                                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}} - <span class="text-success">{{ $cliente->nombre }}</span></option>
-                                @endif
-                            @endforeach
-                        @else
-                            <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                        @endif
-                    @endforeach    
-                @else
-                    <option value="{{$personal['id']}}" {{ old('personal_id') == $personal['id'] ? 'selected' : '' }}>{{$personal['name']}}</option>
-                @endif
-                
-            @endforeach
-        @else
-            @if (isset($persona) && $persona->id != "")
-                @foreach ($personal as $person)
-                    <option value="{{$person->id}}" {{ $person->id == $persona->id ? 'selected' : '' }}>{{$person->name}}</option>
-                @endforeach    
-            @endif
-        @endif --}}
-        
-        
-        
     </select>
     @error('personal_id')
         <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
@@ -155,14 +75,6 @@
     
 </div>
 
-<!-- Enable Field -->
-{{-- <div class="form-group col-sm-6">
-    <div class="form-check">
-        {!! Form::hidden('enable', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('enable', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('enable', 'Enable', ['class' => 'form-check-label']) !!}
-    </div>
-</div> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="http://momentjs.com/downloads/moment.min.js"></script>

@@ -345,9 +345,9 @@
                                class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="/personals/pase_lista/{{ $personal->id }}/{{ $personal->name }}" target="blank" class="btn btn-default btn-xs" rel="Asistencia" data-bs-toggle="modal" data-bs-target="#PaseListaModal">
+                            {{-- <a href="/personals/pase_lista/{{ $personal->id }}/{{ $personal->name }}" target="blank" class="btn btn-default btn-xs" rel="Asistencia" data-bs-toggle="modal" data-bs-target="#PaseListaModal">
                                 <i class="fas fa-user-check"></i>
-                            </a>
+                            </a> --}}
                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('¿Estas seguro que lo deseas eliminar?')"]) !!}
                         </div>
                         {!! Form::close() !!}

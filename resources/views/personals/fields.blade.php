@@ -1,19 +1,19 @@
 <div class="row form-group card-body m-0 p-0">
-
+    <div class="alert alert-info text-justify col-sm-12 mb-2">NOTA: Para poder asignar personal a su servicio, es necesario primero darlo de alta, posteriormente se puede asignar en modo edición desde esta misma sección en la parte inferior del formulario.</div>
     <div class="col-sm-12 mb-2 text-center"><h3>Datos personales</h3></div>
 
     <div class="form-group col-sm-12 text-center border-1">
-        @if (isset($personal->foto))
-            @if (file_exists('assets/personal/' . $personal->foto))
-                <img src="{{asset('/assets/personal/'. $personal->foto)}}" alt="imagen del empleado {{$personal->n_emp . '-' . $personal->name}}" class="center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px; border-radius:150px;">
+        @if (isset($personals->foto))
+            @if (file_exists('assets/personal/' . $personals->foto))
+                <img src="{{asset('/assets/personal/'. $personals->foto)}}" alt="imagen del empleado {{$personals->n_emp . '-' . $personal->name}}" class="center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px; border-radius:150px;">
             @else
                 <div class="row text-center col-sm-12">
                     <div class="col">
-                        <img src="{{asset('/assets/personal/SVG/p_default_2.svg')}}" alt="imagen de {{$personal->name}}" class="text-center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px;">
+                        <img src="{{asset('/assets/personal/SVG/p_default_2.svg')}}" alt="imagen de {{$personals->name}}" class="text-center" style="width: auto; min-width:200px; max-width:300px; heigth: auto; min-heigth: 200px; max-heigth: 300px;">
                     </div>
                     
                 </div>
-                <span class="text-center">{{'No existe imagen para el personal ' . '"' . $personal->name . '"'}}</span>
+                <span class="text-center">{{'No existe imagen para el personal ' . '"' . $personals->name . '"'}}</span>
             @endif
             
         @else
@@ -34,18 +34,30 @@
     <div class="form-group col-sm-4">
         {!! Form::label('n_emp', 'N° Empleado:') !!}
         {!! Form::text('n_emp', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        @error('n_emp')
+            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+            <span class="text-danger"><em>Campo necesario.</em></span>
+        @enderror
     </div>
 
     <!-- Name Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('name', 'Nombre completo:') !!}
         {!! Form::text('name', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        @error('name')
+            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+            <span class="text-danger"><em>Campo necesario.</em></span>
+        @enderror
     </div>
 
     <!-- Domicilio Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('domicilio', 'Domicilio:') !!}
         {!! Form::text('domicilio', null, ['class' => 'form-control text-uppercase', 'maxlength' => 255, 'maxlength' => 255]) !!}
+        @error('domicilio')
+            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+            <span class="text-danger"><em>Campo necesario.</em></span>
+        @enderror
     </div>
 
     <!-- Telefonos Field -->
@@ -69,8 +81,8 @@
     <!-- Fecha Cumple Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('fecha_cumple', 'Fecha de Nacimiento:') !!}
-        @if (isset($personal->fecha_cumple) && ($personal->fecha_cumple != ""))
-            {!! Form::date('fecha_cumple', str_replace(' 00:00:00', '', $personal->fecha_cumple), ['class' => 'form-control text-uppercase','id'=>'fecha_cumple']) !!}
+        @if (isset($personals->fecha_cumple) && ($personals->fecha_cumple != ""))
+            {!! Form::date('fecha_cumple', substr($personals->fecha_cumple, 0, 10), ['class' => 'form-control text-uppercase','id'=>'fecha_cumple']) !!}
         @else
             {!! Form::date('fecha_cumple', null, ['class' => 'form-control text-uppercase','id'=>'fecha_cumple']) !!}
         @endif
@@ -80,14 +92,23 @@
     <!-- Fecha Inicio Serv Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('fecha_inicio_serv', 'Fecha de Inicio de Servicio:') !!}
-        @if (isset($personal->fecha_inicio_serv) && ($personal->fecha_inicio_serv != ""))
-            {!! Form::date('fecha_inicio_serv', substr($personal->fecha_inicio_serv, 0, 10), ['class' => 'form-control text-uppercase','id'=>'fecha_inicio_serv']) !!}
+        @if (isset($personals->fecha_inicio_serv) && ($personals->fecha_inicio_serv != ""))
+            {!! Form::date('fecha_inicio_serv', substr($personals->fecha_inicio_serv, 0, 10), ['class' => 'form-control text-uppercase','id'=>'fecha_inicio_serv']) !!}
         @else
             {!! Form::date('fecha_inicio_serv', null, ['class' => 'form-control text-uppercase','id'=>'fecha_inicio_serv']) !!}    
         @endif
         
     </div>
 
+    {{-- <div class="form-group col-sm-4">
+        {!! Form::label('fecha_inicio_serv', 'Fecha de Inicio de Servicio:') !!}
+        @if (isset($personal->fecha_inicio_serv) && ($personal->fecha_inicio_serv != ""))
+            {!! Form::date('fecha_inicio_serv', substr($personal->fecha_inicio_serv, 0, 10), ['class' => 'form-control text-uppercase','id'=>'fecha_inicio_serv']) !!}
+        @else
+            {!! Form::date('fecha_inicio_serv', null, ['class' => 'form-control text-uppercase','id'=>'fecha_inicio_serv']) !!}    
+        @endif
+    </div> --}}
+        
     <!-- Curp Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('curp', 'CURP:') !!}
@@ -322,8 +343,8 @@
         <!-- Recomendaciones Field -->
         <div class="form-group col-sm-3">
             {!! Form::label('recomendaciones', 'Recomendaciones:') !!}
-            @if (isset($personal->recomendaciones) && $personal->recomendaciones != 0)
-                {!! Form::number('recomendaciones', $personal->recomendaciones, ['class' => 'form-control text-uppercase']) !!}
+            @if (isset($personals->recomendaciones) && $personals->recomendaciones != 0)
+                {!! Form::number('recomendaciones', $personals->recomendaciones, ['class' => 'form-control text-uppercase']) !!}
             @else
                 {!! Form::number('recomendaciones', 0, ['class' => 'form-control text-uppercase']) !!}
             @endif
@@ -337,8 +358,8 @@
 
         <div class="form-group col-sm-12">
             {!! Form::label('observaciones', 'Observaciones:') !!}
-            @if (isset($personal->observaciones) && $personal->observaciones != "")
-                {!! Form::textarea('observaciones', $personal->observaciones, ['class' => 'form-control']) !!}    
+            @if (isset($personals->observaciones) && $personals->observaciones != "")
+                {!! Form::textarea('observaciones', $personals->observaciones, ['class' => 'form-control']) !!}    
             @else
                 {!! Form::textarea('observaciones', null, ['class' => 'form-control']) !!}
             @endif
@@ -348,7 +369,66 @@
         
 
 </div>
+@if (!isset($personals))
+    <div class="row form-group card-body m-0 p-0 invisible">
+@else
+    <div class="row form-group card-body m-0 p-0">
+@endif
 
+    <div class="col-sm-12 mb-2 text-center"><h3>Asignación de Servicio</h3></div>
+    @if (isset($assignments))
+        @foreach ($assignments as $asignacion)
+            <input type="hidden" name="assignment_id" id="assignment_id" value="{{ $asignacion->id }}">
+        @endforeach
+    @endif
+    <!-- Cliente Id Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('cliente_id', 'Clientes:') !!}
+        <select name="cliente_id" id="cliente_id" class="form-control">
+            @if (isset($clientes) && count($clientes) > 0)
+                <option value="">Seleccione un cliente</option>
+                @foreach ($clientes as $cliente)
+                    @if (isset($assignments))
+                        @foreach ($assignments as $asignacion)
+                            @if ($cliente->id == $asignacion->cliente_id)
+                                <option value="{{ $cliente->id }}" selected>{{ $cliente->nombre }}</option>
+                            @else
+                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                            @endif    
+                        @endforeach
+                    @else
+                        <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                    @endif
+                @endforeach
+            @else
+                <option value="">No existen clientes</option>
+            @endif
+
+        </select>
+        @error('cliente_id')
+            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+            <span class="text-danger"><em>Es necesario seleccionar un servicio para continuar con la asignación.</em></span>
+        @enderror
+    </div>
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('puesto', 'Ingresa el puesto a desempeñar:') !!}
+        @if (isset($assignments) && count($assignments) > 0)
+            @foreach ($assignments as $asignacion)
+                {!! Form::text('puesto', $asignacion->puesto, ['class' => 'form-control','id'=>'fecha_inicio_serv']) !!}    
+            @endforeach
+        @else
+            {!! Form::text('puesto', null, ['class' => 'form-control','id'=>'fecha_inicio_serv']) !!}
+        @endif
+
+        @error('puesto')
+            <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+            <span class="text-danger"><em>El campo Puesto es requerido para continuar con la asignación.</em></span>
+        @enderror
+        
+    </div>
+
+</div>
 {{-- <div class="row form-group card-body m-0 p-0">
     <div class="col-sm-12 mb-2 text-center"><h3>Equipo de Protección Personal y Uniforme</h3></div>
 
